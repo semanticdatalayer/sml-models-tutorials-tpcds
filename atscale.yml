@@ -1,4 +1,4 @@
-unique_name: sml-models-tutorials-tpcds
+unique_name: sml-tpcds
 object_type: catalog
 label: TPC-DS
 as_version: 1.0
