@@ -1,0 +1,8 @@
+unique_name: m_ss_ext_tax_sum
+object_type: metric
+label: Store Ext Sales Tax
+description: store_sales.ss_ext_tax_sum
+calculation_method: sum
+unrelated_dimensions_handling: empty
+dataset: store_sales
+column: ss_ext_tax

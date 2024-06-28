@@ -1,0 +1,7 @@
+unique_name: Avg Quarterly Store Sales for 1998-1999
+object_type: metric_calc
+label: Avg Quarterly Store Sales for 1998-1999
+expression: |-
+  Avg(
+  [Sold Date Dimension - TPC-DS].[Sold Date Dimension - TPC-DS].[Sold Calendar Quarter].&[1998-02-01]:[Sold Date Dimension - TPC-DS].[Sold Date Dimension - TPC-DS].[Sold Calendar Quarter].&[1999-02-01],
+  [Measures].[m_store_sales_price])

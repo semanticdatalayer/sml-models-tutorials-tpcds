@@ -1,0 +1,135 @@
+unique_name: Product Dimension - TPC-DS
+object_type: dimension
+label: Product Dimension - TPC-DS
+type: standard
+
+hierarchies:
+
+  - unique_name: Product Dimension - TPC-DS
+    label: Product Dimension - TPC-DS
+    folder: Product Attributes
+    filter_empty: "yes"
+
+    levels:
+
+      - unique_name: I category
+
+      - unique_name: Product Dimension - TPC-DS
+
+        secondary_attributes:
+
+          - unique_name: d_i_color
+            label: Product Color
+            folder: Product Attributes
+            dataset: item
+            name_column: i_color
+            key_columns:
+              - i_color
+            sort_column: i_color
+
+          - unique_name: d_i_size
+            label: Product Size
+            folder: Product Attributes
+            dataset: item
+            name_column: i_size
+            key_columns:
+              - i_size
+            sort_column: i_size
+
+          - unique_name: d_product_brand_id
+            label: Product Brand ID
+            folder: Product Attributes
+            dataset: item
+            name_column: i_brand_id
+            key_columns:
+              - i_brand_id
+            sort_column: i_brand_id
+
+          - unique_name: d_product_brand_name
+            label: Product Brand Name
+            folder: Product Attributes
+            dataset: item
+            name_column: i_brand
+            key_columns:
+              - i_brand_id
+            sort_column: i_brand
+
+          - unique_name: d_product_class_id
+            label: Product Class ID
+            folder: Product Attributes
+            dataset: item
+            name_column: i_class_id
+            key_columns:
+              - i_class_id
+            sort_column: i_class_id
+
+          - unique_name: d_product_class_name
+            label: Product Class Name
+            folder: Product Attributes
+            dataset: item
+            name_column: i_class
+            key_columns:
+              - i_class
+            sort_column: i_class
+
+          - unique_name: d_product_current_price
+            label: Product Current Price
+            folder: Product Attributes
+            dataset: item
+            name_column: i_current_price
+            key_columns:
+              - i_current_price
+            sort_column: i_current_price
+
+          - unique_name: d_product_item_id
+            label: Product Item ID
+            folder: Product Attributes
+            dataset: item
+            name_column: i_item_id
+            key_columns:
+              - i_item_id
+            sort_column: i_item_id
+
+          - unique_name: d_product_manager_id
+            label: Product Manager ID
+            folder: Product Attributes
+            dataset: item
+            name_column: i_manager_id
+            key_columns:
+              - i_manager_id
+            sort_column: i_manager_id
+
+          - unique_name: d_product_manufacturer_id
+            label: Product Manufacturer ID
+            folder: Product Attributes
+            dataset: item
+            name_column: i_manufact_id
+            key_columns:
+              - i_manufact_id
+            sort_column: i_manufact_id
+
+          - unique_name: d_product_manufacturer_name
+            label: Product Manufacturer Name
+            folder: Product Attributes
+            dataset: item
+            name_column: i_manufact
+            key_columns:
+              - i_manager_id
+            sort_column: i_manufact
+
+level_attributes:
+
+  - unique_name: I category
+    label: Product category
+    dataset: item
+    name_column: i_category
+    key_columns:
+      - i_category
+
+  - unique_name: Product Dimension - TPC-DS
+    label: Product Item
+    is_unique_key: true
+    dataset: item
+    name_column: i_item_desc
+    key_columns:
+      - i_item_sk

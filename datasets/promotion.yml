@@ -1,0 +1,45 @@
+unique_name: promotion
+object_type: dataset
+label: promotion
+connection_id: Connection - TPCDS
+table: promotion
+
+columns:
+  - name: p_channel_catalog
+    data_type: string
+  - name: p_channel_demo
+    data_type: string
+  - name: p_channel_details
+    data_type: string
+  - name: p_channel_dmail
+    data_type: string
+  - name: p_channel_email
+    data_type: string
+  - name: p_channel_event
+    data_type: string
+  - name: p_channel_press
+    data_type: string
+  - name: p_channel_radio
+    data_type: string
+  - name: p_channel_tv
+    data_type: string
+  - name: p_cost
+    data_type: "decimal(15,2)"
+  - name: p_discount_active
+    data_type: string
+  - name: p_end_date_sk
+    data_type: long
+  - name: p_item_sk
+    data_type: long
+  - name: p_promo_id
+    data_type: string
+  - name: p_promo_name
+    data_type: string
+  - name: p_promo_sk
+    data_type: long
+  - name: p_purpose
+    data_type: string
+  - name: p_response_target
+    data_type: long
+  - name: p_start_date_sk
+    data_type: long

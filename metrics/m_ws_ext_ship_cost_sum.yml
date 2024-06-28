@@ -1,0 +1,8 @@
+unique_name: m_ws_ext_ship_cost_sum
+object_type: metric
+label: Web Ext Ship Cost
+description: web_sales.ws_ext_ship_cost_sum
+calculation_method: sum
+unrelated_dimensions_handling: empty
+dataset: web_sales
+column: ws_ext_ship_cost

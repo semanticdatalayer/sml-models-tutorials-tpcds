@@ -1,0 +1,6 @@
+unique_name: sml-models-tutorials-tpcds
+object_type: catalog
+label: TPC-DS
+as_version: 1.0
+aggressive_agg_promotion: false
+build_speculative_aggs: false

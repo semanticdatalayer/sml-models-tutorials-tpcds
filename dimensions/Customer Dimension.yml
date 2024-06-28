@@ -1,0 +1,104 @@
+unique_name: Customer Dimension - TPC-DS
+object_type: dimension
+label: Customer Dimension - TPC-DS
+type: standard
+
+hierarchies:
+
+  - unique_name: Customer Dimension - TPC-DS
+    label: Customer Dimension - TPC-DS
+    folder: Customer Information
+    filter_empty: "yes"
+
+    levels:
+
+      - unique_name: Customer Dimension - TPC-DS
+
+        secondary_attributes:
+
+          - unique_name: d_birth_country
+            label: Birth Country
+            folder: Customer Information
+            dataset: customer
+            name_column: c_birth_country
+            key_columns:
+              - c_birth_country
+            sort_column: c_birth_country
+
+          - unique_name: d_c_preferred_cust_flag
+            label: Preferred Customer Ind
+            folder: Customer Information
+            dataset: customer
+            name_column: c_preferred_cust_flag
+            key_columns:
+              - c_preferred_cust_flag
+            sort_column: c_preferred_cust_flag
+
+          - unique_name: d_customer_email_address
+            label: Customer Email Address
+            folder: Customer Information
+            dataset: customer
+            name_column: c_email_address
+            key_columns:
+              - c_email_address
+            sort_column: c_email_address
+
+          - unique_name: d_customer_first_name
+            label: Customer First Name
+            folder: Customer Information
+            dataset: customer
+            name_column: c_first_name
+            key_columns:
+              - c_first_name
+            sort_column: c_first_name
+
+          - unique_name: d_customer_id
+            label: Customer ID
+            folder: Customer Information
+            dataset: customer
+            name_column: c_customer_id
+            key_columns:
+              - c_customer_id
+            sort_column: c_customer_id
+
+          - unique_name: d_customer_last_name
+            label: Customer Last Name
+            folder: Customer Information
+            dataset: customer
+            name_column: c_last_name
+            key_columns:
+              - c_last_name
+            sort_column: c_last_name
+
+          - unique_name: d_customer_login
+            label: Customer Login
+            folder: Customer Information
+            dataset: customer
+            name_column: c_login
+            key_columns:
+              - c_login
+            sort_column: c_login
+
+level_attributes:
+
+  - unique_name: Customer Dimension - TPC-DS
+    label: Customer Number
+    is_unique_key: true
+    dataset: customer
+    name_column: c_customer_sk
+    key_columns:
+      - c_customer_sk
+
+relationships:
+
+  - unique_name: CustomerDimension_CustomerAddress
+    from:
+      hierarchy: Customer Dimension - TPC-DS
+      level: Customer Dimension - TPC-DS
+      dataset: customer
+      join_columns:
+        - c_current_addr_sk
+    to:
+      dimension: Customer Address
+      level: Customer Address
+    type: embedded

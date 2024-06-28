@@ -1,0 +1,4 @@
+unique_name: Total Ext Discount Amount
+object_type: metric_calc
+label: Total Ext Discount Amount
+expression: "[Measures].[m_ss_ext_discount_amt_sum]+[Measures].[m_ws_ext_discount_amt_sum]+[Measures].[m_cs_ext_discount_amt_sum]"

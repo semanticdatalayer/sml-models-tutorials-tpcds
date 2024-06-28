@@ -1,0 +1,95 @@
+unique_name: date_dim
+object_type: dataset
+label: date_dim
+connection_id: Connection - TPCDS
+table: date_dim
+
+columns:
+  - name: d_current_day
+    data_type: string
+  - name: d_current_month
+    data_type: string
+  - name: d_current_quarter
+    data_type: string
+  - name: d_current_week
+    data_type: string
+  - name: d_current_year
+    data_type: string
+  - name: d_date
+    data_type: string
+  - name: d_date_id
+    data_type: string
+  - name: d_date_sk
+    data_type: int
+  - name: d_day_name
+    data_type: string
+  - name: d_dom
+    data_type: int
+  - name: d_dow
+    data_type: int
+  - name: d_first_dom
+    data_type: int
+  - name: d_following_holiday
+    data_type: string
+  - name: d_fy_quarter_seq
+    data_type: int
+  - name: d_fy_week_seq
+    data_type: int
+  - name: d_fy_year
+    data_type: int
+  - name: d_holiday
+    data_type: string
+  - name: d_last_dom
+    data_type: int
+  - name: d_month_name
+    data_type: string
+    sql: "TO_CHAR(\"d_date\", 'YYYY-MM')"
+    dialects:
+      - dialect: DatabricksSQL
+        sql: "TO_CHAR(d_date, 'y-MM')"
+      - dialect: BigQuery
+        sql: "FORMAT_DATE('%Y-%m', d_date)"
+  - name: d_month_seq
+    data_type: int
+  - name: d_moy
+    data_type: int
+  - name: d_qoy
+    data_type: int
+  - name: d_quarter_name
+    data_type: string
+  - name: d_quarter_seq
+    data_type: int
+  - name: d_same_day_lq
+    data_type: int
+  - name: d_same_day_ly
+    data_type: int
+  - name: d_weekend
+    data_type: string
+  - name: d_week_seq
+    data_type: int
+  - name: d_year
+    data_type: int
+  - name: year_month
+    data_type: date
+    sql: "date(date_trunc('month', \"d_date\"))"
+    dialects:
+      - dialect: DatabricksSQL
+        sql: "cast(DATE_TRUNC('month', d_date) as date)"
+      - dialect: BigQuery
+        sql: "DATE_TRUNC(d_date, MONTH)"
+  - name: year_quarter
+    data_type: date
+    sql: "date(date_trunc('quarter', \"d_date\"))"
+    dialects:
+      - dialect: DatabricksSQL
+        sql: "cast(DATE_TRUNC('quarter', d_date) as date)"
+      - dialect: BigQuery
+        sql: "DATE_TRUNC(d_date, QUARTER)"
+  - name: year_week
+    data_type: string
+    sql: "TO_CHAR(date_trunc('week', \"d_date\"), 'YYYY-MM-DD')"
+    dialects:
+      - dialect: DatabricksSQL
+        sql: "TO_CHAR(DATE_TRUNC('week', d_date), 'y-MM-dd')"
+      - dialect: BigQuery
+        sql: "FORMAT_DATE('%Y-%m-%d', DATE_TRUNC(d_date, WEEK))"

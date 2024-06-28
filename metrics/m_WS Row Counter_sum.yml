@@ -1,0 +1,6 @@
+unique_name: m_ws row counter_sum
+object_type: metric
+label: Web Sales Row Counter
+calculation_method: sum
+dataset: web_sales
+column: ws row counter

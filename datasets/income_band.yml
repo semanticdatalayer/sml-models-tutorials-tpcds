@@ -1,0 +1,13 @@
+unique_name: income_band
+object_type: dataset
+label: income_band
+connection_id: Connection - TPCDS
+table: income_band
+
+columns:
+  - name: ib_income_band_sk
+    data_type: "decimal(38,0)"
+  - name: ib_lower_bound
+    data_type: "decimal(38,0)"
+  - name: ib_upper_bound
+    data_type: "decimal(38,0)"

@@ -1,0 +1,84 @@
+unique_name: Customer Address
+object_type: dimension
+label: Customer Address
+type: standard
+
+hierarchies:
+
+  - unique_name: Customer Address
+    label: Customer Address
+    folder: Customer Information
+    filter_empty: "yes"
+
+    levels:
+
+      - unique_name: d_customer_country
+
+      - unique_name: d_customer_state
+
+      - unique_name: d_customer_city
+
+      - unique_name: Customer Address
+
+        secondary_attributes:
+
+          - unique_name: d_CA_COUNTY
+            label: Customer County
+            folder: Customer Information
+            dataset: customer_address
+            name_column: ca_county
+            key_columns:
+              - ca_county
+            sort_column: ca_county
+
+          - unique_name: d_customer_gmt_offset
+            label: Customer GMT Offset
+            folder: Customer Information
+            dataset: customer_address
+            name_column: ca_gmt_offset
+            key_columns:
+              - ca_gmt_offset
+            sort_column: ca_gmt_offset
+
+          - unique_name: d_customer_zip_code
+            label: Customer Zip Code
+            folder: Customer Information
+            dataset: customer_address
+            name_column: ca_zip
+            key_columns:
+              - ca_zip
+            sort_column: ca_zip
+
+level_attributes:
+
+  - unique_name: Customer Address
+    label: Customer Address
+    is_unique_key: true
+    dataset: customer_address
+    name_column: ca_address_id
+    key_columns:
+      - ca_address_sk
+
+  - unique_name: d_customer_city
+    label: Customer City
+    dataset: customer_address
+    name_column: ca_city
+    key_columns:
+      - ca_country
+      - ca_state
+      - ca_city
+
+  - unique_name: d_customer_country
+    label: Customer Country
+    dataset: customer_address
+    name_column: ca_country
+    key_columns:
+      - ca_country
+
+  - unique_name: d_customer_state
+    label: Customer State
+    dataset: customer_address
+    name_column: ca_state
+    key_columns:
+      - ca_country
+      - ca_state

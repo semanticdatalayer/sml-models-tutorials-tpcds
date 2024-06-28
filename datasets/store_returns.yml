@@ -1,0 +1,144 @@
+unique_name: store_returns
+object_type: dataset
+label: store_returns
+connection_id: Connection - TPCDS
+sql: "SELECT ss.*, sr.*,
+        case when (\"sr_returned_date_sk\" - \"ss_sold_date_sk\" <= 30) then '<= 30 days'
+          when (\"sr_returned_date_sk\" - \"ss_sold_date_sk\" > 30) and  
+             (\"sr_returned_date_sk\" - \"ss_sold_date_sk\" <= 60) then '31-60 days'
+          when (\"sr_returned_date_sk\" - \"ss_sold_date_sk\" > 60) and
+             (\"sr_returned_date_sk\" - \"ss_sold_date_sk\" <= 90) then '61-90 days'
+          when (\"sr_returned_date_sk\" - \"ss_sold_date_sk\" > 90) and 
+             (\"sr_returned_date_sk\" - \"ss_sold_date_sk\" <= 120) then '91-120 days'
+          else '> 120 days' end as \"returns_time_tier\",
+        1 as \"returns_count\"
+      FROM \"atscale_tutorial_data\".\"tpcds\".\"store_returns\" sr
+      INNER JOIN \"atscale_tutorial_data\".\"tpcds\".\"store_sales\" ss
+        ON ss.\"ss_ticket_number\" = sr.\"sr_ticket_number\"
+        AND ss.\"ss_item_sk\" = sr.\"sr_item_sk\"
+        AND ss.\"ss_customer_sk\" = sr.\"sr_customer_sk\""
+dialects:
+  - dialect: DatabricksSQL
+    sql: "SELECT ss.*, sr.*,
+        case when (sr_returned_date_sk - ss_sold_date_sk <= 30) then '<= 30 days'
+          when (sr_returned_date_sk - ss_sold_date_sk > 30) and  
+             (sr_returned_date_sk - ss_sold_date_sk <= 60) then '31-60 days'
+          when (sr_returned_date_sk - ss_sold_date_sk > 60) and
+             (sr_returned_date_sk - ss_sold_date_sk <= 90) then '61-90 days'
+          when (sr_returned_date_sk - ss_sold_date_sk > 90) and 
+             (sr_returned_date_sk - ss_sold_date_sk <= 120) then '91-120 days'
+          else '> 120 days' end as returns_time_tier,
+        1 as returns_count 
+        FROM atscale_tutorial_data.tpcds.store_returns sr
+        INNER JOIN atscale_tutorial_data.tpcds.store_sales ss
+        ON ss.ss_ticket_number = sr.sr_ticket_number
+        AND ss.ss_item_sk = sr.sr_item_sk
+        AND ss.ss_customer_sk = sr.sr_customer_sk"
+  - dialect: BigQuery
+    sql: "SELECT ss.*, sr.*,
+        case when (sr_returned_date_sk - ss_sold_date_sk <= 30) then '<= 30 days'
+          when (sr_returned_date_sk - ss_sold_date_sk > 30) and  
+             (sr_returned_date_sk - ss_sold_date_sk <= 60) then '31-60 days'
+          when (sr_returned_date_sk - ss_sold_date_sk > 60) and
+             (sr_returned_date_sk - ss_sold_date_sk <= 90) then '61-90 days'
+          when (sr_returned_date_sk - ss_sold_date_sk > 90) and 
+             (sr_returned_date_sk - ss_sold_date_sk <= 120) then '91-120 days'
+          else '> 120 days' end as returns_time_tier,
+        1 as returns_count 
+        FROM atscale_tutorial_data.tpcds.store_returns sr
+        INNER JOIN atscale_tutorial_data.tpcds.store_sales ss
+        ON ss.ss_ticket_number = sr.sr_ticket_number
+        AND ss.ss_item_sk = sr.sr_item_sk
+        AND ss.ss_customer_sk = sr.sr_customer_sk"
+
+columns:
+  - name: returns_count
+    data_type: long
+  - name: returns_time_tier
+    data_type: string
+  - name: sr_addr_sk
+    data_type: long
+  - name: sr_cdemo_sk
+    data_type: long
+  - name: sr_customer_sk
+    data_type: long
+  - name: sr_fee
+    data_type: "decimal(7,2)"
+  - name: sr_hdemo_sk
+    data_type: long
+  - name: sr_item_sk
+    data_type: long
+  - name: sr_net_loss
+    data_type: "decimal(7,2)"
+  - name: sr_reason_sk
+    data_type: long
+  - name: sr_refunded_cash
+    data_type: "decimal(7,2)"
+  - name: sr_returned_date_sk
+    data_type: long
+  - name: sr_return_amt
+    data_type: "decimal(7,2)"
+  - name: sr_return_amt_inc_tax
+    data_type: "decimal(7,2)"
+  - name: sr_return_quantity
+    data_type: long
+  - name: sr_return_ship_cost
+    data_type: "decimal(7,2)"
+  - name: sr_return_tax
+    data_type: "decimal(7,2)"
+  - name: sr_return_time_sk
+    data_type: long
+  - name: sr_reversed_charge
+    data_type: "decimal(7,2)"
+  - name: sr_store_credit
+    data_type: "decimal(7,2)"
+  - name: sr_store_sk
+    data_type: long
+  - name: sr_ticket_number
+    data_type: long
+  - name: ss_addr_sk
+    data_type: long
+  - name: ss_cdemo_sk
+    data_type: long
+  - name: ss_coupon_amt
+    data_type: "decimal(7,2)"
+  - name: ss_customer_sk
+    data_type: long
+  - name: ss_ext_discount_amt
+    data_type: "decimal(7,2)"
+  - name: ss_ext_list_price
+    data_type: "decimal(7,2)"
+  - name: ss_ext_sales_price
+    data_type: "decimal(7,2)"
+  - name: ss_ext_tax
+    data_type: "decimal(7,2)"
+  - name: ss_ext_wholesale_cost
+    data_type: "decimal(7,2)"
+  - name: ss_hdemo_sk
+    data_type: long
+  - name: ss_item_sk
+    data_type: long
+  - name: ss_list_price
+    data_type: "decimal(7,2)"
+  - name: ss_net_paid
+    data_type: "decimal(7,2)"
+  - name: ss_net_paid_inc_tax
+    data_type: "decimal(7,2)"
+  - name: ss_net_profit
+    data_type: "decimal(7,2)"
+  - name: ss_promo_sk
+    data_type: long
+  - name: ss_quantity
+    data_type: long
+  - name: ss_sales_price
+    data_type: "decimal(7,2)"
+  - name: ss_sold_date_sk
+    data_type: long
+  - name: ss_sold_time_sk
+    data_type: long
+  - name: ss_store_sk
+    data_type: long
+  - name: ss_ticket_number
+    data_type: long
+  - name: ss_wholesale_cost
+    data_type: "decimal(7,2)"

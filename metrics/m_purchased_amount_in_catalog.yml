@@ -1,0 +1,6 @@
+unique_name: m_purchased_amount_in_catalog
+object_type: metric
+label: Purchased Amount In Catalog
+calculation_method: sum
+dataset: catalog_sales
+column: Purchased Amount in Catalog

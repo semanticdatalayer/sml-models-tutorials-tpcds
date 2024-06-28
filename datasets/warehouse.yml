@@ -1,0 +1,35 @@
+unique_name: warehouse
+object_type: dataset
+label: warehouse
+connection_id: Connection - TPCDS
+table: warehouse
+
+columns:
+  - name: w_city
+    data_type: string
+  - name: w_country
+    data_type: string
+  - name: w_county
+    data_type: string
+  - name: w_gmt_offset
+    data_type: "decimal(5,2)"
+  - name: w_state
+    data_type: string
+  - name: w_street_name
+    data_type: string
+  - name: w_street_number
+    data_type: string
+  - name: w_street_type
+    data_type: string
+  - name: w_suite_number
+    data_type: string
+  - name: w_warehouse_id
+    data_type: string
+  - name: w_warehouse_name
+    data_type: string
+  - name: w_warehouse_sk
+    data_type: long
+  - name: w_warehouse_sq_ft
+    data_type: long
+  - name: w_zip
+    data_type: string

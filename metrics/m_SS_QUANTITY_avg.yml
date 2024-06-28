@@ -1,0 +1,6 @@
+unique_name: m_ss_quantity_avg
+object_type: metric
+label: Average Sales Quantity
+calculation_method: average
+dataset: store_sales
+column: ss_quantity

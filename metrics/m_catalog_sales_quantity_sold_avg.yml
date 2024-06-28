@@ -1,0 +1,6 @@
+unique_name: m_catalog_sales_quantity_sold_avg
+object_type: metric
+label: Catalog Sales Average Quantity Sold
+calculation_method: average
+dataset: catalog_sales
+column: cs_quantity

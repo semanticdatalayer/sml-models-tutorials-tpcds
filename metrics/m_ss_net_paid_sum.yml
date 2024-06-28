@@ -1,0 +1,8 @@
+unique_name: m_ss_net_paid_sum
+object_type: metric
+label: Store Net Paid Amount
+description: store_sales.ss_net_paid_sum
+calculation_method: sum
+unrelated_dimensions_handling: empty
+dataset: store_sales
+column: ss_net_paid

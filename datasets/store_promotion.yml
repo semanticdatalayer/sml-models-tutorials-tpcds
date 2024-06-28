@@ -1,0 +1,105 @@
+unique_name: store_promotion
+object_type: dataset
+label: store_promotion
+columns:
+  - name: p_promo_sk
+    data_type: int
+  - name: p_promo_id
+    data_type: string
+  - name: p_start_date_sk
+    data_type: int
+  - name: p_end_date_sk
+    data_type: int
+  - name: p_item_sk
+    data_type: int
+  - name: p_cost
+    data_type: decimal(15,2)
+  - name: p_response_target
+    data_type: int
+  - name: p_promo_name
+    data_type: string
+  - name: p_channel_dmail
+    data_type: string
+  - name: p_channel_email
+    data_type: string
+  - name: p_channel_catalog
+    data_type: string
+  - name: p_channel_tv
+    data_type: string
+  - name: p_channel_radio
+    data_type: string
+  - name: p_channel_press
+    data_type: string
+  - name: p_channel_event
+    data_type: string
+  - name: p_channel_demo
+    data_type: string
+  - name: p_channel_details
+    data_type: string
+  - name: p_purpose
+    data_type: string
+  - name: p_discount_active
+    data_type: string
+  - name: ss_sold_date_sk
+    data_type: int
+  - name: ss_sold_time_sk
+    data_type: int
+  - name: ss_item_sk
+    data_type: int
+  - name: ss_customer_sk
+    data_type: int
+  - name: ss_cdemo_sk
+    data_type: int
+  - name: ss_hdemo_sk
+    data_type: int
+  - name: ss_addr_sk
+    data_type: int
+  - name: ss_store_sk
+    data_type: int
+  - name: ss_promo_sk
+    data_type: int
+  - name: ss_ticket_numeric
+    data_type: int
+  - name: ss_quantity
+    data_type: int
+  - name: ss_wholesale_cost
+    data_type: decimal(7,2)
+  - name: ss_list_price
+    data_type: decimal(7,2)
+  - name: ss_sales_price
+    data_type: decimal(7,2)
+  - name: ss_ext_discount_amt
+    data_type: decimal(7,2)
+  - name: ss_ext_sales_price
+    data_type: decimal(7,2)
+  - name: ss_ext_wholesale_cost
+    data_type: decimal(7,2)
+  - name: ss_ext_list_price
+    data_type: decimal(7,2)
+  - name: ss_ext_tax
+    data_type: decimal(7,2)
+  - name: ss_coupon_amt
+    data_type: decimal(7,2)
+  - name: ss_net_paid
+    data_type: decimal(7,2)
+  - name: ss_net_paid_inc_tax
+    data_type: decimal(7,2)
+  - name: ss_net_profit
+    data_type: decimal(7,2)
+connection_id: Connection - TPCDS
+sql: |-
+  SELECT p.*, ss.* 
+  FROM "atscale_tutorial_data"."tpcds"."promotion" p
+  INNER JOIN "atscale_tutorial_data"."tpcds"."store_sales" ss
+  ON ss."ss_promo_sk" = p."p_promo_sk"
+dialects:
+  - dialect: DatabricksSQL
+    sql: "SELECT p.*, ss.* 
+      FROM atscale_tutorial_data.tpcds.promotion p
+      INNER JOIN atscale_tutorial_data.tpcds.store_sales ss
+      ON ss.ss_promo_sk = p.p_promo_sk"
+  - dialect: BigQuery
+    sql: "SELECT p.*, ss.* 
+      FROM atscale_tutorial_data.tpcds.promotion p
+      INNER JOIN atscale_tutorial_data.tpcds.store_sales ss
+      ON ss.ss_promo_sk = p.p_promo_sk"

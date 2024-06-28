@@ -1,0 +1,4 @@
+unique_name: Total Net Profit
+object_type: metric_calc
+label: Total Net Profit
+expression: "[Measures].[m_ss_net_profit_sum]+[Measures].[m_ws_net_profit_sum]+ [Measures].[m_cs_net_profit_sum]"

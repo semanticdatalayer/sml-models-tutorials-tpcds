@@ -1,0 +1,6 @@
+unique_name: Web Catalog Sales Price Growth
+object_type: metric_calc
+label: Web-Catalog Sales Price Growth
+expression: |-
+  [Measures].[m_ws_cs_ext_sales_price_sum] /
+  (ParallelPeriod([Sold Date Dimension - TPC-DS].[Sold Date Week Hierarchy - TPC-DS].[Sold Calendar Week], -53, [Sold Date Dimension - TPC-DS].[Sold Date Week Hierarchy - TPC-DS].CurrentMember), [Measures].[m_ws_cs_ext_sales_price_sum])

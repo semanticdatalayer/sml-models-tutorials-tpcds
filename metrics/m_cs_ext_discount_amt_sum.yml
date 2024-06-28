@@ -1,0 +1,6 @@
+unique_name: m_cs_ext_discount_amt_sum
+object_type: metric
+label: Catalog Ext Discount Amount
+calculation_method: sum
+dataset: catalog_sales
+column: cs_ext_discount_amt

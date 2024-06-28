@@ -1,0 +1,6 @@
+unique_name: Connection - TPCDS
+label: Connection - TPCDS
+object_type: connection
+as_connection: con1
+database: atscale_tutorial_data
+schema: tpcds

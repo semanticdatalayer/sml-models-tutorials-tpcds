@@ -1,0 +1,4 @@
+unique_name: Average Catalog Unit Net Profit
+object_type: metric_calc
+label: Average Catalog Unit Net Profit
+expression: "[Measures].[m_cs_net_profit_sum]/[Measures].[m_cs_quantity_sum]"

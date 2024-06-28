@@ -1,0 +1,4 @@
+unique_name: Sales by Promotion Ratio
+object_type: metric_calc
+label: Sales by Promotion Ratio
+expression: "([Measures].[m_ss_ext_sales_price_promotion]/ [Measures].[m_ss_ext_sales_price_sum])*100"

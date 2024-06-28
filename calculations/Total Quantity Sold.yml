@@ -1,0 +1,4 @@
+unique_name: Total Quantity Sold
+object_type: metric_calc
+label: Total Quantity Sold
+expression: "[Measures].[m_ss_quantity_sum]+[Measures].[m_ws_quantity_sum]+ [Measures].[m_cs_quantity_sum]"

@@ -1,0 +1,5 @@
+unique_name: Catalog Buyer
+object_type: metric_calc
+label: Catalog Buyer
+expression: "[Measures].[m_purchased_amount_in_catalog] > [Measures].[Store and Web\
+  \ Purchased Amount]"

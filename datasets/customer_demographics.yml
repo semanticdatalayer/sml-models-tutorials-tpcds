@@ -1,0 +1,25 @@
+unique_name: customer_demographics
+object_type: dataset
+label: customer_demographics
+connection_id: Connection - TPCDS
+table: customer_demographics
+
+columns:
+  - name: cd_credit_rating
+    data_type: string
+  - name: cd_demo_sk
+    data_type: int
+  - name: cd_dep_college_count
+    data_type: int
+  - name: cd_dep_count
+    data_type: int
+  - name: cd_dep_employed_count
+    data_type: int
+  - name: cd_education_status
+    data_type: string
+  - name: cd_gender
+    data_type: string
+  - name: cd_marital_status
+    data_type: string
+  - name: cd_purchase_estimate
+    data_type: int

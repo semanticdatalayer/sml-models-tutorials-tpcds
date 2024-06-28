@@ -1,0 +1,7 @@
+unique_name: m_ss_ext_sales_price_promotion
+object_type: metric
+label: Store Ext Sales Price by Promotion
+calculation_method: sum
+unrelated_dimensions_handling: repeat
+dataset: store_promotion
+column: ss_ext_sales_price

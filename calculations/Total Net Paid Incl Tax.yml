@@ -1,0 +1,4 @@
+unique_name: Total Net Paid Incl Tax
+object_type: metric_calc
+label: Total Net Paid Incl Tax
+expression: "[Measures].[m_ss_net_paid_inc_tax_sum]+[Measures].[m_ws_net_paid_inc_tax_sum]+[Measures].[m_cs_net_paid_inc_tax_sum]"

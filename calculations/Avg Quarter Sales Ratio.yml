@@ -1,0 +1,8 @@
+unique_name: Avg Quarter Sales Ratio
+object_type: metric_calc
+label: Avg Quarter Sales Ratio
+expression: "CASE WHEN ([Measures].[m_store_sales_price] - [Measures].[Avg Quarterly\
+  \ Store Sales for 1998-1999]) < 0 THEN -1 * ([Measures].[m_store_sales_price] -\
+  \ [Measures].[Avg Quarterly Store Sales for 1998-1999]) ELSE ([Measures].[m_store_sales_price]\
+  \ - [Measures].[Avg Quarterly Store Sales for 1998-1999]) END \n/[Measures].[Avg\
+  \ Quarterly Store Sales for 1998-1999]"

@@ -1,0 +1,8 @@
+unique_name: m_ss_net_profit_sum
+object_type: metric
+label: Store Net Profit
+description: store_sales.ss_net_profit_sum
+calculation_method: sum
+unrelated_dimensions_handling: empty
+dataset: store_sales
+column: ss_net_profit

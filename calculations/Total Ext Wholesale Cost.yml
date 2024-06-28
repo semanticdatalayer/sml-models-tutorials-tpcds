@@ -1,0 +1,4 @@
+unique_name: Total Ext Wholesale Cost
+object_type: metric_calc
+label: Total Ext Wholesale Cost
+expression: "[Measures].[m_ss_ext_wholesale_cost_sum]+[Measures].[m_ws_ext_wholesale_cost_sum]+[Measures].[m_cs_ext_wholesale_cost_sum]"

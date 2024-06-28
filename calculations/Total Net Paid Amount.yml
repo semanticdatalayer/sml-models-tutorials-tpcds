@@ -1,0 +1,4 @@
+unique_name: Total Net Paid Amount
+object_type: metric_calc
+label: Total Net Paid Amount
+expression: "[Measures].[m_ss_net_paid_sum]+[Measures].[m_ws_net_paid_sum]+ [Measures].[m_cs_net_paid_sum]"

@@ -1,0 +1,6 @@
+unique_name: m_catalog_sales_sum
+object_type: metric
+label: Catalog Sales
+calculation_method: sum
+dataset: catalog_sales
+column: Catalog Sales

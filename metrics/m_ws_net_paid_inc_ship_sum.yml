@@ -1,0 +1,8 @@
+unique_name: m_ws_net_paid_inc_ship_sum
+object_type: metric
+label: Web Net Paid Incl Ship
+description: web_sales.ws_net_paid_inc_ship_sum
+calculation_method: sum
+unrelated_dimensions_handling: empty
+dataset: web_sales
+column: ws_net_paid_inc_ship

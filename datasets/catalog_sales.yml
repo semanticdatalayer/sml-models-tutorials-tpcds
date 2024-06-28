@@ -1,0 +1,110 @@
+unique_name: catalog_sales
+object_type: dataset
+label: catalog_sales
+connection_id: Connection - TPCDS
+table: catalog_sales
+
+columns:
+  - name: cs row counter
+    data_type: long
+    sql: "1"
+  - name: cs_bill_addr_sk
+    data_type: long
+  - name: cs_bill_cdemo_sk
+    data_type: long
+  - name: cs_bill_customer_sk
+    data_type: long
+  - name: cs_bill_hdemo_sk
+    data_type: long
+  - name: cs_call_center_sk
+    data_type: long
+  - name: cs_catalog_page_sk
+    data_type: long
+  - name: cs_sales_price
+    data_type: "decimal(7,2)"
+  - name: cs_ext_discount_amt
+    data_type: "decimal(7,2)"
+  - name: cs_ext_list_price
+    data_type: "decimal(7,2)"
+  - name: cs_ext_sales_price
+    data_type: "decimal(7,2)"
+  - name: cs_ext_ship_cost
+    data_type: "decimal(7,2)"
+  - name: cs_ext_tax
+    data_type: "decimal(7,2)"
+  - name: cs_ext_wholesale_cost
+    data_type: "decimal(7,2)"
+  - name: cs_item_sk
+    data_type: long
+  - name: cs_list_price
+    data_type: "decimal(7,2)"
+  - name: cs_net_paid
+    data_type: "decimal(7,2)"
+  - name: cs_net_paid_inc_ship
+    data_type: "decimal(7,2)"
+  - name: cs_net_paid_inc_ship_tax
+    data_type: "decimal(7,2)"
+  - name: cs_net_paid_inc_tax
+    data_type: "decimal(7,2)"
+  - name: cs_net_profit
+    data_type: "decimal(7,2)"
+  - name: cs_order_number
+    data_type: long
+  - name: cs_promo_sk
+    data_type: long
+  - name: cs_quantity
+    data_type: long
+  - name: cs_sales_price
+    data_type: "decimal(7,2)"
+  - name: cs_ship_addr_sk
+    data_type: long
+  - name: cs_ship_cdemo_sk
+    data_type: long
+  - name: cs_ship_customer_sk
+    data_type: long
+  - name: cs_ship_date_sk
+    data_type: long
+  - name: cs_ship_hdemo_sk
+    data_type: long
+  - name: cs_ship_mode_sk
+    data_type: long
+  - name: cs_sold_date_sk
+    data_type: long
+  - name: cs_sold_time_sk
+    data_type: long
+  - name: cs_warehouse_sk
+    data_type: long
+  - name: cs_wholesale_cost
+    data_type: "decimal(7,2)"
+  - name: Catalog Sales Net Paid
+    data_type: "decimal(38,2)"
+    sql: "CAST(\"cs_net_paid\"*\"cs_quantity\" AS decimal(38,2))"
+    dialects:
+      - dialect: DatabricksSQL
+        sql: "CAST(cs_net_paid*cs_quantity AS decimal(38,2))"
+      - dialect: BigQuery
+        sql: "CAST(FORMAT('%.2F', unitprice*salesamount) as decimal)"
+  - name: Catalog Sales Price Tier
+    data_type: string
+    sql: "CASE WHEN \"cs_sales_price\" BETWEEN 0 AND 500 THEN '500 or Less' ELSE 'More than 500' END"
+    dialects:
+      - dialect: DatabricksSQL
+        sql: "CASE WHEN cs_sales_price BETWEEN 0 AND 500 THEN '500 or Less' ELSE 'More than 500' END"
+      - dialect: BigQuery
+        sql: "CASE WHEN cs_sales_price BETWEEN 0 AND 500 THEN '500 or Less' ELSE 'More than 500' END"
+  - name: Catalog Sales
+    data_type: "decimal(38,2)"
+    sql: "CAST(\"cs_sales_price\"+\"cs_quantity\" AS decimal(38,2))"
+    dialects:
+      - dialect: DatabricksSQL
+        sql: "CAST(cs_sales_price-cs_quantity AS decimal(38,2))"
+      - dialect: BigQuery
+        sql: "CAST(FORMAT('%.2F', cs_sales_price-cs_quantity) as decimal)"
+  - name: Purchased Amount in Catalog
+    data_type: "decimal(16,8)"
+    sql: (("cs_ext_list_price"-"cs_ext_wholesale_cost"-"cs_ext_discount_amt")+"cs_ext_sales_price")/2
+    dialects:
+      - dialect: DatabricksSQL
+        sql: "((cs_ext_list_price-cs_ext_wholesale_cost-cs_ext_discount_amt)+cs_ext_sales_price)/2"
+      - dialect: BigQuery
+        sql: "((cs_ext_list_price-cs_ext_wholesale_cost-cs_ext_discount_amt)+cs_ext_sales_price)/2"

@@ -1,0 +1,68 @@
+unique_name: Household Demographics
+object_type: dimension
+label: Household Demographics
+type: standard
+
+hierarchies:
+
+  - unique_name: Household Demographics
+    label: Household Demographics
+    folder: Household Demographics
+    filter_empty: "yes"
+
+    levels:
+
+      - unique_name: Household Demographics
+
+        secondary_attributes:
+
+          - unique_name: d_hd_buy_potential
+            label: Buy Potential
+            folder: Household Demographics
+            dataset: household_demographics
+            name_column: hd_buy_potential
+            key_columns:
+              - hd_buy_potential
+            sort_column: hd_buy_potential
+
+          - unique_name: d_hd_dep_count
+            label: Dependents Count
+            folder: Household Demographics
+            dataset: household_demographics
+            name_column: hd_dep_count
+            key_columns:
+              - hd_dep_count
+            sort_column: hd_dep_count
+
+          - unique_name: d_hd_vehicle_count
+            label: Vehicle Count
+            folder: Household Demographics
+            dataset: household_demographics
+            name_column: hd_vehicle_count
+            key_columns:
+              - hd_vehicle_count
+            sort_column: hd_vehicle_count
+
+level_attributes:
+
+  - unique_name: Household Demographics
+    label: Household Demographics
+    is_unique_key: true
+    dataset: household_demographics
+    name_column: hd_demo_sk
+    key_columns:
+      - hd_demo_sk
+
+relationships:
+
+  - unique_name: HouseholdDemographics_IncomeBand
+    from:
+      hierarchy: Household Demographics
+      level: Household Demographics
+      dataset: household_demographics
+      join_columns:
+        - hd_income_band_sk
+    to:
+      dimension: Income Band
+      level: Income Band
+    type: embedded

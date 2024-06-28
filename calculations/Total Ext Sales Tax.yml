@@ -1,0 +1,4 @@
+unique_name: Total Ext Sales Tax
+object_type: metric_calc
+label: Total Ext Sales Tax
+expression: "[Measures].[m_ss_ext_tax_sum]+[Measures].[m_ws_ext_tax_sum]+ [Measures].[m_cs_ext_tax_sum]"

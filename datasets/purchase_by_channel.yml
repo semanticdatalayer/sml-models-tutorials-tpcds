@@ -1,0 +1,214 @@
+unique_name: purchase_by_channel
+object_type: dataset
+label: purchase_by_channel
+columns:
+  - name: customer_sk
+    data_type: decimal(38,0)
+  - name: sold_year
+    data_type: decimal(38,0)
+  - name: catalog_preferred
+    data_type: boolean
+connection_id: Connection - TPCDS
+sql: |-
+  SELECT
+      "customer_sk",
+      "sold_year",
+      CASE
+          WHEN "total_catalog" > "total_non_catalog"
+          THEN true
+          ELSE false
+      END "catalog_preferred"
+  FROM
+      (
+          SELECT
+              "customer_sk",
+              "sold_year",
+              SUM(
+                  CASE
+                      WHEN "sale_type" IN ('c')
+                      THEN "year_total"
+                      ELSE 0
+                  END) "total_catalog",
+              SUM(
+                  CASE
+                      WHEN "sale_type" IN ('s', 'w')
+                      THEN "year_total"
+                      ELSE 0
+                  END) "total_non_catalog"
+          FROM
+              (
+                  SELECT
+                      "ss_customer_sk" "customer_sk",
+                      "d_year"         "sold_year",
+                      's'            "sale_type",
+                      SUM((("ss_ext_list_price" - "ss_ext_wholesale_cost" - "ss_ext_discount_amt")+
+                      "ss_ext_sales_price")/2) "year_total"
+                  FROM
+                      "atscale_tutorial_data"."tpcds"."store_sales",
+                      "atscale_tutorial_data"."tpcds"."date_dim"
+                  WHERE
+                      "ss_sold_date_sk" = "d_date_sk"
+                  GROUP BY 1, 2, 3
+                  UNION ALL
+                  SELECT
+                      "ws_bill_customer_sk" "customer_sk",
+                      "d_year"              "sold_year",
+                      'w'                 "sale_type",
+                      SUM((("ws_ext_list_price" - "ws_ext_wholesale_cost" - "ws_ext_discount_amt")+
+                      "ws_ext_sales_price")/2) "year_total"
+                  FROM
+                      "atscale_tutorial_data"."tpcds"."web_sales",
+                      "atscale_tutorial_data"."tpcds"."date_dim"
+                  WHERE
+                      "ws_sold_date_sk" = "d_date_sk"
+                  GROUP BY 1, 2, 3
+                  UNION ALL
+                  SELECT
+                      "cs_bill_customer_sk" "customer_sk",
+                      "d_year"              "sold_year",
+                      'c'                 "sale_type",
+                      SUM((("cs_ext_list_price" - "cs_ext_wholesale_cost" - "cs_ext_discount_amt")+
+                      "cs_ext_sales_price")/2) "year_total"
+                  FROM
+                      "atscale_tutorial_data"."tpcds"."catalog_sales",
+                      "atscale_tutorial_data"."tpcds"."date_dim"
+                  WHERE
+                      "cs_sold_date_sk" = "d_date_sk"
+                  GROUP BY 1, 2, 3 ) t
+          GROUP BY
+              1,2) z
+dialects:
+  - dialect: DatabricksSQL
+    sql: "SELECT
+      customer_sk,
+      sold_year,
+      CASE
+          WHEN total_catalog > total_non_catalog
+          THEN true
+          ELSE false
+      END catalog_preferred
+      FROM
+      (
+          SELECT
+              customer_sk,
+              sold_year,
+              SUM(
+                  CASE
+                      WHEN sale_type IN ('c')
+                      THEN year_total
+                      ELSE 0
+                  END) total_catalog,
+              SUM(
+                  CASE
+                      WHEN sale_type IN ('s', 'w')
+                      THEN year_total
+                      ELSE 0
+                  END) total_non_catalog
+          FROM
+              (
+                  SELECT
+                      ss_customer_sk customer_sk,
+                      d_year         sold_year,
+                      's'            sale_type,
+                      SUM(((ss_ext_list_price - ss_ext_wholesale_cost - ss_ext_discount_amt)+
+                      ss_ext_sales_price)/2) year_total
+                  FROM
+                      atscale_tutorial_data.tpcds.store_sales,
+                      atscale_tutorial_data.tpcds.date_dim
+                  WHERE
+                      ss_sold_date_sk = d_date_sk
+                  GROUP BY 1, 2, 3
+                  UNION ALL
+                  SELECT
+                      ws_bill_customer_sk customer_sk,
+                      d_year              sold_year,
+                      'w'                 sale_type,
+                      SUM(((ws_ext_list_price - ws_ext_wholesale_cost - ws_ext_discount_amt)+
+                      ws_ext_sales_price)/2) year_total
+                  FROM
+                      atscale_tutorial_data.tpcds.web_sales,
+                      atscale_tutorial_data.tpcds.date_dim
+                  WHERE
+                      ws_sold_date_sk = d_date_sk
+                  GROUP BY 1, 2, 3
+                  UNION ALL
+                  SELECT
+                      cs_bill_customer_sk customer_sk,
+                      d_year              sold_year,
+                      'c'                 sale_type,
+                      SUM(((cs_ext_list_price - cs_ext_wholesale_cost - cs_ext_discount_amt)+
+                      cs_ext_sales_price)/2) year_total
+                  FROM
+                      atscale_tutorial_data.tpcds.catalog_sales,
+                      atscale_tutorial_data.tpcds.date_dim
+                  WHERE
+                      cs_sold_date_sk = d_date_sk
+                  GROUP BY 1, 2, 3 ) t
+          GROUP BY 1,2) z"
+  - dialect: BigQuery
+    sql: "SELECT
+      customer_sk,
+      sold_year,
+      CASE
+          WHEN total_catalog > total_non_catalog
+          THEN true
+          ELSE false
+      END catalog_preferred
+      FROM
+      (
+          SELECT
+              customer_sk,
+              sold_year,
+              SUM(
+                  CASE
+                      WHEN sale_type IN ('c')
+                      THEN year_total
+                      ELSE 0
+                  END) total_catalog,
+              SUM(
+                  CASE
+                      WHEN sale_type IN ('s', 'w')
+                      THEN year_total
+                      ELSE 0
+                  END) total_non_catalog
+          FROM
+              (
+                  SELECT
+                      ss_customer_sk customer_sk,
+                      d_year         sold_year,
+                      's'            sale_type,
+                      SUM(((ss_ext_list_price - ss_ext_wholesale_cost - ss_ext_discount_amt)+
+                      ss_ext_sales_price)/2) year_total
+                  FROM
+                      atscale_tutorial_data.tpcds.store_sales,
+                      atscale_tutorial_data.tpcds.date_dim
+                  WHERE
+                      ss_sold_date_sk = d_date_sk
+                  GROUP BY 1, 2, 3
+                  UNION ALL
+                  SELECT
+                      ws_bill_customer_sk customer_sk,
+                      d_year              sold_year,
+                      'w'                 sale_type,
+                      SUM(((ws_ext_list_price - ws_ext_wholesale_cost - ws_ext_discount_amt)+
+                      ws_ext_sales_price)/2) year_total
+                  FROM
+                      atscale_tutorial_data.tpcds.web_sales,
+                      atscale_tutorial_data.tpcds.date_dim
+                  WHERE
+                      ws_sold_date_sk = d_date_sk
+                  GROUP BY 1, 2, 3
+                  UNION ALL
+                  SELECT
+                      cs_bill_customer_sk customer_sk,
+                      d_year              sold_year,
+                      'c'                 sale_type,
+                      SUM(((cs_ext_list_price - cs_ext_wholesale_cost - cs_ext_discount_amt)+
+                      cs_ext_sales_price)/2) year_total
+                  FROM
+                      atscale_tutorial_data.tpcds.catalog_sales,
+                      atscale_tutorial_data.tpcds.date_dim
+                  WHERE
+                      cs_sold_date_sk = d_date_sk
+                  GROUP BY 1, 2, 3 ) t
+          GROUP BY 1,2) z"

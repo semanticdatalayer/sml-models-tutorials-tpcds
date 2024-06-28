@@ -1,0 +1,6 @@
+unique_name: m_catalog_sales_coupon_amount_avg
+object_type: metric
+label: Catalog Sales  Average Coupon Amount
+calculation_method: average
+dataset: catalog_sales
+column: cs_sales_price

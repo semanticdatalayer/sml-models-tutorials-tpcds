@@ -1,0 +1,65 @@
+unique_name: store
+object_type: dataset
+label: store
+connection_id: Connection - TPCDS
+table: store
+
+columns:
+  - name: s_city
+    data_type: string
+  - name: s_closed_date_sk
+    data_type: int
+  - name: s_company_id
+    data_type: int
+  - name: s_company_name
+    data_type: string
+  - name: s_country
+    data_type: string
+  - name: s_county
+    data_type: string
+  - name: s_division_id
+    data_type: int
+  - name: s_division_name
+    data_type: string
+  - name: s_floor_space
+    data_type: int
+  - name: s_geography_class
+    data_type: string
+  - name: s_gmt_offset
+    data_type: decimal
+  - name: s_hours
+    data_type: string
+  - name: s_manager
+    data_type: string
+  - name: s_market_desc
+    data_type: string
+  - name: s_market_id
+    data_type: int
+  - name: s_market_manager
+    data_type: string
+  - name: s_number_employees
+    data_type: int
+  - name: s_rec_end_date
+    data_type: date
+  - name: s_rec_start_date
+    data_type: date
+  - name: s_state
+    data_type: string
+  - name: s_store_id
+    data_type: string
+  - name: s_store_name
+    data_type: string
+  - name: s_store_sk
+    data_type: int
+  - name: s_street_name
+    data_type: string
+  - name: s_street_number
+    data_type: string
+  - name: s_street_type
+    data_type: string
+  - name: s_suite_number
+    data_type: string
+  - name: s_tax_precentage
+    data_type: decimal
+  - name: s_zip
+    data_type: string

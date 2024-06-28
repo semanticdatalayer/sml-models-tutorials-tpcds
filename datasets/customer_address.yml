@@ -1,0 +1,33 @@
+unique_name: customer_address
+object_type: dataset
+label: customer_address
+connection_id: Connection - TPCDS
+table: customer_address
+
+columns:
+  - name: ca_address_id
+    data_type: string
+  - name: ca_address_sk
+    data_type: int
+  - name: ca_city
+    data_type: string
+  - name: ca_country
+    data_type: string
+  - name: ca_county
+    data_type: string
+  - name: ca_gmt_offset
+    data_type: decimal
+  - name: ca_location_type
+    data_type: string
+  - name: ca_state
+    data_type: string
+  - name: ca_street_name
+    data_type: string
+  - name: ca_street_number
+    data_type: string
+  - name: ca_street_type
+    data_type: string
+  - name: ca_suite_number
+    data_type: string
+  - name: ca_zip
+    data_type: string

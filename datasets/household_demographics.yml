@@ -1,0 +1,17 @@
+unique_name: household_demographics
+object_type: dataset
+label: household_demographics
+connection_id: Connection - TPCDS
+table: household_demographics
+
+columns:
+  - name: hd_buy_potential
+    data_type: string
+  - name: hd_demo_sk
+    data_type: long
+  - name: hd_dep_count
+    data_type: long
+  - name: hd_income_band_sk
+    data_type: long
+  - name: hd_vehicle_count
+    data_type: long

@@ -1,0 +1,4 @@
+unique_name: Catalog and Web Sales
+object_type: metric_calc
+label: Catalog and Web Sales
+expression: "[Measures].[m_catalog_sales_sum]+[Measures].[m_web_sales_sum]"

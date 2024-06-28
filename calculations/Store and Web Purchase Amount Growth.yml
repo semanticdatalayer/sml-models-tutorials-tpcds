@@ -1,0 +1,6 @@
+unique_name: Store and Web Purchase Amount Growth
+object_type: metric_calc
+label: Store and Web Purchase Amount Growth
+expression: |-
+  [Measures].[Store and Web Purchased Amount] /
+  (ParallelPeriod([Sold Date Dimension - TPC-DS].[Sold Date Week Hierarchy - TPC-DS].[Sold Calendar Year-Week], 1, [Sold Date Dimension - TPC-DS].[Sold Date Week Hierarchy - TPC-DS].CurrentMember), [Measures].[Store and Web Purchased Amount])

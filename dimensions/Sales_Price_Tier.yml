@@ -1,0 +1,28 @@
+unique_name: Sales_Price_Tier
+object_type: dimension
+label: Sales_Price_Tier
+is_degenerate: true
+
+hierarchies:
+
+  - unique_name: Sales Price Tier
+    label: Sales Price Tier
+    folder: Product Attributes
+    filter_empty: "yes"
+
+    levels:
+
+      - unique_name: d_sales_price_tier
+
+level_attributes:
+
+  - unique_name: d_sales_price_tier
+    label: Sales Price Tier
+    dataset: store_sales
+    name_column: sales price tier
+    key_columns:
+      - sales price tier
+
+modeler_metadata:
+  version: 0
+  modified: "false"

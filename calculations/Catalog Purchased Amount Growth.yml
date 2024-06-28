@@ -1,0 +1,6 @@
+unique_name: Catalog Purchased Amount Growth
+object_type: metric_calc
+label: Catalog Purchased Amount Growth
+expression: |-
+  [Measures].[m_purchased_amount_in_catalog] /
+  (ParallelPeriod([Sold Date Dimension - TPC-DS].[Sold Date Week Hierarchy - TPC-DS].[Sold Calendar Year-Week], 1, [Sold Date Dimension - TPC-DS].[Sold Date Week Hierarchy - TPC-DS].CurrentMember), [Measures].[m_purchased_amount_in_catalog])

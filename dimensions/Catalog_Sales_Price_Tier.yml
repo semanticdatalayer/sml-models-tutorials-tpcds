@@ -1,0 +1,28 @@
+unique_name: Catalog_Sales_Price_Tier
+object_type: dimension
+label: Catalog_Sales_Price_Tier
+is_degenerate: true
+
+hierarchies:
+
+  - unique_name: Catalog Sales Price Tier
+    label: Catalog Sales Price Tier
+    folder: Product Attributes
+    filter_empty: "yes"
+
+    levels:
+
+      - unique_name: d_catalog_sales_price_tier
+
+level_attributes:
+
+  - unique_name: d_catalog_sales_price_tier
+    label: Catalog Sales Price Tier
+    dataset: catalog_sales
+    name_column: Catalog Sales Price Tier
+    key_columns:
+      - Catalog Sales Price Tier
+
+modeler_metadata:
+  version: 0
+  modified: "false"

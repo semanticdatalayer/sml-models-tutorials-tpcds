@@ -1,0 +1,6 @@
+unique_name: m_web_sales_net_paid
+object_type: metric
+label: Web Sales Net Paid
+calculation_method: sum
+dataset: web_sales
+column: web sales net paid

@@ -1,0 +1,6 @@
+unique_name: m_catalog_sales_net_paid_sum
+object_type: metric
+label: Catalog Sales Net Paid
+calculation_method: sum
+dataset: catalog_sales
+column: Catalog Sales Net Paid

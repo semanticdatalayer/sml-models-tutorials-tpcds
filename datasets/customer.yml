@@ -1,0 +1,43 @@
+unique_name: customer
+object_type: dataset
+label: customer
+connection_id: Connection - TPCDS
+table: customer
+
+columns:
+  - name: c_birth_country
+    data_type: string
+  - name: c_birth_day
+    data_type: int
+  - name: c_birth_month
+    data_type: int
+  - name: c_birth_year
+    data_type: int
+  - name: c_current_addr_sk
+    data_type: int
+  - name: c_current_cdemo_sk
+    data_type: int
+  - name: c_current_hdemo_sk
+    data_type: int
+  - name: c_customer_id
+    data_type: string
+  - name: c_customer_sk
+    data_type: int
+  - name: c_email_address
+    data_type: string
+  - name: c_first_name
+    data_type: string
+  - name: c_first_sales_date_sk
+    data_type: int
+  - name: c_first_shipto_date_sk
+    data_type: int
+  - name: c_last_name
+    data_type: string
+  - name: c_last_review_date
+    data_type: string
+  - name: c_login
+    data_type: string
+  - name: c_preferred_cust_flag
+    data_type: string
+  - name: c_salutation
+    data_type: string

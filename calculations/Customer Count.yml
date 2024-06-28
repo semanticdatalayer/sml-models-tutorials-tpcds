@@ -1,0 +1,4 @@
+unique_name: Customer Count
+object_type: metric_calc
+label: Customer Count
+expression: "[Measures].[m_ss_customer_sk_count]+[Measures].[m_ws_bill_customer_sk_count]+[Measures].[m_cs_bill_customer_sk_count]"

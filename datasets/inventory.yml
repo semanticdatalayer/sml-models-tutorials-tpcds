@@ -1,0 +1,15 @@
+unique_name: inventory
+object_type: dataset
+label: inventory
+connection_id: Connection - TPCDS
+table: inventory
+
+columns:
+  - name: inv_date_sk
+    data_type: long
+  - name: inv_item_sk
+    data_type: long
+  - name: inv_quantity_on_hand
+    data_type: long
+  - name: inv_warehouse_sk
+    data_type: long
