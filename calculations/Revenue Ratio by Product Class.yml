@@ -3,4 +3,4 @@ object_type: metric_calc
 label: 'Store Revenue Ratio by Product Class '
 expression: "[Measures].[m_ss_ext_sales_price_sum] / ([Product Dimension - TPC-DS].[d_product_class_name].[All],\
   \ [Measures].[m_ss_ext_sales_price_sum])"
-format: Percent
+format: percent
