@@ -1,8 +1,7 @@
 unique_name: m_ws_ext_list_price_sum
 object_type: metric
-label: Web Ext List Price
-description: web_sales.ws_ext_list_price_sum
+label: Web Ext List Price, Web Extended List Price
 calculation_method: sum
-unrelated_dimensions_handling: empty
-dataset: web_sales
 column: ws_ext_list_price
+dataset: web_sales
+unrelated_dimensions_handling: empty

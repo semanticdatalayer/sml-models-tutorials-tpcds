@@ -74,8 +74,6 @@ columns:
     data_type: long
   - name: sr_refunded_cash
     data_type: "decimal(7,2)"
-  - name: sr_returned_date_sk
-    data_type: long
   - name: sr_return_amt
     data_type: "decimal(7,2)"
   - name: sr_return_amt_inc_tax
@@ -87,6 +85,8 @@ columns:
   - name: sr_return_tax
     data_type: "decimal(7,2)"
   - name: sr_return_time_sk
+    data_type: long
+  - name: sr_returned_date_sk
     data_type: long
   - name: sr_reversed_charge
     data_type: "decimal(7,2)"

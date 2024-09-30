@@ -9,9 +9,10 @@ hierarchies:
     levels:
       - unique_name: Calendar Year
       - unique_name: Calendar Quarter
+      - unique_name: Calendar Month
         secondary_attributes:
-          - unique_name: d_quarter_of_year
-            label: Quarter of Year
+          - unique_name: d_month_name
+            label: Month Name
             allowed_calcs_for_dma:
               - Lag
               - Siblings
@@ -19,11 +20,9 @@ hierarchies:
             dataset: date_dim
             folder: Date Attributes
             key_columns:
-              - d_qoy
-            name_column: d_qoy
-            sort_column: d_qoy
-      - unique_name: Calendar Month
-        secondary_attributes:
+              - month_name
+            name_column: month_name
+            sort_column: month_name
           - unique_name: d_month_of_year
             label: Month of Year
             allowed_calcs_for_dma:
@@ -264,9 +263,11 @@ level_attributes:
       - PeriodsToDate
       - Range
     dataset: date_dim
-    is_unique_key: true
     key_columns:
       - d_date_sk
     name_column: d_date
     time_unit: day
+modeler_metadata:
+  version: 0
+  modified: 'false'
 type: time

@@ -7,13 +7,12 @@ hierarchies:
 
   - unique_name: Time Dimension
     label: Time Dimension
-    folder: Time
     filter_empty: "yes"
+    folder: Time
 
     levels:
 
       - unique_name: Time
-        
 
         secondary_attributes:
 
@@ -21,9 +20,9 @@ hierarchies:
             label: Time AM or PM
             folder: Time
             dataset: time_dim
-            name_column: t_am_pm
             key_columns:
               - t_am_pm
+            name_column: t_am_pm
             sort_column: t_am_pm
             allowed_calcs_for_dma:
               - Lag
@@ -34,9 +33,9 @@ hierarchies:
             label: Hour
             folder: Time
             dataset: time_dim
-            name_column: t_hour
             key_columns:
               - t_hour
+            name_column: t_hour
             sort_column: t_hour
             allowed_calcs_for_dma:
               - Lag
@@ -47,9 +46,9 @@ hierarchies:
             label: Meal Time
             folder: Time
             dataset: time_dim
-            name_column: t_meal_time
             key_columns:
               - t_meal_time
+            name_column: t_meal_time
             sort_column: t_meal_time
             allowed_calcs_for_dma:
               - Lag
@@ -60,9 +59,9 @@ hierarchies:
             label: Minute
             folder: Time
             dataset: time_dim
-            name_column: t_minute
             key_columns:
               - t_minute
+            name_column: t_minute
             sort_column: t_minute
             allowed_calcs_for_dma:
               - Lag
@@ -73,9 +72,9 @@ hierarchies:
             label: Morning  Time Tier
             folder: Time
             dataset: time_dim
-            name_column: Morning  Time Tier
             key_columns:
               - Morning  Time Tier
+            name_column: Morning  Time Tier
             sort_column: Morning  Time Tier
             allowed_calcs_for_dma:
               - Lag
@@ -86,9 +85,9 @@ hierarchies:
             label: Second
             folder: Time
             dataset: time_dim
-            name_column: t_second
             key_columns:
               - t_second
+            name_column: t_second
             sort_column: t_second
             allowed_calcs_for_dma:
               - Lag
@@ -99,9 +98,9 @@ hierarchies:
             label: Time Sequence
             folder: Time
             dataset: time_dim
-            name_column: t_time
             key_columns:
               - t_time
+            name_column: t_time
             sort_column: t_time
             allowed_calcs_for_dma:
               - Lag
@@ -112,9 +111,8 @@ level_attributes:
 
   - unique_name: Time
     label: Time SK
-    is_unique_key: true
     dataset: time_dim
-    name_column: t_time_id
-    time_unit: second
     key_columns:
       - t_time_sk
+    name_column: t_time_id
+    time_unit: second

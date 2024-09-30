@@ -11,7 +11,7 @@ hierarchies:
     levels:
 
       - unique_name: Income Band
-        is_hidden: true
+        is_hidden: false
 
         secondary_attributes:
 
@@ -19,27 +19,31 @@ hierarchies:
             label: Income Band Lower Bound
             folder: Household Demographics
             dataset: income_band
-            name_column: ib_lower_bound
             key_columns:
               - ib_lower_bound
+            name_column: ib_lower_bound
             sort_column: ib_lower_bound
 
           - unique_name: d_ib_upper_bound
             label: Income Vand Upper Bound
             folder: Household Demographics
             dataset: income_band
-            name_column: ib_upper_bound
             key_columns:
               - ib_upper_bound
+            name_column: ib_upper_bound
             sort_column: ib_upper_bound
 
 level_attributes:
 
   - unique_name: Income Band
     label: Income Band
-    is_hidden: true
+    is_hidden: false
     is_unique_key: true
     dataset: income_band
-    name_column: ib_income_band_sk
     key_columns:
       - ib_income_band_sk
+    name_column: ib_income_band_sk
+
+modeler_metadata:
+  version: 0
+  modified: "false"
