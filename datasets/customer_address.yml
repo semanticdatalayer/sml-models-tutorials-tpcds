@@ -31,3 +31,33 @@ columns:
     data_type: string
   - name: ca_zip
     data_type: string
+  - name: Customer State Name
+    data_type: string
+    sql: "CASE\n    WHEN ca_state = 'AK' THEN 'Alaska'\n    WHEN ca_state = 'AL' THEN\
+      \ 'Alabama'\n    WHEN ca_state = 'AR' THEN 'Arkansas'\n    WHEN ca_state = 'AZ'\
+      \ THEN 'Arizona'\n    WHEN ca_state = 'CA' THEN 'California'\n    WHEN ca_state\
+      \ = 'CO' THEN 'Colorado'\n    WHEN ca_state = 'CT' THEN 'Connecticut'\n    WHEN\
+      \ ca_state = 'DC' THEN 'Washington DC'\n    WHEN ca_state = 'DE' THEN 'Delaware'\n\
+      \    WHEN ca_state = 'FL' THEN 'Florida'\n    WHEN ca_state = 'GA' THEN 'Georgia'\n\
+      \    WHEN ca_state = 'HI' THEN 'Hawaii'\n    WHEN ca_state = 'IA' THEN 'Iowa'\n\
+      \    WHEN ca_state = 'ID' THEN 'Idaho'\n    WHEN ca_state = 'IL' THEN 'Illinois'\n\
+      \    WHEN ca_state = 'IN' THEN 'Indiana'\n    WHEN ca_state = 'KS' THEN 'Kansas'\n\
+      \    WHEN ca_state = 'KY' THEN 'Kentucky'\n    WHEN ca_state = 'LA' THEN 'Louisiana'\n\
+      \    WHEN ca_state = 'MA' THEN 'Massachusetts'\n    WHEN ca_state = 'MD' THEN\
+      \ 'Maryland'\n    WHEN ca_state = 'ME' THEN 'Maine'\n    WHEN ca_state = 'MI'\
+      \ THEN 'Michigan'\n    WHEN ca_state = 'MN' THEN 'Minnesota'\n    WHEN ca_state\
+      \ = 'MO' THEN 'Missouri'\n    WHEN ca_state = 'MS' THEN 'Mississippi'\n    WHEN\
+      \ ca_state = 'MT' THEN 'Montana'\n    WHEN ca_state = 'NC' THEN 'North Carolina'\n\
+      \    WHEN ca_state = 'ND' THEN 'North Dakota'\n    WHEN ca_state = 'NE' THEN\
+      \ 'Nebraska'\n    WHEN ca_state = 'NH' THEN 'New Hampshire'\n    WHEN ca_state\
+      \ = 'NJ' THEN 'New Jersey'\n    WHEN ca_state = 'NM' THEN 'New Mexico'\n   \
+      \ WHEN ca_state = 'NV' THEN 'Nevada'\n    WHEN ca_state = 'NY' THEN 'New York'\n\
+      \    WHEN ca_state = 'OH' THEN 'Ohio'\n    WHEN ca_state = 'OK' THEN 'Oklahoma'\n\
+      \    WHEN ca_state = 'OR' THEN 'Oregon'\n    WHEN ca_state = 'PA' THEN 'Pennsylvania'\n\
+      \    WHEN ca_state = 'RI' THEN 'Rhode Island'\n    WHEN ca_state = 'SC' THEN\
+      \ 'South Carolina'\n    WHEN ca_state = 'SD' THEN 'South Dakota'\n    WHEN ca_state\
+      \ = 'TN' THEN 'Tennessee'\n    WHEN ca_state = 'TX' THEN 'Texas'\n    WHEN ca_state\
+      \ = 'UT' THEN 'Utah'\n    WHEN ca_state = 'VA' THEN 'Virginia' \n    WHEN ca_state\
+      \ = 'VT' THEN 'Vermont'\n    WHEN ca_state = 'WA' THEN 'Washington'\n    WHEN\
+      \ ca_state = 'WI' THEN 'Wisconsin'\n    WHEN ca_state = 'WV' THEN 'West Virginia'\n\
+      \    WHEN ca_state = 'WY' THEN 'Wyoming'\n    ELSE NULL\nEND"

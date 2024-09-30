@@ -1,68 +1,56 @@
 unique_name: Household Demographics
 object_type: dimension
 label: Household Demographics
-type: standard
-
 hierarchies:
-
   - unique_name: Household Demographics
     label: Household Demographics
+    filter_empty: 'yes'
     folder: Household Demographics
-    filter_empty: "yes"
-
     levels:
-
       - unique_name: Household Demographics
-
         secondary_attributes:
-
           - unique_name: d_hd_buy_potential
-            label: Buy Potential
-            folder: Household Demographics
+            label: Customer Buy Potential
             dataset: household_demographics
-            name_column: hd_buy_potential
+            folder: Household Demographics
             key_columns:
               - hd_buy_potential
+            name_column: hd_buy_potential
             sort_column: hd_buy_potential
-
           - unique_name: d_hd_dep_count
-            label: Dependents Count
-            folder: Household Demographics
+            label: Household Dependents Count
             dataset: household_demographics
-            name_column: hd_dep_count
+            folder: Household Demographics
             key_columns:
               - hd_dep_count
+            name_column: hd_dep_count
             sort_column: hd_dep_count
-
           - unique_name: d_hd_vehicle_count
             label: Vehicle Count
-            folder: Household Demographics
             dataset: household_demographics
-            name_column: hd_vehicle_count
+            folder: Household Demographics
             key_columns:
               - hd_vehicle_count
+            name_column: hd_vehicle_count
             sort_column: hd_vehicle_count
-
 level_attributes:
-
   - unique_name: Household Demographics
     label: Household Demographics
-    is_unique_key: true
     dataset: household_demographics
-    name_column: hd_demo_sk
+    is_unique_key: true
     key_columns:
       - hd_demo_sk
-
+    name_column: hd_demo_sk
 relationships:
-
   - unique_name: HouseholdDemographics_IncomeBand
     from:
-      hierarchy: Household Demographics
-      level: Household Demographics
       dataset: household_demographics
+      hierarchy: Household Demographics
       join_columns:
         - hd_income_band_sk
+      level: Household Demographics
     to:
       dimension: Income Band
       level: Income Band
     type: embedded
+type: standard

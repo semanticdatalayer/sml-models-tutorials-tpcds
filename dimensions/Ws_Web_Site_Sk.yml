@@ -1,0 +1,20 @@
+unique_name: Ws_Web_Site_Sk
+object_type: dimension
+label: Ws_Web_Site_Sk
+hierarchies:
+  - unique_name: Ws_Web_Site_Sk Hierarchy
+    label: Ws_Web_Site_Sk Hierarchy
+    levels:
+      - unique_name: Ws_Web_Site_Sk Level
+is_degenerate: true
+level_attributes:
+  - unique_name: Ws_Web_Site_Sk Level
+    label: Website id
+    dataset: web_sales
+    key_columns:
+      - ws_web_site_sk
+    name_column: ws_web_site_sk
+modeler_metadata:
+  version: 0
+  modified: 'false'
+type: standard

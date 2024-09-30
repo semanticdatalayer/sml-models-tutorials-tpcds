@@ -7,8 +7,8 @@ hierarchies:
 
   - unique_name: Promotions
     label: Promotions
-    folder: Promotion Attributes
     filter_empty: "yes"
+    folder: Promotion Attributes
 
     levels:
 
@@ -20,79 +20,106 @@ hierarchies:
             label: Channel Catalog
             folder: Promotion Attributes
             dataset: promotion
-            name_column: p_channel_catalog
             key_columns:
               - p_channel_catalog
+            name_column: p_channel_catalog
             sort_column: p_channel_catalog
 
           - unique_name: d_channel_direct_mail
             label: Channel Direct Mail
             folder: Promotion Attributes
             dataset: promotion
-            name_column: p_channel_dmail
             key_columns:
               - p_channel_dmail
+            name_column: p_channel_dmail
             sort_column: p_channel_dmail
 
           - unique_name: d_channel_email
             label: Channel Email
             folder: Promotion Attributes
             dataset: promotion
-            name_column: p_channel_email
             key_columns:
               - p_channel_email
+            name_column: p_channel_email
             sort_column: p_channel_email
-
+          - unique_name: d_promotion_sent_via_email
+            label: Promotion Sent Via Email
+            description: if this promotion was sent out with email
+            folder: Promotion Attributes
+            dataset: promotion
+            key_columns:
+              - promotion_sent_via_email
+            name_column: promotion_sent_via_email
+            sort_column: promotion_sent_via_email
+            allowed_calcs_for_dma:
+              - Lag
+              - Range
+              - Siblings
           - unique_name: d_channel_event
             label: Channel Event
             folder: Promotion Attributes
             dataset: promotion
-            name_column: p_channel_event
             key_columns:
               - p_channel_event
+            name_column: p_channel_event
             sort_column: p_channel_event
 
           - unique_name: d_channel_press
             label: Channel Press
             folder: Promotion Attributes
             dataset: promotion
-            name_column: p_channel_press
             key_columns:
               - p_channel_press
+            name_column: p_channel_press
             sort_column: p_channel_press
 
           - unique_name: d_channel_radio
             label: Channel Radio
             folder: Promotion Attributes
             dataset: promotion
-            name_column: p_channel_radio
             key_columns:
               - p_channel_radio
+            name_column: p_channel_radio
             sort_column: p_channel_radio
 
           - unique_name: d_channel_tv
             label: Channel TV
             folder: Promotion Attributes
             dataset: promotion
-            name_column: p_channel_tv
             key_columns:
               - p_channel_tv
+            name_column: p_channel_tv
             sort_column: p_channel_tv
-
           - unique_name: d_promo_name
             label: Promotion Name
             folder: Promotion Attributes
             dataset: promotion
-            name_column: p_promo_name
             key_columns:
               - p_promo_name
+            name_column: p_promo_name
             sort_column: p_promo_name
-
+          - unique_name: d_in_promotion
+            label: In Promotion
+            description: if this sale was part in a promotion
+            folder: Promotion Attributes
+            dataset: promotion
+            key_columns:
+              - in_promotion
+            name_column: in_promotion
+            sort_column: in_promotion
+            allowed_calcs_for_dma:
+              - Lag
+              - Range
+              - Siblings
 level_attributes:
 
   - unique_name: Promotions
     label: Promotion SK
     dataset: promotion
-    name_column: p_promo_sk
     key_columns:
       - p_promo_sk
+    name_column: p_promo_sk
+
+modeler_metadata:
+  version: 0
+  modified: "false"

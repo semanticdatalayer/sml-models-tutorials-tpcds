@@ -1,6 +1,6 @@
 unique_name: m_catalog_sales_sum
 object_type: metric
-label: Catalog Sales
+label: Catalog Sales, Total Catalog Sales, Amount spent on catalog
 calculation_method: sum
-dataset: catalog_sales
 column: Catalog Sales
+dataset: catalog_sales
