@@ -1,0 +1,6 @@
+unique_name: m_ss_sales_price_promotion
+object_type: metric
+label: Store Sales Price by Promotion
+calculation_method: sum
+dataset: store_promotion
+column: ss_sales_price

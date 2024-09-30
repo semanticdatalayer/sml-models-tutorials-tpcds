@@ -1,63 +1,72 @@
 unique_name: Customer Demographics
 object_type: dimension
 label: Customer Demographics
-type: standard
-
 hierarchies:
-
   - unique_name: Customer Demographics
     label: Customer Demographics
+    filter_empty: 'yes'
     folder: Customer Information
-    filter_empty: "yes"
-
     levels:
-
       - unique_name: Customer Demographics
-
         secondary_attributes:
-
           - unique_name: d_cd_credit_rating
             label: Credit Rating
-            folder: Customer Information
+            description: customer credit rating
             dataset: customer_demographics
-            name_column: cd_credit_rating
+            folder: Customer Information
             key_columns:
               - cd_credit_rating
+            name_column: cd_credit_rating
             sort_column: cd_credit_rating
-
+          - unique_name: d_cd_dep_count
+            label: Customer Dependent Count
+            description: the count of dependents for this customer
+            allowed_calcs_for_dma:
+              - Lag
+              - Siblings
+              - Range
+            dataset: customer_demographics
+            folder: Customer Information
+            key_columns:
+              - cd_dep_count
+            name_column: cd_dep_count
+            sort_column: cd_dep_count
           - unique_name: d_cd_education_status
             label: Education Status
-            folder: Customer Information
+            description: Customer Education Level
             dataset: customer_demographics
-            name_column: cd_education_status
+            folder: Customer Information
             key_columns:
               - cd_education_status
+            name_column: cd_education_status
             sort_column: cd_education_status
-
           - unique_name: d_cd_gender
             label: Gender
-            folder: Customer Information
+            description: Customer Gender
             dataset: customer_demographics
-            name_column: cd_gender
+            folder: Customer Information
             key_columns:
               - cd_gender
+            name_column: cd_gender
             sort_column: cd_gender
-
           - unique_name: d_cd_marital_status
             label: Marital Status
-            folder: Customer Information
+            description: Customer Marital Status
             dataset: customer_demographics
-            name_column: cd_marital_status
+            folder: Customer Information
             key_columns:
               - cd_marital_status
+            name_column: cd_marital_status
             sort_column: cd_marital_status
-
 level_attributes:
-
   - unique_name: Customer Demographics
     label: Customer Number
-    is_unique_key: true
     dataset: customer_demographics
-    name_column: cd_demo_sk
+    is_unique_key: true
     key_columns:
       - cd_demo_sk
+    name_column: cd_demo_sk
+modeler_metadata:
+  version: 0
+  modified: 'false'
+type: standard

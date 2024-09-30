@@ -20,7 +20,7 @@ columns:
     data_type: long
   - name: cs_catalog_page_sk
     data_type: long
-  - name: cs_sales_price
+  - name: cs_coupon_amt
     data_type: "decimal(7,2)"
   - name: cs_ext_discount_amt
     data_type: "decimal(7,2)"

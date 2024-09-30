@@ -5,6 +5,9 @@ connection_id: Connection - TPCDS
 table: promotion
 
 columns:
+  - name: in_promotion
+    data_type: boolean
+    sql: "True"
   - name: p_channel_catalog
     data_type: string
   - name: p_channel_demo
@@ -24,7 +27,7 @@ columns:
   - name: p_channel_tv
     data_type: string
   - name: p_cost
-    data_type: "decimal(15,2)"
+    data_type: decimal(15,2)
   - name: p_discount_active
     data_type: string
   - name: p_end_date_sk
@@ -43,3 +46,10 @@ columns:
     data_type: long
   - name: p_start_date_sk
     data_type: long
+  - name: promotion_sent_via_email
+    data_type: boolean
+    sql: |-
+      CASE p_channel_email
+        WHEN "N" THEN False
+        ELSE TRUE
+        END

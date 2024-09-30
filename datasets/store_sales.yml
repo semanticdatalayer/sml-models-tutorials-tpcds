@@ -53,7 +53,26 @@ columns:
       - dialect: DatabricksSQL
         sql: "((ss_ext_list_price-ss_ext_wholesale_cost-ss_ext_discount_amt)+ss_ext_sales_price)/2"
       - dialect: BigQuery
-        sql: "((ss_ext_list_price-ss_ext_wholesale_cost-ss_ext_discount_amt)+ss_ext_sales_price)/2"
+        sql: ((ss_ext_list_price-ss_ext_wholesale_cost-ss_ext_discount_amt)+ss_ext_sales_price)/2
+  - name: sales price tier
+    data_type: string
+    sql: "CASE WHEN \"ss_sales_price\" > 200 THEN '200 and More' 
+        WHEN \"ss_sales_price\" BETWEEN 150 AND 200 THEN '150-200' 
+        WHEN \"ss_sales_price\" BETWEEN 100 AND 150 THEN '100-150' 
+        WHEN \"ss_sales_price\" BETWEEN 50 AND 100 THEN ' 50-100'
+        ELSE ' 50 and Less' END"
+    dialects:
+      - dialect: DatabricksSQL
+        sql: "CASE WHEN ss_sales_price > 200 THEN '200 and More' 
+            WHEN ss_sales_price BETWEEN 150 AND 200 THEN '150-200' 
+            WHEN ss_sales_price BETWEEN 100 AND 150 THEN '100-150' 
+            WHEN ss_sales_price BETWEEN 50 AND 100 THEN ' 50-100'
+            ELSE ' 50 and Less' END"
+      - dialect: BigQuery
+        sql: CASE WHEN ss_sales_price > 200 THEN '200 and More'  WHEN ss_sales_price
+          BETWEEN 150 AND 200 THEN '150-200'  WHEN ss_sales_price BETWEEN 100 AND
+          150 THEN '100-150'  WHEN ss_sales_price BETWEEN 50 AND 100 THEN ' 50-100'
+          ELSE ' 50 and Less' END
   - name: ss row counter
     data_type: int
     sql: "1"
@@ -103,23 +122,3 @@ columns:
     data_type: long
   - name: ss_wholesale_cost
     data_type: "decimal(7,2)"
-  - name: sales price tier
-    data_type: string
-    sql: "CASE WHEN \"ss_sales_price\" > 200 THEN '200 and More' 
-        WHEN \"ss_sales_price\" BETWEEN 150 AND 200 THEN '150-200' 
-        WHEN \"ss_sales_price\" BETWEEN 100 AND 150 THEN '100-150' 
-        WHEN \"ss_sales_price\" BETWEEN 50 AND 100 THEN ' 50-100'
-        ELSE ' 50 and Less' END"
-    dialects:
-      - dialect: DatabricksSQL
-        sql: "CASE WHEN ss_sales_price > 200 THEN '200 and More' 
-            WHEN ss_sales_price BETWEEN 150 AND 200 THEN '150-200' 
-            WHEN ss_sales_price BETWEEN 100 AND 150 THEN '100-150' 
-            WHEN ss_sales_price BETWEEN 50 AND 100 THEN ' 50-100'
-            ELSE ' 50 and Less' END"
-      - dialect: BigQuery
-        sql: "CASE WHEN ss_sales_price > 200 THEN '200 and More' 
-            WHEN ss_sales_price BETWEEN 150 AND 200 THEN '150-200' 
-            WHEN ss_sales_price BETWEEN 100 AND 150 THEN '100-150' 
-            WHEN ss_sales_price BETWEEN 50 AND 100 THEN ' 50-100'
-            ELSE ' 50 and Less' END"

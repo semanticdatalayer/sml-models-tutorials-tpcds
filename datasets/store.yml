@@ -63,3 +63,33 @@ columns:
     data_type: decimal
   - name: s_zip
     data_type: string
+  - name: Store State Name
+    data_type: string
+    sql: "CASE\n    WHEN s_state = 'AK' THEN 'Alaska'\n    WHEN s_state = 'AL' THEN\
+      \ 'Alabama'\n    WHEN s_state = 'AR' THEN 'Arkansas'\n    WHEN s_state = 'AZ'\
+      \ THEN 'Arizona'\n    WHEN s_state = 'CA' THEN 'California'\n    WHEN s_state\
+      \ = 'CO' THEN 'Colorado'\n    WHEN s_state = 'CT' THEN 'Connecticut'\n    WHEN\
+      \ s_state = 'DC' THEN 'Washington DC'\n    WHEN s_state = 'DE' THEN 'Delaware'\n\
+      \    WHEN s_state = 'FL' THEN 'Florida'\n    WHEN s_state = 'GA' THEN 'Georgia'\n\
+      \    WHEN s_state = 'HI' THEN 'Hawaii'\n    WHEN s_state = 'IA' THEN 'Iowa'\n\
+      \    WHEN s_state = 'ID' THEN 'Idaho'\n    WHEN s_state = 'IL' THEN 'Illinois'\n\
+      \    WHEN s_state = 'IN' THEN 'Indiana'\n    WHEN s_state = 'KS' THEN 'Kansas'\n\
+      \    WHEN s_state = 'KY' THEN 'Kentucky'\n    WHEN s_state = 'LA' THEN 'Louisiana'\n\
+      \    WHEN s_state = 'MA' THEN 'Massachusetts'\n    WHEN s_state = 'MD' THEN\
+      \ 'Maryland'\n    WHEN s_state = 'ME' THEN 'Maine'\n    WHEN s_state = 'MI'\
+      \ THEN 'Michigan'\n    WHEN s_state = 'MN' THEN 'Minnesota'\n    WHEN s_state\
+      \ = 'MO' THEN 'Missouri'\n    WHEN s_state = 'MS' THEN 'Mississippi'\n    WHEN\
+      \ s_state = 'MT' THEN 'Montana'\n    WHEN s_state = 'NC' THEN 'North Carolina'\n\
+      \    WHEN s_state = 'ND' THEN 'North Dakota'\n    WHEN s_state = 'NE' THEN 'Nebraska'\n\
+      \    WHEN s_state = 'NH' THEN 'New Hampshire'\n    WHEN s_state = 'NJ' THEN\
+      \ 'New Jersey'\n    WHEN s_state = 'NM' THEN 'New Mexico'\n    WHEN s_state\
+      \ = 'NV' THEN 'Nevada'\n    WHEN s_state = 'NY' THEN 'New York'\n    WHEN s_state\
+      \ = 'OH' THEN 'Ohio'\n    WHEN s_state = 'OK' THEN 'Oklahoma'\n    WHEN s_state\
+      \ = 'OR' THEN 'Oregon'\n    WHEN s_state = 'PA' THEN 'Pennsylvania'\n    WHEN\
+      \ s_state = 'RI' THEN 'Rhode Island'\n    WHEN s_state = 'SC' THEN 'South Carolina'\n\
+      \    WHEN s_state = 'SD' THEN 'South Dakota'\n    WHEN s_state = 'TN' THEN 'Tennessee'\n\
+      \    WHEN s_state = 'TX' THEN 'Texas'\n    WHEN s_state = 'UT' THEN 'Utah'\n\
+      \    WHEN s_state = 'VA' THEN 'Virginia' \n    WHEN s_state = 'VT' THEN 'Vermont'\n\
+      \    WHEN s_state = 'WA' THEN 'Washington'\n    WHEN s_state = 'WI' THEN 'Wisconsin'\n\
+      \    WHEN s_state = 'WV' THEN 'West Virginia'\n    WHEN s_state = 'WY' THEN\
+      \ 'Wyoming'\n    ELSE NULL\nEND"

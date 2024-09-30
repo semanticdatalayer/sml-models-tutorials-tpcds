@@ -63,12 +63,30 @@ columns:
     data_type: int
   - name: d_same_day_ly
     data_type: int
-  - name: d_weekend
-    data_type: string
   - name: d_week_seq
     data_type: int
+  - name: d_weekend
+    data_type: string
   - name: d_year
     data_type: int
+  - name: month_name
+    data_type: string
+    sql: |-
+      CASE
+          WHEN d_moy = 1 THEN 'January'
+          WHEN d_moy = 2 THEN 'February'
+          WHEN d_moy = 3 THEN 'March'
+          WHEN d_moy = 4 THEN 'April'
+          WHEN d_moy = 5 THEN 'May'
+          WHEN d_moy = 6 THEN 'June'
+          WHEN d_moy = 7 THEN 'July'
+          WHEN d_moy = 8 THEN 'August'
+          WHEN d_moy = 9 THEN 'September'
+          WHEN d_moy = 10 THEN 'October'
+          WHEN d_moy = 11 THEN 'November'
+          WHEN d_moy = 12 THEN 'December'
+          ELSE NULL
+      END
   - name: year_month
     data_type: date
     sql: "date(date_trunc('month', \"d_date\"))"

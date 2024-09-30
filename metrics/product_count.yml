@@ -1,0 +1,6 @@
+unique_name: product_count
+object_type: metric
+label: total product count, item count
+calculation_method: count distinct
+column: inv_item_sk
+dataset: inventory
