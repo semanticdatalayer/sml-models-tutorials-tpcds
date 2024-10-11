@@ -78,33 +78,25 @@ columns:
     data_type: "decimal(7,2)"
   - name: Catalog Sales Net Paid
     data_type: "decimal(38,2)"
-    sql: "CAST(\"cs_net_paid\"*\"cs_quantity\" AS decimal(38,2))"
+    sql: "CAST(cs_net_paid*cs_quantity AS decimal(38,2))"
     dialects:
-      - dialect: DatabricksSQL
-        sql: "CAST(cs_net_paid*cs_quantity AS decimal(38,2))"
-      - dialect: BigQuery
-        sql: "CAST(FORMAT('%.2F', unitprice*salesamount) as decimal)"
+      - dialect: Snowflake
+        sql: "CAST(\"cs_net_paid\"*\"cs_quantity\" AS decimal(38,2))"
   - name: Catalog Sales Price Tier
     data_type: string
-    sql: "CASE WHEN \"cs_sales_price\" BETWEEN 0 AND 500 THEN '500 or Less' ELSE 'More than 500' END"
+    sql: "CASE WHEN cs_sales_price BETWEEN 0 AND 500 THEN '500 or Less' ELSE 'More than 500' END"
     dialects:
-      - dialect: DatabricksSQL
-        sql: "CASE WHEN cs_sales_price BETWEEN 0 AND 500 THEN '500 or Less' ELSE 'More than 500' END"
-      - dialect: BigQuery
-        sql: "CASE WHEN cs_sales_price BETWEEN 0 AND 500 THEN '500 or Less' ELSE 'More than 500' END"
+      - dialect: Snowflake
+        sql: "CASE WHEN \"cs_sales_price\" BETWEEN 0 AND 500 THEN '500 or Less' ELSE 'More than 500' END"
   - name: Catalog Sales
     data_type: "decimal(38,2)"
-    sql: "CAST(\"cs_sales_price\"+\"cs_quantity\" AS decimal(38,2))"
+    sql: "CAST(cs_sales_price-cs_quantity AS decimal(38,2))"
     dialects:
-      - dialect: DatabricksSQL
-        sql: "CAST(cs_sales_price-cs_quantity AS decimal(38,2))"
-      - dialect: BigQuery
-        sql: "CAST(FORMAT('%.2F', cs_sales_price-cs_quantity) as decimal)"
+      - dialect: Snowflake
+        sql: "CAST(\"cs_sales_price\"+\"cs_quantity\" AS decimal(38,2))"
   - name: Purchased Amount in Catalog
     data_type: "decimal(16,8)"
-    sql: (("cs_ext_list_price"-"cs_ext_wholesale_cost"-"cs_ext_discount_amt")+"cs_ext_sales_price")/2
+    sql: "((cs_ext_list_price-cs_ext_wholesale_cost-cs_ext_discount_amt)+cs_ext_sales_price)/2"
     dialects:
-      - dialect: DatabricksSQL
-        sql: "((cs_ext_list_price-cs_ext_wholesale_cost-cs_ext_discount_amt)+cs_ext_sales_price)/2"
-      - dialect: BigQuery
-        sql: "((cs_ext_list_price-cs_ext_wholesale_cost-cs_ext_discount_amt)+cs_ext_sales_price)/2"
+      - dialect: Snowflake
+        sql: (("cs_ext_list_price"-"cs_ext_wholesale_cost"-"cs_ext_discount_amt")+"cs_ext_sales_price")/2

@@ -43,4 +43,7 @@ columns:
     data_type: string
   - name: customer_preferred_flag
     data_type: boolean
-    sql: CASE c_preferred_cust_flag WHEN "T" THEN TRUE ELSE FALSE END
+    sql: CASE c_preferred_cust_flag WHEN 'T' THEN TRUE ELSE FALSE END
+    dialects:
+      - dialect: Snowflake
+        sql: CASE \"c_preferred_cust_flag\" WHEN 'T' THEN TRUE ELSE FALSE END

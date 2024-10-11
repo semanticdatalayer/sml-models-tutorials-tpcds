@@ -95,11 +95,11 @@ sql: |-
 dialects:
   - dialect: DatabricksSQL
     sql: "SELECT p.*, ss.* 
-      FROM hive_metastore.tpcds_sf10000_deltapromotion p
-      INNER JOIN hive_metastore.tpcds_sf10000_deltastore_sales ss
+      FROM atscale_tutorial_data.tpcds.promotion p
+      INNER JOIN atscale_tutorial_data.tpcds.store_sales ss
       ON ss.ss_promo_sk = p.p_promo_sk"
   - dialect: BigQuery
     sql: "SELECT p.*, ss.* 
-      FROM hive_metastore.tpcds_sf10000_deltapromotion p
-      INNER JOIN hive_metastore.tpcds_sf10000_deltastore_sales ss
+      FROM atscale-tutorial-data.tpcds.promotion p
+      INNER JOIN atscale-tutorial-data.tpcds.store_sales ss
       ON ss.ss_promo_sk = p.p_promo_sk"
