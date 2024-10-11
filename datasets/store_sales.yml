@@ -35,12 +35,10 @@ columns:
         END"
   - name: Purchased Amount in Store
     data_type: "decimal(16,8)"
-    sql: "((\"ss_ext_list_price\"-\"ss_ext_wholesale_cost\"-\"ss_ext_discount_amt\")+\"ss_ext_sales_price\")/2"
+    sql: "((ss_ext_list_price-ss_ext_wholesale_cost-ss_ext_discount_amt)+ss_ext_sales_price)/2"
     dialects:
-      - dialect: DatabricksSQL
-        sql: "((ss_ext_list_price-ss_ext_wholesale_cost-ss_ext_discount_amt)+ss_ext_sales_price)/2"
-      - dialect: BigQuery
-        sql: ((ss_ext_list_price-ss_ext_wholesale_cost-ss_ext_discount_amt)+ss_ext_sales_price)/2
+      - dialect: Snowflake
+        sql: "((\"ss_ext_list_price\"-\"ss_ext_wholesale_cost\"-\"ss_ext_discount_amt\")+\"ss_ext_sales_price\")/2"
   - name: sales price tier
     data_type: string
     sql: "CASE WHEN ss_sales_price > 200 THEN '200 and More' 
