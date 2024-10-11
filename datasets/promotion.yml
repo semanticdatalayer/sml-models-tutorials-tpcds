@@ -56,7 +56,7 @@ columns:
     dialects:
       - dialect: Snowflake
         sql: |-
-      CASE \"p_channel_email\"
-        WHEN 'N' THEN False
-        ELSE TRUE
-        END
+          CASE \"p_channel_email\"
+            WHEN 'N' THEN False
+            ELSE TRUE
+          END
