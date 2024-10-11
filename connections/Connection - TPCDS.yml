@@ -2,5 +2,5 @@ unique_name: Connection - TPCDS
 label: Connection - TPCDS
 object_type: connection
 as_connection: Databricks
-database: hive_metastore
-schema: tpcds_sf10000_delta
+database: atscale_tutorial_data
+schema: tpcds
