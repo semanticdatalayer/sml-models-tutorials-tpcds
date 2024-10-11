@@ -50,6 +50,13 @@ columns:
     data_type: boolean
     sql: |-
       CASE p_channel_email
-        WHEN "N" THEN False
+        WHEN 'N' THEN False
+        ELSE TRUE
+        END
+    dialects:
+      - dialect: Snowflake
+        sql: |-
+      CASE \"p_channel_email\"
+        WHEN 'N' THEN False
         ELSE TRUE
         END
