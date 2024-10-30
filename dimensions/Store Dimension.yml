@@ -38,8 +38,6 @@ hierarchies:
 
       - unique_name: Store_Number
 
-      - unique_name: Store Dimension
-
         secondary_attributes:
 
           - unique_name: d_s_floor_space
