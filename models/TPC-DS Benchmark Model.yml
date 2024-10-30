@@ -346,7 +346,7 @@ relationships:
         - ss_store_sk
     to:
       dimension: Store Dimension
-      level: Store Dimension
+      level: Store_Number
 
   - unique_name: store_promotion_Date_Dimension_Sold
     from:
@@ -570,7 +570,7 @@ relationships:
         - sr_store_sk
     to:
       dimension: Store Dimension
-      level: Store Dimension
+      level: Store_Number
 
   - unique_name: store_returns_Date_Dimension_Return
     from:
@@ -654,7 +654,7 @@ relationships:
         - ss_store_sk
     to:
       dimension: Store Dimension
-      level: Store Dimension
+      level: Store_Number
 
   - unique_name: store_sales_Date_Dimension_Sold
     from:
