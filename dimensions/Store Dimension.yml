@@ -16,9 +16,27 @@ hierarchies:
 
       - unique_name: d_store_state
 
+        secondary_attributes:
+
+          - unique_name: d_Store State Name
+            label: Store State Name
+            description: Full name of the State
+            allowed_calcs_for_dma:
+              - Lag
+              - Siblings
+              - Range
+            dataset: store
+            folder: Store Attributes
+            key_columns:
+              - Store State Name
+            name_column: Store State Name
+            sort_column: Store State Name
+
       - unique_name: d_store_county
 
       - unique_name: d_store_city
+
+      - unique_name: Store_Number
 
       - unique_name: Store Dimension
 
@@ -35,6 +53,7 @@ hierarchies:
 
           - unique_name: d_s_hours
             label: Store Hours
+            description: Store hours of operation
             folder: Store Attributes
             dataset: store
             name_column: s_hours
@@ -44,6 +63,7 @@ hierarchies:
 
           - unique_name: d_s_manager
             label: Store Manager
+            description: Name of the store manager
             folder: Store Attributes
             dataset: store
             name_column: s_manager
@@ -53,6 +73,7 @@ hierarchies:
 
           - unique_name: d_s_number_employees
             label: Store Number of Employees
+            description: count of employees working at a store
             folder: Store Attributes
             dataset: store
             name_column: s_number_employees
@@ -145,6 +166,7 @@ level_attributes:
 
   - unique_name: d_store_country
     label: Store Country
+    description: Store Country Name
     dataset: store
     name_column: s_country
     key_columns:
@@ -152,6 +174,7 @@ level_attributes:
 
   - unique_name: d_store_county
     label: Store County
+    description: Name of the Store's county
     dataset: store
     name_column: s_county
     key_columns:
@@ -160,14 +183,16 @@ level_attributes:
 
   - unique_name: d_store_state
     label: Store State
+    description: Store Shorthand, Abbreviation
     dataset: store
     name_column: s_state
     key_columns:
       - s_country
       - s_state
 
-  - unique_name: Store Dimension
+  - unique_name: Store_Number
     label: Store Number
+    description: ID of the store
     is_unique_key: true
     dataset: store
     name_column: s_store_sk
