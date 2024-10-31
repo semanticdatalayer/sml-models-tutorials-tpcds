@@ -24,6 +24,18 @@ hierarchies:
             sort_column: d_qoy
       - unique_name: Calendar Month
         secondary_attributes:
+          - unique_name: d_month_name
+            label: Month Name
+            allowed_calcs_for_dma:
+              - Lag
+              - Siblings
+              - Range
+            dataset: date_dim
+            folder: Date Attributes
+            key_columns:
+              - month_name
+            name_column: month_name
+            sort_column: month_name
           - unique_name: d_month_of_year
             label: Month of Year
             allowed_calcs_for_dma:

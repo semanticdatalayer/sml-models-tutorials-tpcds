@@ -1,6 +1,376 @@
 unique_name: TPC-DS Benchmark Model
 object_type: model
 label: TPC-DS Benchmark Model
+aggregates:
+  - unique_name: Q13
+    label: Q13
+    attributes:
+      - name: d_hd_dep_count
+        dimension: Household Demographics
+      - name: d_cd_marital_status
+        dimension: Customer Demographics
+      - name: d_customer_state
+        dimension: Customer Address
+        relationships_path:
+          - CustomerDimension_CustomerAddress
+      - name: d_sales_price_tier
+        dimension: Sales_Price_Tier
+      - name: d_cd_education_status
+        dimension: Customer Demographics
+      - name: d_customer_country
+        dimension: Customer Address
+        relationships_path:
+          - CustomerDimension_CustomerAddress
+      - name: Calendar Year-Week
+        dimension: Date Dimension - TPC-DS
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: d_net_profit_tier
+        dimension: Net_Profit_Tier
+    metrics:
+      - m_ss_ext_wholesale_cost_sum
+      - m_ss_quantity_avg
+      - m_ss_ext_wholesale_cost_avg
+      - m_ss_ext_sales_price_avg
+    target_connection: Connection - TPCDS
+  - unique_name: Q15
+    label: Q15
+    attributes:
+      - name: d_customer_state
+        dimension: Customer Address
+        relationships_path:
+          - CustomerDimension_CustomerAddress
+      - name: d_customer_zip_code
+        dimension: Customer Address
+        relationships_path:
+          - CustomerDimension_CustomerAddress
+      - name: Calendar Year
+        dimension: Date Dimension - TPC-DS
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: d_catalog_sales_price_tier
+        dimension: Catalog_Sales_Price_Tier
+      - name: d_quarter_of_year
+        dimension: Date Dimension - TPC-DS
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+    metrics:
+      - m_cs_sales_price_sum
+    target_connection: Connection - TPCDS
+  - unique_name: Q2
+    label: Q2
+    attributes:
+      - name: Calendar Week
+        dimension: Date Dimension - TPC-DS
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: d_day_name_week
+        dimension: Date Dimension - TPC-DS
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: d_week_seg
+        dimension: Date Dimension - TPC-DS
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: Calendar Year-Week
+        dimension: Date Dimension - TPC-DS
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+    metrics:
+      - Web Catalog Sales Price Growth
+    target_connection: Connection - TPCDS
+  - unique_name: Q31
+    label: Q31
+    attributes:
+      - name: Calendar Quarter
+        dimension: Date Dimension - TPC-DS
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: d_CA_COUNTY
+        dimension: Customer Address
+        relationships_path:
+          - store_sales_Customer_Address_Sold
+      - name: Calendar Year-Week
+        dimension: Date Dimension - TPC-DS
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+    metrics:
+      - Web Sales Increase
+      - Store Sales Increase
+    target_connection: Connection - TPCDS
+  - unique_name: Q33
+    label: Q33
+    attributes:
+      - name: d_customer_gmt_offset
+        dimension: Customer Address
+        relationships_path:
+          - store_sales_Customer_Address_Sold
+      - name: d_month_of_year
+        dimension: Date Dimension - TPC-DS
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: I category
+        dimension: Product Dimension - TPC-DS
+      - name: d_product_manufacturer_id
+        dimension: Product Dimension - TPC-DS
+      - name: Calendar Year-Week
+        dimension: Date Dimension - TPC-DS
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+    metrics:
+      - Total  Ext Sales Price
+    target_connection: Connection - TPCDS
+  - unique_name: Q42
+    label: Q42
+    attributes:
+      - name: d_month_of_year
+        dimension: Date Dimension - TPC-DS
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: I category
+        dimension: Product Dimension - TPC-DS
+      - name: d_product_manager_id
+        dimension: Product Dimension - TPC-DS
+      - name: Calendar Year-Week
+        dimension: Date Dimension - TPC-DS
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+    metrics:
+      - m_ss_ext_sales_price_sum
+    target_connection: Connection - TPCDS
+  - unique_name: Q48
+    label: Q48
+    attributes:
+      - name: d_cd_marital_status
+        dimension: Customer Demographics
+      - name: d_customer_state
+        dimension: Customer Address
+        relationships_path:
+          - store_sales_Customer_Address_Sold
+      - name: d_sales_price_tier
+        dimension: Sales_Price_Tier
+      - name: d_cd_education_status
+        dimension: Customer Demographics
+      - name: d_customer_country
+        dimension: Customer Address
+        relationships_path:
+          - store_sales_Customer_Address_Sold
+      - name: Calendar Year-Week
+        dimension: Date Dimension - TPC-DS
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: d_net_profit_tier
+        dimension: Net_Profit_Tier
+    metrics:
+      - m_ss_quantity_sum
+    target_connection: Connection - TPCDS
+  - unique_name: Q50
+    label: Q50
+    attributes:
+      - name: d_store_zip_code
+        dimension: Store Dimension
+      - name: d_store_country
+        dimension: Store Dimension
+      - name: d_store_street_type
+        dimension: Store Dimension
+      - name: d_store_city
+        dimension: Store Dimension
+      - name: d_month_of_year
+        dimension: Date Dimension - TPC-DS
+        relationships_path:
+          - store_returns_Date_Dimension_Return_1
+      - name: d_store_company_id
+        dimension: Store Dimension
+      - name: d_returns_time_tier
+        dimension: Returns_Time_Tier
+      - name: d_store_name
+        dimension: Store Dimension
+      - name: d_store_street_number
+        dimension: Store Dimension
+      - name: d_store_street_name
+        dimension: Store Dimension
+      - name: d_store_county
+        dimension: Store Dimension
+      - name: d_store_suite_number
+        dimension: Store Dimension
+      - name: Calendar Year-Week
+        dimension: Date Dimension - TPC-DS
+        partition: name
+        relationships_path:
+          - store_returns_Date_Dimension_Return
+      - name: d_store_state
+        dimension: Store Dimension
+    metrics:
+      - m_returns_count_sum
+    target_connection: Connection - TPCDS
+  - unique_name: Q52
+    label: Q52
+    attributes:
+      - name: d_product_brand_name
+        dimension: Product Dimension - TPC-DS
+      - name: d_month_of_year
+        dimension: Date Dimension - TPC-DS
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: d_product_brand_id
+        dimension: Product Dimension - TPC-DS
+      - name: d_product_manager_id
+        dimension: Product Dimension - TPC-DS
+      - name: Calendar Year-Week
+        dimension: Date Dimension - TPC-DS
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+    metrics:
+      - m_ss_ext_sales_price_sum
+    target_connection: Connection - TPCDS
+  - unique_name: Q53
+    label: Q53
+    attributes:
+      - name: d_product_brand_name
+        dimension: Product Dimension - TPC-DS
+      - name: d_product_class_name
+        dimension: Product Dimension - TPC-DS
+      - name: I category
+        dimension: Product Dimension - TPC-DS
+      - name: Calendar Quarter
+        dimension: Date Dimension - TPC-DS
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: d_product_manufacturer_id
+        dimension: Product Dimension - TPC-DS
+    metrics:
+      - Avg Quarterly Store Sales for 1998-1999
+      - Avg Quarter Sales Ratio
+      - m_store_sales_price
+    target_connection: Connection - TPCDS
+  - unique_name: Q56-Q60
+    label: Q56-Q60
+    attributes:
+      - name: Calendar Year
+        dimension: Date Dimension - TPC-DS
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: d_product_item_id
+        dimension: Product Dimension - TPC-DS
+      - name: d_customer_gmt_offset
+        dimension: Customer Address
+        relationships_path:
+          - CustomerDimension_CustomerAddress
+      - name: d_month_of_year
+        dimension: Date Dimension - TPC-DS
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: I category
+        dimension: Product Dimension - TPC-DS
+      - name: d_i_color
+        dimension: Product Dimension - TPC-DS
+    metrics:
+      - Total  Ext Sales Price
+    target_connection: Connection - TPCDS
+  - unique_name: Q61
+    label: Q61
+    attributes:
+      - name: d_channel_direct_mail
+        dimension: Promotions
+      - name: d_store_gmt_offset
+        dimension: Store Dimension
+      - name: d_channel_tv
+        dimension: Promotions
+      - name: d_customer_gmt_offset
+        dimension: Customer Address
+        relationships_path:
+          - CustomerDimension_CustomerAddress
+      - name: d_month_of_year
+        dimension: Date Dimension - TPC-DS
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: I category
+        dimension: Product Dimension - TPC-DS
+      - name: d_channel_email
+        dimension: Promotions
+      - name: Calendar Year-Week
+        dimension: Date Dimension - TPC-DS
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+    metrics:
+      - m_ss_ext_sales_price_sum
+      - m_ss_ext_sales_price_promotion
+    target_connection: Connection - TPCDS
+  - unique_name: Q7-Q26
+    label: Q7-Q26
+    attributes:
+      - name: d_cd_marital_status
+        dimension: Customer Demographics
+      - name: Calendar Year
+        dimension: Date Dimension - TPC-DS
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: d_product_item_id
+        dimension: Product Dimension - TPC-DS
+      - name: d_cd_education_status
+        dimension: Customer Demographics
+      - name: d_channel_event
+        dimension: Promotions
+      - name: d_cd_gender
+        dimension: Customer Demographics
+      - name: d_channel_email
+        dimension: Promotions
+    metrics:
+      - m_catalog_sales_coupon_amount_avg
+      - m_ss_sales_price_avg
+      - m_catalog_sales_quantity_sold_avg
+      - m_ss_coupon_amt_avg
+      - m_ss_quantity_avg
+      - m_ss_list_price_avg
+      - m_catalog_sales_list_price_avg
+      - m_catalog_sales_sales_price_avg
+    target_connection: Connection - TPCDS
+  - unique_name: Q88
+    label: Q88
+    attributes:
+      - name: d_hd_dep_count
+        dimension: Household Demographics
+      - name: d_morning _time_tier
+        dimension: Time Dimension
+        relationships_path:
+          - store_sales_Time_Dimension_Sold
+      - name: d_hd_vehicle_count
+        dimension: Household Demographics
+      - name: d_store_name
+        dimension: Store Dimension
+    metrics:
+      - m_ss row counter_sum
+    target_connection: Connection - TPCDS
+  - unique_name: Q96
+    label: Q96
+    attributes:
+      - name: d_hd_dep_count
+        dimension: Household Demographics
+      - name: d_minute
+        dimension: Time Dimension
+        partition: name
+        relationships_path:
+          - store_sales_Time_Dimension_Sold
+      - name: d_hour
+        dimension: Time Dimension
+        relationships_path:
+          - store_sales_Time_Dimension_Sold
+      - name: d_store_name
+        dimension: Store Dimension
+    metrics:
+      - m_ss row counter_sum
+    target_connection: Connection - TPCDS
 dimensions:
   - Catalog_Preferred
   - Catalog_Sales_Price_Tier
@@ -180,7 +550,6 @@ metrics:
   - unique_name: Web Sales Increase
     folder: Web Sales Measures
   - unique_name: product_count
-
 partitions:
   - unique_name: TPC-DS Benchmark Model.Date Dimension - TPC-DS.Calendar Year.partition
     attribute: Calendar Year
@@ -197,7 +566,6 @@ partitions:
       - store_sales_Date_Dimension_Week_Sold
     type: key
 relationships:
-
   - unique_name: purchase_by_channel_Customer_Dimension
     from:
       dataset: purchase_by_channel
@@ -206,27 +574,24 @@ relationships:
     to:
       dimension: Customer Dimension - TPC-DS
       level: Customer Dimension - TPC-DS
-
   - unique_name: catalog_sales_Date_Dimension_Sold
     from:
       dataset: catalog_sales
       join_columns:
         - cs_sold_date_sk
+    role_play: Sold {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Date Week Hierarchy - TPC-DS
-    role_play: "Sold {0}"
-
   - unique_name: catalog_sales_Date_Dimension_Ship
     from:
       dataset: catalog_sales
       join_columns:
         - cs_ship_date_sk
+    role_play: Ship {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Date Week Hierarchy - TPC-DS
-    role_play: "Ship {0}"
-
   - unique_name: catalog_sales_Fulfilling_Warehouse
     from:
       dataset: catalog_sales
@@ -235,17 +600,15 @@ relationships:
     to:
       dimension: Fulfilling Warehouse
       level: Fulfilling Warehouse
-
   - unique_name: catalog_sales_Time_Dimension_Sold
     from:
       dataset: catalog_sales
       join_columns:
         - cs_sold_time_sk
+    role_play: Sold {0}
     to:
       dimension: Time Dimension
       level: Time
-    role_play: "Sold {0}"
-
   - unique_name: catalog_sales_Promotions
     from:
       dataset: catalog_sales
@@ -254,46 +617,42 @@ relationships:
     to:
       dimension: Promotions
       level: Promotions
-
   - unique_name: catalog_sales_Customer_Address_Sold
     from:
       dataset: catalog_sales
       join_columns:
         - cs_bill_addr_sk
+    role_play: Sold {0}
     to:
       dimension: Customer Address
       level: Customer Address
-    role_play: "Sold {0}"
-
   - unique_name: catalog_sales_Customer_Address
     from:
       dataset: catalog_sales
       join_columns:
         - cs_ship_addr_sk
+    role_play: Ship {0}
     to:
       dimension: Customer Address
       level: Customer Address
-
   - unique_name: catalog_sales_Date_Dimension_Sold_1
     from:
       dataset: catalog_sales
       join_columns:
         - cs_sold_date_sk
+    role_play: Sold {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Time Dimension
-    role_play: "Sold {0}"
-
   - unique_name: catalog_sales_Date_Dimension_Ship_1
     from:
       dataset: catalog_sales
       join_columns:
         - cs_ship_date_sk
+    role_play: Ship {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Time Dimension
-    role_play: "Ship {0}"
-
   - unique_name: catalog_sales_Customer_Demographics
     from:
       dataset: catalog_sales
@@ -302,7 +661,6 @@ relationships:
     to:
       dimension: Customer Demographics
       level: Customer Demographics
-
   - unique_name: catalog_sales_Ship_Mode
     from:
       dataset: catalog_sales
@@ -311,7 +669,6 @@ relationships:
     to:
       dimension: Ship Mode
       level: Ship Mode
-
   - unique_name: catalog_sales_Household_Demographics
     from:
       dataset: catalog_sales
@@ -320,7 +677,6 @@ relationships:
     to:
       dimension: Household Demographics
       level: Household Demographics
-
   - unique_name: catalog_sales_Customer_Dimension
     from:
       dataset: catalog_sales
@@ -329,7 +685,6 @@ relationships:
     to:
       dimension: Customer Dimension - TPC-DS
       level: Customer Dimension - TPC-DS
-
   - unique_name: catalog_sales_Product_Dimension
     from:
       dataset: catalog_sales
@@ -338,7 +693,6 @@ relationships:
     to:
       dimension: Product Dimension - TPC-DS
       level: Product Dimension - TPC-DS
-
   - unique_name: store_promotion_Store_Dimension
     from:
       dataset: store_promotion
@@ -346,18 +700,16 @@ relationships:
         - ss_store_sk
     to:
       dimension: Store Dimension
-      level: Store Dimension
-
+      level: Store_Number
   - unique_name: store_promotion_Date_Dimension_Sold
     from:
       dataset: store_promotion
       join_columns:
         - ss_sold_date_sk
+    role_play: Sold {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Date Week Hierarchy - TPC-DS
-    role_play: "Sold {0}"
-
   - unique_name: store_promotion_Promotions
     from:
       dataset: store_promotion
@@ -366,7 +718,6 @@ relationships:
     to:
       dimension: Promotions
       level: Promotions
-
   - unique_name: store_promotion_Customer_Address
     from:
       dataset: store_promotion
@@ -375,17 +726,15 @@ relationships:
     to:
       dimension: Customer Address
       level: Customer Address
-
   - unique_name: store_promotion_Date_Dimension_Sold_1
     from:
       dataset: store_promotion
       join_columns:
         - ss_sold_date_sk
+    role_play: Sold {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Time Dimension
-    role_play: "Sold {0}"
-
   - unique_name: store_promotion_Customer_Demographics
     from:
       dataset: store_promotion
@@ -394,7 +743,6 @@ relationships:
     to:
       dimension: Customer Demographics
       level: Customer Demographics
-
   - unique_name: store_promotion_Household_Demographics
     from:
       dataset: store_promotion
@@ -403,7 +751,6 @@ relationships:
     to:
       dimension: Household Demographics
       level: Household Demographics
-
   - unique_name: store_promotion_Customer_Dimension
     from:
       dataset: store_promotion
@@ -412,7 +759,6 @@ relationships:
     to:
       dimension: Customer Dimension - TPC-DS
       level: Customer Dimension - TPC-DS
-
   - unique_name: store_promotion_Product_Dimension
     from:
       dataset: store_promotion
@@ -421,7 +767,6 @@ relationships:
     to:
       dimension: Product Dimension - TPC-DS
       level: Product Dimension - TPC-DS
-
   - unique_name: store_promotion_Product_Dimension_1
     from:
       dataset: store_promotion
@@ -430,27 +775,24 @@ relationships:
     to:
       dimension: Product Dimension - TPC-DS
       level: Product Dimension - TPC-DS
-
   - unique_name: web_sales_Date_Dimension_Sold
     from:
       dataset: web_sales
       join_columns:
         - ws_sold_date_sk
+    role_play: Sold {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Date Week Hierarchy - TPC-DS
-    role_play: "Sold {0}"
-
   - unique_name: web_sales_Date_Dimension_Ship
     from:
       dataset: web_sales
       join_columns:
         - ws_ship_date_sk
+    role_play: Ship {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Date Week Hierarchy - TPC-DS
-    role_play: "Ship {0}"
-
   - unique_name: web_sales_Fulfilling_Warehouse
     from:
       dataset: web_sales
@@ -459,17 +801,15 @@ relationships:
     to:
       dimension: Fulfilling Warehouse
       level: Fulfilling Warehouse
-
   - unique_name: web_sales_Time_Dimension_Sold
     from:
       dataset: web_sales
       join_columns:
         - ws_sold_time_sk
+    role_play: Sold {0}
     to:
       dimension: Time Dimension
       level: Time
-    role_play: "Sold {0}"
-
   - unique_name: web_sales_Promotions
     from:
       dataset: web_sales
@@ -478,46 +818,42 @@ relationships:
     to:
       dimension: Promotions
       level: Promotions
-
   - unique_name: web_sales_Customer_Address_Sold
     from:
       dataset: web_sales
       join_columns:
         - ws_bill_addr_sk
+    role_play: Sold {0}
     to:
       dimension: Customer Address
       level: Customer Address
-    role_play: "Sold {0}"
-
   - unique_name: web_sales_Customer_Address
     from:
       dataset: web_sales
       join_columns:
         - ws_ship_addr_sk
+    role_play: Ship {0}
     to:
       dimension: Customer Address
       level: Customer Address
-
   - unique_name: web_sales_Date_Dimension_Sold_1
     from:
       dataset: web_sales
       join_columns:
         - ws_sold_date_sk
+    role_play: Sold {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Time Dimension
-    role_play: "Sold {0}"
-
   - unique_name: web_sales_Date_Dimension_Ship_1
     from:
       dataset: web_sales
       join_columns:
         - ws_ship_date_sk
+    role_play: Ship {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Time Dimension
-    role_play: "Ship {0}"
-
   - unique_name: web_sales_Customer_Demographics
     from:
       dataset: web_sales
@@ -526,7 +862,6 @@ relationships:
     to:
       dimension: Customer Demographics
       level: Customer Demographics
-
   - unique_name: web_sales_Ship_Mode
     from:
       dataset: web_sales
@@ -535,7 +870,6 @@ relationships:
     to:
       dimension: Ship Mode
       level: Ship Mode
-
   - unique_name: web_sales_Household_Demographics
     from:
       dataset: web_sales
@@ -544,7 +878,6 @@ relationships:
     to:
       dimension: Household Demographics
       level: Household Demographics
-
   - unique_name: web_sales_Customer_Dimension
     from:
       dataset: web_sales
@@ -553,7 +886,6 @@ relationships:
     to:
       dimension: Customer Dimension - TPC-DS
       level: Customer Dimension - TPC-DS
-
   - unique_name: web_sales_Product_Dimension
     from:
       dataset: web_sales
@@ -562,7 +894,6 @@ relationships:
     to:
       dimension: Product Dimension - TPC-DS
       level: Product Dimension - TPC-DS
-
   - unique_name: store_returns_Store_Dimension
     from:
       dataset: store_returns
@@ -570,47 +901,43 @@ relationships:
         - sr_store_sk
     to:
       dimension: Store Dimension
-      level: Store Dimension
-
+      level: Store_Number
   - unique_name: store_returns_Date_Dimension_Return
     from:
       dataset: store_returns
       join_columns:
         - sr_returned_date_sk
+    role_play: Return {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Date Week Hierarchy - TPC-DS
-    role_play: "Return {0}"
-
   - unique_name: store_returns_Time_Dimension_Return
     from:
       dataset: store_returns
       join_columns:
         - sr_return_time_sk
+    role_play: Return {0}
     to:
       dimension: Time Dimension
       level: Time
-    role_play: "Return {0}"
-
   - unique_name: store_returns_Customer_Address
     from:
       dataset: store_returns
       join_columns:
         - sr_addr_sk
+    role_play: Return {0}
     to:
       dimension: Customer Address
       level: Customer Address
-
   - unique_name: store_returns_Date_Dimension_Return_1
     from:
       dataset: store_returns
       join_columns:
         - sr_returned_date_sk
+    role_play: Return {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Time Dimension
-    role_play: "Return {0}"
-
   - unique_name: store_returns_Customer_Demographics
     from:
       dataset: store_returns
@@ -619,7 +946,6 @@ relationships:
     to:
       dimension: Customer Demographics
       level: Customer Demographics
-
   - unique_name: store_returns_Household_Demographics
     from:
       dataset: store_returns
@@ -628,7 +954,6 @@ relationships:
     to:
       dimension: Household Demographics
       level: Household Demographics
-
   - unique_name: store_returns_Customer_Dimension
     from:
       dataset: store_returns
@@ -637,7 +962,6 @@ relationships:
     to:
       dimension: Customer Dimension - TPC-DS
       level: Customer Dimension - TPC-DS
-
   - unique_name: store_returns_Product_Dimension
     from:
       dataset: store_returns
@@ -646,7 +970,6 @@ relationships:
     to:
       dimension: Product Dimension - TPC-DS
       level: Product Dimension - TPC-DS
-
   - unique_name: store_sales_Store_Dimension
     from:
       dataset: store_sales
@@ -654,28 +977,25 @@ relationships:
         - ss_store_sk
     to:
       dimension: Store Dimension
-      level: Store Dimension
-
+      level: Store_Number
   - unique_name: store_sales_Date_Dimension_Sold
     from:
       dataset: store_sales
       join_columns:
         - ss_sold_date_sk
+    role_play: Sold {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Date Week Hierarchy - TPC-DS
-    role_play: "Sold {0}"
-
   - unique_name: store_sales_Time_Dimension_Sold
     from:
       dataset: store_sales
       join_columns:
         - ss_sold_time_sk
+    role_play: Sold {0}
     to:
       dimension: Time Dimension
       level: Time
-    role_play: "Sold {0}"
-
   - unique_name: store_sales_Promotions
     from:
       dataset: store_sales
@@ -684,27 +1004,24 @@ relationships:
     to:
       dimension: Promotions
       level: Promotions
-
   - unique_name: store_sales_Customer_Address_Sold
     from:
       dataset: store_sales
       join_columns:
         - ss_addr_sk
+    role_play: Sold {0}
     to:
       dimension: Customer Address
       level: Customer Address
-    role_play: "Sold {0}"
-
   - unique_name: store_sales_Date_Dimension_Sold_1
     from:
       dataset: store_sales
       join_columns:
         - ss_sold_date_sk
+    role_play: Sold {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Time Dimension
-    role_play: "Sold {0}"
-
   - unique_name: store_sales_Customer_Demographics
     from:
       dataset: store_sales
@@ -713,7 +1030,6 @@ relationships:
     to:
       dimension: Customer Demographics
       level: Customer Demographics
-
   - unique_name: store_sales_Household_Demographics
     from:
       dataset: store_sales
@@ -722,7 +1038,6 @@ relationships:
     to:
       dimension: Household Demographics
       level: Household Demographics
-
   - unique_name: store_sales_Customer_Dimension
     from:
       dataset: store_sales
@@ -731,7 +1046,6 @@ relationships:
     to:
       dimension: Customer Dimension - TPC-DS
       level: Customer Dimension - TPC-DS
-
   - unique_name: store_sales_Product_Dimension
     from:
       dataset: store_sales
@@ -740,17 +1054,15 @@ relationships:
     to:
       dimension: Product Dimension - TPC-DS
       level: Product Dimension - TPC-DS
-
   - unique_name: inventory_Date_Dimension_Inventory
     from:
       dataset: inventory
       join_columns:
         - inv_date_sk
+    role_play: Inventory {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Date Week Hierarchy - TPC-DS
-    role_play: "Inventory {0}"
-
   - unique_name: inventory_Fulfilling_Warehouse
     from:
       dataset: inventory
@@ -759,17 +1071,15 @@ relationships:
     to:
       dimension: Fulfilling Warehouse
       level: Fulfilling Warehouse
-
   - unique_name: inventory_Date_Dimension_Inventory_1
     from:
       dataset: inventory
       join_columns:
         - inv_date_sk
+    role_play: Inventory {0}
     to:
       dimension: Date Dimension - TPC-DS
       level: Time Dimension
-    role_play: "Inventory {0}"
-
   - unique_name: inventory_Product_Dimension
     from:
       dataset: inventory
@@ -778,493 +1088,3 @@ relationships:
     to:
       dimension: Product Dimension - TPC-DS
       level: Product Dimension - TPC-DS
-      
-aggregates:
-
-   - unique_name: Q13
-     label: Q13
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: d_hd_dep_count
-         dimension: Household Demographics
-
-       - name: d_cd_marital_status
-         dimension: Customer Demographics
-
-       - name: d_customer_state
-         dimension: Customer Address
-         relationships_path:
-           - CustomerDimension_CustomerAddress
-
-       - name: d_sales_price_tier
-         dimension: Sales_Price_Tier
-
-       - name: d_cd_education_status
-         dimension: Customer Demographics
-
-       - name: d_customer_country
-         dimension: Customer Address
-         relationships_path:
-           - CustomerDimension_CustomerAddress
-
-       - name: Calendar Year-Week
-         dimension: Date Dimension - TPC-DS
-         partition: name
-         relationships_path:
-           - store_sales_Date_Dimension_Sold
-
-       - name: d_net_profit_tier
-         dimension: Net_Profit_Tier
-
-     metrics:
-       - m_ss_ext_wholesale_cost_sum
-       - m_ss_quantity_avg
-       - m_ss_ext_wholesale_cost_avg
-       - m_ss_ext_sales_price_avg
-
-   - unique_name: Q15
-     label: Q15
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: d_customer_state
-         dimension: Customer Address
-         relationships_path:
-           - CustomerDimension_CustomerAddress
-
-       - name: d_customer_zip_code
-         dimension: Customer Address
-         relationships_path:
-           - CustomerDimension_CustomerAddress
-
-       - name: Calendar Year
-         dimension: Date Dimension - TPC-DS
-         partition: name
-         relationships_path:
-           - store_sales_Date_Dimension_Sold_1
-
-       - name: d_catalog_sales_price_tier
-         dimension: Catalog_Sales_Price_Tier
-
-       - name: d_quarter_of_year
-         dimension: Date Dimension - TPC-DS
-         relationships_path:
-           - store_sales_Date_Dimension_Sold_1
-
-     metrics:
-       - m_cs_sales_price_sum
-
-   - unique_name: Q2
-     label: Q2
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: Calendar Week
-         dimension: Date Dimension - TPC-DS
-         relationships_path:
-           - store_sales_Date_Dimension_Sold
-
-       - name: d_day_name_week
-         dimension: Date Dimension - TPC-DS
-         relationships_path:
-           - store_sales_Date_Dimension_Sold
-
-       - name: d_week_seg
-         dimension: Date Dimension - TPC-DS
-         relationships_path:
-           - store_sales_Date_Dimension_Sold
-
-       - name: Calendar Year-Week
-         dimension: Date Dimension - TPC-DS
-         partition: name
-         relationships_path:
-           - store_sales_Date_Dimension_Sold
-
-     metrics:
-       - Web Catalog Sales Price Growth
-
-   - unique_name: Q31
-     label: Q31
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: Calendar Quarter
-         dimension: Date Dimension - TPC-DS
-         relationships_path:
-           - store_sales_Date_Dimension_Sold_1
-
-       - name: d_CA_COUNTY
-         dimension: Customer Address
-         relationships_path:
-           - store_sales_Customer_Address_Sold
-
-       - name: Calendar Year-Week
-         dimension: Date Dimension - TPC-DS
-         partition: name
-         relationships_path:
-           - store_sales_Date_Dimension_Sold
-
-     metrics:
-       - Web Sales Increase
-       - Store Sales Increase
-
-   - unique_name: Q33
-     label: Q33
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: d_customer_gmt_offset
-         dimension: Customer Address
-         relationships_path:
-           - store_sales_Customer_Address_Sold
-
-       - name: d_month_of_year
-         dimension: Date Dimension - TPC-DS
-         relationships_path:
-           - store_sales_Date_Dimension_Sold_1
-
-       - name: I category
-         dimension: Product Dimension - TPC-DS
-
-       - name: d_product_manufacturer_id
-         dimension: Product Dimension - TPC-DS
-
-       - name: Calendar Year-Week
-         dimension: Date Dimension - TPC-DS
-         partition: name
-         relationships_path:
-           - store_sales_Date_Dimension_Sold
-
-     metrics:
-       - Total  Ext Sales Price
-
-   - unique_name: Q42
-     label: Q42
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: d_month_of_year
-         dimension: Date Dimension - TPC-DS
-         relationships_path:
-           - store_sales_Date_Dimension_Sold_1
-
-       - name: I category
-         dimension: Product Dimension - TPC-DS
-
-       - name: d_product_manager_id
-         dimension: Product Dimension - TPC-DS
-
-       - name: Calendar Year-Week
-         dimension: Date Dimension - TPC-DS
-         partition: name
-         relationships_path:
-           - store_sales_Date_Dimension_Sold
-
-     metrics:
-       - m_ss_ext_sales_price_sum
-
-   - unique_name: Q48
-     label: Q48
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: d_cd_marital_status
-         dimension: Customer Demographics
-
-       - name: d_customer_state
-         dimension: Customer Address
-         relationships_path:
-           - store_sales_Customer_Address_Sold
-
-       - name: d_sales_price_tier
-         dimension: Sales_Price_Tier
-
-       - name: d_cd_education_status
-         dimension: Customer Demographics
-
-       - name: d_customer_country
-         dimension: Customer Address
-         relationships_path:
-           - store_sales_Customer_Address_Sold
-
-       - name: Calendar Year-Week
-         dimension: Date Dimension - TPC-DS
-         partition: name
-         relationships_path:
-           - store_sales_Date_Dimension_Sold
-
-       - name: d_net_profit_tier
-         dimension: Net_Profit_Tier
-
-     metrics:
-       - m_ss_quantity_sum
-
-   - unique_name: Q50
-     label: Q50
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: d_store_zip_code
-         dimension: Store Dimension
-
-       - name: d_store_country
-         dimension: Store Dimension
-
-       - name: d_store_street_type
-         dimension: Store Dimension
-
-       - name: d_store_city
-         dimension: Store Dimension
-
-       - name: d_month_of_year
-         dimension: Date Dimension - TPC-DS
-         relationships_path:
-           - store_returns_Date_Dimension_Return_1
-
-       - name: d_store_company_id
-         dimension: Store Dimension
-
-       - name: d_returns_time_tier
-         dimension: Returns_Time_Tier
-
-       - name: d_store_name
-         dimension: Store Dimension
-
-       - name: d_store_street_number
-         dimension: Store Dimension
-
-       - name: d_store_street_name
-         dimension: Store Dimension
-
-       - name: d_store_county
-         dimension: Store Dimension
-
-       - name: d_store_suite_number
-         dimension: Store Dimension
-
-       - name: Calendar Year-Week
-         dimension: Date Dimension - TPC-DS
-         partition: name
-         relationships_path:
-           - store_returns_Date_Dimension_Return
-
-       - name: d_store_state
-         dimension: Store Dimension
-
-     metrics:
-       - m_returns_count_sum
-
-   - unique_name: Q52
-     label: Q52
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: d_product_brand_name
-         dimension: Product Dimension - TPC-DS
-
-       - name: d_month_of_year
-         dimension: Date Dimension - TPC-DS
-         relationships_path:
-           - store_sales_Date_Dimension_Sold_1
-
-       - name: d_product_brand_id
-         dimension: Product Dimension - TPC-DS
-
-       - name: d_product_manager_id
-         dimension: Product Dimension - TPC-DS
-
-       - name: Calendar Year-Week
-         dimension: Date Dimension - TPC-DS
-         partition: name
-         relationships_path:
-           - store_sales_Date_Dimension_Sold
-
-     metrics:
-       - m_ss_ext_sales_price_sum
-
-   - unique_name: Q53
-     label: Q53
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: d_product_brand_name
-         dimension: Product Dimension - TPC-DS
-
-       - name: d_product_class_name
-         dimension: Product Dimension - TPC-DS
-
-       - name: I category
-         dimension: Product Dimension - TPC-DS
-
-       - name: Calendar Quarter
-         dimension: Date Dimension - TPC-DS
-         relationships_path:
-           - store_sales_Date_Dimension_Sold_1
-
-       - name: d_product_manufacturer_id
-         dimension: Product Dimension - TPC-DS
-
-     metrics:
-       - Avg Quarterly Store Sales for 1998-1999
-       - Avg Quarter Sales Ratio
-       - m_store_sales_price
-
-   - unique_name: Q56-Q60
-     label: Q56-Q60
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: Calendar Year
-         dimension: Date Dimension - TPC-DS
-         partition: name
-         relationships_path:
-           - store_sales_Date_Dimension_Sold_1
-
-       - name: d_product_item_id
-         dimension: Product Dimension - TPC-DS
-
-       - name: d_customer_gmt_offset
-         dimension: Customer Address
-         relationships_path:
-           - CustomerDimension_CustomerAddress
-
-       - name: d_month_of_year
-         dimension: Date Dimension - TPC-DS
-         relationships_path:
-           - store_sales_Date_Dimension_Sold_1
-
-       - name: I category
-         dimension: Product Dimension - TPC-DS
-
-       - name: d_i_color
-         dimension: Product Dimension - TPC-DS
-
-     metrics:
-       - Total  Ext Sales Price
-
-   - unique_name: Q61
-     label: Q61
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: d_channel_direct_mail
-         dimension: Promotions
-
-       - name: d_store_gmt_offset
-         dimension: Store Dimension
-
-       - name: d_channel_tv
-         dimension: Promotions
-
-       - name: d_customer_gmt_offset
-         dimension: Customer Address
-         relationships_path:
-           - CustomerDimension_CustomerAddress
-
-       - name: d_month_of_year
-         dimension: Date Dimension - TPC-DS
-         relationships_path:
-           - store_sales_Date_Dimension_Sold_1
-
-       - name: I category
-         dimension: Product Dimension - TPC-DS
-
-       - name: d_channel_email
-         dimension: Promotions
-
-       - name: Calendar Year-Week
-         dimension: Date Dimension - TPC-DS
-         partition: name
-         relationships_path:
-           - store_sales_Date_Dimension_Sold
-
-     metrics:
-       - m_ss_ext_sales_price_sum
-       - m_ss_ext_sales_price_promotion
-
-   - unique_name: Q7-Q26
-     label: Q7-Q26
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: d_cd_marital_status
-         dimension: Customer Demographics
-
-       - name: Calendar Year
-         dimension: Date Dimension - TPC-DS
-         partition: name
-         relationships_path:
-           - store_sales_Date_Dimension_Sold_1
-
-       - name: d_product_item_id
-         dimension: Product Dimension - TPC-DS
-
-       - name: d_cd_education_status
-         dimension: Customer Demographics
-
-       - name: d_channel_event
-         dimension: Promotions
-
-       - name: d_cd_gender
-         dimension: Customer Demographics
-
-       - name: d_channel_email
-         dimension: Promotions
-
-     metrics:
-       - m_catalog_sales_coupon_amount_avg
-       - m_ss_sales_price_avg
-       - m_catalog_sales_quantity_sold_avg
-       - m_ss_coupon_amt_avg
-       - m_ss_quantity_avg
-       - m_ss_list_price_avg
-       - m_catalog_sales_list_price_avg
-       - m_catalog_sales_sales_price_avg
-
-   - unique_name: Q88
-     label: Q88
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: d_hd_dep_count
-         dimension: Household Demographics
-
-       - name: d_morning _time_tier
-         dimension: Time Dimension
-         relationships_path:
-           - store_sales_Time_Dimension_Sold
-
-       - name: d_hd_vehicle_count
-         dimension: Household Demographics
-
-       - name: d_store_name
-         dimension: Store Dimension
-
-     metrics:
-       - m_ss row counter_sum
-
-   - unique_name: Q96
-     label: Q96
-     target_connection: Connection - TPCDS
-     attributes:
-
-       - name: d_hd_dep_count
-         dimension: Household Demographics
-
-       - name: d_minute
-         dimension: Time Dimension
-         partition: name
-         relationships_path:
-           - store_sales_Time_Dimension_Sold
-
-       - name: d_hour
-         dimension: Time Dimension
-         relationships_path:
-           - store_sales_Time_Dimension_Sold
-
-       - name: d_store_name
-         dimension: Store Dimension
-
-     metrics:
-       - m_ss row counter_sum
