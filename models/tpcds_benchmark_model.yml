@@ -51,7 +51,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: d_catalog_sales_price_tier
-        dimension: Catalog_Sales_Price_Tier
+        dimension: d_catalog_sales_price_tier
       - name: d_quarter_of_year
         dimension: Date Dimension - TPC-DS
         relationships_path:
@@ -373,7 +373,7 @@ aggregates:
     target_connection: Connection - TPCDS
 dimensions:
   - d_catalog_preferred
-  - Catalog_Sales_Price_Tier
+  - d_catalog_sales_price_tier
   - Net_Profit_Tier
   - Returns_Time_Tier
   - Sales_Price_Tier
