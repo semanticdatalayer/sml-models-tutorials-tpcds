@@ -549,7 +549,7 @@ metrics:
     folder: Total Sales Measures
   - unique_name: m_web_sales_increase
     folder: Web Sales Measures
-  - unique_name: product_count
+  - unique_name: m_product_count
 partitions:
   - unique_name: TPC-DS Benchmark Model.Date Dimension - TPC-DS.Calendar Year.partition
     attribute: Calendar Year
