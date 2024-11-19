@@ -12,7 +12,7 @@ aggregates:
       - name: d_customer_state
         dimension: d_customer_address
         relationships_path:
-          - CustomerDimension_CustomerAddress
+          - d_customer_dimension_customer_address
       - name: d_sales_price_tier
         dimension: Sales_Price_Tier
       - name: d_cd_education_status
@@ -20,7 +20,7 @@ aggregates:
       - name: d_customer_country
         dimension: d_customer_address
         relationships_path:
-          - CustomerDimension_CustomerAddress
+          - d_customer_dimension_customer_address
       - name: Calendar Year-Week
         dimension: Date Dimension - TPC-DS
         partition: name
@@ -40,11 +40,11 @@ aggregates:
       - name: d_customer_state
         dimension: d_customer_address
         relationships_path:
-          - CustomerDimension_CustomerAddress
+          - d_customer_dimension_customer_address
       - name: d_customer_zip_code
         dimension: d_customer_address
         relationships_path:
-          - CustomerDimension_CustomerAddress
+          - d_customer_dimension_customer_address
       - name: Calendar Year
         dimension: Date Dimension - TPC-DS
         partition: name
@@ -264,7 +264,7 @@ aggregates:
       - name: d_customer_gmt_offset
         dimension: d_customer_address
         relationships_path:
-          - CustomerDimension_CustomerAddress
+          - d_customer_dimension_customer_address
       - name: d_month_of_year
         dimension: Date Dimension - TPC-DS
         relationships_path:
@@ -288,7 +288,7 @@ aggregates:
       - name: d_customer_gmt_offset
         dimension: d_customer_address
         relationships_path:
-          - CustomerDimension_CustomerAddress
+          - d_customer_dimension_customer_address
       - name: d_month_of_year
         dimension: Date Dimension - TPC-DS
         relationships_path:
@@ -572,8 +572,8 @@ relationships:
       join_columns:
         - customer_sk
     to:
-      dimension: Customer Dimension - TPC-DS
-      level: Customer Dimension - TPC-DS
+      dimension: d_customer_dimension_tpcds
+      level: d_customer_dimension_tpcds
   - unique_name: catalog_sales_Date_Dimension_Sold
     from:
       dataset: catalog_sales
@@ -683,8 +683,8 @@ relationships:
       join_columns:
         - cs_bill_customer_sk
     to:
-      dimension: Customer Dimension - TPC-DS
-      level: Customer Dimension - TPC-DS
+      dimension: d_customer_dimension_tpcds
+      level: d_customer_dimension_tpcds
   - unique_name: catalog_sales_Product_Dimension
     from:
       dataset: catalog_sales
@@ -757,8 +757,8 @@ relationships:
       join_columns:
         - ss_customer_sk
     to:
-      dimension: Customer Dimension - TPC-DS
-      level: Customer Dimension - TPC-DS
+      dimension: d_customer_dimension_tpcds
+      level: d_customer_dimension_tpcds
   - unique_name: store_promotion_Product_Dimension
     from:
       dataset: store_promotion
@@ -884,8 +884,8 @@ relationships:
       join_columns:
         - ws_bill_customer_sk
     to:
-      dimension: Customer Dimension - TPC-DS
-      level: Customer Dimension - TPC-DS
+      dimension: d_customer_dimension_tpcds
+      level: d_customer_dimension_tpcds
   - unique_name: web_sales_Product_Dimension
     from:
       dataset: web_sales
@@ -960,8 +960,8 @@ relationships:
       join_columns:
         - sr_customer_sk
     to:
-      dimension: Customer Dimension - TPC-DS
-      level: Customer Dimension - TPC-DS
+      dimension: d_customer_dimension_tpcds
+      level: d_customer_dimension_tpcds
   - unique_name: store_returns_Product_Dimension
     from:
       dataset: store_returns
@@ -1044,8 +1044,8 @@ relationships:
       join_columns:
         - ss_customer_sk
     to:
-      dimension: Customer Dimension - TPC-DS
-      level: Customer Dimension - TPC-DS
+      dimension: d_customer_dimension_tpcds
+      level: d_customer_dimension_tpcds
   - unique_name: store_sales_Product_Dimension
     from:
       dataset: store_sales
