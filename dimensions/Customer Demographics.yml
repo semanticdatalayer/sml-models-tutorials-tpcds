@@ -1,13 +1,13 @@
-unique_name: Customer Demographics
+unique_name: d_customer_demographics
 object_type: dimension
 label: Customer Demographics
 hierarchies:
-  - unique_name: Customer Demographics
+  - unique_name: d_customer_demographics
     label: Customer Demographics
     filter_empty: 'yes'
     folder: Customer Information
     levels:
-      - unique_name: Customer Demographics
+      - unique_name: d_customer_demographics
         secondary_attributes:
           - unique_name: d_cd_credit_rating
             label: Credit Rating
@@ -59,7 +59,7 @@ hierarchies:
             name_column: cd_marital_status
             sort_column: cd_marital_status
 level_attributes:
-  - unique_name: Customer Demographics
+  - unique_name: d_customer_demographics
     label: Customer Number
     dataset: customer_demographics
     is_unique_key: true

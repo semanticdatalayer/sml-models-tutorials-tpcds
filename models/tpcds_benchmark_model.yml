@@ -8,7 +8,7 @@ aggregates:
       - name: d_hd_dep_count
         dimension: Household Demographics
       - name: d_cd_marital_status
-        dimension: Customer Demographics
+        dimension: d_customer_demographics
       - name: d_customer_state
         dimension: d_customer_address
         relationships_path:
@@ -16,7 +16,7 @@ aggregates:
       - name: d_sales_price_tier
         dimension: Sales_Price_Tier
       - name: d_cd_education_status
-        dimension: Customer Demographics
+        dimension: d_customer_demographics
       - name: d_customer_country
         dimension: d_customer_address
         relationships_path:
@@ -148,7 +148,7 @@ aggregates:
     label: Q48
     attributes:
       - name: d_cd_marital_status
-        dimension: Customer Demographics
+        dimension: d_customer_demographics
       - name: d_customer_state
         dimension: d_customer_address
         relationships_path:
@@ -156,7 +156,7 @@ aggregates:
       - name: d_sales_price_tier
         dimension: Sales_Price_Tier
       - name: d_cd_education_status
-        dimension: Customer Demographics
+        dimension: d_customer_demographics
       - name: d_customer_country
         dimension: d_customer_address
         relationships_path:
@@ -310,7 +310,7 @@ aggregates:
     label: Q7-Q26
     attributes:
       - name: d_cd_marital_status
-        dimension: Customer Demographics
+        dimension: d_customer_demographics
       - name: Calendar Year
         dimension: Date Dimension - TPC-DS
         partition: name
@@ -319,11 +319,11 @@ aggregates:
       - name: d_product_item_id
         dimension: Product Dimension - TPC-DS
       - name: d_cd_education_status
-        dimension: Customer Demographics
+        dimension: d_customer_demographics
       - name: d_channel_event
         dimension: Promotions
       - name: d_cd_gender
-        dimension: Customer Demographics
+        dimension: d_customer_demographics
       - name: d_channel_email
         dimension: Promotions
     metrics:
@@ -659,8 +659,8 @@ relationships:
       join_columns:
         - cs_bill_cdemo_sk
     to:
-      dimension: Customer Demographics
-      level: Customer Demographics
+      dimension: d_customer_demographics
+      level: d_customer_demographics
   - unique_name: catalog_sales_Ship_Mode
     from:
       dataset: catalog_sales
@@ -741,8 +741,8 @@ relationships:
       join_columns:
         - ss_cdemo_sk
     to:
-      dimension: Customer Demographics
-      level: Customer Demographics
+      dimension: d_customer_demographics
+      level: d_customer_demographics
   - unique_name: store_promotion_Household_Demographics
     from:
       dataset: store_promotion
@@ -860,8 +860,8 @@ relationships:
       join_columns:
         - ws_bill_cdemo_sk
     to:
-      dimension: Customer Demographics
-      level: Customer Demographics
+      dimension: d_customer_demographics
+      level: d_customer_demographics
   - unique_name: web_sales_Ship_Mode
     from:
       dataset: web_sales
@@ -944,8 +944,8 @@ relationships:
       join_columns:
         - sr_cdemo_sk
     to:
-      dimension: Customer Demographics
-      level: Customer Demographics
+      dimension: d_customer_demographics
+      level: d_customer_demographics
   - unique_name: store_returns_Household_Demographics
     from:
       dataset: store_returns
@@ -1028,8 +1028,8 @@ relationships:
       join_columns:
         - ss_cdemo_sk
     to:
-      dimension: Customer Demographics
-      level: Customer Demographics
+      dimension: d_customer_demographics
+      level: d_customer_demographics
   - unique_name: store_sales_Household_Demographics
     from:
       dataset: store_sales
