@@ -1,6 +1,6 @@
 unique_name: Connection - TPCDS
 label: Connection - TPCDS
 object_type: connection
-as_connection: Postgres
+as_connection: Databricks
 database: atscale_tutorial_data
 schema: tpcds
