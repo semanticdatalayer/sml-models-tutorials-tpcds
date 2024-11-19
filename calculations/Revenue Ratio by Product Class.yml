@@ -1,4 +1,4 @@
-unique_name: Revenue Ratio by Product Class
+unique_name: m_revenue_ratio_by_product_class
 object_type: metric_calc
 label: Store Revenue Ratio by Product Class
 expression: "[Measures].[m_ss_ext_sales_price_sum] / ([Product Dimension - TPC-DS].[d_product_class_name].[All],\

@@ -27,7 +27,7 @@ hierarchies:
       - unique_name: Customer Address
         secondary_attributes:
           - unique_name: d_CA_COUNTY
-            label: Customer County
+            label: m_customer_county
             description: county the customer lives in
             dataset: customer_address
             folder: Customer Information
@@ -70,7 +70,7 @@ level_attributes:
       - ca_city
     name_column: ca_city
   - unique_name: d_customer_country
-    label: Customer Country
+    label: m_customer_country
     description: country the customer lives in, home country
     dataset: customer_address
     key_columns:

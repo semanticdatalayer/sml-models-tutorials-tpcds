@@ -1,4 +1,5 @@
-unique_name: Catalog and Web Sales per Warehouse SqFt
+unique_name: m_catalog_and_web_sales_per_warehouse_sqft
 object_type: metric_calc
-label: Catalog and Web Sales per Warehouse SqFt, web and catalog sales per square foot
-expression: "[Measures].[Catalog and Web Sales] / [Measures].[m_warehouse_square_feet]"
+label: m_catalog_and_web_sales per Warehouse SqFt
+description: Web and catalog sales per square foot
+expression: "[Measures].[m_catalog_and_web_sales] / [Measures].[m_warehouse_square_feet]"

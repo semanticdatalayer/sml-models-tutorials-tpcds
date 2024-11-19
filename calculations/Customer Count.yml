@@ -1,6 +1,6 @@
-unique_name: Customer Count
+unique_name: m_customer_count
 object_type: metric_calc
 label: Customer Count
-description: total count of customers
+description: Total count of customers
 expression: "[Measures].[m_ss_customer_sk_count]+[Measures].[m_ws_bill_customer_sk_count]+[Measures].[m_cs_bill_customer_sk_count]"
 is_hidden: false

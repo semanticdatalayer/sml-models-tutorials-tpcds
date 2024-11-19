@@ -80,7 +80,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
     metrics:
-      - Web Catalog Sales Price Growth
+      - m_web_catalog_sales_price_growth
     target_connection: Connection - TPCDS
   - unique_name: Q31
     label: Q31
@@ -99,8 +99,8 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
     metrics:
-      - Web Sales Increase
-      - Store Sales Increase
+      - m_web_sales_increase
+      - m_store_sales_increase
     target_connection: Connection - TPCDS
   - unique_name: Q33
     label: Q33
@@ -123,7 +123,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
     metrics:
-      - Total  Ext Sales Price
+      - m_total_ext_sales_price
     target_connection: Connection - TPCDS
   - unique_name: Q42
     label: Q42
@@ -247,8 +247,8 @@ aggregates:
       - name: d_product_manufacturer_id
         dimension: Product Dimension - TPC-DS
     metrics:
-      - Avg Quarterly Store Sales for 1998-1999
-      - Avg Quarter Sales Ratio
+      - m_avg_quarterly_store_sales_for_1998_1999
+      - m_avg_quarter_sales_ratio
       - m_store_sales_price
     target_connection: Connection - TPCDS
   - unique_name: Q56-Q60
@@ -274,7 +274,7 @@ aggregates:
       - name: d_i_color
         dimension: Product Dimension - TPC-DS
     metrics:
-      - Total  Ext Sales Price
+      - m_total_ext_sales_price
     target_connection: Connection - TPCDS
   - unique_name: Q61
     label: Q61
@@ -350,7 +350,7 @@ aggregates:
       - name: d_store_name
         dimension: Store Dimension
     metrics:
-      - m_ss row counter_sum
+      - m_ss_row_counter_sum
     target_connection: Connection - TPCDS
   - unique_name: Q96
     label: Q96
@@ -369,7 +369,7 @@ aggregates:
       - name: d_store_name
         dimension: Store Dimension
     metrics:
-      - m_ss row counter_sum
+      - m_ss_row_counter_sum
     target_connection: Connection - TPCDS
 dimensions:
   - Catalog_Preferred
@@ -425,7 +425,7 @@ metrics:
     folder: Store Sales Measures
   - unique_name: m_purchased_amount_on_web
     folder: Web Sales Measures
-  - unique_name: m_ss row counter_sum
+  - unique_name: m_ss_row_counter_sum
     folder: Store Sales Measures
   - unique_name: m_ss_coupon_amt_avg
     folder: Store Sales Measures
@@ -473,7 +473,7 @@ metrics:
     folder: Web Sales Measures
   - unique_name: m_web_sales_sum
     folder: Web Sales Measures
-  - unique_name: m_ws row counter_sum
+  - unique_name: m_ws_row_counter_sum
     folder: Web Sales Measures
   - unique_name: m_ws_bill_customer_sk_count
     folder: Customer Information
@@ -501,53 +501,53 @@ metrics:
     folder: Web Sales Measures
   - unique_name: m_ws_quantity_sum
     folder: Web Sales Measures
-  - unique_name: Average Catalog Unit Net Profit
+  - unique_name: m_average_catalog_unit_net_profit
     folder: Catalog Sales Measures
-  - unique_name: Average Store Unit Net Profit
+  - unique_name: m_average_store_unit_net_profit
     folder: Store Sales Measures
-  - unique_name: Average Web Unit Net Profit
+  - unique_name: m_average_web_unit_net_profit
     folder: Web Sales Measures
-  - unique_name: Avg Quarter Sales Ratio
+  - unique_name: m_avg_quarter_sales_ratio
     folder: Store Sales Measures
-  - unique_name: Avg Quarterly Store Sales for 1998-1999
+  - unique_name: m_avg_quarterly_store_sales_for_1998_1999
     folder: Store Sales Measures
-  - unique_name: Catalog and Web Sales Net
+  - unique_name: m_catalog_and_web_sales_net
     folder: Total Sales Measures
-  - unique_name: Catalog and Web Sales
+  - unique_name: m_catalog_and_web_sales
     folder: Total Sales Measures
-  - unique_name: Catalog Buyer
+  - unique_name: m_catalog_buyer
     folder: Customer Information
-  - unique_name: Customer Count
+  - unique_name: m_customer_count
     folder: Customer Information
   - unique_name: m_ws_cs_ext_sales_price_sum
     folder: Time Relative
-  - unique_name: Revenue Ratio by Product Class
+  - unique_name: m_revenue_ratio_by_product_class
     folder: Store Sales Measures
-  - unique_name: Sales by Promotion Ratio
+  - unique_name: m_sales_by_promotion_ratio
     folder: Store Sales Measures
-  - unique_name: Store and Web Purchased Amount
+  - unique_name: m_store_and_web_purchased_amount
     folder: Time Relative
-  - unique_name: Store Sales Increase
+  - unique_name: m_store_sales_increase
     folder: Store Sales Measures
-  - unique_name: Total  Ext Sales Price
+  - unique_name: m_total_ext_sales_price
     folder: Total Sales Measures
-  - unique_name: Total Ext Discount Amount
+  - unique_name: m_total_ext_discount_amount
     folder: Total Sales Measures
-  - unique_name: Total Ext List Price
+  - unique_name: m_total_ext_list_price
     folder: Total Sales Measures
-  - unique_name: Total Ext Sales Tax
+  - unique_name: m_total_ext_sales_tax
     folder: Total Sales Measures
-  - unique_name: Total Ext Wholesale Cost
+  - unique_name: m_total_ext_wholesale_cost
     folder: Total Sales Measures
-  - unique_name: Total Net Paid Amount
+  - unique_name: m_total_net_paid_amount
     folder: Total Sales Measures
-  - unique_name: Total Net Paid Incl Tax
+  - unique_name: m_total_net_paid_incl_tax
     folder: Total Sales Measures
-  - unique_name: Total Net Profit
+  - unique_name: m_total_net_profit
     folder: Total Sales Measures
-  - unique_name: Total Quantity Sold
+  - unique_name: m_total_quantity_sold
     folder: Total Sales Measures
-  - unique_name: Web Sales Increase
+  - unique_name: m_web_sales_increase
     folder: Web Sales Measures
   - unique_name: product_count
 partitions:

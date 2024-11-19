@@ -1,4 +1,4 @@
-unique_name: m_ss row counter_sum
+unique_name: m_ss_row_counter_sum
 object_type: metric
 label: Store Sales Row Counter
 calculation_method: sum
