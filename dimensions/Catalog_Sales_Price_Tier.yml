@@ -19,7 +19,7 @@ level_attributes:
   - unique_name: d_catalog_sales_price_tier
     label: Catalog sales price tier
     dataset: catalog_sales
-    name_column: d_catalog_sales_price_tier
+    name_column: catalog_sales_price_tier
     key_columns:
       - d_catalog_sales_price_tier
 
