@@ -372,7 +372,7 @@ aggregates:
       - m_ss_row_counter_sum
     target_connection: Connection - TPCDS
 dimensions:
-  - Catalog_Preferred
+  - d_catalog_preferred
   - Catalog_Sales_Price_Tier
   - Net_Profit_Tier
   - Returns_Time_Tier
