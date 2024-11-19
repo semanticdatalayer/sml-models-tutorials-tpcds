@@ -1,8 +1,8 @@
-unique_name: Customer Address
+unique_name: d_customer_address
 object_type: dimension
 label: Customer Address
 hierarchies:
-  - unique_name: Customer Address
+  - unique_name: d_customer_address
     label: Customer Address
     filter_empty: 'yes'
     folder: Customer Information
@@ -24,10 +24,10 @@ hierarchies:
             name_column: Customer State Name
             sort_column: Customer State Name
       - unique_name: d_customer_city
-      - unique_name: Customer Address
+      - unique_name: d_customer_address
         secondary_attributes:
           - unique_name: d_CA_COUNTY
-            label: m_customer_county
+            label: Customer County
             description: county the customer lives in
             dataset: customer_address
             folder: Customer Information
@@ -53,7 +53,7 @@ hierarchies:
             name_column: ca_zip
             sort_column: ca_zip
 level_attributes:
-  - unique_name: Customer Address
+  - unique_name: d_customer_address
     label: Customer Address
     dataset: customer_address
     is_unique_key: true
@@ -70,7 +70,7 @@ level_attributes:
       - ca_city
     name_column: ca_city
   - unique_name: d_customer_country
-    label: m_customer_country
+    label: Customer Country
     description: country the customer lives in, home country
     dataset: customer_address
     key_columns:
