@@ -93,7 +93,7 @@ relationships:
         - c_current_addr_sk
       level: Customer Dimension - TPC-DS
     to:
-      dimension: Customer Address
-      level: Customer Address
+      dimension: d_customer_address
+      level: d_customer_address
     type: embedded
 type: standard
