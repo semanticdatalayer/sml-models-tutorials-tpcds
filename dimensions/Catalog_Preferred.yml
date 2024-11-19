@@ -1,22 +1,22 @@
-unique_name: Catalog_Preferred
+unique_name: d_catalog_preferred
 object_type: dimension
-label: Catalog_Preferred
+label: d_catalog_preferred
 is_degenerate: true
 
 hierarchies:
 
   - unique_name: d_catalog_preferred
-    label: Catalog Preferred
+    label: d_catalog_preferred
     folder: Customer Information
     filter_empty: "yes"
 
     levels:
 
-      - unique_name: Catalog Preferred
+      - unique_name: d_catalog_preferred
 
 level_attributes:
 
-  - unique_name: Catalog Preferred
+  - unique_name: d_catalog_preferred
     label: Catalog Preferred
     dataset: purchase_by_channel
     name_column: catalog_preferred
