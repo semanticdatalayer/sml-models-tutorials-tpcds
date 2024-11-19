@@ -1,4 +1,4 @@
-unique_name: TPC-DS Benchmark Model
+unique_name: tpcds_benchmark_model
 object_type: model
 label: TPC-DS Benchmark Model
 aggregates:
