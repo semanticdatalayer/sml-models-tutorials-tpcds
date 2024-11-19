@@ -22,7 +22,7 @@ aggregates:
         relationships_path:
           - d_customer_dimension_customer_address
       - name: Calendar Year-Week
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold
@@ -46,14 +46,14 @@ aggregates:
         relationships_path:
           - d_customer_dimension_customer_address
       - name: Calendar Year
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: d_catalog_sales_price_tier
         dimension: d_catalog_sales_price_tier
       - name: d_quarter_of_year
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
     metrics:
@@ -63,19 +63,19 @@ aggregates:
     label: Q2
     attributes:
       - name: Calendar Week
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold
       - name: d_day_name_week
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold
       - name: d_week_seg
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold
       - name: Calendar Year-Week
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold
@@ -86,7 +86,7 @@ aggregates:
     label: Q31
     attributes:
       - name: Calendar Quarter
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: d_CA_COUNTY
@@ -94,7 +94,7 @@ aggregates:
         relationships_path:
           - store_sales_Customer_Address_Sold
       - name: Calendar Year-Week
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold
@@ -110,7 +110,7 @@ aggregates:
         relationships_path:
           - store_sales_Customer_Address_Sold
       - name: d_month_of_year
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: I category
@@ -118,7 +118,7 @@ aggregates:
       - name: d_product_manufacturer_id
         dimension: Product Dimension - TPC-DS
       - name: Calendar Year-Week
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold
@@ -129,7 +129,7 @@ aggregates:
     label: Q42
     attributes:
       - name: d_month_of_year
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: I category
@@ -137,7 +137,7 @@ aggregates:
       - name: d_product_manager_id
         dimension: Product Dimension - TPC-DS
       - name: Calendar Year-Week
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold
@@ -162,7 +162,7 @@ aggregates:
         relationships_path:
           - store_sales_Customer_Address_Sold
       - name: Calendar Year-Week
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold
@@ -183,7 +183,7 @@ aggregates:
       - name: d_store_city
         dimension: Store Dimension
       - name: d_month_of_year
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         relationships_path:
           - store_returns_Date_Dimension_Return_1
       - name: d_store_company_id
@@ -201,7 +201,7 @@ aggregates:
       - name: d_store_suite_number
         dimension: Store Dimension
       - name: Calendar Year-Week
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         partition: name
         relationships_path:
           - store_returns_Date_Dimension_Return
@@ -216,7 +216,7 @@ aggregates:
       - name: d_product_brand_name
         dimension: Product Dimension - TPC-DS
       - name: d_month_of_year
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: d_product_brand_id
@@ -224,7 +224,7 @@ aggregates:
       - name: d_product_manager_id
         dimension: Product Dimension - TPC-DS
       - name: Calendar Year-Week
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold
@@ -241,7 +241,7 @@ aggregates:
       - name: I category
         dimension: Product Dimension - TPC-DS
       - name: Calendar Quarter
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: d_product_manufacturer_id
@@ -255,7 +255,7 @@ aggregates:
     label: Q56-Q60
     attributes:
       - name: Calendar Year
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
@@ -266,7 +266,7 @@ aggregates:
         relationships_path:
           - d_customer_dimension_customer_address
       - name: d_month_of_year
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: I category
@@ -290,7 +290,7 @@ aggregates:
         relationships_path:
           - d_customer_dimension_customer_address
       - name: d_month_of_year
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: I category
@@ -298,7 +298,7 @@ aggregates:
       - name: d_channel_email
         dimension: Promotions
       - name: Calendar Year-Week
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold
@@ -312,7 +312,7 @@ aggregates:
       - name: d_cd_marital_status
         dimension: d_customer_demographics
       - name: Calendar Year
-        dimension: Date Dimension - TPC-DS
+        dimension: d_date_dimension
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
@@ -551,17 +551,17 @@ metrics:
     folder: Web Sales Measures
   - unique_name: m_product_count
 partitions:
-  - unique_name: TPC-DS Benchmark Model.Date Dimension - TPC-DS.Calendar Year.partition
+  - unique_name: TPC-DS Benchmark Model.d_date_dimension.Calendar Year.partition
     attribute: Calendar Year
-    dimension: Date Dimension - TPC-DS
+    dimension: d_date_dimension
     relationships_path:
       - store_sales_Date_Dimension_Sold
     type: key
   - unique_name: >-
-      TPC-DS Benchmark Model.Date Dimension - TPC-DS.Calendar
+      TPC-DS Benchmark Model.d_date_dimension.Calendar
       Year-Week.partition
     attribute: Calendar Year-Week
-    dimension: Date Dimension - TPC-DS
+    dimension: d_date_dimension
     relationships_path:
       - store_sales_Date_Dimension_Week_Sold
     type: key
@@ -581,7 +581,7 @@ relationships:
         - cs_sold_date_sk
     role_play: Sold {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Date Week Hierarchy - TPC-DS
   - unique_name: catalog_sales_Date_Dimension_Ship
     from:
@@ -590,7 +590,7 @@ relationships:
         - cs_ship_date_sk
     role_play: Ship {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Date Week Hierarchy - TPC-DS
   - unique_name: catalog_sales_Fulfilling_Warehouse
     from:
@@ -642,7 +642,7 @@ relationships:
         - cs_sold_date_sk
     role_play: Sold {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Time Dimension
   - unique_name: catalog_sales_Date_Dimension_Ship_1
     from:
@@ -651,7 +651,7 @@ relationships:
         - cs_ship_date_sk
     role_play: Ship {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Time Dimension
   - unique_name: catalog_sales_Customer_Demographics
     from:
@@ -708,7 +708,7 @@ relationships:
         - ss_sold_date_sk
     role_play: Sold {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Date Week Hierarchy - TPC-DS
   - unique_name: store_promotion_Promotions
     from:
@@ -733,7 +733,7 @@ relationships:
         - ss_sold_date_sk
     role_play: Sold {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Time Dimension
   - unique_name: store_promotion_Customer_Demographics
     from:
@@ -782,7 +782,7 @@ relationships:
         - ws_sold_date_sk
     role_play: Sold {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Date Week Hierarchy - TPC-DS
   - unique_name: web_sales_Date_Dimension_Ship
     from:
@@ -791,7 +791,7 @@ relationships:
         - ws_ship_date_sk
     role_play: Ship {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Date Week Hierarchy - TPC-DS
   - unique_name: web_sales_Fulfilling_Warehouse
     from:
@@ -843,7 +843,7 @@ relationships:
         - ws_sold_date_sk
     role_play: Sold {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Time Dimension
   - unique_name: web_sales_Date_Dimension_Ship_1
     from:
@@ -852,7 +852,7 @@ relationships:
         - ws_ship_date_sk
     role_play: Ship {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Time Dimension
   - unique_name: web_sales_Customer_Demographics
     from:
@@ -909,7 +909,7 @@ relationships:
         - sr_returned_date_sk
     role_play: Return {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Date Week Hierarchy - TPC-DS
   - unique_name: store_returns_Time_Dimension_Return
     from:
@@ -936,7 +936,7 @@ relationships:
         - sr_returned_date_sk
     role_play: Return {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Time Dimension
   - unique_name: store_returns_Customer_Demographics
     from:
@@ -985,7 +985,7 @@ relationships:
         - ss_sold_date_sk
     role_play: Sold {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Date Week Hierarchy - TPC-DS
   - unique_name: store_sales_Time_Dimension_Sold
     from:
@@ -1020,7 +1020,7 @@ relationships:
         - ss_sold_date_sk
     role_play: Sold {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Time Dimension
   - unique_name: store_sales_Customer_Demographics
     from:
@@ -1061,7 +1061,7 @@ relationships:
         - inv_date_sk
     role_play: Inventory {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Date Week Hierarchy - TPC-DS
   - unique_name: inventory_Fulfilling_Warehouse
     from:
@@ -1078,7 +1078,7 @@ relationships:
         - inv_date_sk
     role_play: Inventory {0}
     to:
-      dimension: Date Dimension - TPC-DS
+      dimension: d_date_dimension
       level: Time Dimension
   - unique_name: inventory_Product_Dimension
     from:

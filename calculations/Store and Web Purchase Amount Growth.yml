@@ -4,4 +4,4 @@ label: Store and Web Purchase Amount Growth
 descriptions: Combined web and store purchase growth	
 expression: |-
   [Measures].[m_store_and_web_purchased_amount] /
-  (ParallelPeriod([Sold Date Dimension - TPC-DS].[Sold Date Week Hierarchy - TPC-DS].[Sold Calendar Year-Week], 1, [Sold Date Dimension - TPC-DS].[Sold Date Week Hierarchy - TPC-DS].CurrentMember), [Measures].[m_store_and_web_purchased_amount])
+  (ParallelPeriod([Sold d_date_dimension].[Sold Date Week Hierarchy - TPC-DS].[Sold Calendar Year-Week], 1, [Sold d_date_dimension].[Sold Date Week Hierarchy - TPC-DS].CurrentMember), [Measures].[m_store_and_web_purchased_amount])
