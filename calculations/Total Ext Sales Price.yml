@@ -1,5 +1,6 @@
-unique_name: Total  Ext Sales Price
+unique_name: m_total_ext_sales_price
 object_type: metric_calc
-label: Total Ext Sales Price, Total Extended Sales
+label: Total Ext Sales Price
+description: Total Extended Sales
 expression: "[Measures].[m_ss_ext_sales_price_sum]+[Measures].[m_ws_ext_sales_price_sum]+[Measures].[m_cs_ext_sales_price_sum]"
 is_hidden: false

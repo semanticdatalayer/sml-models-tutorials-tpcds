@@ -1,4 +1,5 @@
-unique_name: Total Quantity Sold
+unique_name: m_total_quantity_sold
 object_type: metric_calc
-label: Total Quantity Sold, Total Quantity sold across channels
+label: Total Quantity Sold
+description: Total quantity sold across channels
 expression: "[Measures].[m_ss_quantity_sum]+[Measures].[m_ws_quantity_sum]+ [Measures].[m_cs_quantity_sum]"
