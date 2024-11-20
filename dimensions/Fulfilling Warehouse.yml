@@ -27,7 +27,7 @@ hierarchies:
       - unique_name: Warehouse City
       - unique_name: Fulfilling Warehouse
         secondary_attributes:
-          - unique_name: d_warehouse_name
+          - unique_name: Warehouse Name
             label: Warehouse Name
             dataset: warehouse
             folder: Fulfillment
@@ -35,7 +35,7 @@ hierarchies:
               - w_warehouse_name
             name_column: w_warehouse_name
             sort_column: w_warehouse_name
-          - unique_name: d_warehouse_square_feet
+          - unique_name: Warehouse Square Feet
             label: Warehouse Square Feet
             description: warehouse size
             dataset: warehouse

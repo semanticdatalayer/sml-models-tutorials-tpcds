@@ -9,7 +9,7 @@ hierarchies:
     levels:
       - unique_name: Household Demographics
         secondary_attributes:
-          - unique_name: d_hd_buy_potential
+          - unique_name: Customer Buy Potential
             label: Customer Buy Potential
             dataset: household_demographics
             folder: Household Demographics
