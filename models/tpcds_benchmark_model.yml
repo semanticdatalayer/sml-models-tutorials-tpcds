@@ -26,8 +26,8 @@ aggregates:
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold
-      - name: d_net_profit_tier
-        dimension: d_net_profit_tier
+      - name: Net Profit Tier
+        dimension: Net Profit Tier
     metrics:
       - Store Ext Wholesale Cost
       - Average Store Sales Quantity
@@ -113,10 +113,10 @@ aggregates:
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: d_product_category
-        dimension: d_product_dimension
-      - name: d_product_manufacturer_id
-        dimension: d_product_dimension
+      - name: Product Category
+        dimension: Product Dimension
+      - name: Product Manufacturer ID
+        dimension: Product Dimension
       - name: Calendar Year_week
         dimension: Date Dimensions
         partition: name
@@ -132,10 +132,10 @@ aggregates:
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: d_product_category
-        dimension: d_product_dimension
-      - name: d_product_manager_id
-        dimension: d_product_dimension
+      - name: Product Category
+        dimension: Product Dimension
+      - name: Product Manager ID
+        dimension: Product Dimension
       - name: Calendar Year_week
         dimension: Date Dimensions
         partition: name
@@ -166,8 +166,8 @@ aggregates:
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold
-      - name: d_net_profit_tier
-        dimension: d_net_profit_tier
+      - name: Net Profit Tier
+        dimension: Net Profit Tier
     metrics:
       - Store Quantity Sold
     target_connection: Connection - TPCDS
@@ -213,16 +213,16 @@ aggregates:
   - unique_name: Q52
     label: Q52
     attributes:
-      - name: d_product_brand_name
-        dimension: d_product_dimension
+      - name: Product Brand Name
+        dimension: Product Dimension
       - name: Month of Year
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: d_product_brand_id
-        dimension: d_product_dimension
-      - name: d_product_manager_id
-        dimension: d_product_dimension
+      - name: Product Brand ID
+        dimension: Product Dimension
+      - name: Product Manager ID
+        dimension: Product Dimension
       - name: Calendar Year_week
         dimension: Date Dimensions
         partition: name
@@ -234,18 +234,18 @@ aggregates:
   - unique_name: Q53
     label: Q53
     attributes:
-      - name: d_product_brand_name
-        dimension: d_product_dimension
-      - name: d_product_class_name
-        dimension: d_product_dimension
-      - name: d_product_category
-        dimension: d_product_dimension
+      - name: Product Brand Name
+        dimension: Product Dimension
+      - name: Product Class Name
+        dimension: Product Dimension
+      - name: Product Category
+        dimension: Product Dimension
       - name: Calendar Quarter
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: d_product_manufacturer_id
-        dimension: d_product_dimension
+      - name: Product Manufacturer ID
+        dimension: Product Dimension
     metrics:
       - Avg Quarterly Store Sales for 1998-1999
       - Avg Quarter Sales Ratio
@@ -259,8 +259,8 @@ aggregates:
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: d_product_item_id
-        dimension: d_product_dimension
+      - name: Product Item ID
+        dimension: Product Dimension
       - name: Customer GMT Offset
         dimension: Customer Address
         relationships_path:
@@ -269,10 +269,10 @@ aggregates:
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: d_product_category
-        dimension: d_product_dimension
-      - name: d_i_color
-        dimension: d_product_dimension
+      - name: Product Category
+        dimension: Product Dimension
+      - name: Product Color
+        dimension: Product Dimension
     metrics:
       - Total Ext Sales Price
     target_connection: Connection - TPCDS
@@ -293,8 +293,8 @@ aggregates:
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: d_product_category
-        dimension: d_product_dimension
+      - name: Product Category
+        dimension: Product Dimension
       - name: d_channel_email
         dimension: d_promotions
       - name: Calendar Year_week
@@ -316,8 +316,8 @@ aggregates:
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: d_product_item_id
-        dimension: d_product_dimension
+      - name: Product Item ID
+        dimension: Product Dimension
       - name: Education Status
         dimension: Customer Demographics
       - name: d_channel_event
@@ -374,7 +374,7 @@ aggregates:
 dimensions:
   - Catalog Preferred
   - Catalog Sales Price Tier
-  - d_net_profit_tier
+  - Net Profit Tier
   - d_returns_time_tier
   - d_sales_price_tier
   - d_ticket_number
@@ -692,8 +692,8 @@ relationships:
       join_columns:
         - cs_item_sk
     to:
-      dimension: d_product_dimension
-      level: d_product_dimension
+      dimension: Product Dimension
+      level: Product Dimension
   - unique_name: store_promotion_Store_Dimension
     from:
       dataset: store_promotion
@@ -766,16 +766,16 @@ relationships:
       join_columns:
         - p_item_sk
     to:
-      dimension: d_product_dimension
-      level: d_product_dimension
+      dimension: Product Dimension
+      level: Product Dimension
   - unique_name: store_promotion_Product_Dimension_1
     from:
       dataset: store_promotion
       join_columns:
         - ss_item_sk
     to:
-      dimension: d_product_dimension
-      level: d_product_dimension
+      dimension: Product Dimension
+      level: Product Dimension
   - unique_name: web_sales_Date_Dimension_Sold
     from:
       dataset: web_sales
@@ -893,8 +893,8 @@ relationships:
       join_columns:
         - ws_item_sk
     to:
-      dimension: d_product_dimension
-      level: d_product_dimension
+      dimension: Product Dimension
+      level: Product Dimension
   - unique_name: store_returns_Store_Dimension
     from:
       dataset: store_returns
@@ -969,8 +969,8 @@ relationships:
       join_columns:
         - sr_item_sk
     to:
-      dimension: d_product_dimension
-      level: d_product_dimension
+      dimension: Product Dimension
+      level: Product Dimension
   - unique_name: store_sales_Store_Dimension
     from:
       dataset: store_sales
@@ -1053,8 +1053,8 @@ relationships:
       join_columns:
         - ss_item_sk
     to:
-      dimension: d_product_dimension
-      level: d_product_dimension
+      dimension: Product Dimension
+      level: Product Dimension
   - unique_name: inventory_Date_Dimension_Inventory
     from:
       dataset: inventory
@@ -1087,5 +1087,5 @@ relationships:
       join_columns:
         - inv_item_sk
     to:
-      dimension: d_product_dimension
-      level: d_product_dimension
+      dimension: Product Dimension
+      level: Product Dimension

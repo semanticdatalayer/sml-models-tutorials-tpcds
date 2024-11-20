@@ -1,6 +1,6 @@
 unique_name: Store Revenue Ratio by Product Class
 object_type: metric_calc
 label: Store Revenue Ratio by Product Class
-expression: "[Measures].[Store Ext Sales Price] / ([d_product_dimension].[d_product_class_name].[All],\
+expression: "[Measures].[Store Ext Sales Price] / ([Product Dimension].[Product Class Name].[All],\
   \ [Measures].[Store Ext Sales Price])"
 format: percent
