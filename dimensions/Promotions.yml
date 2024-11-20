@@ -25,7 +25,7 @@ hierarchies:
             name_column: p_channel_catalog
             sort_column: p_channel_catalog
 
-          - unique_name: name: Channel Direct Mail
+          - unique_name: Channel Direct Mail
             label: Channel Direct Mail
             folder: Promotion Attributes
             dataset: promotion

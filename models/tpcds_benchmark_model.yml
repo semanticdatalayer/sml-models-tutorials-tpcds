@@ -279,8 +279,7 @@ aggregates:
   - unique_name: Q61
     label: Q61
     attributes:
-      - name: name: Channel Direct Mail
-            label: Channel Direct Mail
+      - name: Channel Direct Mail
         dimension: Promotions
       - name: d_store_gmt_offset
         dimension: d_store_dimension
