@@ -27,7 +27,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
       - name: d_net_profit_tier
-        dimension: Net_Profit_Tier
+        dimension: d_net_profit_tier
     metrics:
       - m_ss_ext_wholesale_cost_sum
       - m_ss_quantity_avg
@@ -167,7 +167,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
       - name: d_net_profit_tier
-        dimension: Net_Profit_Tier
+        dimension: d_net_profit_tier
     metrics:
       - m_ss_quantity_sum
     target_connection: Connection - TPCDS
@@ -374,7 +374,7 @@ aggregates:
 dimensions:
   - d_catalog_preferred
   - d_catalog_sales_price_tier
-  - Net_Profit_Tier
+  - d_net_profit_tier
   - Returns_Time_Tier
   - Sales_Price_Tier
   - Ss_Ticket_Number
