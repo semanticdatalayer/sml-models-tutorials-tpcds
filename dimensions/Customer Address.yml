@@ -10,7 +10,7 @@ hierarchies:
       - unique_name: d_customer_country
       - unique_name: d_customer_state
         secondary_attributes:
-          - unique_name: d_Customer State Name
+          - unique_name: d_customer_state_name
             label: Customer State Name
             description: customer home state
             allowed_calcs_for_dma:
