@@ -1,13 +1,13 @@
-unique_name: d_customer_dimension_tpcds
+unique_name: d_customer_dimension
 object_type: dimension
 label: Customer Dimension
 hierarchies:
-  - unique_name: d_customer_dimension_tpcds
+  - unique_name: d_customer_dimension
     label: Customer Dimension
     filter_empty: 'yes'
     folder: Customer Information
     levels:
-      - unique_name: d_customer_dimension_tpcds
+      - unique_name: d_customer_dimension
         secondary_attributes:
           - unique_name: d_birth_country
             label: Birth Country
@@ -77,7 +77,7 @@ hierarchies:
               - customer_preferred_flag
             name_column: customer_preferred_flag
 level_attributes:
-  - unique_name: d_customer_dimension_tpcds
+  - unique_name: d_customer_dimension
     label: Customer Number
     dataset: customer
     is_unique_key: true
@@ -88,10 +88,10 @@ relationships:
   - unique_name: d_customer_dimension_customer_address
     from:
       dataset: customer
-      hierarchy: d_customer_dimension_tpcds
+      hierarchy: d_customer_dimension
       join_columns:
         - c_current_addr_sk
-      level: d_customer_dimension_tpcds
+      level: d_customer_dimension
     to:
       dimension: d_customer_address
       level: d_customer_address
