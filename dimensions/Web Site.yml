@@ -1,11 +1,11 @@
-unique_name: d_web_site
+unique_name: Web Site
 object_type: dimension
 label: Web Site
 hierarchies:
   - unique_name: d_web_site
     label: Web Site
     levels:
-      - unique_name: d_web_site Level
+      - unique_name: d_web_site
 is_degenerate: true
 level_attributes:
   - unique_name: d_web_site
