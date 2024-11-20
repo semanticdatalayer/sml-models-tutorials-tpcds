@@ -12,11 +12,11 @@ hierarchies:
 
     levels:
 
-      - unique_name: d_time_sk
+      - unique_name: Time SK
 
         secondary_attributes:
 
-          - unique_name: d_am_or_pm
+          - unique_name: Time AM or PM
             label: Time AM or PM
             folder: Time
             dataset: time_dim
@@ -29,7 +29,7 @@ hierarchies:
               - Range
               - Siblings
 
-          - unique_name: d_hour
+          - unique_name: Hour
             label: Hour
             folder: Time
             dataset: time_dim
@@ -42,7 +42,7 @@ hierarchies:
               - Range
               - Siblings
 
-          - unique_name: d_meal_time
+          - unique_name: Meal Time
             label: Meal Time
             folder: Time
             dataset: time_dim
@@ -55,7 +55,7 @@ hierarchies:
               - Range
               - Siblings
 
-          - unique_name: d_minute
+          - unique_name: Minute
             label: Minute
             folder: Time
             dataset: time_dim
@@ -68,8 +68,8 @@ hierarchies:
               - Range
               - Siblings
 
-          - unique_name: d_morning_time_tier
-            label: t_morning_time_tier
+          - unique_name: Morning Time Tier
+            label: Morning Time Tier
             folder: Time
             dataset: time_dim
             key_columns:
@@ -81,7 +81,7 @@ hierarchies:
               - Range
               - Siblings
 
-          - unique_name: d_second
+          - unique_name: Second
             label: Second
             folder: Time
             dataset: time_dim
@@ -94,7 +94,7 @@ hierarchies:
               - Range
               - Siblings
 
-          - unique_name: d_time_sequence
+          - unique_name: Time Sequence
             label: Time Sequence
             folder: Time
             dataset: time_dim
@@ -109,7 +109,7 @@ hierarchies:
 
 level_attributes:
 
-  - unique_name: d_time_sk
+  - unique_name: Time SK
     label: Time SK
     dataset: time_dim
     key_columns:
