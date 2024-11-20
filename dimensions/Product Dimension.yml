@@ -105,7 +105,7 @@ hierarchies:
               - i_manager_id
             name_column: i_manufact
             sort_column: i_manager_id
-          - unique_name: i_product_name
+          - unique_name: d_product_name
             label: I Product Name
             description: the name of the product, the item name
             contains_unique_names: false
