@@ -1,4 +1,4 @@
-unique_name: m_ss_ext_wholesale_cost_sum
+unique_name: Store Ext Wholesale Cost
 object_type: metric
 label: Store Ext Wholesale Cost
 calculation_method: sum

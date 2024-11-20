@@ -1,4 +1,4 @@
-unique_name: m_ws_net_profit_sum
+unique_name: Web Net Profit
 object_type: metric
 label: Web Net Profit
 calculation_method: sum

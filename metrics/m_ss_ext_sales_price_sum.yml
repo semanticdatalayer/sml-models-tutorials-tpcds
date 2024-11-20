@@ -1,4 +1,4 @@
-unique_name: m_ss_ext_sales_price_sum
+unique_name: Store Ext Sales Price
 object_type: metric
 label: Store Ext Sales Price
 calculation_method: sum

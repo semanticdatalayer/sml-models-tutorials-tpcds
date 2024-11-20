@@ -1,4 +1,4 @@
-unique_name: m_ss_ext_wholesale_cost_avg
+unique_name: Average Ext Wholesale Cost
 object_type: metric
 label: Average Ext Wholesale Cost
 calculation_method: average

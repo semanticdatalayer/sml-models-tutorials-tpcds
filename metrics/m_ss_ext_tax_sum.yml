@@ -1,4 +1,4 @@
-unique_name: m_ss_ext_tax_sum
+unique_name: Store Ext Sales Tax
 object_type: metric
 label: Store Ext Sales Tax
 calculation_method: sum

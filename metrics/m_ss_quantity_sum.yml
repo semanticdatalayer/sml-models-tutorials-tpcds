@@ -1,4 +1,4 @@
-unique_name: m_ss_quantity_sum
+unique_name: Store Quantity Sold
 object_type: metric
 label: Store Quantity Sold
 description: Total Store Quantity Sold

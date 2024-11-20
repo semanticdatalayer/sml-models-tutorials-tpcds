@@ -1,7 +1,7 @@
 unique_name: m_web_sales_increase
 object_type: metric_calc
 label: Web Sales Increase
-expression: "CASE WHEN ISEMPTY([Measures].[m_ws_ext_sales_price_sum])\nTHEN NULL \n\
-  ELSE \n([Sold d_date_dimension].[Sold d_date_dimension].CurrentMember, [Measures].[m_ws_ext_sales_price_sum])\
-  \ / ([Sold d_date_dimension].[Sold d_date_dimension].CurrentMember.PrevMember, [Measures].[m_ws_ext_sales_price_sum])\n\
+expression: "CASE WHEN ISEMPTY([Measures].[Web Ext Sales Price])\nTHEN NULL \n\
+  ELSE \n([Sold d_date_dimension].[Sold d_date_dimension].CurrentMember, [Measures].[Web Ext Sales Price])\
+  \ / ([Sold d_date_dimension].[Sold d_date_dimension].CurrentMember.PrevMember, [Measures].[Web Ext Sales Price])\n\
   END"

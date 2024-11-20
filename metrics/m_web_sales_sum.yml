@@ -1,4 +1,4 @@
-unique_name: m_web_sales_sum
+unique_name: Web Sales
 object_type: metric
 label: Web Sales
 description: Total Web Sales

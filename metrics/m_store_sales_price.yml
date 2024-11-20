@@ -1,6 +1,7 @@
-unique_name: m_store_sales_price
+unique_name: Total Store Sales
 object_type: metric
-label: Total Store Sales, Store Channel Sales
+label: Total Store Sales
+description: Store Channel Sales
 calculation_method: sum
 column: ss_sales_price
 dataset: store_sales

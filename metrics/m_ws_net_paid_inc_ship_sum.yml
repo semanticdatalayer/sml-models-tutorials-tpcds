@@ -1,4 +1,4 @@
-unique_name: m_ws_net_paid_inc_ship_sum
+unique_name: Web Net Paid Incl Ship
 object_type: metric
 label: Web Net Paid Incl Ship
 calculation_method: sum

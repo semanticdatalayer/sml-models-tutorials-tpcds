@@ -1,4 +1,4 @@
 unique_name: m_average_store_unit_net_profit
 object_type: metric_calc
 label: Average Store Unit Net Profit
-expression: "[Measures].[m_ss_net_profit_sum]/[Measures].[m_ss_quantity_sum]"
+expression: "[Measures].[Store Net Profit]/[Measures].[Store Quantity Sold]"

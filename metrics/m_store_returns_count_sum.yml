@@ -1,6 +1,7 @@
-unique_name: m_store_returns_count_sum
+unique_name: Store Returns Count
 object_type: metric
-label: Store Returns Count, Store Number of Returns, Store Quantity Returned
+label: Store Returns Count
+description: Store Number of Returns, Store Quantity Returned
 calculation_method: sum
 column: returns_count
 dataset: store_returns
