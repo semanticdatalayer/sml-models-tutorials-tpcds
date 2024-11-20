@@ -1,15 +1,15 @@
-unique_name: Ws_Web_Site_Sk
+unique_name: d_web_site
 object_type: dimension
-label: Ws_Web_Site_Sk
+label: Web Site
 hierarchies:
-  - unique_name: Ws_Web_Site_Sk Hierarchy
-    label: Ws_Web_Site_Sk Hierarchy
+  - unique_name: d_web_site
+    label: Web Site
     levels:
-      - unique_name: Ws_Web_Site_Sk Level
+      - unique_name: d_web_site Level
 is_degenerate: true
 level_attributes:
-  - unique_name: Ws_Web_Site_Sk Level
-    label: Website id
+  - unique_name: d_web_site
+    label: Website ID
     dataset: web_sales
     key_columns:
       - ws_web_site_sk
