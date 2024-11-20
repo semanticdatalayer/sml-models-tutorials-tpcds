@@ -668,8 +668,8 @@ relationships:
       join_columns:
         - cs_ship_mode_sk
     to:
-      dimension: Ship Mode
-      level: Ship Mode
+      dimension: d_ship_mode
+      level: d_ship_mode
   - unique_name: catalog_sales_Household_Demographics
     from:
       dataset: catalog_sales
@@ -869,8 +869,8 @@ relationships:
       join_columns:
         - ws_ship_mode_sk
     to:
-      dimension: Ship Mode
-      level: Ship Mode
+      dimension: d_ship_mode
+      level: d_ship_mode
   - unique_name: web_sales_Household_Demographics
     from:
       dataset: web_sales
