@@ -174,39 +174,39 @@ aggregates:
   - unique_name: Q50
     label: Q50
     attributes:
-      - name: d_store_zip_code
-        dimension: d_store_dimension
-      - name: d_store_country
-        dimension: d_store_dimension
-      - name: d_store_street_type
-        dimension: d_store_dimension
-      - name: d_store_city
-        dimension: d_store_dimension
+      - name: Store Zip Code
+        dimension: Store Dimension
+      - name: Store Country
+        dimension: Store Dimension
+      - name: Store Street Type
+        dimension: Store Dimension
+      - name: Store City
+        dimension: Store Dimension
       - name: Month of Year
         dimension: Date Dimensions
         relationships_path:
           - store_returns_Date_Dimension_Return_1
-      - name: d_store_company_id
-        dimension: d_store_dimension
+      - name: Store Company ID
+        dimension: Store Dimension
       - name: Returns Time Tier
         dimension: Returns Time Tier
-      - name: d_store_name
-        dimension: d_store_dimension
-      - name: d_store_street_number
-        dimension: d_store_dimension
-      - name: d_store_street_name
-        dimension: d_store_dimension
-      - name: d_store_county
-        dimension: d_store_dimension
-      - name: d_store_suite_number
-        dimension: d_store_dimension
+      - name: Store Name
+        dimension: Store Dimension
+      - name: Store Street Number
+        dimension: Store Dimension
+      - name: Store Street Name
+        dimension: Store Dimension
+      - name: Store County
+        dimension: Store Dimension
+      - name: Store Suite Number
+        dimension: Store Dimension
       - name: Calendar Year_week
         dimension: Date Dimensions
         partition: name
         relationships_path:
           - store_returns_Date_Dimension_Return
-      - name: d_store_state
-        dimension: d_store_dimension
+      - name: Store State
+        dimension: Store Dimension
     metrics:
       - Returns Count
     target_connection: Connection - TPCDS
@@ -281,8 +281,8 @@ aggregates:
     attributes:
       - name: Channel Direct Mail
         dimension: Promotions
-      - name: d_store_gmt_offset
-        dimension: d_store_dimension
+      - name: Store GMT Offset
+        dimension: Store Dimension
       - name: Channel TV
         dimension: Promotions
       - name: Customer GMT Offset
@@ -347,8 +347,8 @@ aggregates:
           - store_sales_Time_Dimension_Sold
       - name: Vehicle Count
         dimension: Household Demographics
-      - name: d_store_name
-        dimension: d_store_dimension
+      - name: Store Name
+        dimension: Store Dimension
     metrics:
       - Store Sales Row Counter
     target_connection: Connection - TPCDS
@@ -366,8 +366,8 @@ aggregates:
         dimension: Time Dimension
         relationships_path:
           - store_sales_Time_Dimension_Sold
-      - name: d_store_name
-        dimension: d_store_dimension
+      - name: Store Name
+        dimension: Store Dimension
     metrics:
       - Store Sales Row Counter
     target_connection: Connection - TPCDS
@@ -377,7 +377,7 @@ dimensions:
   - Net Profit Tier
   - Returns Time Tier
   - Sales Price Tier
-  - d_ticket_number
+  - Store Sales Ticket Number
   - d_web_site
 include_default_drillthrough: true
 metrics:
@@ -700,8 +700,8 @@ relationships:
       join_columns:
         - ss_store_sk
     to:
-      dimension: d_store_dimension
-      level: d_store_number
+      dimension: Store Dimension
+      level: Store Number
   - unique_name: store_promotion_Date_Dimension_Sold
     from:
       dataset: store_promotion
@@ -901,8 +901,8 @@ relationships:
       join_columns:
         - sr_store_sk
     to:
-      dimension: d_store_dimension
-      level: d_store_number
+      dimension: Store Dimension
+      level: Store Number
   - unique_name: store_returns_Date_Dimension_Return
     from:
       dataset: store_returns
@@ -977,8 +977,8 @@ relationships:
       join_columns:
         - ss_store_sk
     to:
-      dimension: d_store_dimension
-      level: d_store_number
+      dimension: Store Dimension
+      level: Store Number
   - unique_name: store_sales_Date_Dimension_Sold
     from:
       dataset: store_sales

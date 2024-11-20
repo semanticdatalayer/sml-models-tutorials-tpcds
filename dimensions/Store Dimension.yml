@@ -1,24 +1,24 @@
-unique_name: d_store_dimension
+unique_name: Store Dimension
 object_type: dimension
 label: Store Dimension
 type: standard
 
 hierarchies:
 
-  - unique_name: d_store_dimension
+  - unique_name: Store Dimension
     label: Store Dimension
     folder: Store Attributes
     filter_empty: "yes"
 
     levels:
 
-      - unique_name: d_store_country
+      - unique_name: Store Country
 
-      - unique_name: d_store_state
+      - unique_name: Store State
 
         secondary_attributes:
 
-          - unique_name: d_store_state_name
+          - unique_name: Store State Name
             label: Store State Name
             description: Full name of the State
             allowed_calcs_for_dma:
@@ -32,15 +32,15 @@ hierarchies:
             name_column: Store State Name
             sort_column: Store State Name
 
-      - unique_name: d_store_county
+      - unique_name: Store County
 
-      - unique_name: d_store_city
+      - unique_name: Store City
 
-      - unique_name: d_store_number
+      - unique_name: Store Number
 
         secondary_attributes:
 
-          - unique_name: d_s_floor_space
+          - unique_name: Store Floor Space
             label: Store Floor Space
             folder: Store Attributes
             dataset: store
@@ -49,7 +49,7 @@ hierarchies:
               - s_floor_space
             sort_column: s_floor_space
 
-          - unique_name: d_s_hours
+          - unique_name: Store Hours
             label: Store Hours
             description: Store hours of operation
             folder: Store Attributes
@@ -59,7 +59,7 @@ hierarchies:
               - s_hours
             sort_column: s_hours
 
-          - unique_name: d_s_manager
+          - unique_name: Store Manager
             label: Store Manager
             description: Name of the store manager
             folder: Store Attributes
@@ -69,7 +69,7 @@ hierarchies:
               - s_manager
             sort_column: s_manager
 
-          - unique_name: d_s_number_employees
+          - unique_name: Store Number of Employees
             label: Store Number of Employees
             description: count of employees working at a store
             folder: Store Attributes
@@ -79,7 +79,7 @@ hierarchies:
               - s_number_employees
             sort_column: s_number_employees
 
-          - unique_name: d_store_company_id
+          - unique_name: Store Company ID
             label: Store Company ID
             folder: Store Attributes
             dataset: store
@@ -88,7 +88,7 @@ hierarchies:
               - s_company_id
             sort_column: s_company_id
 
-          - unique_name: d_store_gmt_offset
+          - unique_name: Store GMT Offset
             label: Store GMT Offset
             folder: Store Attributes
             dataset: store
@@ -97,7 +97,7 @@ hierarchies:
               - s_gmt_offset
             sort_column: s_gmt_offset
 
-          - unique_name: d_store_name
+          - unique_name: Store Name
             label: Store Name
             folder: Store Attributes
             dataset: store
@@ -106,7 +106,7 @@ hierarchies:
               - s_store_name
             sort_column: s_store_name
 
-          - unique_name: d_store_street_name
+          - unique_name: Store Street Name
             label: Store Street Name
             folder: Store Attributes
             dataset: store
@@ -115,7 +115,7 @@ hierarchies:
               - s_street_name
             sort_column: s_street_name
 
-          - unique_name: d_store_street_number
+          - unique_name: Store Street Number
             label: Store Street Number
             folder: Store Attributes
             dataset: store
@@ -124,7 +124,7 @@ hierarchies:
               - s_street_number
             sort_column: s_street_number
 
-          - unique_name: d_store_street_type
+          - unique_name: Store Street Type
             label: Store Street Type
             folder: store attributes
             dataset: store
@@ -133,7 +133,7 @@ hierarchies:
               - s_street_type
             sort_column: s_street_type
 
-          - unique_name: d_store_suite_number
+          - unique_name: Store Suite Number
             label: Store Suite Number
             folder: Store Attributes
             dataset: store
@@ -142,7 +142,7 @@ hierarchies:
               - s_suite_number
             sort_column: s_suite_number
 
-          - unique_name: d_store_zip_code
+          - unique_name: Store Zip Code
             label: Store Zip Code
             folder: Store Attributes
             dataset: store
@@ -153,7 +153,7 @@ hierarchies:
 
 level_attributes:
 
-  - unique_name: d_store_city
+  - unique_name: Store City
     label: Store City
     dataset: store
     name_column: s_city
@@ -162,7 +162,7 @@ level_attributes:
       - s_state
       - s_city
 
-  - unique_name: d_store_country
+  - unique_name: Store Country
     label: Store Country
     description: Store Country Name
     dataset: store
@@ -170,7 +170,7 @@ level_attributes:
     key_columns:
       - s_country
 
-  - unique_name: d_store_county
+  - unique_name: Store County
     label: Store County
     description: Name of the Store's county
     dataset: store
@@ -179,7 +179,7 @@ level_attributes:
       - s_state
       - s_county
 
-  - unique_name: d_store_state
+  - unique_name: Store State
     label: Store State
     description: Store Shorthand, Abbreviation
     dataset: store
@@ -188,7 +188,7 @@ level_attributes:
       - s_country
       - s_state
 
-  - unique_name: d_store_number
+  - unique_name: Store Number
     label: Store Number
     description: ID of the store
     is_unique_key: true
