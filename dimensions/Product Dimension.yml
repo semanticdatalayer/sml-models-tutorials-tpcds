@@ -1,14 +1,14 @@
-unique_name: Product Dimension - TPC-DS
+unique_name: d_product_dimension
 object_type: dimension
-label: Product Dimension - TPC-DS
+label: Product Dimension
 hierarchies:
-  - unique_name: Product Dimension - TPC-DS
-    label: Product Dimension - TPC-DS
+  - unique_name: d_product_dimension
+    label: Product Dimension
     filter_empty: 'yes'
     folder: Product Attributes
     levels:
-      - unique_name: I category
-      - unique_name: Product Dimension - TPC-DS
+      - unique_name: d_product_category
+      - unique_name: d_product_dimension
         secondary_attributes:
           - unique_name: d_i_color
             label: Product Color
@@ -115,14 +115,14 @@ hierarchies:
               - i_product_name
             name_column: i_product_name
 level_attributes:
-  - unique_name: I category
+  - unique_name: d_product_category
     label: Product category
     description: Item or Product Category Name
     dataset: item
     key_columns:
       - i_category
     name_column: i_category
-  - unique_name: Product Dimension - TPC-DS
+  - unique_name: d_product_dimension
     label: Product Item
     dataset: item
     is_unique_key: true
