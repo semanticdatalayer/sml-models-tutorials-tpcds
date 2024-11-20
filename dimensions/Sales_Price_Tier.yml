@@ -1,11 +1,11 @@
-unique_name: Sales_Price_Tier
+unique_name: d_sales_price_tier
 object_type: dimension
-label: Sales_Price_Tier
+label: Sales Price Tier
 is_degenerate: true
 
 hierarchies:
 
-  - unique_name: Sales Price Tier
+  - unique_name: d_sales_price_tier
     label: Sales Price Tier
     folder: Product Attributes
     filter_empty: "yes"
