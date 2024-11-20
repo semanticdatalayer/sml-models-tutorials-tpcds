@@ -113,10 +113,10 @@ aggregates:
         dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: I category
-        dimension: Product Dimension - TPC-DS
+      - name: d_product_category
+        dimension: d_product_dimension
       - name: d_product_manufacturer_id
-        dimension: Product Dimension - TPC-DS
+        dimension: d_product_dimension
       - name: Calendar Year-Week
         dimension: d_date_dimension
         partition: name
@@ -132,10 +132,10 @@ aggregates:
         dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: I category
-        dimension: Product Dimension - TPC-DS
+      - name: d_product_category
+        dimension: d_product_dimension
       - name: d_product_manager_id
-        dimension: Product Dimension - TPC-DS
+        dimension: d_product_dimension
       - name: Calendar Year-Week
         dimension: d_date_dimension
         partition: name
@@ -214,15 +214,15 @@ aggregates:
     label: Q52
     attributes:
       - name: d_product_brand_name
-        dimension: Product Dimension - TPC-DS
+        dimension: d_product_dimension
       - name: d_month_of_year
         dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: d_product_brand_id
-        dimension: Product Dimension - TPC-DS
+        dimension: d_product_dimension
       - name: d_product_manager_id
-        dimension: Product Dimension - TPC-DS
+        dimension: d_product_dimension
       - name: Calendar Year-Week
         dimension: d_date_dimension
         partition: name
@@ -235,17 +235,17 @@ aggregates:
     label: Q53
     attributes:
       - name: d_product_brand_name
-        dimension: Product Dimension - TPC-DS
+        dimension: d_product_dimension
       - name: d_product_class_name
-        dimension: Product Dimension - TPC-DS
-      - name: I category
-        dimension: Product Dimension - TPC-DS
+        dimension: d_product_dimension
+      - name: d_product_category
+        dimension: d_product_dimension
       - name: Calendar Quarter
         dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: d_product_manufacturer_id
-        dimension: Product Dimension - TPC-DS
+        dimension: d_product_dimension
     metrics:
       - m_avg_quarterly_store_sales_for_1998_1999
       - m_avg_quarter_sales_ratio
@@ -260,7 +260,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: d_product_item_id
-        dimension: Product Dimension - TPC-DS
+        dimension: d_product_dimension
       - name: d_customer_gmt_offset
         dimension: d_customer_address
         relationships_path:
@@ -269,10 +269,10 @@ aggregates:
         dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: I category
-        dimension: Product Dimension - TPC-DS
+      - name: d_product_category
+        dimension: d_product_dimension
       - name: d_i_color
-        dimension: Product Dimension - TPC-DS
+        dimension: d_product_dimension
     metrics:
       - m_total_ext_sales_price
     target_connection: Connection - TPCDS
@@ -293,8 +293,8 @@ aggregates:
         dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: I category
-        dimension: Product Dimension - TPC-DS
+      - name: d_product_category
+        dimension: d_product_dimension
       - name: d_channel_email
         dimension: Promotions
       - name: Calendar Year-Week
@@ -317,7 +317,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: d_product_item_id
-        dimension: Product Dimension - TPC-DS
+        dimension: d_product_dimension
       - name: d_cd_education_status
         dimension: d_customer_demographics
       - name: d_channel_event
@@ -691,8 +691,8 @@ relationships:
       join_columns:
         - cs_item_sk
     to:
-      dimension: Product Dimension - TPC-DS
-      level: Product Dimension - TPC-DS
+      dimension: d_product_dimension
+      level: d_product_dimension
   - unique_name: store_promotion_Store_Dimension
     from:
       dataset: store_promotion
@@ -765,16 +765,16 @@ relationships:
       join_columns:
         - p_item_sk
     to:
-      dimension: Product Dimension - TPC-DS
-      level: Product Dimension - TPC-DS
+      dimension: d_product_dimension
+      level: d_product_dimension
   - unique_name: store_promotion_Product_Dimension_1
     from:
       dataset: store_promotion
       join_columns:
         - ss_item_sk
     to:
-      dimension: Product Dimension - TPC-DS
-      level: Product Dimension - TPC-DS
+      dimension: d_product_dimension
+      level: d_product_dimension
   - unique_name: web_sales_Date_Dimension_Sold
     from:
       dataset: web_sales
@@ -892,8 +892,8 @@ relationships:
       join_columns:
         - ws_item_sk
     to:
-      dimension: Product Dimension - TPC-DS
-      level: Product Dimension - TPC-DS
+      dimension: d_product_dimension
+      level: d_product_dimension
   - unique_name: store_returns_Store_Dimension
     from:
       dataset: store_returns
@@ -968,8 +968,8 @@ relationships:
       join_columns:
         - sr_item_sk
     to:
-      dimension: Product Dimension - TPC-DS
-      level: Product Dimension - TPC-DS
+      dimension: d_product_dimension
+      level: d_product_dimension
   - unique_name: store_sales_Store_Dimension
     from:
       dataset: store_sales
@@ -1052,8 +1052,8 @@ relationships:
       join_columns:
         - ss_item_sk
     to:
-      dimension: Product Dimension - TPC-DS
-      level: Product Dimension - TPC-DS
+      dimension: d_product_dimension
+      level: d_product_dimension
   - unique_name: inventory_Date_Dimension_Inventory
     from:
       dataset: inventory
@@ -1086,5 +1086,5 @@ relationships:
       join_columns:
         - inv_item_sk
     to:
-      dimension: Product Dimension - TPC-DS
-      level: Product Dimension - TPC-DS
+      dimension: d_product_dimension
+      level: d_product_dimension
