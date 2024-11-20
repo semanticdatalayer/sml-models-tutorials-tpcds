@@ -598,8 +598,8 @@ relationships:
       join_columns:
         - cs_warehouse_sk
     to:
-      dimension: Fulfilling Warehouse
-      level: Fulfilling Warehouse
+      dimension: d_fulfilling_warehouse
+      level: d_fulfilling_warehouse
   - unique_name: catalog_sales_Time_Dimension_Sold
     from:
       dataset: catalog_sales
@@ -799,8 +799,8 @@ relationships:
       join_columns:
         - ws_warehouse_sk
     to:
-      dimension: Fulfilling Warehouse
-      level: Fulfilling Warehouse
+      dimension: d_fulfilling_warehouse
+      level: d_fulfilling_warehouse
   - unique_name: web_sales_Time_Dimension_Sold
     from:
       dataset: web_sales
@@ -1069,8 +1069,8 @@ relationships:
       join_columns:
         - inv_warehouse_sk
     to:
-      dimension: Fulfilling Warehouse
-      level: Fulfilling Warehouse
+      dimension: d_fulfilling_warehouse
+      level: d_fulfilling_warehouse
   - unique_name: inventory_Date_Dimension_Inventory_1
     from:
       dataset: inventory
