@@ -1,11 +1,11 @@
-unique_name: d_time_dimension
+unique_name: Time Dimension
 object_type: dimension
 label: Time Dimension
 type: time
 
 hierarchies:
 
-  - unique_name: d_time_dimension
+  - unique_name: Time Dimension
     label: Time Dimension
     filter_empty: "yes"
     folder: Time

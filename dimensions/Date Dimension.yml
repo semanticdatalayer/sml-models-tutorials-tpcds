@@ -1,16 +1,16 @@
-unique_name: d_date_dimension
+unique_name: Date Dimensions
 object_type: dimension
 label: Date Dimensions
 hierarchies:
-  - unique_name: d_date_dimension
+  - unique_name: Date Dimensions
     label: Date Month Hierarchy
     filter_empty: 'yes'
     folder: Date Attributes
     levels:
-      - unique_name: d_calendar_year
-      - unique_name: d_calendar_quarter
+      - unique_name: Calendar Year
+      - unique_name: Calendar Quarter
         secondary_attributes:
-          - unique_name: d_quarter_of_year
+          - unique_name: Quarter of Year
             label: Quarter of Year
             allowed_calcs_for_dma:
               - Lag
@@ -22,9 +22,9 @@ hierarchies:
               - d_qoy
             name_column: d_qoy
             sort_column: d_qoy
-      - unique_name: d_calendar_month
+      - unique_name: Calendar Month
         secondary_attributes:
-          - unique_name: d_month_name
+          - unique_name: Month Name
             label: Month Name
             allowed_calcs_for_dma:
               - Lag
@@ -36,7 +36,7 @@ hierarchies:
               - month_name
             name_column: month_name
             sort_column: month_name
-          - unique_name: d_month_of_year
+          - unique_name: Month of Year
             label: Month of Year
             allowed_calcs_for_dma:
               - Lag
@@ -48,7 +48,7 @@ hierarchies:
               - d_moy
             name_column: d_moy
             sort_column: d_moy
-          - unique_name: d_month_sequence
+          - unique_name: Month Sequence
             label: Month Sequence
             allowed_calcs_for_dma:
               - Lag
@@ -60,9 +60,9 @@ hierarchies:
               - d_month_seq
             name_column: d_month_seq
             sort_column: d_month_seq
-      - unique_name: d_time_dimension
+      - unique_name: Time Dimension
         secondary_attributes:
-          - unique_name: d_d_following_holiday
+          - unique_name: Following Holiday Indicator
             label: Following Holiday Indicator
             allowed_calcs_for_dma:
               - Lag
@@ -74,7 +74,7 @@ hierarchies:
               - d_following_holiday
             name_column: d_following_holiday
             sort_column: d_following_holiday
-          - unique_name: d_d_holiday
+          - unique_name: Holiday Indicator
             label: Holiday Indicator
             allowed_calcs_for_dma:
               - Lag
@@ -86,7 +86,7 @@ hierarchies:
               - d_holiday
             name_column: d_holiday
             sort_column: d_holiday
-          - unique_name: d_d_weekend
+          - unique_name: Weekend Indicator
             label: Weekend Indicator
             allowed_calcs_for_dma:
               - Lag
@@ -98,7 +98,7 @@ hierarchies:
               - d_weekend
             name_column: d_weekend
             sort_column: d_weekend
-          - unique_name: d_day_name
+          - unique_name: Day Name
             label: Day Name
             allowed_calcs_for_dma:
               - Lag
@@ -107,9 +107,9 @@ hierarchies:
             dataset: date_dim
             folder: Date Attributes
             key_columns:
-              - d_day_name
-            name_column: d_day_name
-            sort_column: d_day_name
+              - Day Name
+            name_column: Day Name
+            sort_column: Day Name
           - unique_name: d_day_of_week
             label: Day of Week
             allowed_calcs_for_dma:
@@ -122,16 +122,16 @@ hierarchies:
               - d_dow
             name_column: d_dow
             sort_column: d_dow
-  - unique_name: d_date_week_hierarchy
+  - unique_name: Date Week Hierarchy
     label: Date Week Hierarchy
     filter_empty: 'yes'
     folder: Date Attributes
     levels:
-      - unique_name: d_calendar_year_week
-      - unique_name: d_calendar_month_week
-      - unique_name: d_calendar_week
+      - unique_name: Calendar Year_week
+      - unique_name: Calendar Month_week
+      - unique_name: Calendar Week
         secondary_attributes:
-          - unique_name: d_week_seg
+          - unique_name: Week Sequence
             label: Week Sequence
             allowed_calcs_for_dma:
               - Lag
@@ -143,9 +143,9 @@ hierarchies:
               - d_week_seq
             name_column: d_week_seq
             sort_column: d_week_seq
-      - unique_name: d_date_week_hierarchy
+      - unique_name: Date Week Hierarchy
         secondary_attributes:
-          - unique_name: d_day_name_week
+          - unique_name: Day Name_week
             label: Day Name (Week)
             allowed_calcs_for_dma:
               - Lag
@@ -154,11 +154,11 @@ hierarchies:
             dataset: date_dim
             folder: Date Attributes
             key_columns:
-              - d_day_name
-            name_column: d_day_name
-            sort_column: d_day_name
+              - Day Name
+            name_column: Day Name
+            sort_column: Day Name
 level_attributes:
-  - unique_name: d_calendar_month_week
+  - unique_name: Calendar Month_week
     label: Calendar Month
     allowed_calcs_for_dma:
       - Lag
@@ -173,7 +173,7 @@ level_attributes:
       - year_month
     name_column: year_month
     time_unit: month
-  - unique_name: d_calendar_month
+  - unique_name: Calendar Month
     label: Calendar Month
     allowed_calcs_for_dma:
       - Lag
@@ -188,7 +188,7 @@ level_attributes:
       - year_month
     name_column: year_month
     time_unit: month
-  - unique_name: d_calendar_quarter
+  - unique_name: Calendar Quarter
     label: Calendar Quarter
     allowed_calcs_for_dma:
       - Lag
@@ -204,7 +204,7 @@ level_attributes:
     name_column: d_quarter_name
     sort_column: year_quarter
     time_unit: quarter
-  - unique_name: d_calendar_week
+  - unique_name: Calendar Week
     label: Calendar Week
     allowed_calcs_for_dma:
       - Lag
@@ -219,7 +219,7 @@ level_attributes:
       - d_week_seq
     name_column: d_week_seq
     time_unit: week
-  - unique_name: d_calendar_year_week
+  - unique_name: Calendar Year_week
     label: Calendar Year
     allowed_calcs_for_dma:
       - Lag
@@ -234,7 +234,7 @@ level_attributes:
       - d_year
     name_column: d_year
     time_unit: year
-  - unique_name: d_calendar_year
+  - unique_name: Calendar Year
     label: Calendar Year
     allowed_calcs_for_dma:
       - Lag
@@ -249,7 +249,7 @@ level_attributes:
       - d_year
     name_column: d_year
     time_unit: year
-  - unique_name: d_date_week_hierarchy
+  - unique_name: Date Week Hierarchy
     label: Date
     allowed_calcs_for_dma:
       - Lag
@@ -265,7 +265,7 @@ level_attributes:
       - d_date_sk
     name_column: d_date
     time_unit: day
-  - unique_name: d_time_dimension
+  - unique_name: Time Dimension
     label: Date
     allowed_calcs_for_dma:
       - Lag
