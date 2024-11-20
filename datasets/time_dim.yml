@@ -5,7 +5,7 @@ connection_id: Connection - TPCDS
 table: time_dim
 
 columns:
-  - name: Morning  Time Tier
+  - name: t_morning_time_tier
     data_type: string
     sql: "CASE \nWHEN t_hour = 8 AND t_minute >= 30 THEN '08:30 to 09:00'\n\
       WHEN t_hour = 9 AND t_minute < 30 THEN '09:00 to 09:30'\nWHEN t_hour\

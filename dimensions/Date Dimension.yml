@@ -60,7 +60,7 @@ hierarchies:
               - d_month_seq
             name_column: d_month_seq
             sort_column: d_month_seq
-      - unique_name: Time Dimension
+      - unique_name: d_time_dimension
         secondary_attributes:
           - unique_name: d_d_following_holiday
             label: Following Holiday Indicator
@@ -265,7 +265,7 @@ level_attributes:
       - d_date_sk
     name_column: d_date
     time_unit: day
-  - unique_name: Time Dimension
+  - unique_name: d_time_dimension
     label: Date
     allowed_calcs_for_dma:
       - Lag
