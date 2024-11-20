@@ -1,6 +1,6 @@
 unique_name: d_catalog_sales_price_tier
 object_type: dimension
-label: Catalog sales price tier
+label: Catalog Sales Price Tier
 is_degenerate: true
 
 hierarchies:
@@ -19,9 +19,9 @@ level_attributes:
   - unique_name: d_catalog_sales_price_tier
     label: Catalog sales price tier
     dataset: catalog_sales
-    name_column: catalog_sales_price_tier
+    name_column: cs_catalog_sales_price_tier
     key_columns:
-      - d_catalog_sales_price_tier
+      - cs_catalog_sales_price_tier
 
 modeler_metadata:
   version: 0

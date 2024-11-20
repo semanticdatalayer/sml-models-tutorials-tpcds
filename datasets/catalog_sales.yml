@@ -82,7 +82,7 @@ columns:
     dialects:
       - dialect: Snowflake
         sql: "CAST(\"cs_net_paid\"*\"cs_quantity\" AS decimal(38,2))"
-  - name: catalog_sales_price_tier
+  - name: cs_catalog_sales_price_tier
     data_type: string
     sql: "CASE WHEN cs_sales_price BETWEEN 0 AND 500 THEN '500 or Less' ELSE 'More than 500' END"
     dialects:
