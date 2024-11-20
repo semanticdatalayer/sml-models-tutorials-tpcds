@@ -93,7 +93,7 @@ relationships:
         - c_current_addr_sk
       level: d_customer_dimension
     to:
-      dimension: d_customer_address
-      level: d_customer_address
+      dimension: Customer Address
+      level: Customer Address
     type: embedded
 type: standard

@@ -9,16 +9,16 @@ aggregates:
         dimension: d_household_demographics
       - name: d_cd_marital_status
         dimension: d_customer_demographics
-      - name: d_customer_state
-        dimension: d_customer_address
+      - name: Customer State
+        dimension: Customer Address
         relationships_path:
           - d_customer_dimension_customer_address
       - name: d_sales_price_tier
         dimension: d_sales_price_tier
       - name: d_cd_education_status
         dimension: d_customer_demographics
-      - name: d_customer_country
-        dimension: d_customer_address
+      - name: Customer Country
+        dimension: Customer Address
         relationships_path:
           - d_customer_dimension_customer_address
       - name: d_calendar_year_week
@@ -37,12 +37,12 @@ aggregates:
   - unique_name: Q15
     label: Q15
     attributes:
-      - name: d_customer_state
-        dimension: d_customer_address
+      - name: Customer State
+        dimension: Customer Address
         relationships_path:
           - d_customer_dimension_customer_address
-      - name: d_customer_zip_code
-        dimension: d_customer_address
+      - name: Customer Zip Code
+        dimension: Customer Address
         relationships_path:
           - d_customer_dimension_customer_address
       - name: d_calendar_year
@@ -50,8 +50,8 @@ aggregates:
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: d_catalog_sales_price_tier
-        dimension: d_catalog_sales_price_tier
+      - name: Catalog Sales Price Tier
+        dimension: Catalog Sales Price Tier
       - name: d_quarter_of_year
         dimension: d_date_dimension
         relationships_path:
@@ -89,8 +89,8 @@ aggregates:
         dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: d_customer_county
-        dimension: d_customer_address
+      - name: Customer County
+        dimension: Customer Address
         relationships_path:
           - store_sales_Customer_Address_Sold
       - name: d_calendar_year_week
@@ -105,8 +105,8 @@ aggregates:
   - unique_name: Q33
     label: Q33
     attributes:
-      - name: d_customer_gmt_offset
-        dimension: d_customer_address
+      - name: Customer GMT Offset
+        dimension: Customer Address
         relationships_path:
           - store_sales_Customer_Address_Sold
       - name: d_month_of_year
@@ -149,16 +149,16 @@ aggregates:
     attributes:
       - name: d_cd_marital_status
         dimension: d_customer_demographics
-      - name: d_customer_state
-        dimension: d_customer_address
+      - name: Customer State
+        dimension: Customer Address
         relationships_path:
           - store_sales_Customer_Address_Sold
       - name: d_sales_price_tier
         dimension: d_sales_price_tier
       - name: d_cd_education_status
         dimension: d_customer_demographics
-      - name: d_customer_country
-        dimension: d_customer_address
+      - name: Customer Country
+        dimension: Customer Address
         relationships_path:
           - store_sales_Customer_Address_Sold
       - name: d_calendar_year_week
@@ -261,8 +261,8 @@ aggregates:
           - store_sales_Date_Dimension_Sold_1
       - name: d_product_item_id
         dimension: d_product_dimension
-      - name: d_customer_gmt_offset
-        dimension: d_customer_address
+      - name: Customer GMT Offset
+        dimension: Customer Address
         relationships_path:
           - d_customer_dimension_customer_address
       - name: d_month_of_year
@@ -285,8 +285,8 @@ aggregates:
         dimension: d_store_dimension
       - name: d_channel_tv
         dimension: d_promotions
-      - name: d_customer_gmt_offset
-        dimension: d_customer_address
+      - name: Customer GMT Offset
+        dimension: Customer Address
         relationships_path:
           - d_customer_dimension_customer_address
       - name: d_month_of_year
@@ -373,7 +373,7 @@ aggregates:
     target_connection: Connection - TPCDS
 dimensions:
   - Catalog Preferred
-  - d_catalog_sales_price_tier
+  - Catalog Sales Price Tier
   - d_net_profit_tier
   - d_returns_time_tier
   - d_sales_price_tier
@@ -625,8 +625,8 @@ relationships:
         - cs_bill_addr_sk
     role_play: Sold {0}
     to:
-      dimension: d_customer_address
-      level: d_customer_address
+      dimension: Customer Address
+      level: Customer Address
   - unique_name: catalog_sales_Customer_Address
     from:
       dataset: catalog_sales
@@ -634,8 +634,8 @@ relationships:
         - cs_ship_addr_sk
     role_play: Ship {0}
     to:
-      dimension: d_customer_address
-      level: d_customer_address
+      dimension: Customer Address
+      level: Customer Address
   - unique_name: catalog_sales_Date_Dimension_Sold_1
     from:
       dataset: catalog_sales
@@ -725,8 +725,8 @@ relationships:
       join_columns:
         - ss_addr_sk
     to:
-      dimension: d_customer_address
-      level: d_customer_address
+      dimension: Customer Address
+      level: Customer Address
   - unique_name: store_promotion_Date_Dimension_Sold_1
     from:
       dataset: store_promotion
@@ -826,8 +826,8 @@ relationships:
         - ws_bill_addr_sk
     role_play: Sold {0}
     to:
-      dimension: d_customer_address
-      level: d_customer_address
+      dimension: Customer Address
+      level: Customer Address
   - unique_name: web_sales_Customer_Address
     from:
       dataset: web_sales
@@ -835,8 +835,8 @@ relationships:
         - ws_ship_addr_sk
     role_play: Ship {0}
     to:
-      dimension: d_customer_address
-      level: d_customer_address
+      dimension: Customer Address
+      level: Customer Address
   - unique_name: web_sales_Date_Dimension_Sold_1
     from:
       dataset: web_sales
@@ -928,8 +928,8 @@ relationships:
         - sr_addr_sk
     role_play: Return {0}
     to:
-      dimension: d_customer_address
-      level: d_customer_address
+      dimension: Customer Address
+      level: Customer Address
   - unique_name: store_returns_Date_Dimension_Return_1
     from:
       dataset: store_returns
@@ -1012,8 +1012,8 @@ relationships:
         - ss_addr_sk
     role_play: Sold {0}
     to:
-      dimension: d_customer_address
-      level: d_customer_address
+      dimension: Customer Address
+      level: Customer Address
   - unique_name: store_sales_Date_Dimension_Sold_1
     from:
       dataset: store_sales
