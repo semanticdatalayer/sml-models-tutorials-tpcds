@@ -6,7 +6,7 @@ aggregates:
     label: Q13
     attributes:
       - name: d_hd_dep_count
-        dimension: Household Demographics
+        dimension: d_household_demographics
       - name: d_cd_marital_status
         dimension: d_customer_demographics
       - name: d_customer_state
@@ -340,13 +340,13 @@ aggregates:
     label: Q88
     attributes:
       - name: d_hd_dep_count
-        dimension: Household Demographics
+        dimension: d_household_demographics
       - name: d_morning _time_tier
         dimension: Time Dimension
         relationships_path:
           - store_sales_Time_Dimension_Sold
       - name: d_hd_vehicle_count
-        dimension: Household Demographics
+        dimension: d_household_demographics
       - name: d_store_name
         dimension: Store Dimension
     metrics:
@@ -356,7 +356,7 @@ aggregates:
     label: Q96
     attributes:
       - name: d_hd_dep_count
-        dimension: Household Demographics
+        dimension: d_household_demographics
       - name: d_minute
         dimension: Time Dimension
         partition: name
@@ -675,8 +675,8 @@ relationships:
       join_columns:
         - cs_ship_customer_sk
     to:
-      dimension: Household Demographics
-      level: Household Demographics
+      dimension: d_household_demographics
+      level: d_household_demographics
   - unique_name: catalog_sales_Customer_Dimension
     from:
       dataset: catalog_sales
@@ -749,8 +749,8 @@ relationships:
       join_columns:
         - ss_hdemo_sk
     to:
-      dimension: Household Demographics
-      level: Household Demographics
+      dimension: d_household_demographics
+      level: d_household_demographics
   - unique_name: store_promotion_Customer_Dimension
     from:
       dataset: store_promotion
@@ -876,8 +876,8 @@ relationships:
       join_columns:
         - ws_bill_hdemo_sk
     to:
-      dimension: Household Demographics
-      level: Household Demographics
+      dimension: d_household_demographics
+      level: d_household_demographics
   - unique_name: web_sales_Customer_Dimension
     from:
       dataset: web_sales
@@ -952,8 +952,8 @@ relationships:
       join_columns:
         - sr_hdemo_sk
     to:
-      dimension: Household Demographics
-      level: Household Demographics
+      dimension: d_household_demographics
+      level: d_household_demographics
   - unique_name: store_returns_Customer_Dimension
     from:
       dataset: store_returns
@@ -1036,8 +1036,8 @@ relationships:
       join_columns:
         - ss_hdemo_sk
     to:
-      dimension: Household Demographics
-      level: Household Demographics
+      dimension: d_household_demographics
+      level: d_household_demographics
   - unique_name: store_sales_Customer_Dimension
     from:
       dataset: store_sales

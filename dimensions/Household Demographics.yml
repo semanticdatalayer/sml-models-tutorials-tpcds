@@ -1,13 +1,13 @@
-unique_name: Household Demographics
+unique_name: d_household_demographics
 object_type: dimension
 label: Household Demographics
 hierarchies:
-  - unique_name: Household Demographics
+  - unique_name: d_household_demographics
     label: Household Demographics
     filter_empty: 'yes'
     folder: Household Demographics
     levels:
-      - unique_name: Household Demographics
+      - unique_name: d_household_demographics
         secondary_attributes:
           - unique_name: d_hd_buy_potential
             label: Customer Buy Potential
@@ -34,7 +34,7 @@ hierarchies:
             name_column: hd_vehicle_count
             sort_column: hd_vehicle_count
 level_attributes:
-  - unique_name: Household Demographics
+  - unique_name: d_household_demographics
     label: Household Demographics
     dataset: household_demographics
     is_unique_key: true
@@ -42,13 +42,13 @@ level_attributes:
       - hd_demo_sk
     name_column: hd_demo_sk
 relationships:
-  - unique_name: HouseholdDemographics_IncomeBand
+  - unique_name: d_household_demographics_income_band
     from:
       dataset: household_demographics
-      hierarchy: Household Demographics
+      hierarchy: d_household_demographics
       join_columns:
         - hd_income_band_sk
-      level: Household Demographics
+      level: d_household_demographics
     to:
       dimension: Income Band
       level: Income Band
