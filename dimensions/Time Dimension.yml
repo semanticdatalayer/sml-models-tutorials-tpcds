@@ -1,11 +1,11 @@
-unique_name: Time Dimension
+unique_name: d_time_dimension
 object_type: dimension
 label: Time Dimension
 type: time
 
 hierarchies:
 
-  - unique_name: Time Dimension
+  - unique_name: d_time_dimension
     label: Time Dimension
     filter_empty: "yes"
     folder: Time
@@ -68,14 +68,14 @@ hierarchies:
               - Range
               - Siblings
 
-          - unique_name: d_morning _time_tier
-            label: Morning  Time Tier
+          - unique_name: d_morning_time_tier
+            label: Morning Time Tier
             folder: Time
             dataset: time_dim
             key_columns:
               - Morning  Time Tier
-            name_column: Morning  Time Tier
-            sort_column: Morning  Time Tier
+            name_column: t_morning_time_tier
+            sort_column: t_morning_time_tier
             allowed_calcs_for_dma:
               - Lag
               - Range
@@ -109,7 +109,7 @@ hierarchies:
 
 level_attributes:
 
-  - unique_name: Time
+  - unique_name: d_time_sk
     label: Time SK
     dataset: time_dim
     key_columns:

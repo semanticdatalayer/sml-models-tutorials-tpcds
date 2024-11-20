@@ -341,8 +341,8 @@ aggregates:
     attributes:
       - name: d_hd_dep_count
         dimension: d_household_demographics
-      - name: d_morning _time_tier
-        dimension: Time Dimension
+      - name: d_morning_time_tier
+        dimension: d_time_dimension
         relationships_path:
           - store_sales_Time_Dimension_Sold
       - name: d_hd_vehicle_count
@@ -358,12 +358,12 @@ aggregates:
       - name: d_hd_dep_count
         dimension: d_household_demographics
       - name: d_minute
-        dimension: Time Dimension
+        dimension: d_time_dimension
         partition: name
         relationships_path:
           - store_sales_Time_Dimension_Sold
       - name: d_hour
-        dimension: Time Dimension
+        dimension: d_time_dimension
         relationships_path:
           - store_sales_Time_Dimension_Sold
       - name: d_store_name
@@ -608,7 +608,7 @@ relationships:
         - cs_sold_time_sk
     role_play: Sold {0}
     to:
-      dimension: Time Dimension
+      dimension: d_time_dimension
       level: Time
   - unique_name: catalog_sales_d_promotions
     from:
@@ -644,7 +644,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: d_date_dimension
-      level: Time Dimension
+      level: d_time_dimension
   - unique_name: catalog_sales_Date_Dimension_Ship_1
     from:
       dataset: catalog_sales
@@ -653,7 +653,7 @@ relationships:
     role_play: Ship {0}
     to:
       dimension: d_date_dimension
-      level: Time Dimension
+      level: d_time_dimension
   - unique_name: catalog_sales_Customer_Demographics
     from:
       dataset: catalog_sales
@@ -735,7 +735,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: d_date_dimension
-      level: Time Dimension
+      level: d_time_dimension
   - unique_name: store_promotion_Customer_Demographics
     from:
       dataset: store_promotion
@@ -809,7 +809,7 @@ relationships:
         - ws_sold_time_sk
     role_play: Sold {0}
     to:
-      dimension: Time Dimension
+      dimension: d_time_dimension
       level: Time
   - unique_name: web_sales_d_promotions
     from:
@@ -845,7 +845,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: d_date_dimension
-      level: Time Dimension
+      level: d_time_dimension
   - unique_name: web_sales_Date_Dimension_Ship_1
     from:
       dataset: web_sales
@@ -854,7 +854,7 @@ relationships:
     role_play: Ship {0}
     to:
       dimension: d_date_dimension
-      level: Time Dimension
+      level: d_time_dimension
   - unique_name: web_sales_Customer_Demographics
     from:
       dataset: web_sales
@@ -919,7 +919,7 @@ relationships:
         - sr_return_time_sk
     role_play: Return {0}
     to:
-      dimension: Time Dimension
+      dimension: d_time_dimension
       level: Time
   - unique_name: store_returns_Customer_Address
     from:
@@ -938,7 +938,7 @@ relationships:
     role_play: Return {0}
     to:
       dimension: d_date_dimension
-      level: Time Dimension
+      level: d_time_dimension
   - unique_name: store_returns_Customer_Demographics
     from:
       dataset: store_returns
@@ -995,7 +995,7 @@ relationships:
         - ss_sold_time_sk
     role_play: Sold {0}
     to:
-      dimension: Time Dimension
+      dimension: d_time_dimension
       level: Time
   - unique_name: store_sales_d_promotions
     from:
@@ -1022,7 +1022,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: d_date_dimension
-      level: Time Dimension
+      level: d_time_dimension
   - unique_name: store_sales_Customer_Demographics
     from:
       dataset: store_sales
@@ -1080,7 +1080,7 @@ relationships:
     role_play: Inventory {0}
     to:
       dimension: d_date_dimension
-      level: Time Dimension
+      level: d_time_dimension
   - unique_name: inventory_Product_Dimension
     from:
       dataset: inventory
