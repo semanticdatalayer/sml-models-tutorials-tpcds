@@ -1,11 +1,11 @@
-unique_name: Store Dimension
+unique_name: d_store_dimension
 object_type: dimension
 label: Store Dimension
 type: standard
 
 hierarchies:
 
-  - unique_name: Store Dimension
+  - unique_name: d_store_dimension
     label: Store Dimension
     folder: Store Attributes
     filter_empty: "yes"
@@ -18,7 +18,7 @@ hierarchies:
 
         secondary_attributes:
 
-          - unique_name: d_Store State Name
+          - unique_name: d_store_state_name
             label: Store State Name
             description: Full name of the State
             allowed_calcs_for_dma:
@@ -36,7 +36,7 @@ hierarchies:
 
       - unique_name: d_store_city
 
-      - unique_name: Store_Number
+      - unique_name: d_store_number
 
         secondary_attributes:
 
@@ -188,7 +188,7 @@ level_attributes:
       - s_country
       - s_state
 
-  - unique_name: Store_Number
+  - unique_name: d_store_number
     label: Store Number
     description: ID of the store
     is_unique_key: true
