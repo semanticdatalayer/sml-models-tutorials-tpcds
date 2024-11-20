@@ -26,7 +26,7 @@ hierarchies:
       - unique_name: d_customer_city
       - unique_name: d_customer_address
         secondary_attributes:
-          - unique_name: d_CA_COUNTY
+          - unique_name: d_customer_county
             label: Customer County
             description: county the customer lives in
             dataset: customer_address
