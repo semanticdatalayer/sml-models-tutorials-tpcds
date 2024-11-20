@@ -1,4 +1,4 @@
-unique_name: m_catalog_sales_quantity_sold_avg
+unique_name: Catalog Sales Average Quantity Sold
 object_type: metric
 label: Catalog Sales Average Quantity Sold
 calculation_method: average

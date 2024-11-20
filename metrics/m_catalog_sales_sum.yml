@@ -1,4 +1,4 @@
-unique_name: m_catalog_sales_sum
+unique_name: Catalog Sales
 object_type: metric
 label: Catalog Sales
 description: Total Catalog Sales, Amount spent on catalog
