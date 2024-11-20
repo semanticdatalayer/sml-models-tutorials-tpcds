@@ -89,7 +89,7 @@ aggregates:
         dimension: d_date_dimension
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: d_CA_COUNTY
+      - name: d_customer_county
         dimension: d_customer_address
         relationships_path:
           - store_sales_Customer_Address_Sold
