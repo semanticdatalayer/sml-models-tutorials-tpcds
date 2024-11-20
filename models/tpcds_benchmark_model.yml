@@ -377,7 +377,7 @@ dimensions:
   - d_net_profit_tier
   - d_returns_time_tier
   - d_sales_price_tier
-  - Ss_Ticket_Number
+  - d_ticket_number
   - Ws_Web_Site_Sk
 include_default_drillthrough: true
 metrics:

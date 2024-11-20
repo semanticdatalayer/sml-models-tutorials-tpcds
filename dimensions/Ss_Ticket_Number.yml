@@ -1,11 +1,11 @@
-unique_name: Ss_Ticket_Number
+unique_name: d_ticket_number
 object_type: dimension
-label: Ss_Ticket_Number
+label: Store Sales Ticket Number
 is_degenerate: true
 
 hierarchies:
 
-  - unique_name: Store Sales Ticket Number
+  - unique_name: d_store_sales_ticket_number
     label: Store Sales Ticket Number
     folder: Store Sales Attributes
     filter_empty: "yes"
