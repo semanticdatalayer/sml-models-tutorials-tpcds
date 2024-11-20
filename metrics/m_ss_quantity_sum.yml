@@ -1,6 +1,7 @@
 unique_name: m_ss_quantity_sum
 object_type: metric
-label: Store Quantity Sold, Total Store Quantity Sold
+label: Store Quantity Sold
+description: Total Store Quantity Sold
 calculation_method: sum
 column: ss_quantity
 dataset: store_sales

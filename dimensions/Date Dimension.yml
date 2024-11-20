@@ -1,6 +1,6 @@
 unique_name: d_date_dimension
 object_type: dimension
-label: d_date_dimension
+label: Date Dimensions
 hierarchies:
   - unique_name: d_date_dimension
     label: Date Month Hierarchy

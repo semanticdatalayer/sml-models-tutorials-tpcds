@@ -1,6 +1,6 @@
 unique_name: d_net_profit_tier
 object_type: dimension
-label: Net_Profit_Tier
+label: Net Profit Tier
 is_degenerate: true
 
 hierarchies:
