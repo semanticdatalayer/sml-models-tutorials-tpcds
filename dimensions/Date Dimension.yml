@@ -127,8 +127,8 @@ hierarchies:
     filter_empty: 'yes'
     folder: Date Attributes
     levels:
-      - unique_name: Calendar Year_week
-      - unique_name: Calendar Month_week
+      - unique_name: Calendar Year Week
+      - unique_name: Calendar Month Week
       - unique_name: Calendar Week
         secondary_attributes:
           - unique_name: Week Sequence
@@ -145,7 +145,7 @@ hierarchies:
             sort_column: d_week_seq
       - unique_name: Date Week Hierarchy
         secondary_attributes:
-          - unique_name: Day Name_week
+          - unique_name: Day Name Week
             label: Day Name (Week)
             allowed_calcs_for_dma:
               - Lag
@@ -158,7 +158,7 @@ hierarchies:
             name_column: Day Name
             sort_column: Day Name
 level_attributes:
-  - unique_name: Calendar Month_week
+  - unique_name: Calendar Month Week
     label: Calendar Month
     allowed_calcs_for_dma:
       - Lag
@@ -219,7 +219,7 @@ level_attributes:
       - d_week_seq
     name_column: d_week_seq
     time_unit: week
-  - unique_name: Calendar Year_week
+  - unique_name: Calendar Year Week
     label: Calendar Year
     allowed_calcs_for_dma:
       - Lag
