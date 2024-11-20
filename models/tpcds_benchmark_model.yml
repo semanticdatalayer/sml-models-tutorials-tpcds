@@ -372,7 +372,7 @@ aggregates:
       - Store Sales Row Counter
     target_connection: Connection - TPCDS
 dimensions:
-  - d_catalog_preferred
+  - Catalog Preferred
   - d_catalog_sales_price_tier
   - d_net_profit_tier
   - d_returns_time_tier
