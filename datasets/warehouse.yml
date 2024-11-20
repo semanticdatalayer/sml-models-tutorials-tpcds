@@ -33,7 +33,7 @@ columns:
     data_type: long
   - name: w_zip
     data_type: string
-  - name: d_warehouse_state Name
+  - name: w_warehouse_state_name
     data_type: string
     sql: "CASE\n    WHEN w_state = 'AK' THEN 'Alaska'\n    WHEN w_state = 'AL' THEN\
       \ 'Alabama'\n    WHEN w_state = 'AR' THEN 'Arkansas'\n    WHEN w_state = 'AZ'\

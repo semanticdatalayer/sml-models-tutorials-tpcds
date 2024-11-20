@@ -1,6 +1,6 @@
 unique_name: d_fulfilling_warehouse
 object_type: dimension
-label: d_fulfilling_warehouse
+label: Fulfilling Warehouse
 hierarchies:
   - unique_name: d_fulfilling_warehouse
     label: Fulfilling Warehouse
@@ -10,9 +10,9 @@ hierarchies:
       - unique_name: d_warehouse_country
       - unique_name: d_warehouse_state
         secondary_attributes:
-          - unique_name: d_d_warehouse_state Name
-            label: Fulfilment d_warehouse_state Name
-            description: Fulfilment warehouse state name
+          - unique_name: d_warehouse_state_name
+            label: Warehouse State Name
+            description: Fullfilment warehouse state name
             allowed_calcs_for_dma:
               - Lag
               - Siblings
@@ -20,15 +20,15 @@ hierarchies:
             dataset: warehouse
             folder: Fulfillment
             key_columns:
-              - d_warehouse_state Name
-            name_column: d_warehouse_state Name
-            sort_column: d_warehouse_state Name
+              - w_warehouse_state_name
+            name_column: w_warehouse_state_name
+            sort_column: w_warehouse_state_name
       - unique_name: d_warehouse_county
       - unique_name: d_warehouse_city
       - unique_name: d_fulfilling_warehouse
         secondary_attributes:
           - unique_name: d_warehouse_name
-            label: Fulfillment Warehouse Name
+            label: Warehouse Name
             dataset: warehouse
             folder: Fulfillment
             key_columns:
@@ -46,13 +46,13 @@ hierarchies:
             sort_column: w_warehouse_sq_ft
 level_attributes:
   - unique_name: d_fulfilling_warehouse
-    label:Fulfilment Warehouse Number
+    label: Warehouse Number
     dataset: warehouse
     key_columns:
       - w_warehouse_sk
     name_column: w_warehouse_sk
   - unique_name: d_warehouse_city
-    label: d_warehouse_city
+    label: Warehouse City
     dataset: warehouse
     key_columns:
       - w_country
@@ -60,22 +60,22 @@ level_attributes:
       - w_city
     name_column: w_city
   - unique_name: d_warehouse_country
-    label: d_warehouse_country
-    description: Fulfillment warehouse country name
+    label: Warehouse Country
+    description: Warehouse Country Name
     dataset: warehouse
     key_columns:
       - w_country
     name_column: w_country
   - unique_name: d_warehouse_county
-    label: d_warehouse_county
-    description: d_warehouse_county Name
+    label: Warehouse County
+    description: Warehouse County Name
     dataset: warehouse
     key_columns:
       - w_county
     name_column: w_county
   - unique_name: d_warehouse_state
-    label: Fulfillment Warehouse State
-    description: 'shorthand or abbreviated warehouse state name '
+    label: Warehouse State
+    description: 'shorthand or abbreviated Warehouse State Name '
     dataset: warehouse
     key_columns:
       - w_state
