@@ -13,8 +13,8 @@ aggregates:
         dimension: Customer Address
         relationships_path:
           - Customer Dimension Customer Address
-      - name: d_sales_price_tier
-        dimension: d_sales_price_tier
+      - name: Sales Price Tier
+        dimension: Sales Price Tier
       - name: Education Status
         dimension: Customer Demographics
       - name: Customer Country
@@ -153,8 +153,8 @@ aggregates:
         dimension: Customer Address
         relationships_path:
           - store_sales_Customer_Address_Sold
-      - name: d_sales_price_tier
-        dimension: d_sales_price_tier
+      - name: Sales Price Tier
+        dimension: Sales Price Tier
       - name: Education Status
         dimension: Customer Demographics
       - name: Customer Country
@@ -376,7 +376,7 @@ dimensions:
   - Catalog Sales Price Tier
   - Net Profit Tier
   - Returns Time Tier
-  - d_sales_price_tier
+  - Sales Price Tier
   - d_ticket_number
   - d_web_site
 include_default_drillthrough: true
@@ -668,8 +668,8 @@ relationships:
       join_columns:
         - cs_ship_mode_sk
     to:
-      dimension: d_ship_mode
-      level: d_ship_mode
+      dimension: Ship Mode
+      level: Ship Mode
   - unique_name: catalog_sales_Household_Demographics
     from:
       dataset: catalog_sales
@@ -869,8 +869,8 @@ relationships:
       join_columns:
         - ws_ship_mode_sk
     to:
-      dimension: d_ship_mode
-      level: d_ship_mode
+      dimension: Ship Mode
+      level: Ship Mode
   - unique_name: web_sales_Household_Demographics
     from:
       dataset: web_sales
