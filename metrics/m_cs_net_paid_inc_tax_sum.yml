@@ -1,4 +1,4 @@
-unique_name: m_cs_net_paid_inc_tax_sum
+unique_name: Catalog Net Paid Inc Tax Amount
 object_type: metric
 label: Catalog Net Paid Inc Tax Amount
 calculation_method: sum

@@ -1,4 +1,4 @@
-unique_name: m_purchased_amount_on_web
+unique_name: Purchased Amount On Web
 object_type: metric
 label: Purchased Amount On Web
 calculation_method: sum

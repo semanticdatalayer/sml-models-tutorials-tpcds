@@ -1,4 +1,4 @@
-unique_name: m_cs_ext_list_price_sum
+unique_name: Catalog Ext List Price
 object_type: metric
 label: Catalog Ext List Price
 calculation_method: sum

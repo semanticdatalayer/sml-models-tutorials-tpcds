@@ -1,4 +1,4 @@
-unique_name: m_ss_customer_sk_count
+unique_name: Store Customer Count
 object_type: metric
 label: Store Customer Count
 description: Number of Store Customers

@@ -1,4 +1,4 @@
-unique_name: m_cs_net_paid_sum
+unique_name: Catalog Net Paid Amount
 object_type: metric
 label: Catalog Net Paid Amount
 calculation_method: sum

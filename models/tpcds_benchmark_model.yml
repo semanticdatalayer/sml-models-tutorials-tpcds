@@ -32,7 +32,7 @@ aggregates:
       - m_ss_ext_wholesale_cost_sum
       - m_ss_quantity_avg
       - m_ss_ext_wholesale_cost_avg
-      - m_ss_ext_sales_price_avg
+      - Average Ext Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q15
     label: Q15
@@ -57,7 +57,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
     metrics:
-      - m_cs_sales_price_sum
+      - Catalog Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q2
     label: Q2
@@ -208,7 +208,7 @@ aggregates:
       - name: d_store_state
         dimension: d_store_dimension
     metrics:
-      - m_returns_count_sum
+      - Returns Count
     target_connection: Connection - TPCDS
   - unique_name: Q52
     label: Q52
@@ -304,7 +304,7 @@ aggregates:
           - store_sales_Date_Dimension_Sold
     metrics:
       - m_ss_ext_sales_price_sum
-      - m_ss_ext_sales_price_promotion
+      - Store Ext Sales Price by Promotion
     target_connection: Connection - TPCDS
   - unique_name: Q7-Q26
     label: Q7-Q26
@@ -330,7 +330,7 @@ aggregates:
       - Catalog Sales Average Coupon Amount
       - m_ss_sales_price_avg
       - Catalog Sales Average Quantity Sold
-      - m_ss_coupon_amt_avg
+      - Average Store Sales Coupon Amount
       - m_ss_quantity_avg
       - m_ss_list_price_avg
       - Catalog Sales Average List Price
@@ -350,7 +350,7 @@ aggregates:
       - name: d_store_name
         dimension: d_store_dimension
     metrics:
-      - m_ss_row_counter_sum
+      - Store Sales Row Counter
     target_connection: Connection - TPCDS
   - unique_name: Q96
     label: Q96
@@ -369,7 +369,7 @@ aggregates:
       - name: d_store_name
         dimension: d_store_dimension
     metrics:
-      - m_ss_row_counter_sum
+      - Store Sales Row Counter
     target_connection: Connection - TPCDS
 dimensions:
   - d_catalog_preferred
@@ -395,49 +395,49 @@ metrics:
     folder: Catalog Sales Measures
   - unique_name: Catalog Sales Row Counter
     folder: Catalog Sales Measures
-  - unique_name: m_cs_bill_customer_sk_count
+  - unique_name: Catalog Customer Count
     folder: Customer Information
-  - unique_name: m_cs_ext_discount_amt_sum
+  - unique_name: Catalog Ext Discount Amount
     folder: Catalog Sales Measures
-  - unique_name: m_cs_ext_list_price_sum
+  - unique_name: Catalog Ext List Price
     folder: Catalog Sales Measures
-  - unique_name: m_cs_ext_sales_price_sum
+  - unique_name: Catalog Ext Sales Price
     folder: Catalog Sales Measures
-  - unique_name: m_cs_ext_tax_sum
+  - unique_name: Catalog Ext Sales Tax
     folder: Catalog Sales Measures
-  - unique_name: m_cs_ext_wholesale_cost_sum
+  - unique_name: Catalog Ext Wholesale Cost
     folder: Catalog Sales Measures
-  - unique_name: m_cs_net_paid_inc_tax_sum
+  - unique_name: Catalog Net Paid Inc Tax Amount
     folder: Catalog Sales Measures
-  - unique_name: m_cs_net_paid_sum
+  - unique_name: Catalog Net Paid Amount
     folder: Catalog Sales Measures
-  - unique_name: m_cs_net_profit_sum
+  - unique_name: Catalog Net Profit Amount
     folder: Catalog Sales Measures
-  - unique_name: m_cs_quantity_sum
+  - unique_name: Catalog Quantity Sold
     folder: Catalog Sales Measures
-  - unique_name: m_cs_sales_price_sum
+  - unique_name: Catalog Sales Price
     folder: Catalog Sales Measures
-  - unique_name: m_inventory_quantity_on_hand_sum
+  - unique_name: Inventory Quantity On Hand
     folder: Inventory
-  - unique_name: m_purchased_amount_in_catalog
+  - unique_name: Purchased Amount In Catalog
     folder: Catalog Sales Measures
-  - unique_name: m_purchased_amount_in_store
+  - unique_name: Purchased Amount In Store
     folder: Store Sales Measures
-  - unique_name: m_purchased_amount_on_web
+  - unique_name: Purchased Amount On Web
     folder: Web Sales Measures
-  - unique_name: m_ss_row_counter_sum
+  - unique_name: Store Sales Row Counter
     folder: Store Sales Measures
-  - unique_name: m_ss_coupon_amt_avg
+  - unique_name: Average Store Sales Coupon Amount
     folder: Store Sales Measures
-  - unique_name: m_ss_customer_sk_count
+  - unique_name: Store Customer Count
     folder: Customer Information
-  - unique_name: m_ss_ext_discount_amt_sum
+  - unique_name: Store Ext Discount Amount
     folder: Store Sales Measures
-  - unique_name: m_ss_ext_list_price_sum
+  - unique_name: Store Ext List Price
     folder: Store Sales Measures
-  - unique_name: m_ss_ext_sales_price_avg
+  - unique_name: Average Ext Sales Price
     folder: Store Sales Measures
-  - unique_name: m_ss_ext_sales_price_promotion
+  - unique_name: Store Ext Sales Price by Promotion
     folder: Store Sales Measures
   - unique_name: m_ss_ext_sales_price_sum
     folder: Store Sales Measures

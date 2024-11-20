@@ -3,5 +3,5 @@ object_type: metric_calc
 label: Catalog Purchased Amount Growth
 description: Growth in catalog purchases	
 expression: |-
-  [Measures].[m_purchased_amount_in_catalog] /
-  (ParallelPeriod([Sold d_date_dimension].[Sold d_date_week_hierarchy].[Sold d_calendar_year_week], 1, [Sold d_date_dimension].[Sold d_date_week_hierarchy].CurrentMember), [Measures].[m_purchased_amount_in_catalog])
+  [Measures].[Purchased Amount In Catalog] /
+  (ParallelPeriod([Sold d_date_dimension].[Sold d_date_week_hierarchy].[Sold d_calendar_year_week], 1, [Sold d_date_dimension].[Sold d_date_week_hierarchy].CurrentMember), [Measures].[Purchased Amount In Catalog])
