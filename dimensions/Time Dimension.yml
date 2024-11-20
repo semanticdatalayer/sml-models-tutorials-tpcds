@@ -73,7 +73,7 @@ hierarchies:
             folder: Time
             dataset: time_dim
             key_columns:
-              - Morning  Time Tier
+              - t_morning_time_tier
             name_column: t_morning_time_tier
             sort_column: t_morning_time_tier
             allowed_calcs_for_dma:
