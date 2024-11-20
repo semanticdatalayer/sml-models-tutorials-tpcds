@@ -17,7 +17,7 @@ hierarchies:
 
           - unique_name: d_ib_lower_bound
             label: Income Band Lower Bound
-            folder: Household Demographics
+            folder: d_household_demographics
             dataset: income_band
             key_columns:
               - ib_lower_bound
@@ -26,7 +26,7 @@ hierarchies:
 
           - unique_name: d_ib_upper_bound
             label: Income Vand Upper Bound
-            folder: Household Demographics
+            folder: d_household_demographics
             dataset: income_band
             key_columns:
               - ib_upper_bound
