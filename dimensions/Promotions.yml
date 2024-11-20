@@ -1,18 +1,18 @@
-unique_name: Promotions
+unique_name: d_promotions
 object_type: dimension
 label: Promotions
 type: standard
 
 hierarchies:
 
-  - unique_name: Promotions
+  - unique_name: d_promotions
     label: Promotions
     filter_empty: "yes"
     folder: Promotion Attributes
 
     levels:
 
-      - unique_name: Promotions
+      - unique_name: d_promotions
 
         secondary_attributes:
 
@@ -113,7 +113,7 @@ hierarchies:
               - Siblings
 level_attributes:
 
-  - unique_name: Promotions
+  - unique_name: d_promotions
     label: Promotion SK
     dataset: promotion
     key_columns:
