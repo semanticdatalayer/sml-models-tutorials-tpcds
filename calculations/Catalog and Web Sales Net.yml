@@ -1,4 +1,4 @@
-unique_name: m_catalog_and_web_sales_net
+unique_name: Catalog and Web Sales Net
 object_type: metric_calc
 label: Catalog and Web Sales Net
 expression: '[Measures].[Catalog Sales Net Paid] + [Measures].[Web Sales Net Paid]'

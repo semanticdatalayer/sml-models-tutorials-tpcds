@@ -1,4 +1,4 @@
-unique_name: m_customer_count
+unique_name: Customer Count
 object_type: metric_calc
 label: Customer Count
 description: Total count of customers

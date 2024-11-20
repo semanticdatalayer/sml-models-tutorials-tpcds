@@ -1,4 +1,4 @@
-unique_name: m_total_net_paid_amount
+unique_name: Total Net Paid Amount
 object_type: metric_calc
 label: Total Net Paid Amount
 expression: "[Measures].[Store Net Paid Amount]+[Measures].[Web Net Paid Amount]+ [Measures].[Catalog Net Paid Amount]"

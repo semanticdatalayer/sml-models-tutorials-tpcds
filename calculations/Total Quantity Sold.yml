@@ -1,4 +1,4 @@
-unique_name: m_total_quantity_sold
+unique_name: Total Quantity Sold
 object_type: metric_calc
 label: Total Quantity Sold
 description: Total quantity sold across channels

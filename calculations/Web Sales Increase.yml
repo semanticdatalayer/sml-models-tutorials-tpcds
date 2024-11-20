@@ -1,4 +1,4 @@
-unique_name: m_web_sales_increase
+unique_name: Web Sales Increase
 object_type: metric_calc
 label: Web Sales Increase
 expression: "CASE WHEN ISEMPTY([Measures].[Web Ext Sales Price])\nTHEN NULL \n\

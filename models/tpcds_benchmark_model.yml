@@ -80,7 +80,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
     metrics:
-      - m_web_catalog_sales_price_growth
+      - Web and Catalog Sales Price Growth
     target_connection: Connection - TPCDS
   - unique_name: Q31
     label: Q31
@@ -99,8 +99,8 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
     metrics:
-      - m_web_sales_increase
-      - m_store_sales_increase
+      - Web Sales Increase
+      - Store Sales Increase
     target_connection: Connection - TPCDS
   - unique_name: Q33
     label: Q33
@@ -123,7 +123,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
     metrics:
-      - m_total_ext_sales_price
+      - Total Ext Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q42
     label: Q42
@@ -247,8 +247,8 @@ aggregates:
       - name: d_product_manufacturer_id
         dimension: d_product_dimension
     metrics:
-      - m_avg_quarterly_store_sales_for_1998_1999
-      - m_avg_quarter_sales_ratio
+      - Avg Quarterly Store Sales for 1998-1999
+      - Avg Quarter Sales Ratio
       - Total Store Sales
     target_connection: Connection - TPCDS
   - unique_name: Q56-Q60
@@ -274,7 +274,7 @@ aggregates:
       - name: d_i_color
         dimension: d_product_dimension
     metrics:
-      - m_total_ext_sales_price
+      - Total Ext Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q61
     label: Q61
@@ -501,53 +501,53 @@ metrics:
     folder: Web Sales Measures
   - unique_name: Web Quantity Sold
     folder: Web Sales Measures
-  - unique_name: m_average_catalog_unit_net_profit
+  - unique_name: Average Catalog Unit Net Profit
     folder: Catalog Sales Measures
-  - unique_name: m_average_store_unit_net_profit
+  - unique_name: Average Store Unit Net Profit
     folder: Store Sales Measures
-  - unique_name: m_average_web_unit_net_profit
+  - unique_name: Average Web Unit Net Profit
     folder: Web Sales Measures
-  - unique_name: m_avg_quarter_sales_ratio
+  - unique_name: Avg Quarter Sales Ratio
     folder: Store Sales Measures
-  - unique_name: m_avg_quarterly_store_sales_for_1998_1999
+  - unique_name: Avg Quarterly Store Sales for 1998-1999
     folder: Store Sales Measures
-  - unique_name: m_catalog_and_web_sales_net
+  - unique_name: Catalog and Web Sales Net
     folder: Total Sales Measures
-  - unique_name: m_catalog_and_web_sales
+  - unique_name: Catalog and Web Sales
     folder: Total Sales Measures
-  - unique_name: m_catalog_buyer
+  - unique_name: Catalog Buyer
     folder: Customer Information
-  - unique_name: m_customer_count
+  - unique_name: Customer Count
     folder: Customer Information
-  - unique_name: m_ws_cs_ext_sales_price_sum
+  - unique_name: Web and Catalog Sales
     folder: Time Relative
-  - unique_name: m_revenue_ratio_by_product_class
+  - unique_name: Store Revenue Ratio by Product Class
     folder: Store Sales Measures
-  - unique_name: m_sales_by_promotion_ratio
+  - unique_name: Store Sales by Promotion Ratio
     folder: Store Sales Measures
-  - unique_name: m_store_and_web_purchased_amount
+  - unique_name: Store and Web Purchased Amount
     folder: Time Relative
-  - unique_name: m_store_sales_increase
+  - unique_name: Store Sales Increase
     folder: Store Sales Measures
-  - unique_name: m_total_ext_sales_price
+  - unique_name: Total Ext Sales Price
     folder: Total Sales Measures
-  - unique_name: m_total_ext_discount_amount
+  - unique_name: Total Ext Discount Amount
     folder: Total Sales Measures
-  - unique_name: m_total_ext_list_price
+  - unique_name: Total Ext List Price
     folder: Total Sales Measures
-  - unique_name: m_total_ext_sales_tax
+  - unique_name: Total Ext Sales Tax
     folder: Total Sales Measures
-  - unique_name: m_total_ext_wholesale_cost
+  - unique_name: Total Ext Wholesale Cost
     folder: Total Sales Measures
-  - unique_name: m_total_net_paid_amount
+  - unique_name: Total Net Paid Amount
     folder: Total Sales Measures
-  - unique_name: m_total_net_paid_incl_tax
+  - unique_name: Total Net Paid Incl Tax
     folder: Total Sales Measures
-  - unique_name: m_total_net_profit
+  - unique_name: Total Net Profit
     folder: Total Sales Measures
-  - unique_name: m_total_quantity_sold
+  - unique_name: Total Quantity Sold
     folder: Total Sales Measures
-  - unique_name: m_web_sales_increase
+  - unique_name: Web Sales Increase
     folder: Web Sales Measures
   - unique_name: Total Product Count
     folder: Counts  

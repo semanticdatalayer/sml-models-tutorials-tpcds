@@ -1,4 +1,4 @@
-unique_name: m_catalog_purchased_amount_growth
+unique_name: Catalog Purchased Amount Growth
 object_type: metric_calc
 label: Catalog Purchased Amount Growth
 description: Growth in catalog purchases	

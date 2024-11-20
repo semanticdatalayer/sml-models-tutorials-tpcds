@@ -1,4 +1,4 @@
-unique_name: m_total_ext_list_price
+unique_name: Total Ext List Price
 object_type: metric_calc
 label: Total Ext List Price
 expression: "[Measures].[Store Ext List Price]+[Measures].[Web Ext List Price]+\
