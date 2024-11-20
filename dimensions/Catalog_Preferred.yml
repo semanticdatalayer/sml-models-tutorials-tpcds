@@ -1,12 +1,12 @@
 unique_name: d_catalog_preferred
 object_type: dimension
-label: d_catalog_preferred
+label: Catalog Preferred
 is_degenerate: true
 
 hierarchies:
 
   - unique_name: d_catalog_preferred
-    label: d_catalog_preferred
+    label: Catalog Preferred
     folder: Customer Information
     filter_empty: "yes"
 
