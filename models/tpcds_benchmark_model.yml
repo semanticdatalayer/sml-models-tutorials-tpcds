@@ -279,12 +279,13 @@ aggregates:
   - unique_name: Q61
     label: Q61
     attributes:
-      - name: d_channel_direct_mail
-        dimension: d_promotions
+      - name: name: Channel Direct Mail
+            label: Channel Direct Mail
+        dimension: Promotions
       - name: d_store_gmt_offset
         dimension: d_store_dimension
-      - name: d_channel_tv
-        dimension: d_promotions
+      - name: Channel TV
+        dimension: Promotions
       - name: Customer GMT Offset
         dimension: Customer Address
         relationships_path:
@@ -295,8 +296,8 @@ aggregates:
           - store_sales_Date_Dimension_Sold_1
       - name: Product Category
         dimension: Product Dimension
-      - name: d_channel_email
-        dimension: d_promotions
+      - name: Channel Email
+        dimension: Promotions
       - name: Calendar Year_week
         dimension: Date Dimensions
         partition: name
@@ -320,12 +321,12 @@ aggregates:
         dimension: Product Dimension
       - name: Education Status
         dimension: Customer Demographics
-      - name: d_channel_event
-        dimension: d_promotions
+      - name: Channel Event
+        dimension: Promotions
       - name: Gender
         dimension: Customer Demographics
-      - name: d_channel_email
-        dimension: d_promotions
+      - name: Channel Email
+        dimension: Promotions
     metrics:
       - Catalog Sales Average Coupon Amount
       - Average Store Sales Sales Price
@@ -610,14 +611,14 @@ relationships:
     to:
       dimension: Time Dimension
       level: d_time_sk
-  - unique_name: catalog_sales_d_promotions
+  - unique_name: catalog_sales_Promotions
     from:
       dataset: catalog_sales
       join_columns:
         - cs_promo_sk
     to:
-      dimension: d_promotions
-      level: d_promotions
+      dimension: Promotions
+      level: Promotions
   - unique_name: catalog_sales_Customer_Address_Sold
     from:
       dataset: catalog_sales
@@ -711,14 +712,14 @@ relationships:
     to:
       dimension: Date Dimensions
       level: Date Week Hierarchy
-  - unique_name: store_promotion_d_promotions
+  - unique_name: store_promotion_Promotions
     from:
       dataset: store_promotion
       join_columns:
         - p_promo_sk
     to:
-      dimension: d_promotions
-      level: d_promotions
+      dimension: Promotions
+      level: Promotions
   - unique_name: store_promotion_Customer_Address
     from:
       dataset: store_promotion
@@ -811,14 +812,14 @@ relationships:
     to:
       dimension: Time Dimension
       level: d_time_sk
-  - unique_name: web_sales_d_promotions
+  - unique_name: web_sales_Promotions
     from:
       dataset: web_sales
       join_columns:
         - ws_promo_sk
     to:
-      dimension: d_promotions
-      level: d_promotions
+      dimension: Promotions
+      level: Promotions
   - unique_name: web_sales_Customer_Address_Sold
     from:
       dataset: web_sales
@@ -997,14 +998,14 @@ relationships:
     to:
       dimension: Time Dimension
       level: d_time_sk
-  - unique_name: store_sales_d_promotions
+  - unique_name: store_sales_Promotions
     from:
       dataset: store_sales
       join_columns:
         - ss_promo_sk
     to:
-      dimension: d_promotions
-      level: d_promotions
+      dimension: Promotions
+      level: Promotions
   - unique_name: store_sales_Customer_Address_Sold
     from:
       dataset: store_sales
