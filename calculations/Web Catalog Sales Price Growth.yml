@@ -1,7 +1,7 @@
-unique_name: m_web_catalog_sales_price_growth
+unique_name: Web and Catalog Sales Price Growth
 object_type: metric_calc
 label: Web and Catalog Sales Price Growth
 description: Combined catalog and web price growth	
 expression: |-
-  [Measures].[m_ws_cs_ext_sales_price_sum] /
-  (ParallelPeriod([Sold d_date_dimension].[Sold d_date_week_hierarchy].[Sold d_calendar_week], -53, [Sold d_date_dimension].[Sold d_date_week_hierarchy].CurrentMember), [Measures].[m_ws_cs_ext_sales_price_sum])
+  [Measures].[Web and Catalog Sales] /
+  (ParallelPeriod([Sold d_date_dimension].[Sold d_date_week_hierarchy].[Sold d_calendar_week], -53, [Sold d_date_dimension].[Sold d_date_week_hierarchy].CurrentMember), [Measures].[Web and Catalog Sales])

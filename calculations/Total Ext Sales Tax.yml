@@ -1,4 +1,4 @@
-unique_name: m_total_ext_sales_tax
+unique_name: Total Ext Sales Tax
 object_type: metric_calc
 label: Total Ext Sales Tax
 expression: "[Measures].[Store Ext Sales Tax]+[Measures].[Web Ext Sales Tax]+ [Measures].[Catalog Ext Sales Tax]"

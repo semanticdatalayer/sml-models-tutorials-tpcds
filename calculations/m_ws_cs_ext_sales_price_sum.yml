@@ -1,4 +1,4 @@
-unique_name: m_ws_cs_ext_sales_price_sum
+unique_name: Web and Catalog Sales
 object_type: metric_calc
 label: Web and Catalog Sales
 expression: "[Measures].[Web Ext Sales Price]+[Measures].[Catalog Ext Sales Price]"

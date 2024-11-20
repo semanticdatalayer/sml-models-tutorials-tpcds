@@ -1,4 +1,4 @@
-unique_name: m_average_web_unit_net_profit
+unique_name: Average Web Unit Net Profit
 object_type: metric_calc
 label: Average Web Unit Net Profit
 expression: "[Measures].[Web Net Profit]/[Measures].[Web Quantity Sold]"

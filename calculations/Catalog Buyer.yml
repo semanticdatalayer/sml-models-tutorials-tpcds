@@ -1,4 +1,4 @@
-unique_name: m_catalog_buyer
+unique_name: Catalog Buyer
 object_type: metric_calc
 label: Catalog Buyer
-expression: "[Measures].[Purchased Amount In Catalog] > [Measures].[m_store_and_web_purchased_amount]"
+expression: "[Measures].[Purchased Amount In Catalog] > [Measures].[Store and Web Purchased Amount]"

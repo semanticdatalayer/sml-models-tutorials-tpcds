@@ -1,4 +1,4 @@
-unique_name: m_store_sales_increase
+unique_name: Store Sales Increase
 object_type: metric_calc
 label: Store Sales Increase
 expression: "CASE WHEN ISEMPTY([Measures].[Store Ext Sales Price])\nTHEN NULL \n\

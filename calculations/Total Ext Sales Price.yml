@@ -1,4 +1,4 @@
-unique_name: m_total_ext_sales_price
+unique_name: Total Ext Sales Price
 object_type: metric_calc
 label: Total Ext Sales Price
 description: Total Extended Sales
