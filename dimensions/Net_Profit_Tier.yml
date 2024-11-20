@@ -1,4 +1,4 @@
-unique_name: Net_Profit_Tier
+unique_name: d_net_profit_tier
 object_type: dimension
 label: Net_Profit_Tier
 is_degenerate: true
@@ -19,9 +19,9 @@ level_attributes:
   - unique_name: d_net_profit_tier
     label: Net Profit Tier
     dataset: store_sales
-    name_column: Net Profit Tier
+    name_column: ss_net_profit_tier
     key_columns:
-      - Net Profit Tier
+      - ss_net_profit_tier
 
 modeler_metadata:
   version: 0

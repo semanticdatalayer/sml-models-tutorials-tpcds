@@ -5,7 +5,7 @@ connection_id: Connection - TPCDS
 table: store_sales
 
 columns:
-  - name: Net Profit Tier
+  - name: ss_net_profit_tier
     data_type: string
     sql: "CASE WHEN ss_net_profit > 25000 THEN 'More than 25000' 
             WHEN ss_net_profit BETWEEN 3000 AND 25000 THEN '3000-25000'
