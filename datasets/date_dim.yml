@@ -21,7 +21,7 @@ columns:
     data_type: string
   - name: d_date_sk
     data_type: int
-  - name: d_day_name
+  - name: Day Name
     data_type: string
   - name: d_dom
     data_type: int
@@ -41,7 +41,7 @@ columns:
     data_type: string
   - name: d_last_dom
     data_type: int
-  - name: d_month_name
+  - name: Month Name
     data_type: string
     sql: "TO_CHAR(d_date, 'YYYY-MM')"
     dialects:

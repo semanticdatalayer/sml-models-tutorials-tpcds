@@ -4,4 +4,4 @@ label: Web and Catalog Sales Price Growth
 description: Combined catalog and web price growth	
 expression: |-
   [Measures].[Web and Catalog Sales] /
-  (ParallelPeriod([Sold d_date_dimension].[Sold d_date_week_hierarchy].[Sold d_calendar_week], -53, [Sold d_date_dimension].[Sold d_date_week_hierarchy].CurrentMember), [Measures].[Web and Catalog Sales])
+  (ParallelPeriod([Sold Date Dimensions].[Sold Date Week Hierarchy].[Sold Calendar Week], -53, [Sold Date Dimensions].[Sold Date Week Hierarchy].CurrentMember), [Measures].[Web and Catalog Sales])
