@@ -1,4 +1,4 @@
-unique_name: m_purchased_amount_in_catalog
+unique_name: Purchased Amount In Catalog
 object_type: metric
 label: Purchased Amount In Catalog
 calculation_method: sum

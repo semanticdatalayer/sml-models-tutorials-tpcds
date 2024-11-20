@@ -1,4 +1,4 @@
-unique_name: m_inventory_quantity_on_hand_sum
+unique_name: Inventory Quantity On Hand
 object_type: metric
 label: Inventory Quantity On Hand
 description: Available Inventory

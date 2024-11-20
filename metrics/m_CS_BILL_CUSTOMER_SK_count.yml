@@ -1,4 +1,4 @@
-unique_name: m_cs_bill_customer_sk_count
+unique_name: Catalog Customer Count
 object_type: metric
 label: Catalog Customer Count
 description: Number of catalog customers

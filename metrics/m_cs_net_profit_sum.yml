@@ -1,4 +1,4 @@
-unique_name: m_cs_net_profit_sum
+unique_name: Catalog Net Profit Amount
 object_type: metric
 label: Catalog Net Profit Amount
 calculation_method: sum

@@ -1,4 +1,4 @@
-unique_name: m_ss_coupon_amt_avg
+unique_name: Average Store Sales Coupon Amount
 object_type: metric
 label: Average Store Sales Coupon Amount
 calculation_method: average

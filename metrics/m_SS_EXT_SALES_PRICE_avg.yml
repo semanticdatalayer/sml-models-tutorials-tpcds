@@ -1,4 +1,4 @@
-unique_name: m_ss_ext_sales_price_avg
+unique_name: Average Ext Sales Price
 object_type: metric
 label: Average Ext Sales Price
 calculation_method: average

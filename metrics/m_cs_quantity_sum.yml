@@ -1,4 +1,4 @@
-unique_name: m_cs_quantity_sum
+unique_name: Catalog Quantity Sold
 object_type: metric
 label: Catalog Quantity Sold
 calculation_method: sum

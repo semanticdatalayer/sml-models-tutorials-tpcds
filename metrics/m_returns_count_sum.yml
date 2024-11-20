@@ -1,4 +1,4 @@
-unique_name: m_returns_count_sum
+unique_name: Returns Count
 object_type: metric
 label: Returns Count
 calculation_method: sum
