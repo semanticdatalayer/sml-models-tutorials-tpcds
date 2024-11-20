@@ -1,15 +1,15 @@
-unique_name: d_customer_dimension
+unique_name: Customer Dimension
 object_type: dimension
 label: Customer Dimension
 hierarchies:
-  - unique_name: d_customer_dimension
+  - unique_name: Customer Dimension
     label: Customer Dimension
     filter_empty: 'yes'
     folder: Customer Information
     levels:
-      - unique_name: d_customer_dimension
+      - unique_name: Customer Dimension
         secondary_attributes:
-          - unique_name: d_birth_country
+          - unique_name: Birth Country
             label: Birth Country
             description: Country of Origin
             dataset: customer
@@ -18,7 +18,7 @@ hierarchies:
               - c_birth_country
             name_column: c_birth_country
             sort_column: c_birth_country
-          - unique_name: d_c_preferred_cust_flag
+          - unique_name: Preferred Customer Ind
             label: Preferred Customer Ind
             description: Marker for preferred customers
             dataset: customer
@@ -27,7 +27,7 @@ hierarchies:
               - c_preferred_cust_flag
             name_column: c_preferred_cust_flag
             sort_column: c_preferred_cust_flag
-          - unique_name: d_customer_email_address
+          - unique_name: Customer Email Address
             label: Customer Email Address
             dataset: customer
             folder: Customer Information
@@ -35,7 +35,7 @@ hierarchies:
               - c_email_address
             name_column: c_email_address
             sort_column: c_email_address
-          - unique_name: d_customer_first_name
+          - unique_name: Customer First Name
             label: Customer First Name
             dataset: customer
             folder: Customer Information
@@ -43,7 +43,7 @@ hierarchies:
               - c_first_name
             name_column: c_first_name
             sort_column: c_first_name
-          - unique_name: d_customer_id
+          - unique_name: Customer ID
             label: Customer ID
             dataset: customer
             folder: Customer Information
@@ -51,7 +51,7 @@ hierarchies:
               - c_customer_id
             name_column: c_customer_id
             sort_column: c_customer_id
-          - unique_name: d_customer_last_name
+          - unique_name: Customer Last Name
             label: Customer Last Name
             dataset: customer
             folder: Customer Information
@@ -59,7 +59,7 @@ hierarchies:
               - c_last_name
             name_column: c_last_name
             sort_column: c_last_name
-          - unique_name: d_customer_login
+          - unique_name: Customer Login
             label: Customer Login
             dataset: customer
             folder: Customer Information
@@ -67,17 +67,17 @@ hierarchies:
               - c_login
             name_column: c_login
             sort_column: c_login
-          - unique_name: customer_preferred_flag
-            label: customer_preferred_flag
+          - unique_name: Customer Preferred Flag
+            label: Customer Preferred Flag
             description: flag to determine if this is a preferred customer
             contains_unique_names: false
             dataset: customer
             is_unique_key: false
             key_columns:
-              - customer_preferred_flag
-            name_column: customer_preferred_flag
+              - Customer Preferred Flag
+            name_column: Customer Preferred Flag
 level_attributes:
-  - unique_name: d_customer_dimension
+  - unique_name: Customer Dimension
     label: Customer Number
     dataset: customer
     is_unique_key: true
@@ -85,13 +85,13 @@ level_attributes:
       - c_customer_sk
     name_column: c_customer_sk
 relationships:
-  - unique_name: d_customer_dimension_customer_address
+  - unique_name: Customer Dimension Customer Address
     from:
       dataset: customer
-      hierarchy: d_customer_dimension
+      hierarchy: Customer Dimension
       join_columns:
         - c_current_addr_sk
-      level: d_customer_dimension
+      level: Customer Dimension
     to:
       dimension: Customer Address
       level: Customer Address

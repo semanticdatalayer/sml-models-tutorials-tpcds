@@ -12,7 +12,7 @@ aggregates:
       - name: Customer State
         dimension: Customer Address
         relationships_path:
-          - d_customer_dimension_customer_address
+          - Customer Dimension Customer Address
       - name: d_sales_price_tier
         dimension: d_sales_price_tier
       - name: Education Status
@@ -20,7 +20,7 @@ aggregates:
       - name: Customer Country
         dimension: Customer Address
         relationships_path:
-          - d_customer_dimension_customer_address
+          - Customer Dimension Customer Address
       - name: d_calendar_year_week
         dimension: d_date_dimension
         partition: name
@@ -40,11 +40,11 @@ aggregates:
       - name: Customer State
         dimension: Customer Address
         relationships_path:
-          - d_customer_dimension_customer_address
+          - Customer Dimension Customer Address
       - name: Customer Zip Code
         dimension: Customer Address
         relationships_path:
-          - d_customer_dimension_customer_address
+          - Customer Dimension Customer Address
       - name: d_calendar_year
         dimension: d_date_dimension
         partition: name
@@ -264,7 +264,7 @@ aggregates:
       - name: Customer GMT Offset
         dimension: Customer Address
         relationships_path:
-          - d_customer_dimension_customer_address
+          - Customer Dimension Customer Address
       - name: d_month_of_year
         dimension: d_date_dimension
         relationships_path:
@@ -288,7 +288,7 @@ aggregates:
       - name: Customer GMT Offset
         dimension: Customer Address
         relationships_path:
-          - d_customer_dimension_customer_address
+          - Customer Dimension Customer Address
       - name: d_month_of_year
         dimension: d_date_dimension
         relationships_path:
@@ -573,8 +573,8 @@ relationships:
       join_columns:
         - customer_sk
     to:
-      dimension: d_customer_dimension
-      level: d_customer_dimension
+      dimension: Customer Dimension
+      level: Customer Dimension
   - unique_name: catalog_sales_Date_Dimension_Sold
     from:
       dataset: catalog_sales
@@ -684,8 +684,8 @@ relationships:
       join_columns:
         - cs_bill_customer_sk
     to:
-      dimension: d_customer_dimension
-      level: d_customer_dimension
+      dimension: Customer Dimension
+      level: Customer Dimension
   - unique_name: catalog_sales_Product_Dimension
     from:
       dataset: catalog_sales
@@ -758,8 +758,8 @@ relationships:
       join_columns:
         - ss_customer_sk
     to:
-      dimension: d_customer_dimension
-      level: d_customer_dimension
+      dimension: Customer Dimension
+      level: Customer Dimension
   - unique_name: store_promotion_Product_Dimension
     from:
       dataset: store_promotion
@@ -885,8 +885,8 @@ relationships:
       join_columns:
         - ws_bill_customer_sk
     to:
-      dimension: d_customer_dimension
-      level: d_customer_dimension
+      dimension: Customer Dimension
+      level: Customer Dimension
   - unique_name: web_sales_Product_Dimension
     from:
       dataset: web_sales
@@ -961,8 +961,8 @@ relationships:
       join_columns:
         - sr_customer_sk
     to:
-      dimension: d_customer_dimension
-      level: d_customer_dimension
+      dimension: Customer Dimension
+      level: Customer Dimension
   - unique_name: store_returns_Product_Dimension
     from:
       dataset: store_returns
@@ -1045,8 +1045,8 @@ relationships:
       join_columns:
         - ss_customer_sk
     to:
-      dimension: d_customer_dimension
-      level: d_customer_dimension
+      dimension: Customer Dimension
+      level: Customer Dimension
   - unique_name: store_sales_Product_Dimension
     from:
       dataset: store_sales
