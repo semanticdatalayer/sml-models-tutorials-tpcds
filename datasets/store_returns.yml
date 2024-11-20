@@ -118,7 +118,7 @@ columns:
     data_type: "decimal(7,2)"
   - name: ss_sold_date_sk
     data_type: long
-  - name: ss_sold_time_sk
+  - name: ss_solTime SK
     data_type: long
   - name: ss_store_sk
     data_type: long

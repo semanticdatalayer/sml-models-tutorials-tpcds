@@ -84,7 +84,7 @@ columns:
     data_type: long
   - name: ws_sold_date_sk
     data_type: long
-  - name: ws_sold_time_sk
+  - name: ws_solTime SK
     data_type: long
   - name: ws_warehouse_sk
     data_type: long

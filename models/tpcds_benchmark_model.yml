@@ -341,7 +341,7 @@ aggregates:
     attributes:
       - name: Household Dependents Count
         dimension: Household Demographics
-      - name: d_morning_time_tier
+      - name: Morning Time Tier
         dimension: Time Dimension
         relationships_path:
           - store_sales_Time_Dimension_Sold
@@ -357,12 +357,12 @@ aggregates:
     attributes:
       - name: Household Dependents Count
         dimension: Household Demographics
-      - name: d_minute
+      - name: Minute
         dimension: Time Dimension
         partition: name
         relationships_path:
           - store_sales_Time_Dimension_Sold
-      - name: d_hour
+      - name: Hour
         dimension: Time Dimension
         relationships_path:
           - store_sales_Time_Dimension_Sold
@@ -605,11 +605,11 @@ relationships:
     from:
       dataset: catalog_sales
       join_columns:
-        - cs_sold_time_sk
+        - cs_solTime SK
     role_play: Sold {0}
     to:
       dimension: Time Dimension
-      level: d_time_sk
+      level: Time SK
   - unique_name: catalog_sales_Promotions
     from:
       dataset: catalog_sales
@@ -806,11 +806,11 @@ relationships:
     from:
       dataset: web_sales
       join_columns:
-        - ws_sold_time_sk
+        - ws_solTime SK
     role_play: Sold {0}
     to:
       dimension: Time Dimension
-      level: d_time_sk
+      level: Time SK
   - unique_name: web_sales_Promotions
     from:
       dataset: web_sales
@@ -920,7 +920,7 @@ relationships:
     role_play: Return {0}
     to:
       dimension: Time Dimension
-      level: d_time_sk
+      level: Time SK
   - unique_name: store_returns_Customer_Address
     from:
       dataset: store_returns
@@ -992,11 +992,11 @@ relationships:
     from:
       dataset: store_sales
       join_columns:
-        - ss_sold_time_sk
+        - ss_solTime SK
     role_play: Sold {0}
     to:
       dimension: Time Dimension
-      level: d_time_sk
+      level: Time SK
   - unique_name: store_sales_Promotions
     from:
       dataset: store_sales
