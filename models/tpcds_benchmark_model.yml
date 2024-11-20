@@ -378,7 +378,7 @@ dimensions:
   - d_returns_time_tier
   - d_sales_price_tier
   - d_ticket_number
-  - Ws_Web_Site_Sk
+  - d_web_site
 include_default_drillthrough: true
 metrics:
   - unique_name: m_catalog_sales_coupon_amount_avg
