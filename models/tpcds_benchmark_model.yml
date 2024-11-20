@@ -21,7 +21,7 @@ aggregates:
         dimension: Customer Address
         relationships_path:
           - Customer Dimension Customer Address
-      - name: Calendar Year_week
+      - name: Calendar Year Week
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -66,7 +66,7 @@ aggregates:
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold
-      - name: Day Name_week
+      - name: Day Name Week
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold
@@ -74,7 +74,7 @@ aggregates:
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold
-      - name: Calendar Year_week
+      - name: Calendar Year Week
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -93,7 +93,7 @@ aggregates:
         dimension: Customer Address
         relationships_path:
           - store_sales_Customer_Address_Sold
-      - name: Calendar Year_week
+      - name: Calendar Year Week
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -117,7 +117,7 @@ aggregates:
         dimension: Product Dimension
       - name: Product Manufacturer ID
         dimension: Product Dimension
-      - name: Calendar Year_week
+      - name: Calendar Year Week
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -136,7 +136,7 @@ aggregates:
         dimension: Product Dimension
       - name: Product Manager ID
         dimension: Product Dimension
-      - name: Calendar Year_week
+      - name: Calendar Year Week
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -161,7 +161,7 @@ aggregates:
         dimension: Customer Address
         relationships_path:
           - store_sales_Customer_Address_Sold
-      - name: Calendar Year_week
+      - name: Calendar Year Week
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -200,7 +200,7 @@ aggregates:
         dimension: Store Dimension
       - name: Store Suite Number
         dimension: Store Dimension
-      - name: Calendar Year_week
+      - name: Calendar Year Week
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -223,7 +223,7 @@ aggregates:
         dimension: Product Dimension
       - name: Product Manager ID
         dimension: Product Dimension
-      - name: Calendar Year_week
+      - name: Calendar Year Week
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -297,7 +297,7 @@ aggregates:
         dimension: Product Dimension
       - name: Channel Email
         dimension: Promotions
-      - name: Calendar Year_week
+      - name: Calendar Year Week
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -561,7 +561,7 @@ partitions:
   - unique_name: >-
       TPC-DS Benchmark Model.Date Dimensions.Calendar
       Year-Week.partition
-    attribute: Calendar Year_week
+    attribute: Calendar Year Week
     dimension: Date Dimensions
     relationships_path:
       - store_sales_Date_Dimension_Week_Sold
