@@ -1,4 +1,4 @@
-unique_name: m_ss_sales_price_promotion
+unique_name: Store Sales Price by Promotion
 object_type: metric
 label: Store Sales Price by Promotion
 calculation_method: sum

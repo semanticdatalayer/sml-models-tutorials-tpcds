@@ -1,4 +1,4 @@
-unique_name: m_ws_bill_customer_sk_count
+unique_name: Web Customer Count
 object_type: metric
 label: Web Customer Count
 calculation_method: count non-null

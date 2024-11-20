@@ -1,4 +1,4 @@
 unique_name: m_sales_by_promotion_ratio
 object_type: metric_calc
 label: Store Sales by Promotion Ratio
-expression: "([Measures].[Store Ext Sales Price by Promotion]/ [Measures].[m_ss_ext_sales_price_sum])*100"
+expression: "([Measures].[Store Ext Sales Price by Promotion]/ [Measures].[Store Ext Sales Price])*100"

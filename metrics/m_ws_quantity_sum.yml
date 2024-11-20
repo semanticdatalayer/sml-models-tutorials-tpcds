@@ -1,4 +1,4 @@
-unique_name: m_ws_quantity_sum
+unique_name: Web Quantity Sold
 object_type: metric
 label: Web Quantity Sold
 calculation_method: sum

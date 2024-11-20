@@ -1,4 +1,4 @@
-unique_name: m_store_coupon_amt_sum
+unique_name: Store Coupon Amount
 object_type: metric
 label: Store Coupon Amount
 calculation_method: sum

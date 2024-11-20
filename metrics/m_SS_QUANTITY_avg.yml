@@ -1,4 +1,4 @@
-unique_name: m_ss_quantity_avg
+unique_name: Average Store Sales Quantity
 object_type: metric
 label: Average Store Sales Quantity
 calculation_method: average

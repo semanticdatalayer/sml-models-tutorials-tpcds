@@ -1,4 +1,4 @@
-unique_name: m_ss_net_paid_inc_tax_sum
+unique_name: Store Net Paid Incl Tax
 object_type: metric
 label: Store Net Paid Incl Tax
 calculation_method: sum

@@ -29,9 +29,9 @@ aggregates:
       - name: d_net_profit_tier
         dimension: d_net_profit_tier
     metrics:
-      - m_ss_ext_wholesale_cost_sum
-      - m_ss_quantity_avg
-      - m_ss_ext_wholesale_cost_avg
+      - Store Ext Wholesale Cost
+      - Average Store Sales Quantity
+      - Average Ext Wholesale Cost
       - Average Ext Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q15
@@ -142,7 +142,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
     metrics:
-      - m_ss_ext_sales_price_sum
+      - Store Ext Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q48
     label: Q48
@@ -169,7 +169,7 @@ aggregates:
       - name: d_net_profit_tier
         dimension: d_net_profit_tier
     metrics:
-      - m_ss_quantity_sum
+      - Store Quantity Sold
     target_connection: Connection - TPCDS
   - unique_name: Q50
     label: Q50
@@ -229,7 +229,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
     metrics:
-      - m_ss_ext_sales_price_sum
+      - Store Ext Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q53
     label: Q53
@@ -249,7 +249,7 @@ aggregates:
     metrics:
       - m_avg_quarterly_store_sales_for_1998_1999
       - m_avg_quarter_sales_ratio
-      - m_store_sales_price
+      - Total Store Sales
     target_connection: Connection - TPCDS
   - unique_name: Q56-Q60
     label: Q56-Q60
@@ -303,7 +303,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
     metrics:
-      - m_ss_ext_sales_price_sum
+      - Store Ext Sales Price
       - Store Ext Sales Price by Promotion
     target_connection: Connection - TPCDS
   - unique_name: Q7-Q26
@@ -328,11 +328,11 @@ aggregates:
         dimension: d_promotions
     metrics:
       - Catalog Sales Average Coupon Amount
-      - m_ss_sales_price_avg
+      - Average Store Sales Sales Price
       - Catalog Sales Average Quantity Sold
       - Average Store Sales Coupon Amount
-      - m_ss_quantity_avg
-      - m_ss_list_price_avg
+      - Average Store Sales Quantity
+      - Average Store Sales List Price
       - Catalog Sales Average List Price
       - Catalog Sales Average Sales Price
     target_connection: Connection - TPCDS
@@ -439,67 +439,67 @@ metrics:
     folder: Store Sales Measures
   - unique_name: Store Ext Sales Price by Promotion
     folder: Store Sales Measures
-  - unique_name: m_ss_ext_sales_price_sum
+  - unique_name: Store Ext Sales Price
     folder: Store Sales Measures
-  - unique_name: m_ss_ext_tax_sum
+  - unique_name: Store Ext Sales Tax
     folder: Store Sales Measures
-  - unique_name: m_ss_ext_wholesale_cost_avg
+  - unique_name: Average Ext Wholesale Cost
     folder: Store Sales Measures
-  - unique_name: m_ss_ext_wholesale_cost_sum
+  - unique_name: Store Ext Wholesale Cost
     folder: Store Sales Measures
-  - unique_name: m_ss_list_price_avg
+  - unique_name: Average Store Sales List Price
     folder: Store Sales Measures
-  - unique_name: m_ss_net_paid_inc_tax_sum
+  - unique_name: Store Net Paid Incl Tax
     folder: Store Sales Measures
-  - unique_name: m_ss_net_paid_sum
+  - unique_name: Store Net Paid Amount
     folder: Store Sales Measures
-  - unique_name: m_ss_net_profit_sum
+  - unique_name: Store Net Profit
     folder: Store Sales Measures
-  - unique_name: m_ss_quantity_avg
+  - unique_name: Average Store Sales Quantity
     folder: Store Sales Measures
-  - unique_name: m_ss_quantity_sum
+  - unique_name: Store Quantity Sold
     folder: Store Sales Measures
-  - unique_name: m_ss_sales_price_avg
+  - unique_name: Average Store Sales Sales Price
     folder: Store Sales Measures
-  - unique_name: m_ss_sales_price_promotion
+  - unique_name: Store Sales Price by Promotion
     folder: Store Sales Measures
-  - unique_name: m_store_coupon_amt_sum
+  - unique_name: Store Coupon Amount
     folder: Store Sales Measures
-  - unique_name: m_store_returns_count_sum
+  - unique_name: Store Returns Count
     folder: Store Sales Measures
-  - unique_name: m_store_sales_price
+  - unique_name: Total Store Sales
     folder: Store Sales Measures
-  - unique_name: m_web_sales_net_paid
+  - unique_name: Web Sales Net Paid
     folder: Web Sales Measures
-  - unique_name: m_web_sales_sum
+  - unique_name: Web Sales
     folder: Web Sales Measures
-  - unique_name: m_ws_row_counter_sum
+  - unique_name: Web Sales Row Counter
     folder: Web Sales Measures
-  - unique_name: m_ws_bill_customer_sk_count
+  - unique_name: Web Customer Count
     folder: Customer Information
-  - unique_name: m_ws_ext_discount_amt_sum
+  - unique_name: mWeb Ext Discount Amount
     folder: Web Sales Measures
-  - unique_name: m_ws_ext_list_price_sum
+  - unique_name: Web Ext List Price
     folder: Web Sales Measures
-  - unique_name: m_ws_ext_sales_price_sum
+  - unique_name: Web Ext Sales Price
     folder: Web Sales Measures
-  - unique_name: m_ws_ext_ship_cost_sum
+  - unique_name: Web Ext Ship Cost
     folder: Web Sales Measures
-  - unique_name: m_ws_ext_tax_sum
+  - unique_name: Web Ext Sales Tax
     folder: Web Sales Measures
-  - unique_name: m_ws_ext_wholesale_cost_sum
+  - unique_name: Web Ext Wholesale Cost
     folder: Web Sales Measures
-  - unique_name: m_ws_net_paid_inc_ship_sum
+  - unique_name: Web Net Paid Incl Ship
     folder: Web Sales Measures
-  - unique_name: m_ws_net_paid_inc_ship_tax_sum
+  - unique_name: Web Net Paid Incl Tax and Ship
     folder: Web Sales Measures
-  - unique_name: m_ws_net_paid_inc_tax_sum
+  - unique_name: Web Net Paid Incl Tax
     folder: Web Sales Measures
-  - unique_name: m_ws_net_paid_sum
+  - unique_name: Web Net Paid Amount
     folder: Web Sales Measures
-  - unique_name: m_ws_net_profit_sum
+  - unique_name: Web Net Profit
     folder: Web Sales Measures
-  - unique_name: m_ws_quantity_sum
+  - unique_name: Web Quantity Sold
     folder: Web Sales Measures
   - unique_name: m_average_catalog_unit_net_profit
     folder: Catalog Sales Measures
@@ -549,7 +549,7 @@ metrics:
     folder: Total Sales Measures
   - unique_name: m_web_sales_increase
     folder: Web Sales Measures
-  - unique_name: m_product_count
+  - unique_name: Total Product Count
     folder: Counts  
 partitions:
   - unique_name: TPC-DS Benchmark Model.d_date_dimension.d_calendar_year.partition

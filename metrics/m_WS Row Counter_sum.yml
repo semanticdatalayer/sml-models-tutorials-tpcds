@@ -1,4 +1,4 @@
-unique_name: m_ws_row_counter_sum
+unique_name: Web Sales Row Counter
 object_type: metric
 label: Web Sales Row Counter
 calculation_method: sum

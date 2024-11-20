@@ -1,4 +1,4 @@
-unique_name: m_product_count
+unique_name: Total Product Count
 object_type: metric
 label: Total Product Count
 description: total product count, item count

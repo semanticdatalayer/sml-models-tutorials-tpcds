@@ -1,6 +1,6 @@
 unique_name: m_avg_quarter_sales_ratio
 object_type: metric_calc
 label: Avg Quarter Sales Ratio
-expression: "CASE WHEN ([Measures].[m_store_sales_price] - [Measures].[m_avg_quarterly_store_sales_for_1998_1999]) < 0 THEN -1 * ([Measures].[m_store_sales_price] -\
-  \ [Measures].[m_avg_quarterly_store_sales_for_1998_1999]) ELSE ([Measures].[m_store_sales_price]\
+expression: "CASE WHEN ([Measures].[Total Store Sales] - [Measures].[m_avg_quarterly_store_sales_for_1998_1999]) < 0 THEN -1 * ([Measures].[Total Store Sales] -\
+  \ [Measures].[m_avg_quarterly_store_sales_for_1998_1999]) ELSE ([Measures].[Total Store Sales]\
   \ - [Measures].[m_avg_quarterly_store_sales_for_1998_1999]) END \n/[Measures].[m_avg_quarterly_store_sales_for_1998_1999]"

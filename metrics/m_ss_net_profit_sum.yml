@@ -1,4 +1,4 @@
-unique_name: m_ss_net_profit_sum
+unique_name: Store Net Profit
 object_type: metric
 label: Store Net Profit
 calculation_method: sum
