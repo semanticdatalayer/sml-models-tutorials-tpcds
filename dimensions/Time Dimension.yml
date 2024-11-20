@@ -69,7 +69,7 @@ hierarchies:
               - Siblings
 
           - unique_name: d_morning_time_tier
-            label: Morning Time Tier
+            label: t_morning_time_tier
             folder: Time
             dataset: time_dim
             key_columns:
