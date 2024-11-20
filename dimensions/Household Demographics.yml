@@ -50,7 +50,7 @@ relationships:
         - hd_income_band_sk
       level: d_household_demographics
     to:
-      dimension: Income Band
-      level: Income Band
+      dimension: d_income_band
+      level: d_income_band
     type: embedded
 type: standard
