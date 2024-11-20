@@ -175,38 +175,38 @@ aggregates:
     label: Q50
     attributes:
       - name: d_store_zip_code
-        dimension: Store Dimension
+        dimension: d_store_dimension
       - name: d_store_country
-        dimension: Store Dimension
+        dimension: d_store_dimension
       - name: d_store_street_type
-        dimension: Store Dimension
+        dimension: d_store_dimension
       - name: d_store_city
-        dimension: Store Dimension
+        dimension: d_store_dimension
       - name: d_month_of_year
         dimension: d_date_dimension
         relationships_path:
           - store_returns_Date_Dimension_Return_1
       - name: d_store_company_id
-        dimension: Store Dimension
+        dimension: d_store_dimension
       - name: d_returns_time_tier
         dimension: d_returns_time_tier
       - name: d_store_name
-        dimension: Store Dimension
+        dimension: d_store_dimension
       - name: d_store_street_number
-        dimension: Store Dimension
+        dimension: d_store_dimension
       - name: d_store_street_name
-        dimension: Store Dimension
+        dimension: d_store_dimension
       - name: d_store_county
-        dimension: Store Dimension
+        dimension: d_store_dimension
       - name: d_store_suite_number
-        dimension: Store Dimension
+        dimension: d_store_dimension
       - name: Calendar Year-Week
         dimension: d_date_dimension
         partition: name
         relationships_path:
           - store_returns_Date_Dimension_Return
       - name: d_store_state
-        dimension: Store Dimension
+        dimension: d_store_dimension
     metrics:
       - m_returns_count_sum
     target_connection: Connection - TPCDS
@@ -282,7 +282,7 @@ aggregates:
       - name: d_channel_direct_mail
         dimension: d_promotions
       - name: d_store_gmt_offset
-        dimension: Store Dimension
+        dimension: d_store_dimension
       - name: d_channel_tv
         dimension: d_promotions
       - name: d_customer_gmt_offset
@@ -348,7 +348,7 @@ aggregates:
       - name: d_hd_vehicle_count
         dimension: d_household_demographics
       - name: d_store_name
-        dimension: Store Dimension
+        dimension: d_store_dimension
     metrics:
       - m_ss_row_counter_sum
     target_connection: Connection - TPCDS
@@ -367,7 +367,7 @@ aggregates:
         relationships_path:
           - store_sales_Time_Dimension_Sold
       - name: d_store_name
-        dimension: Store Dimension
+        dimension: d_store_dimension
     metrics:
       - m_ss_row_counter_sum
     target_connection: Connection - TPCDS
@@ -700,8 +700,8 @@ relationships:
       join_columns:
         - ss_store_sk
     to:
-      dimension: Store Dimension
-      level: Store_Number
+      dimension: d_store_dimension
+      level: d_store_number
   - unique_name: store_promotion_Date_Dimension_Sold
     from:
       dataset: store_promotion
@@ -901,8 +901,8 @@ relationships:
       join_columns:
         - sr_store_sk
     to:
-      dimension: Store Dimension
-      level: Store_Number
+      dimension: d_store_dimension
+      level: d_store_number
   - unique_name: store_returns_Date_Dimension_Return
     from:
       dataset: store_returns
@@ -977,8 +977,8 @@ relationships:
       join_columns:
         - ss_store_sk
     to:
-      dimension: Store Dimension
-      level: Store_Number
+      dimension: d_store_dimension
+      level: d_store_number
   - unique_name: store_sales_Date_Dimension_Sold
     from:
       dataset: store_sales
