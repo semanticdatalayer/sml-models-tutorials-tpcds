@@ -12,7 +12,7 @@ hierarchies:
 
     levels:
 
-      - unique_name: Time
+      - unique_name: d_time_sk
 
         secondary_attributes:
 

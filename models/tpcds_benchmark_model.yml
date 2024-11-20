@@ -609,7 +609,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: d_time_dimension
-      level: Time
+      level: d_time_sk
   - unique_name: catalog_sales_d_promotions
     from:
       dataset: catalog_sales
@@ -810,7 +810,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: d_time_dimension
-      level: Time
+      level: d_time_sk
   - unique_name: web_sales_d_promotions
     from:
       dataset: web_sales
@@ -920,7 +920,7 @@ relationships:
     role_play: Return {0}
     to:
       dimension: d_time_dimension
-      level: Time
+      level: d_time_sk
   - unique_name: store_returns_Customer_Address
     from:
       dataset: store_returns
@@ -996,7 +996,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: d_time_dimension
-      level: Time
+      level: d_time_sk
   - unique_name: store_sales_d_promotions
     from:
       dataset: store_sales
