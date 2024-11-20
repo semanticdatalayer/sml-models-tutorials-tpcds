@@ -1,22 +1,22 @@
-unique_name: d_promotions
+unique_name: Promotions
 object_type: dimension
 label: Promotions
 type: standard
 
 hierarchies:
 
-  - unique_name: d_promotions
+  - unique_name: Promotions
     label: Promotions
     filter_empty: "yes"
     folder: Promotion Attributes
 
     levels:
 
-      - unique_name: d_promotions
+      - unique_name: Promotions
 
         secondary_attributes:
 
-          - unique_name: d_channel_catalog
+          - unique_name: Channel Catalog
             label: Channel Catalog
             folder: Promotion Attributes
             dataset: promotion
@@ -25,7 +25,7 @@ hierarchies:
             name_column: p_channel_catalog
             sort_column: p_channel_catalog
 
-          - unique_name: d_channel_direct_mail
+          - unique_name: name: Channel Direct Mail
             label: Channel Direct Mail
             folder: Promotion Attributes
             dataset: promotion
@@ -34,7 +34,7 @@ hierarchies:
             name_column: p_channel_dmail
             sort_column: p_channel_dmail
 
-          - unique_name: d_channel_email
+          - unique_name: Channel Email
             label: Channel Email
             folder: Promotion Attributes
             dataset: promotion
@@ -42,7 +42,7 @@ hierarchies:
               - p_channel_email
             name_column: p_channel_email
             sort_column: p_channel_email
-          - unique_name: d_promotion_sent_via_email
+          - unique_name: Promotion Sent Via Email
             label: Promotion Sent Via Email
             description: if this promotion was sent out with email
             folder: Promotion Attributes
@@ -55,7 +55,7 @@ hierarchies:
               - Lag
               - Range
               - Siblings
-          - unique_name: d_channel_event
+          - unique_name: Channel Event
             label: Channel Event
             folder: Promotion Attributes
             dataset: promotion
@@ -64,7 +64,7 @@ hierarchies:
             name_column: p_channel_event
             sort_column: p_channel_event
 
-          - unique_name: d_channel_press
+          - unique_name: Channel Press
             label: Channel Press
             folder: Promotion Attributes
             dataset: promotion
@@ -73,7 +73,7 @@ hierarchies:
             name_column: p_channel_press
             sort_column: p_channel_press
 
-          - unique_name: d_channel_radio
+          - unique_name: Channel Radio
             label: Channel Radio
             folder: Promotion Attributes
             dataset: promotion
@@ -82,7 +82,7 @@ hierarchies:
             name_column: p_channel_radio
             sort_column: p_channel_radio
 
-          - unique_name: d_channel_tv
+          - unique_name: Channel TV
             label: Channel TV
             folder: Promotion Attributes
             dataset: promotion
@@ -90,7 +90,7 @@ hierarchies:
               - p_channel_tv
             name_column: p_channel_tv
             sort_column: p_channel_tv
-          - unique_name: d_promo_name
+          - unique_name: Promotion Name
             label: Promotion Name
             folder: Promotion Attributes
             dataset: promotion
@@ -98,7 +98,7 @@ hierarchies:
               - p_promo_name
             name_column: p_promo_name
             sort_column: p_promo_name
-          - unique_name: d_in_promotion
+          - unique_name: In Promotion
             label: In Promotion
             description: if this sale was part in a promotion
             folder: Promotion Attributes
@@ -113,7 +113,7 @@ hierarchies:
               - Siblings
 level_attributes:
 
-  - unique_name: d_promotions
+  - unique_name: Promotions
     label: Promotion SK
     dataset: promotion
     key_columns:
