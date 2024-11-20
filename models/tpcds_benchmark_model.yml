@@ -14,7 +14,7 @@ aggregates:
         relationships_path:
           - d_customer_dimension_customer_address
       - name: d_sales_price_tier
-        dimension: Sales_Price_Tier
+        dimension: d_sales_price_tier
       - name: d_cd_education_status
         dimension: d_customer_demographics
       - name: d_customer_country
@@ -154,7 +154,7 @@ aggregates:
         relationships_path:
           - store_sales_Customer_Address_Sold
       - name: d_sales_price_tier
-        dimension: Sales_Price_Tier
+        dimension: d_sales_price_tier
       - name: d_cd_education_status
         dimension: d_customer_demographics
       - name: d_customer_country
@@ -376,7 +376,7 @@ dimensions:
   - d_catalog_sales_price_tier
   - d_net_profit_tier
   - d_returns_time_tier
-  - Sales_Price_Tier
+  - d_sales_price_tier
   - Ss_Ticket_Number
   - Ws_Web_Site_Sk
 include_default_drillthrough: true
