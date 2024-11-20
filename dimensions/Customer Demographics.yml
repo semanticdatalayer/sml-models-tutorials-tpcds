@@ -1,15 +1,15 @@
-unique_name: d_customer_demographics
+unique_name: Customer Demographics
 object_type: dimension
 label: Customer Demographics
 hierarchies:
-  - unique_name: d_customer_demographics
+  - unique_name: Customer Demographics
     label: Customer Demographics
     filter_empty: 'yes'
     folder: Customer Information
     levels:
-      - unique_name: d_customer_demographics
+      - unique_name: Customer Demographics
         secondary_attributes:
-          - unique_name: d_cd_credit_rating
+          - unique_name: Credit Rating
             label: Credit Rating
             description: customer credit rating
             dataset: customer_demographics
@@ -18,7 +18,7 @@ hierarchies:
               - cd_credit_rating
             name_column: cd_credit_rating
             sort_column: cd_credit_rating
-          - unique_name: d_cd_dep_count
+          - unique_name: Customer Dependent Count
             label: Customer Dependent Count
             description: the count of dependents for this customer
             allowed_calcs_for_dma:
@@ -31,7 +31,7 @@ hierarchies:
               - cd_dep_count
             name_column: cd_dep_count
             sort_column: cd_dep_count
-          - unique_name: d_cd_education_status
+          - unique_name: Education Status
             label: Education Status
             description: Customer Education Level
             dataset: customer_demographics
@@ -40,7 +40,7 @@ hierarchies:
               - cd_education_status
             name_column: cd_education_status
             sort_column: cd_education_status
-          - unique_name: d_cd_gender
+          - unique_name: Gender
             label: Gender
             description: Customer Gender
             dataset: customer_demographics
@@ -49,7 +49,7 @@ hierarchies:
               - cd_gender
             name_column: cd_gender
             sort_column: cd_gender
-          - unique_name: d_cd_marital_status
+          - unique_name: Marital Status
             label: Marital Status
             description: Customer Marital Status
             dataset: customer_demographics
@@ -59,7 +59,7 @@ hierarchies:
             name_column: cd_marital_status
             sort_column: cd_marital_status
 level_attributes:
-  - unique_name: d_customer_demographics
+  - unique_name: Customer Demographics
     label: Customer Number
     dataset: customer_demographics
     is_unique_key: true
