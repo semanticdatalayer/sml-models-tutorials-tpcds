@@ -1,11 +1,11 @@
-unique_name: Returns_Time_Tier
+unique_name: d_returns_time_tier
 object_type: dimension
-label: Returns_Time_Tier
+label: Returns Time Tier
 is_degenerate: true
 
 hierarchies:
 
-  - unique_name: Returns Time Tier
+  - unique_name: d_returns_time_tier
     label: Returns Time Tier
     folder: Store Sales Attributes
     filter_empty: "yes"
