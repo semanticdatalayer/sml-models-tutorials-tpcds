@@ -188,8 +188,8 @@ aggregates:
           - store_returns_Date_Dimension_Return_1
       - name: d_store_company_id
         dimension: d_store_dimension
-      - name: d_returns_time_tier
-        dimension: d_returns_time_tier
+      - name: Returns Time Tier
+        dimension: Returns Time Tier
       - name: d_store_name
         dimension: d_store_dimension
       - name: d_store_street_number
@@ -376,7 +376,7 @@ dimensions:
   - Catalog Preferred
   - Catalog Sales Price Tier
   - Net Profit Tier
-  - d_returns_time_tier
+  - Returns Time Tier
   - d_sales_price_tier
   - d_ticket_number
   - d_web_site
