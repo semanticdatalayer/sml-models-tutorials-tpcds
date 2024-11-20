@@ -189,7 +189,7 @@ aggregates:
       - name: d_store_company_id
         dimension: Store Dimension
       - name: d_returns_time_tier
-        dimension: Returns_Time_Tier
+        dimension: d_returns_time_tier
       - name: d_store_name
         dimension: Store Dimension
       - name: d_store_street_number
@@ -375,7 +375,7 @@ dimensions:
   - d_catalog_preferred
   - d_catalog_sales_price_tier
   - d_net_profit_tier
-  - Returns_Time_Tier
+  - d_returns_time_tier
   - Sales_Price_Tier
   - Ss_Ticket_Number
   - Ws_Web_Site_Sk
