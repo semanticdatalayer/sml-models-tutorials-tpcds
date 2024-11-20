@@ -1,4 +1,4 @@
-unique_name: m_catalog_sales_coupon_amount_avg
+unique_name: Catalog Sales Average Coupon Amount
 object_type: metric
 label: Catalog Sales Average Coupon Amount
 description: Average Discount Amount

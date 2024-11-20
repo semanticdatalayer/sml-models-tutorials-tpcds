@@ -1,4 +1,4 @@
-unique_name: m_cs row counter_sum
+unique_name: Catalog Sales Row Counter
 object_type: metric
 label: Catalog Sales Row Counter
 calculation_method: sum

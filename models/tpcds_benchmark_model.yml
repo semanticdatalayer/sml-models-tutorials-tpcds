@@ -327,14 +327,14 @@ aggregates:
       - name: d_channel_email
         dimension: d_promotions
     metrics:
-      - m_catalog_sales_coupon_amount_avg
+      - Catalog Sales Average Coupon Amount
       - m_ss_sales_price_avg
-      - m_catalog_sales_quantity_sold_avg
+      - Catalog Sales Average Quantity Sold
       - m_ss_coupon_amt_avg
       - m_ss_quantity_avg
       - m_ss_list_price_avg
-      - m_catalog_sales_list_price_avg
-      - m_catalog_sales_sales_price_avg
+      - Catalog Sales Average List Price
+      - Catalog Sales Average Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q88
     label: Q88
@@ -381,19 +381,19 @@ dimensions:
   - d_web_site
 include_default_drillthrough: true
 metrics:
-  - unique_name: m_catalog_sales_coupon_amount_avg
+  - unique_name: Catalog Sales Average Coupon Amount
     folder: Catalog Sales Measures
-  - unique_name: m_catalog_sales_list_price_avg
+  - unique_name: Catalog Sales Average List Price
     folder: Catalog Sales Measures
-  - unique_name: m_catalog_sales_net_paid_sum
+  - unique_name: Catalog Sales Net Paid
     folder: Catalog Sales Measures
-  - unique_name: m_catalog_sales_quantity_sold_avg
+  - unique_name: Catalog Sales Average Quantity Sold
     folder: Catalog Sales Measures
-  - unique_name: m_catalog_sales_sales_price_avg
+  - unique_name: Catalog Sales Average Sales Price
     folder: Catalog Sales Measures
-  - unique_name: m_catalog_sales_sum
+  - unique_name: Catalog Sales
     folder: Catalog Sales Measures
-  - unique_name: m_cs row counter_sum
+  - unique_name: Catalog Sales Row Counter
     folder: Catalog Sales Measures
   - unique_name: m_cs_bill_customer_sk_count
     folder: Customer Information
