@@ -110,7 +110,7 @@ hierarchies:
               - Day Name
             name_column: Day Name
             sort_column: Day Name
-          - unique_name: d_day_of_week
+          - unique_name: Day of Week
             label: Day of Week
             allowed_calcs_for_dma:
               - Lag
