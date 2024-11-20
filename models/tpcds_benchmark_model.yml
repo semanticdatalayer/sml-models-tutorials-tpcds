@@ -378,7 +378,7 @@ dimensions:
   - Returns Time Tier
   - Sales Price Tier
   - Store Sales Ticket Number
-  - d_web_site
+  - Web Site
 include_default_drillthrough: true
 metrics:
   - unique_name: Catalog Sales Average Coupon Amount

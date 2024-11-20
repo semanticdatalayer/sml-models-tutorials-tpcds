@@ -1,14 +1,14 @@
-unique_name: d_web_site
+unique_name: Web Site
 object_type: dimension
 label: Web Site
 hierarchies:
-  - unique_name: d_web_site
+  - unique_name: Web Site
     label: Web Site
     levels:
-      - unique_name: d_web_site
+      - unique_name: Web Site
 is_degenerate: true
 level_attributes:
-  - unique_name: d_web_site
+  - unique_name: Web Site
     label: Website ID
     dataset: web_sales
     key_columns:
