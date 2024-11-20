@@ -1,16 +1,16 @@
-unique_name: d_customer_address
+unique_name: Customer Address
 object_type: dimension
 label: Customer Address
 hierarchies:
-  - unique_name: d_customer_address
+  - unique_name: Customer Address
     label: Customer Address
     filter_empty: 'yes'
     folder: Customer Information
     levels:
-      - unique_name: d_customer_country
-      - unique_name: d_customer_state
+      - unique_name: Customer Country
+      - unique_name: Customer State
         secondary_attributes:
-          - unique_name: d_customer_state_name
+          - unique_name: Customer State_name
             label: Customer State Name
             description: customer home state
             allowed_calcs_for_dma:
@@ -23,10 +23,10 @@ hierarchies:
               - Customer State Name
             name_column: Customer State Name
             sort_column: Customer State Name
-      - unique_name: d_customer_city
-      - unique_name: d_customer_address
+      - unique_name: Customer City
+      - unique_name: Customer Address
         secondary_attributes:
-          - unique_name: d_customer_county
+          - unique_name: Customer County
             label: Customer County
             description: county the customer lives in
             dataset: customer_address
@@ -35,7 +35,7 @@ hierarchies:
               - ca_county
             name_column: ca_county
             sort_column: ca_county
-          - unique_name: d_customer_gmt_offset
+          - unique_name: Customer GMT Offset
             label: Customer GMT Offset
             dataset: customer_address
             folder: Customer Information
@@ -43,7 +43,7 @@ hierarchies:
               - ca_gmt_offset
             name_column: ca_gmt_offset
             sort_column: ca_gmt_offset
-          - unique_name: d_customer_zip_code
+          - unique_name: Customer Zip Code
             label: Customer Zip Code
             description: zip code the customer lives in, home zip code
             dataset: customer_address
@@ -53,14 +53,14 @@ hierarchies:
             name_column: ca_zip
             sort_column: ca_zip
 level_attributes:
-  - unique_name: d_customer_address
+  - unique_name: Customer Address
     label: Customer Address
     dataset: customer_address
     is_unique_key: true
     key_columns:
       - ca_address_sk
     name_column: ca_address_id
-  - unique_name: d_customer_city
+  - unique_name: Customer City
     label: Customer City
     description: name of the city the customer lives in, home city name
     dataset: customer_address
@@ -69,14 +69,14 @@ level_attributes:
       - ca_state
       - ca_city
     name_column: ca_city
-  - unique_name: d_customer_country
+  - unique_name: Customer Country
     label: Customer Country
     description: country the customer lives in, home country
     dataset: customer_address
     key_columns:
       - ca_country
     name_column: ca_country
-  - unique_name: d_customer_state
+  - unique_name: Customer State
     label: Customer State Shorthand
     dataset: customer_address
     key_columns:

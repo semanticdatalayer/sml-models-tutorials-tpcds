@@ -1,22 +1,22 @@
-unique_name: d_catalog_sales_price_tier
+unique_name: Catalog Sales Price Tier
 object_type: dimension
 label: Catalog Sales Price Tier
 is_degenerate: true
 
 hierarchies:
 
-  - unique_name: d_catalog_sales_price_tier
+  - unique_name: Catalog Sales Price Tier
     label: Catalog sales price tier
     folder: Product Attributes
     filter_empty: "yes"
 
     levels:
 
-      - unique_name: d_catalog_sales_price_tier
+      - unique_name: Catalog Sales Price Tier
 
 level_attributes:
 
-  - unique_name: d_catalog_sales_price_tier
+  - unique_name: Catalog Sales Price Tier
     label: Catalog sales price tier
     dataset: catalog_sales
     name_column: cs_catalog_sales_price_tier
