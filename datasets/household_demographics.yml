@@ -11,7 +11,7 @@ columns:
     data_type: long
   - name: hd_dep_count
     data_type: long
-  - name: hd_income_band_sk
+  - name: hIncome Band_sk
     data_type: long
   - name: hd_vehicle_count
     data_type: long
