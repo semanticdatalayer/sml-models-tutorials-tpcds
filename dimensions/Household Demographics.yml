@@ -47,7 +47,7 @@ relationships:
       dataset: household_demographics
       hierarchy: Household Demographics
       join_columns:
-        - hIncome Band_sk
+        - hd_income_band_sk
       level: Household Demographics
     to:
       dimension: Income Band
