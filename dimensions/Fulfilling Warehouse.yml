@@ -10,7 +10,7 @@ hierarchies:
       - unique_name: Warehouse Country
       - unique_name: Warehouse State
         secondary_attributes:
-          - unique_name: Warehouse State_name
+          - unique_name: Warehouse State Name
             label: Warehouse State Name
             description: Fullfilment warehouse state name
             allowed_calcs_for_dma:
