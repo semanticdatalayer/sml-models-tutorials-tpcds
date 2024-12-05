@@ -1,4 +1,4 @@
-unique_name: sml-tpcds
+unique_name: tpcds
 object_type: catalog
 label: TPC-DS
 version: 1.0
