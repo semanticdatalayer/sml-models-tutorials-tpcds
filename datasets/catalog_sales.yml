@@ -90,10 +90,10 @@ columns:
         sql: "CASE WHEN \"cs_sales_price\" BETWEEN 0 AND 500 THEN '500 or Less' ELSE 'More than 500' END"
   - name: Catalog Sales
     data_type: "decimal(38,2)"
-    sql: "CAST(cs_sales_price-cs_quantity AS decimal(38,2))"
+    sql: "CAST(cs_sales_price*cs_quantity AS decimal(38,2))"
     dialects:
       - dialect: Snowflake
-        sql: "CAST(\"cs_sales_price\"+\"cs_quantity\" AS decimal(38,2))"
+        sql: "CAST(\"cs_sales_price\"*\"cs_quantity\" AS decimal(38,2))"
   - name: Purchased Amount in Catalog
     data_type: "decimal(16,8)"
     sql: "((cs_ext_list_price-cs_ext_wholesale_cost-cs_ext_discount_amt)+cs_ext_sales_price)/2"
