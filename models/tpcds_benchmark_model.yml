@@ -477,7 +477,7 @@ metrics:
     folder: Web Sales Measures
   - unique_name: Web Customer Count
     folder: Customer Information
-  - unique_name: mWeb Ext Discount Amount
+  - unique_name: Web Ext Discount Amount
     folder: Web Sales Measures
   - unique_name: Web Ext List Price
     folder: Web Sales Measures
@@ -501,6 +501,8 @@ metrics:
     folder: Web Sales Measures
   - unique_name: Web Quantity Sold
     folder: Web Sales Measures
+  - unique_name: Web and Catalog Sales Price Growth
+    folder: Web Sales Measures  
   - unique_name: Average Catalog Unit Net Profit
     folder: Catalog Sales Measures
   - unique_name: Average Store Unit Net Profit

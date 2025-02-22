@@ -1,4 +1,4 @@
 unique_name: Total Ext Discount Amount
 object_type: metric_calc
 label: Total Ext Discount Amount
-expression: "[Measures].[Store Ext Discount Amount]+[Measures].[mWeb Ext Discount Amount]+[Measures].[Catalog Ext Discount Amount]"
+expression: "[Measures].[Store Ext Discount Amount]+[Measures].[Web Ext Discount Amount]+[Measures].[Catalog Ext Discount Amount]"
