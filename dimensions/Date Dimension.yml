@@ -107,9 +107,9 @@ hierarchies:
             dataset: date_dim
             folder: Date Attributes
             key_columns:
-              - Day Name
-            name_column: Day Name
-            sort_column: Day Name
+              - d_day_name
+            name_column: d_day_name
+            sort_column: d_day_name
           - unique_name: Day of Week
             label: Day of Week
             allowed_calcs_for_dma:
@@ -154,9 +154,9 @@ hierarchies:
             dataset: date_dim
             folder: Date Attributes
             key_columns:
-              - Day Name
-            name_column: Day Name
-            sort_column: Day Name
+              - d_day_name
+            name_column: d_day_name
+            sort_column: d_day_name
 level_attributes:
   - unique_name: Calendar Month Week
     label: Calendar Month
