@@ -607,7 +607,7 @@ relationships:
     from:
       dataset: catalog_sales
       join_columns:
-        - cs_solTime SK
+        - cs_sold_time_sk
     role_play: Sold {0}
     to:
       dimension: Time Dimension
@@ -808,7 +808,7 @@ relationships:
     from:
       dataset: web_sales
       join_columns:
-        - ws_solTime SK
+        - ws_sold_time_sk
     role_play: Sold {0}
     to:
       dimension: Time Dimension
@@ -994,7 +994,7 @@ relationships:
     from:
       dataset: store_sales
       join_columns:
-        - ss_solTime SK
+        - ss_sold_time_sk
     role_play: Sold {0}
     to:
       dimension: Time Dimension
