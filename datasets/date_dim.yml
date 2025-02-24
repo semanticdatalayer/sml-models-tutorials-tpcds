@@ -21,7 +21,7 @@ columns:
     data_type: string
   - name: d_date_sk
     data_type: int
-  - name: Day Name
+  - name: d_day_name
     data_type: string
   - name: d_dom
     data_type: int
