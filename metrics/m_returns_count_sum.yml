@@ -1,6 +1,0 @@
-unique_name: Returns Count
-object_type: metric
-label: Returns Count
-calculation_method: sum
-dataset: store_returns
-column: returns_count

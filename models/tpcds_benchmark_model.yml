@@ -208,7 +208,7 @@ aggregates:
       - name: Store State
         dimension: Store Dimension
     metrics:
-      - Returns Count
+      - Store Returns Count
     target_connection: Connection - TPCDS
   - unique_name: Q52
     label: Q52
