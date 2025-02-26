@@ -1,0 +1,16 @@
+object_type: global_settings
+overrides:
+    "aggregates.configuration.maximum_concurrent_materializations": 20
+    "connection.pool.group.maxConnections": "1000"
+    "connection.pool.user.maxConnections": "1000"
+    "query.includeComments.general.queryId": "true"
+    "aggregates.create.joins.maximumKeyCardinality": "200000000"
+    "connection.pool.getStateRequest.timeout": "12.hours"
+    "datasource.queries.useSmallQueryRole": "false"
+    "jobs.aggregates.watermarker.enabled": "false"
+    "jobs.aggregates.invalidProjectCheck.frequency": "24.hours"
+    "jobs.aggregates.watermarker.frequency": "24.hours"
+    "tables.create.partitions.allowIncompleteEstimates.enabled": "true"
+    "tables.create.partitions.maximumEstimatedNumberOfPartitions": "1000000"
+    "aggregates.creation.timeout": "8.hours"
+    "databricks.querycache.disable": "true"
