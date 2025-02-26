@@ -209,7 +209,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 13 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="false">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 13 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 13
 SELECT
@@ -220,21 +220,21 @@ SELECT
 FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year-Week&quot; = 2001
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 2001
 AND ( (
             &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;4 yr Degree&apos;
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;S&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Dependents Count&quot; = 3
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = 3
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;100-150&apos;)
     OR  (
             &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;Advanced Degree&apos;
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;D&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Dependents Count&quot; = 1
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = 1
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos; 50-100&apos;)
     OR  (
             &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;2 yr Degree&apos;
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;M&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Dependents Count&quot; = 1
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = 1
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;150-200&apos;) )
 AND ( (
             &quot;TPC-DS Benchmark Model&quot;.&quot;Customer Country&quot; = &apos;United States&apos;
@@ -611,7 +611,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 53 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="false">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 53 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 53
 SELECT
@@ -637,7 +637,7 @@ WHERE
                                                             &apos;reference&apos;,
                                                             &apos;self-help&apos;) )
 OR  (
-        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category &quot; IN (&apos;Women&apos;,
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN (&apos;Women&apos;,
                                                   &apos;Music&apos;,
                                                   &apos;Men&apos;)
     AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; IN ( &apos;amalgimporto #1&apos;,
@@ -837,7 +837,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 88 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="false">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 88 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 88
 SELECT
@@ -847,13 +847,13 @@ FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
     ( ( (
-                &quot;TPC-DS Benchmark Model&quot;.&quot;Dependents Count&quot; = 2
+                &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = 2
             AND &quot;TPC-DS Benchmark Model&quot;.&quot;Vehicle Count&quot; &lt;= 4 )
         OR  (
-                &quot;TPC-DS Benchmark Model&quot;.&quot;Dependents Count&quot; = 0
+                &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = 0
             AND &quot;TPC-DS Benchmark Model&quot;.&quot;Vehicle Count&quot; &lt;= 2 )
         OR  (
-                &quot;TPC-DS Benchmark Model&quot;.&quot;Dependents Count&quot; = -1
+                &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = -1
             AND &quot;TPC-DS Benchmark Model&quot;.&quot;Vehicle Count&quot; &lt;= 1 ) )
     AND &quot;TPC-DS Benchmark Model&quot;.&quot;Store Name&quot; = &apos;ese&apos; )
     AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Morning Time Tier&quot; &lt;&gt; &apos;Other&apos;
@@ -873,7 +873,7 @@ GROUP BY 1</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 96 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="false">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 96 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 96
 SELECT
@@ -883,7 +883,7 @@ FROM
 WHERE
     &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Hour&quot; = 8
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Minute&quot; &gt;= 30
-AND &quot;tpc_ds_benchmark_model&quot;.&quot;Dependents Count&quot; = 5
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Household Dependents Count&quot; = 5
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Store Name&quot; = &apos;ese&apos;
 ORDER BY 1 
 LIMIT 100</stringProp>
