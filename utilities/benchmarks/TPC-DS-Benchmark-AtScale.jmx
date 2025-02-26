@@ -22,13 +22,13 @@
           </elementProp>
           <elementProp name="UserName" elementType="Argument">
             <stringProp name="Argument.name">UserName</stringProp>
-            <stringProp name="Argument.value">${__P(UserName,dave@atscale.com)}</stringProp>
+            <stringProp name="Argument.value">${__P(UserName,&lt;user name&gt;)}</stringProp>
             <stringProp name="Argument.desc">User name</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Password" elementType="Argument">
             <stringProp name="Argument.name">Password</stringProp>
-            <stringProp name="Argument.value">${__P(Password,123)}</stringProp>
+            <stringProp name="Argument.value">${__P(Password,&lt;password&gt;)}</stringProp>
             <stringProp name="Argument.desc">Password</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
