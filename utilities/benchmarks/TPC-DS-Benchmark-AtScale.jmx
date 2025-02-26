@@ -1,0 +1,1112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.5">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/hadoop-common.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/hive-exec.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/hive-jdbc.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/hive-metastore.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/hive-service.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/httpclient.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/httpcore.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/libfb303-0.9.2.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/libthrift-0.9.2.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/log4j-1.2.16.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/slf4j-api.jar</stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="JDBCConnectionString" elementType="Argument">
+            <stringProp name="Argument.name">JDBCConnectionString</stringProp>
+            <stringProp name="Argument.value">${__P(JDBCConnectionString, jdbc:postgresql://localhost:15432/tpcds)}</stringProp>
+            <stringProp name="Argument.desc">AtScale Server Host</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="UserName" elementType="Argument">
+            <stringProp name="Argument.name">UserName</stringProp>
+            <stringProp name="Argument.value">${__P(UserName,dave@atscale.com)}</stringProp>
+            <stringProp name="Argument.desc">User name</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Password" elementType="Argument">
+            <stringProp name="Argument.name">Password</stringProp>
+            <stringProp name="Argument.value">${__P(Password,123)}</stringProp>
+            <stringProp name="Argument.desc">Password</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CatalogName" elementType="Argument">
+            <stringProp name="Argument.name">CatalogName</stringProp>
+            <stringProp name="Argument.value">${__P(CatalogName,&quot;tpcds&quot;)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">AtScale catalog name for the model</stringProp>
+          </elementProp>
+          <elementProp name="ModelName" elementType="Argument">
+            <stringProp name="Argument.name">ModelName</stringProp>
+            <stringProp name="Argument.value">${__P(ModelName,tpcds_benchmark_model)}</stringProp>
+            <stringProp name="Argument.desc">AtScale model name</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="NumberOfThreads" elementType="Argument">
+            <stringProp name="Argument.name">NumberOfThreads</stringProp>
+            <stringProp name="Argument.value">${__P(NumberOfThreads,1)}</stringProp>
+            <stringProp name="Argument.desc">Number of concurrent threads</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="NumberOfLoops" elementType="Argument">
+            <stringProp name="Argument.name">NumberOfLoops</stringProp>
+            <stringProp name="Argument.value">${__P(NumberOfLoops,1)}</stringProp>
+            <stringProp name="Argument.desc">Number of Queries Run per thread</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="QueryCacheFlag" elementType="Argument">
+            <stringProp name="Argument.name">QueryCacheFlag</stringProp>
+            <stringProp name="Argument.value">${__P(QueryCacheFlag,false)}</stringProp>
+            <stringProp name="Argument.desc">Query Cache Hint (true/false)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CreateAggregatesFlag" elementType="Argument">
+            <stringProp name="Argument.name">CreateAggregatesFlag</stringProp>
+            <stringProp name="Argument.value">${__P(CreateAggregatesFlag,false)}</stringProp>
+            <stringProp name="Argument.desc">Create Aggregates Hint (true/false)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Platform" elementType="Argument">
+            <stringProp name="Argument.name">Platform</stringProp>
+            <stringProp name="Argument.value">${__P(Platform,AtScale)}</stringProp>
+            <stringProp name="Argument.desc">Platform name (i.e. AtScale, Snowflake, Redshift)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Label" elementType="Argument">
+            <stringProp name="Argument.name">Label</stringProp>
+            <stringProp name="Argument.value">${__P(Label,InteractiveRun)}</stringProp>
+            <stringProp name="Argument.desc">Run label to identify this run</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group SQL - TCP-DS AtScale Test" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">${NumberOfLoops}</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${NumberOfThreads}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="checkQuery">SELECT 1</stringProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="dbUrl">${JDBCConnectionString}</stringProp>
+          <stringProp name="driver">org.postgresql.Driver</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="password">${Password}</stringProp>
+          <stringProp name="poolMax">${NumberOfThreads}</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <stringProp name="username">${UserName}</stringProp>
+          <stringProp name="initQuery"></stringProp>
+          <boolProp name="preinit">false</boolProp>
+          <stringProp name="connectionProperties"></stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <JDBCPreProcessor guiclass="TestBeanGUI" testclass="JDBCPreProcessor" testname="Enable/Disable Query Cache" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query">set use_local_cache = ${QueryCacheFlag}</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCPreProcessor>
+        <hashTree/>
+        <JDBCPreProcessor guiclass="TestBeanGUI" testclass="JDBCPreProcessor" testname="Enable/Disable Create Aggregates" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query">set create_aggregates = ${CreateAggregatesFlag}</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCPreProcessor>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 2 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 2
+SELECT
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Week&quot; AS &quot;sold_calendar_week&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Day Name Week&quot; AS &quot;sold_d_day_name_week&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Week Sequence&quot; AS &quot;sold_d_week_seg&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Web and Catalog Sales Price Growth&quot; AS &quot;sum_web_catalog_sales_price_growth_ok&quot;
+FROM
+  ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+  (
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; IN (2000, 2001)
+  )
+GROUP BY 1,2,3</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 7 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 7
+SELECT
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Product Item ID&quot;         AS &quot;d_product_item_id&quot;,
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Average Store Sales Quantity&quot;    AS &quot;avg_m_ss_quantity_avg_ok&quot;,
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Average Store Sales List Price&quot;  AS &quot;avg_m_ss_list_price_avg_ok&quot;,
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Average Store Sales Coupon Amount&quot;  AS &quot;avg_m_ss_coupon_amt_avg_ok&quot;,
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Average Store Sales Sales Price&quot; AS &quot;avg_m_ss_sales_price_avg_ok&quot;
+FROM
+    ${CatalogName}.${ModelName} &quot;tpc_ds_benchmark_model&quot;
+WHERE
+    (
+        &quot;tpc_ds_benchmark_model&quot;.&quot;Channel Email&quot; = &apos;N&apos;
+    OR  &quot;tpc_ds_benchmark_model&quot;.&quot;Channel Event&quot; = &apos;N&apos;)
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Year&quot; = 2001
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Education Status&quot; = &apos;4 yr Degree&apos;
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Gender&quot; = &apos;M&apos;
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Marital Status&quot; = &apos;M&apos;
+GROUP BY 1
+ORDER BY 1 
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 13 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="false">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 13
+SELECT
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Average Store Sales Quantity&quot; AS &quot;sum_m_ss_quantity_avg_ok&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Average Ext Sales Price&quot;      AS &quot;sum_m_ss_ext_sales_price_avg_ok&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Average Ext Wholesale Cost&quot;   AS &quot;sum_m_ss_ext_wholesale_cost_avg_ok&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Wholesale Cost&quot;     AS &quot;sum_m_ss_ext_wholesale_cost_sum_ok&quot;
+FROM
+    ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year-Week&quot; = 2001
+AND ( (
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;4 yr Degree&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;S&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Dependents Count&quot; = 3
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;100-150&apos;)
+    OR  (
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;Advanced Degree&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;D&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Dependents Count&quot; = 1
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos; 50-100&apos;)
+    OR  (
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;2 yr Degree&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;M&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Dependents Count&quot; = 1
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;150-200&apos;) )
+AND ( (
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Customer Country&quot; = &apos;United States&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Customer State&quot; IN (&apos;MS&apos;,
+                                                           &apos;NC&apos;,
+                                                           &apos;TX&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN (&apos;100-150&apos;,
+                                                            &apos;150-200&apos;) )
+    OR  (
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Customer Country&quot; = &apos;United States&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Customer State&quot; IN (&apos;TN&apos;,
+                                                           &apos;WA&apos;,
+                                                           &apos;NE&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN (&apos;150-200&apos;,
+                                                            &apos;200-250&apos;,
+                                                            &apos;250-300&apos;) )
+    OR  (
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Customer Country&quot; = &apos;United States&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Customer State&quot; IN (&apos;MA&apos;,
+                                                           &apos;OR&apos;,
+                                                           &apos;UT&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ( &apos; 50-100&apos;,
+                                                            &apos;100-150&apos;,
+                                                            &apos;150-200&apos;,
+                                                            &apos;200-250&apos; ) ) )</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 15 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 15
+SELECT
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Customer Zip Code&quot; AS &quot;d_customer_zip_code&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Price&quot; AS &quot;sum_m_cs_sales_price_sum_ok&quot;
+FROM
+  ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+      (&quot;TPC-DS Benchmark Model&quot;.&quot;Customer Zip Code&quot; IN (
+        &apos;80348&apos;,
+        &apos;81792&apos;,
+        &apos;83405&apos;,
+        &apos;85392&apos;,
+        &apos;85460&apos;,
+        &apos;85669&apos;,
+        &apos;86197&apos;,
+        &apos;86475&apos;,
+        &apos;88274&apos;)
+    OR
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Customer State&quot; IN (&apos;CA&apos;, &apos;GA&apos;, &apos;WA&apos;)
+    OR  
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Price Tier&quot; = &apos;More than 500&apos;)
+    AND
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 2001
+    AND
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Quarter of Year&quot; = 1
+GROUP BY 1
+HAVING &quot;Catalog Sales Price&quot; IS NOT NULL
+ORDER BY 1
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 26 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 26
+SELECT
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Item ID&quot; AS &quot;d_product_item_id&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Average Quantity Sold&quot;  AS &quot;avg_m_catalog_sales_quantity_sold_avg_ok&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Average List Price&quot; AS &quot;avg_m_catalog_sales_list_price_avg_ok&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Average Coupon Amount&quot; AS &quot;sum_m_catalog_sales_coupon_amount_avg_ok&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Average Sales Price&quot; AS &quot;avg_m_catalog_sales_sales_price_avg_ok&quot;
+FROM
+    ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Item ID&quot; IS NOT NULL
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 2000
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;College&apos;
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Gender&quot; = &apos;M&apos;
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;M&apos;
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Email&quot; = &apos;N&apos;
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Event&quot; = &apos;N&apos;
+GROUP BY 1
+ORDER BY 1 
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 31 - Label: ${Label} - Platform: ${Platform} -Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 31
+SELECT
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Quarter&quot;     AS &quot;sold_calendar_quarter&quot;,
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Customer County&quot;          AS &quot;sold_d_ca_county&quot;,
+    SUM(&quot;tpc_ds_benchmark_model&quot;.&quot;Store Sales Increase&quot;) AS &quot;sum_store_sales_increase_ok&quot;,
+    SUM(&quot;tpc_ds_benchmark_model&quot;.&quot;Web Sales Increase&quot;)   AS &quot;sum_web_sales_increase_ok&quot;
+FROM
+    ${CatalogName}.${ModelName} &quot;tpc_ds_benchmark_model&quot;
+WHERE
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Year&quot; = 2001
+GROUP BY 1,2</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 33 - Label: ${Label} - Platform: ${Platform} -Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 33
+SELECT
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manufacturer ID&quot; AS &quot;d_product_manufacturer_id&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Total Ext Sales Price&quot;   AS &quot;sum_total__ext_sales_price_ok&quot;
+FROM
+    ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; = &apos;Electronics&apos;
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 1999
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer GMT Offset&quot; = -5.00
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 7
+GROUP BY 1
+ORDER BY 2 DESC 
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 42 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 42
+SELECT
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; AS &quot;sold_calendar_year_week&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; AS &quot;i_category&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; AS &quot;sum_m_ss_ext_sales_price_sum_ok&quot;
+FROM
+  ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+  (
+    (
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 1998
+    )
+    AND (
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
+    )
+    AND (
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manager ID&quot; = 1
+    )
+  )
+GROUP BY 1,2
+ORDER BY 3 DESC</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 48 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 48
+SELECT
+    SUM(&quot;TPC-DS Benchmark Model&quot;.&quot;Store Quantity Sold&quot;) AS &quot;sum_m_ss_quantity_sum_ok&quot;
+FROM
+    ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 1999
+AND ((
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;S&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;Primary&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;100-150&apos; )
+    OR  (
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;U&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;Advanced Degree&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos; 50-100&apos; )
+    OR  (
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;W&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;4 yr Degree&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;150-200&apos; ))
+AND ((
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = &apos;United States&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State&quot; IN (&apos;IL&apos;,
+                                                                 &apos;AR&apos;,
+                                                                 &apos;UT&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN (&apos;  0- 50&apos;,
+                                                             &apos; 50-100&apos;,
+                                                             &apos;100-150&apos;,
+                                                             &apos;150-200&apos;,
+                                                             &apos;200-250&apos;,
+                                                             &apos;250-300&apos;,
+                                                             &apos;300-2000&apos;) )
+    OR  (
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = &apos;United States&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State&quot; IN (&apos;WV&apos;,
+                                                                 &apos;GA&apos;,
+                                                                 &apos;NC&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN (&apos;150-200&apos;,
+                                                             &apos;200-250&apos;,
+                                                             &apos;250-300&apos;,
+                                                             &apos;300-2000&apos;,
+                                                             &apos;2000-3000&apos;) )
+    OR  (
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = &apos;United States&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State&quot; IN (&apos;PA&apos;,
+                                                                 &apos;LA&apos;,
+                                                                 &apos;MO&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ( &apos; 50-100&apos;,
+                                                             &apos;100-150&apos;,
+                                                             &apos;150-200&apos;,
+                                                             &apos;200-250&apos;,
+                                                             &apos;250-300&apos;,
+                                                             &apos;300-2000&apos;,
+                                                             &apos;2000-3000&apos;,
+                                                             &apos;3000-25000&apos;) ) )</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 50 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 50
+SELECT
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store Name&quot; AS &quot;d_store_name&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store Company ID&quot; AS &quot;d_store_company_id&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store Street Number&quot; AS &quot;d_store_street_number&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store Street Name&quot; AS &quot;d_store_street_name&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store Street Type&quot; AS &quot;d_store_street_type&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store Suite Number&quot; AS &quot;d_store_suite_number&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store City&quot; AS &quot;d_store_city&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store County&quot; AS &quot;d_store_county&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store State&quot; AS &quot;d_store_state&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store Zip Code&quot; AS &quot;d_store_zip_code&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Returns Time Tier&quot; AS &quot;d_returns_time_tier&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store Returns Count&quot; AS &quot;sum_m_returns_count_sum_ok&quot;
+FROM
+  ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+  (
+    (
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Return Calendar Year Week&quot; = 1998
+    )
+    AND (
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Return Month of Year&quot; = 9
+    )
+  )
+GROUP BY 1,2,3,4,5,6,7,8,9,10,11
+ORDER BY 1,2,3,4,5,6,7,8,9,10,11
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="false">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 52 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 52
+SELECT
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; AS &quot;sold_calendar_year_week&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand ID&quot; AS &quot;d_product_brand_id&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; AS &quot;d_product_brand_name&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; AS &quot;sum_m_ss_ext_sales_price_sum_ok&quot;
+FROM
+  ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+  (
+    (
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 2002
+    )
+    AND (
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
+    )
+    AND (
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manager ID&quot; = 1
+    )
+  )
+GROUP BY 1,2,3
+ORDER BY 1,4 DESC,2
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 53 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="false">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 53
+SELECT
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manufacturer ID&quot; AS &quot;d_product_manufacturer_id&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Quarter&quot; AS &quot;sold_calendar_quarter&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; AS &quot;sum_m_store_sales_price_ok&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Avg Quarterly Store Sales for 1998-1999&quot; AS &quot;sum_avg_quarterly_store_sales_for_1998_1999_ok&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Avg Quarter Sales Ratio&quot; AS &quot;sum_avg_quarter_sales_ratio_ok&quot;
+FROM
+  ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Quarter&quot; IN (&apos;1998Q2&apos;, &apos;1998Q3&apos;, &apos;1998Q4&apos;, &apos;1999Q1&apos;, &apos;1999Q2&apos;) AND
+    ((
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN (&apos;Books&apos;,
+                                                  &apos;Children&apos;,
+                                                  &apos;Electronics&apos;)
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; IN ( &apos;exportiunivamalg #9&apos;,
+                                                            &apos;scholaramalgamalg #14&apos;,
+                                                            &apos;scholaramalgamalg #7&apos;,
+                                                            &apos;scholaramalgamalg #9&apos; )
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IN (&apos;personal&apos;,
+                                                            &apos;portable&apos;,
+                                                            &apos;reference&apos;,
+                                                            &apos;self-help&apos;) )
+OR  (
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category &quot; IN (&apos;Women&apos;,
+                                                  &apos;Music&apos;,
+                                                  &apos;Men&apos;)
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; IN ( &apos;amalgimporto #1&apos;,
+                                                            &apos;edu packscholar #1&apos;,
+                                                            &apos;exportiimporto #1&apos;,
+                                                            &apos;importoamalg #1&apos; )
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IN (&apos;accessories&apos;,
+                                                            &apos;classical&apos;,
+                                                            &apos;fragrances&apos;,
+                                                            &apos;pants&apos;) ) )
+GROUP BY 1,2
+HAVING &quot;Avg Quarter Sales Ratio&quot; &gt; .1
+ORDER BY 1,2,3
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 55 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 55
+SELECT
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand ID&quot; AS &quot;d_product_brand_id&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; AS &quot;d_product_brand_name&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; AS &quot;sum_m_ss_ext_sales_price_sum_ok&quot;
+FROM
+  ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+  (
+    (
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 1998
+    )
+    AND (
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
+    )
+    AND (
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manager ID&quot; = 90
+    )
+  )
+GROUP BY 1,2
+ORDER BY 3  DESC
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 56 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 56
+SELECT
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Item ID&quot;       AS &quot;d_product_item_id&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Total Ext Sales Price&quot; AS &quot;sum_total__ext_sales_price_ok&quot;
+FROM
+    ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 2002
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 5
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer GMT Offset&quot; = -5.
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Color&quot; IN (&apos;floral&apos;,&apos;ivory&apos;,&apos;royal&apos;)
+GROUP BY 1
+ORDER BY 2
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 60 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 60
+SELECT
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Product Item ID&quot; AS &quot;d_product_item_id&quot;,
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Total Ext Sales Price&quot; AS &quot;sum_total__ext_sales_price_ok&quot;
+FROM
+    ${CatalogName}.${ModelName} &quot;tpc_ds_benchmark_model&quot;
+WHERE
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Product Category&quot; = &apos;Jewelry&apos;
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Year Week&quot; = 1999
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Month of Year&quot; = 9
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Customer GMT Offset&quot; = -6
+GROUP BY 1
+ORDER BY 1,2 
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 61 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 61
+SELECT
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price by Promotion&quot; AS &quot;sum_m_ss_ext_sales_price_promotion_ok&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; AS &quot;sum_m_ss_ext_sales_price_sum_ok&quot;
+FROM
+    ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+    (
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Direct Mail&quot; = &apos;Y&apos;
+    OR  &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Email&quot; = &apos;Y&apos;
+    OR  &quot;TPC-DS Benchmark Model&quot;.&quot;Channel TV&quot; = &apos;Y&apos;)
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; = &apos;Home&apos;
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 1998
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Customer GMT Offset&quot; = -6.
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Store GMT Offset&quot; = -6.
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 71 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 71
+SELECT
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand ID&quot;       AS &quot;d_product_brand_id&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot;     AS &quot;d_product_brand_name&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Hour&quot;              AS &quot;sold_d_hour&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Minute&quot;            AS &quot;sold_d_minute&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Total Ext Sales Price&quot;  AS &quot;sum_total__ext_sales_price_ok&quot;
+FROM
+   ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 1998
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Meal Time&quot; IN (&apos;breakfast&apos;,
+                                                    &apos;dinner&apos;)
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manager ID&quot; = 1
+GROUP BY 1,2,3,4
+ORDER BY 5 DESC,1
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 88 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="false">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 88
+SELECT
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Morning Time Tier&quot; AS &quot;sold_d_morning__time_tier&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Store Sales Row Counter&quot; AS &quot;sum_m_ss_row_counter_sum_ok&quot;
+FROM
+    ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+WHERE
+    ( ( (
+                &quot;TPC-DS Benchmark Model&quot;.&quot;Dependents Count&quot; = 2
+            AND &quot;TPC-DS Benchmark Model&quot;.&quot;Vehicle Count&quot; &lt;= 4 )
+        OR  (
+                &quot;TPC-DS Benchmark Model&quot;.&quot;Dependents Count&quot; = 0
+            AND &quot;TPC-DS Benchmark Model&quot;.&quot;Vehicle Count&quot; &lt;= 2 )
+        OR  (
+                &quot;TPC-DS Benchmark Model&quot;.&quot;Dependents Count&quot; = -1
+            AND &quot;TPC-DS Benchmark Model&quot;.&quot;Vehicle Count&quot; &lt;= 1 ) )
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Store Name&quot; = &apos;ese&apos; )
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Morning Time Tier&quot; &lt;&gt; &apos;Other&apos;
+GROUP BY 1</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 96 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="false">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 96
+SELECT
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Store Sales Row Counter&quot; AS &quot;sum_m_ss_row_counter_sum_ok&quot;
+FROM
+    ${CatalogName}.${ModelName} &quot;tpc_ds_benchmark_model&quot;
+WHERE
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Hour&quot; = 8
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Minute&quot; &gt;= 30
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Dependents Count&quot; = 5
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Store Name&quot; = &apos;ese&apos;
+ORDER BY 1 
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 98 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 98
+SELECT
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Item ID&quot;       AS &quot;d_product_item_id&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Dimension&quot;     AS &quot;product_dimension&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot;      AS &quot;i_category&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot;    AS &quot;d_product_class_name&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Current Price&quot; AS &quot;d_product_current_price&quot;,
+    SUM( (
+            CASE
+                WHEN &quot;t0&quot;.&quot;x_measure__0&quot; = 0
+                THEN NULL
+                ELSE &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot;*100 / &quot;t0&quot;.&quot;x_measure__0&quot;
+            END ) )                                     AS &quot;sum_calculation_6026871858440298504_ok&quot;,
+    SUM( &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; ) AS &quot;sum_m_ss_ext_sales_price_sum_ok&quot;
+FROM
+    ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+JOIN
+    (
+        SELECT
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot;            AS &quot;d_product_class_name&quot;,
+            SUM( &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; ) AS &quot;x_measure__0&quot;
+        FROM
+            ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
+        WHERE
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN (&apos;Electronics&apos;,
+                                                      &apos;Shoes&apos;,
+                                                      &apos;Women&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Time Dimension&quot; BETWEEN &apos;2002-05-27&apos; AND &apos;2002-06-26&apos;
+        GROUP BY
+            1 ) &quot;t0&quot;
+ON
+    (
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; = &quot;t0&quot;.&quot;d_product_class_name&quot; )
+WHERE
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN (&apos;Electronics&apos;,
+                                              &apos;Shoes&apos;,
+                                              &apos;Women&apos;)
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Time Dimension&quot; BETWEEN &apos;2002-05-27&apos; AND &apos;2002-06-26&apos;
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Dimension&quot; IS NOT NULL
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IS NOT NULL
+GROUP BY 1,2,3,4,5
+ORDER BY 3,4,1,2,7
+LIMIT 100</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="false">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">/home/ec2-user/jmeter/logs/DavesTestPlan-Mixed-${NumberOfThreads}-${NumberOfLoops}.csv</stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
