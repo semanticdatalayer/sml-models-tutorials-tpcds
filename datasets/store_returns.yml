@@ -12,8 +12,8 @@ sql: "SELECT ss.*, sr.*,
              (sr_returned_date_sk - ss_sold_date_sk <= 120) then '91-120 days'
           else '> 120 days' end as returns_time_tier,
         1 as returns_count 
-        FROM atscale_tutorial_data.tpcds.store_returns sr
-        INNER JOIN atscale_tutorial_data.tpcds.store_sales ss
+        FROMstore_returns sr
+        INNER JOINstore_sales ss
         ON ss.ss_ticket_number = sr.sr_ticket_number
         AND ss.ss_item_sk = sr.sr_item_sk
         AND ss.ss_customer_sk = sr.sr_customer_sk"
@@ -29,8 +29,8 @@ dialects:
              (\"sr_returned_date_sk\" - \"ss_sold_date_sk\" <= 120) then '91-120 days'
           else '> 120 days' end as \"returns_time_tier\",
         1 as \"returns_count\"
-      FROM \"atscale_tutorial_data\".\"tpcds\".\"store_returns\" sr
-      INNER JOIN \"atscale_tutorial_data\".\"tpcds\".\"store_sales\" ss
+      FROM \"store_returns\" sr
+      INNER JOIN \"store_sales\" ss
         ON ss.\"ss_ticket_number\" = sr.\"sr_ticket_number\"
         AND ss.\"ss_item_sk\" = sr.\"sr_item_sk\"
         AND ss.\"ss_customer_sk\" = sr.\"sr_customer_sk\""
