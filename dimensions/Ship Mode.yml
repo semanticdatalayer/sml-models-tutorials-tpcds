@@ -25,6 +25,7 @@ level_attributes:
     dataset: ship_mode
     key_columns:
       - sm_type
+      - sm_ship_mode_id
     name_column: sm_type
   - unique_name: Ship Code
     label: Ship Code
