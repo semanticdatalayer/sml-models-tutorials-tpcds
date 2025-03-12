@@ -107,6 +107,16 @@ columns:
             WHEN \"d_moy\" = 12 THEN 'December'
             ELSE NULL
           END
+  - name: quarter_name
+    data_type: string
+    sql: "TO_CHAR(d_date, 'y') || '-Q' || TO_CHAR(d_date, 'Q')"
+    dialects:
+      - dialect: Snowflake
+        sql: "TO_CHAR(\"d_date\", 'YYYY') || '-Q' || QUARTER(\"d_date\")"
+      - dialect: DatabricksSQL
+        sql: "TO_CHAR(d_date, 'y') || '-Q' || TO_CHAR(d_date, 'Q')"
+      - dialect: BigQuery
+        sql: "FORMAT_DATE('%Y-Q%Q', d_date)"
   - name: year_month
     data_type: date
     sql: "cast(DATE_TRUNC('month', d_date) as date)"

@@ -201,7 +201,7 @@ level_attributes:
     dataset: date_dim
     key_columns:
       - year_quarter
-    name_column: d_quarter_name
+    name_column: quarter_name
     sort_column: year_quarter
     time_unit: quarter
   - unique_name: Calendar Week
