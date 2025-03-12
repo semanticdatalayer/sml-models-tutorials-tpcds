@@ -109,7 +109,7 @@ columns:
           END
   - name: quarter_name
     data_type: string
-    sql: "TO_CHAR(d_date, 'y') || '-Q' || TO_CHAR(d_date, 'Q')"
+    sql: "TO_CHAR(\"d_date\", 'YYYY') || '-Q' || QUARTER(\"d_date\")"
     dialects:
       - dialect: Snowflake
         sql: "TO_CHAR(\"d_date\", 'YYYY') || '-Q' || QUARTER(\"d_date\")"
@@ -119,7 +119,7 @@ columns:
         sql: "FORMAT_DATE('%Y-Q%Q', d_date)"
   - name: year_month
     data_type: date
-    sql: "cast(DATE_TRUNC('month', d_date) as date)"
+    sql: "date(date_trunc('month', \"d_date\"))"
     dialects:
       - dialect: Snowflake
         sql: "date(date_trunc('month', \"d_date\"))"
@@ -139,7 +139,7 @@ columns:
         sql: "DATE_TRUNC(d_date, QUARTER)"
   - name: year_week
     data_type: string
-    sql: "TO_CHAR(DATE_TRUNC('week', d_date), 'YYYY-MM-dd')"
+    sql: "TO_CHAR(date_trunc('week', \"d_date\"), 'YYYY-MM-DD')"
     dialects:
       - dialect: Snowflake
         sql: "TO_CHAR(date_trunc('week', \"d_date\"), 'YYYY-MM-DD')"
@@ -147,3 +147,13 @@ columns:
         sql: "TO_CHAR(DATE_TRUNC('week', d_date), 'y-MM-dd')"
       - dialect: BigQuery
         sql: "FORMAT_DATE('%Y-%m-%d', DATE_TRUNC(d_date, WEEK))"
+  - name: quarter_of_year
+    data_type: int
+    sql: "QUARTER(\"d_date\")"
+    dialects:
+      - dialect: Snowflake
+        sql: "QUARTER(\"d_date\")"
+      - dialect: DatabricksSQL
+        sql: "CAST(TO_CHAR(d_date, 'Q') AS INT)"
+      - dialect: BigQuery
+        sql: "CAST(FORMAT_DATE('%Q', d_date) AS INT)"

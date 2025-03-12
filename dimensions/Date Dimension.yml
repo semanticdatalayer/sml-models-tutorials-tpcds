@@ -19,9 +19,9 @@ hierarchies:
             dataset: date_dim
             folder: Date Attributes
             key_columns:
-              - d_qoy
-            name_column: d_qoy
-            sort_column: d_qoy
+              - quarter_of_year
+            name_column: quarter_of_year
+            sort_column: quarter_of_year
       - unique_name: Calendar Month
         secondary_attributes:
           - unique_name: Month Name
