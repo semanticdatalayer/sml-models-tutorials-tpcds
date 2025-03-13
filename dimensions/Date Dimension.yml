@@ -128,7 +128,6 @@ hierarchies:
     folder: Date Attributes
     levels:
       - unique_name: Calendar Year Week
-      - unique_name: Calendar Month Week
       - unique_name: Calendar Week
         secondary_attributes:
           - unique_name: Week Sequence
@@ -158,21 +157,6 @@ hierarchies:
             name_column: d_day_name
             sort_column: d_day_name
 level_attributes:
-  - unique_name: Calendar Month Week
-    label: Calendar Month
-    allowed_calcs_for_dma:
-      - Lag
-      - ParallelPeriod
-      - Ancestor
-      - Descendants
-      - Siblings
-      - PeriodsToDate
-      - Range
-    dataset: date_dim
-    key_columns:
-      - year_month
-    name_column: year_month
-    time_unit: month
   - unique_name: Calendar Month
     label: Calendar Month
     allowed_calcs_for_dma:
