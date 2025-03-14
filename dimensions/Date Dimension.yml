@@ -247,7 +247,7 @@ level_attributes:
     is_unique_key: true
     key_columns:
       - d_date_sk
-    name_column: d_date
+    name_column: d_dom
     time_unit: day
   - unique_name: Time Dimension
     label: Date
@@ -263,6 +263,6 @@ level_attributes:
     is_unique_key: true
     key_columns:
       - d_date_sk
-    name_column: d_date
+    name_column: d_dom
     time_unit: day
 type: time
