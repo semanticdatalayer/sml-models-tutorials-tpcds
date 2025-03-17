@@ -240,5 +240,5 @@ echo "End Time= " ${endtime}
 
 # Generate HTML Output
 #
-echo "${jmeterexe} -g ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output"
-${jmeterexe} -g ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output
+echo "${jmeterexe} -g ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-${runname}"
+${jmeterexe} -g ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-${runname}
