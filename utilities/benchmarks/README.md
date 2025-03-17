@@ -18,7 +18,7 @@ The utilities in this directory will allow you to run a TPC-DS benchmark using t
 ## Parameters for run-benchmark.sh
 1. `-r` -> Run Label: A directory label for identifying the test run (example: `DW=Databricks.SIZE=2XSMALL.2025.02.25.100GB`) *NOTE: DON'T USE '-' IN THE NAME SINCE THIS IS USED IN PARSING THE OUTPUT!* To support cost calculations in the Tableau report, use the following tags:
     1. `DW=<platform>` (example: `DW=Databricks`). Supported data warehouse tags: `Databricks`, `Snowflake`
-    2. `SIZE=<clsuter_size>` (example: `SIZE=2XSMALL`). *Important: Remove `-` when specifying data warehouse/cluster size*.
+    2. `SIZE=<cluster_size>` (example: `SIZE=2XSMALL`). *Important: Remove `-` when specifying data warehouse/cluster size*.
 2. `-j` -> JMeter executable location (example: `apache-jmeter-5.5/bin/jmeter.sh`)
 3. `-x` -> JMXFilename location (example: `TPC-DS-Benchmark-AtScale.jmx`)
 4. `-d` -> Data Platform Name (possible values: `AtScale.Databricks`, `AtScale.Snowflake`, `AtScale.BigQuery`, `AtScale.Redshift`) 
