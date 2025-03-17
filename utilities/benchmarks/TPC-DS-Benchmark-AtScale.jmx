@@ -74,6 +74,12 @@
             <stringProp name="Argument.desc">Platform name (i.e. AtScale, Snowflake, Redshift)</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="Size" elementType="Argument">
+            <stringProp name="Argument.name">Size</stringProp>
+            <stringProp name="Argument.value">${__P(Size,Unknown)}</stringProp>
+            <stringProp name="Argument.desc">Data platform size (i.e. XSMALL, LARGE, XLARGE) - No Dashes</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
           <elementProp name="Label" elementType="Argument">
             <stringProp name="Argument.name">Label</stringProp>
             <stringProp name="Argument.value">${__P(Label,InteractiveRun)}</stringProp>
@@ -142,7 +148,7 @@
           <stringProp name="resultSetMaxRows"></stringProp>
         </JDBCPreProcessor>
         <hashTree/>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 2 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 2 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 2
 SELECT
@@ -172,7 +178,7 @@ GROUP BY 1,2,3</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 7 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 7 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 7
 SELECT
@@ -209,7 +215,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 13 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 13 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 13
 SELECT
@@ -275,7 +281,7 @@ AND ( (
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 15 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 15 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 15
 SELECT
@@ -321,7 +327,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 26 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 26 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 26
 SELECT
@@ -358,7 +364,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 31 - Label: ${Label} - Platform: ${Platform} -Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 31 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} -Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 31
 SELECT
@@ -386,7 +392,7 @@ GROUP BY 1,2</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 33 - Label: ${Label} - Platform: ${Platform} -Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 33 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} -Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 33
 SELECT
@@ -417,7 +423,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 42 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 42 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 42
 SELECT
@@ -455,7 +461,7 @@ ORDER BY 3 DESC</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 48 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 48 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 48
 SELECT
@@ -526,7 +532,7 @@ AND ((
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 50 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 50 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 50
 SELECT
@@ -571,7 +577,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 52 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 52 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 52
 SELECT
@@ -611,7 +617,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 53 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 53 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 53
 SELECT
@@ -667,7 +673,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 55 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 55 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 55
 SELECT
@@ -706,7 +712,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 56 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 56 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 56
 SELECT
@@ -737,7 +743,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 60 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 60 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 60
 SELECT
@@ -768,7 +774,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 61 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 61 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 61
 SELECT
@@ -802,7 +808,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 71 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 71 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 71
 SELECT
@@ -837,7 +843,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 88 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 88 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 88
 SELECT
@@ -873,7 +879,7 @@ GROUP BY 1</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 96 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 96 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 96
 SELECT
@@ -902,7 +908,7 @@ LIMIT 100</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 98 - Label: ${Label} - Platform: ${Platform} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 98 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 98
 SELECT

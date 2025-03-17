@@ -16,18 +16,17 @@ The utilities in this directory will allow you to run a TPC-DS benchmark using t
 9. Run the benchmark by executing the following command: `./benchmark_runner.sh`.
 
 ## Parameters for run-benchmark.sh
-1. `-r` -> Run Label: A directory label for identifying the test run (example: `DW=Databricks.SIZE=2XSMALL.2025.02.25.100GB`) *NOTE: DON'T USE '-' IN THE NAME SINCE THIS IS USED IN PARSING THE OUTPUT!* To support cost calculations in the Tableau report, use the following tags:
-    1. `DW=<platform>` (example: `DW=Databricks`). Supported data warehouse tags: `Databricks`, `Snowflake`
-    2. `SIZE=<cluster_size>` (example: `SIZE=2XSMALL`). *Important: Remove `-` when specifying data warehouse/cluster size*.
+1. `-r` -> Run Label: A directory label for identifying the test run (example: `20250225.100GB`) *NOTE: DON'T USE '-' IN THE NAME SINCE THIS IS USED IN PARSING THE OUTPUT!*
 2. `-j` -> JMeter executable location (example: `apache-jmeter-5.5/bin/jmeter.sh`)
 3. `-x` -> JMXFilename location (example: `TPC-DS-Benchmark-AtScale.jmx`)
 4. `-d` -> Data Platform Name (possible values: `AtScale.Databricks`, `AtScale.Snowflake`, `AtScale.BigQuery`, `AtScale.Redshift`) 
-5. `-s` -> JDBC Connection String (example: `jdbc:postgresql://localhost:15432/tpcds`) 
-6. `-u` -> AtScale user name (example: `admin`)
-7. `-p` -> AtScale password
-8. `-n` -> AtScale catalog name (Omit for non-AtScale platforms) (example: `tpcds`)
-9. `-z` -> AtScale model name (Omit for non-AtScale platforms) (example: `tpcds_benchmark_model`)
-10. `-l` -> Output directory for JMeter CSV & HTML file (example: `Benchmark-Results`)
+5. `-c` -> Data Platform Size (example: `2XSMALL`, `XLARGE`) *Important: Remove `-` when specifying data warehouse/cluster size*.
+6. `-s` -> JDBC Connection String (example: `jdbc:postgresql://localhost:15432/tpcds`) 
+7. `-u` -> AtScale user name (example: `admin`)
+8. `-p` -> AtScale password
+9. `-n` -> AtScale catalog name (Omit for non-AtScale platforms) (example: `tpcds`)
+10. `-z` -> AtScale model name (Omit for non-AtScale platforms) (example: `tpcds_benchmark_model`)
+11. `-l` -> Output directory for JMeter CSV & HTML file (example: `Benchmark-Results`)
 
 ## Output
 The output from the benchmark script will be written to the directory specified in the [benchmark_runner.sh](benchmark_runner.sh) file. It will create two root directories: CSV output and HTML output. Within these directories, the scripts will create a directory for each thread group (1, 5, 25, 50) and a directory that combines all the thread groups. You can use this [Tableau Workbook](TPC-DS-Benchmark-AtScale.jmx) to load the CSV files with pre-formatted reports. To load multiple results files, follow these [instructions](https://community.tableau.com/s/question/0D54T00000C6l3wSAB/connecting-to-mutliple-csv-files).

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-usage() { echo "Usage: $0 [-r RunLabel <string for directory output name>] [-j JMeter executable location <Dir and Filename of JMX exe>] [-x JMXFilename <Dir and Filename of JMX file>] [-d Data Platform <Data Platform name (i.e. AtScale.Databricks, Snowflake, etc.)>] [-s JDBCConnectionString <JDBC URL>] [-u UserName <AtScale User Name>] [-p Password <AtScale Password>] [-n AtScale Catalog Name (Omit for non-AtScale) <i.e. "tpcds">] [-z AtScale Model Name (Omit for non-AtScale) <i.e. "tpcds_benchmark_model">] [-l Output Root Directory <Location for Output Files>] [-m Mode (Optional) <test, train>]" 1>&2; exit 1; }
+usage() { echo "Usage: $0 [-r RunLabel <string for directory output name>] [-j JMeter executable location <Dir and Filename of JMX exe>] [-x JMXFilename <Dir and Filename of JMX file>] [-d Data Platform <Data Platform name (i.e. AtScale.Databricks, Snowflake, etc.)>] [-d Data Platform Size <Data Size name (i.e. 2XSMALL, XLARGE, etc.)>] [-s JDBCConnectionString <JDBC URL>] [-u UserName <AtScale User Name>] [-p Password <AtScale Password>] [-n AtScale Catalog Name (Omit for non-AtScale) <i.e. "tpcds">] [-z AtScale Model Name (Omit for non-AtScale) <i.e. "tpcds_benchmark_model">] [-l Output Root Directory <Location for Output Files>] [-m Mode (Optional) <test, train>]" 1>&2; exit 1; }
 
-while getopts ":r:j:s:u:p:x:d:l:m:n:z:" o; do
+while getopts ":r:j:s:u:p:x:d:c:l:m:n:z:" o; do
     case "${o}" in
         r)
             r=${OPTARG}
@@ -21,6 +21,9 @@ while getopts ":r:j:s:u:p:x:d:l:m:n:z:" o; do
             ;;
         p)
             p=${OPTARG}
+            ;;
+        c)
+            c=${OPTARG}
             ;;
         d)
             d=${OPTARG}
@@ -44,7 +47,7 @@ while getopts ":r:j:s:u:p:x:d:l:m:n:z:" o; do
 done
 shift $((OPTIND-1))
 
-if [ -z "${r}" ] || [ -z "${j}" ] || [ -z "${x}" ] || [ -z "${d}" ] || [ -z "${s}" ] || [ -z "${u}" ] || [ -z "${p}" ] || [ -z "${l}" ]; then
+if [ -z "${r}" ] || [ -z "${j}" ] || [ -z "${x}" ] || [ -z "${d}" ] || [ -z "${c}" ] || [ -z "${s}" ] || [ -z "${u}" ] || [ -z "${p}" ] || [ -z "${l}" ]; then
     usage
 fi
 
@@ -52,6 +55,7 @@ runname="${r}"
 jmeterexe="${j}"
 jmxfile="${x}"
 platform="${d}"
+size="${c}"
 connectionstring="${s}"
 user="${u}"
 password="${p}"
@@ -86,6 +90,7 @@ echo "runname = ${r}"
 echo "jmeterexe = ${j}"
 echo "jmxfile = ${x}"
 echo "platform = ${d}"
+echo "size = ${c}"
 echo "connectionstring = ${s}"
 echo "user = ${u}"
 echo "password = *******"
@@ -137,8 +142,8 @@ do
     # Pass in the proper parameters depending on the database type
     case "${platform}" in
         "PowerBI")
-            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}"
-            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}
+            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}"
+            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}
             ;;
         "Snowflake")
             driverclass="com.snowflake.client.jdbc.SnowflakeDriver"
@@ -146,8 +151,8 @@ do
             sessionstatement2="USE SCHEMA BENCHMARK.TPCDS_SF10TCL;"
             sessionstatement3="ALTER SESSION SET USE_CACHED_RESULT = FALSE;"
 
-            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}"
-            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}
+            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}"
+            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}
             ;;
         "Redshift")
             driverclass="com.amazon.redshift.jdbc42.Driver"
@@ -155,8 +160,8 @@ do
             sessionstatement2="set enable_result_cache_for_session to off;"
             sessionstatement3=""
 
-            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}"
-            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}
+            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}"
+            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}
             ;;
         "BigQuery")
             driverclass="com.simba.googlebigquery.jdbc42.Driver"
@@ -164,8 +169,8 @@ do
             sessionstatement2=""
             sessionstatement3=""
 
-            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}"
-            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}
+            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}"
+            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}
             ;;
         "Teradata")
             driverclass="com.teradata.jdbc.TeraDriver"
@@ -173,8 +178,8 @@ do
             sessionstatement2=""
             sessionstatement3=""
 
-            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}"
-            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}
+            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}"
+            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}
             ;;
         "Synapse")
             driverclass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
@@ -182,8 +187,8 @@ do
             sessionstatement2=""
             sessionstatement3=""
 
-            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}"
-            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}
+            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}"
+            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}
             ;;
         "Databricks")
             driverclass="com.simba.spark.jdbc.Driver"
@@ -191,12 +196,12 @@ do
             sessionstatement2=""
             sessionstatement3=""
 
-            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}"
-            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}
+            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1=${sessionstatement1} -JSessionStatement2=${sessionstatement2} -JSessionStatement3=${sessionstatement3} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}"
+            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}
             ;;
          "AtScale.Snowflake" | "AtScale.BigQuery" | "AtScale.Redshift" | "AtScale.Teradata" | "AtScale.Synapse" | "AtScale.Databricks" | "AtScale.Postgres")
-            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JCatalogName="${catalogname}" -JModelName="${modelname}" -JQueryCacheFlag=false -JCreateAggregatesFlag=${genaggs} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}"
-            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JCatalogName="${catalogname}" -JModelName="${modelname}" -JQueryCacheFlag=false -JCreateAggregatesFlag=${genaggs} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}
+            echo "${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JCatalogName="${catalogname}" -JModelName="${modelname}" -JQueryCacheFlag=false -JCreateAggregatesFlag=${genaggs} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}"
+            ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JCatalogName="${catalogname}" -JModelName="${modelname}" -JQueryCacheFlag=false -JCreateAggregatesFlag=${genaggs} -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}
             ;;
         *)
             echo "Unhandled data platform: '{plaform}'.  Exiting'"
@@ -207,12 +212,12 @@ do
 
     # Consolidate output files
     if [ "$i" = 1 ]; then
-        echo "head -n 1 ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv > ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output.csv"
-        head -n 1 ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv > ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output.csv
+        echo "head -n 1 ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv > ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-${runname}.csv"
+        head -n 1 ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv > ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-${runname}.csv
     fi
 
-    echo "tail -q -n +2 ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv >> ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output.csv"
-    tail -q -n +2 ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}.csv >> ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output.csv
+    echo "tail -q -n +2 ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv >> ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Outpu-${runname}.csv"
+    tail -q -n +2 ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv >> ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-${runname}.csv
 
     # We will only run 1, 5, 25 threads for Raw (Dave's changed this because it takes longer to run on slow DBs)
     if [  ${platform:0:7} != "AtScale" ] && (( i > 3 )); then
