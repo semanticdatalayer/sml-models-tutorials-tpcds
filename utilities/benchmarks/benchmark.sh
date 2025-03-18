@@ -191,7 +191,7 @@ do
             ${jmeterexe} -n -t ${jmxfile} -JLabel=${runname} -JNumberOfThreads=${numthreads} -JNumberOfLoops=${numloops} -JPlatform=${platform} -JSize=${size} -JDriverClass=${driverclass} -JJDBCConnectionString=${connectionstring} -JUserName=${user} -JPassword=${password} -JSessionStatement1="${sessionstatement1}" -JSessionStatement2="${sessionstatement2}" -JSessionStatement3="${sessionstatement3}" -e -f -l ${outputdir}/${runname}/CSV/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}.csv -o ${outputdir}/${runname}/HTML/TCP-DS-Benchmark-Output-Threads-${numthreads}-${runname}
             ;;
         "Databricks")
-            driverclass="com.simba.spark.jdbc.Driver"
+            driverclass="com.databricks.client.jdbc.Driver"
             sessionstatement1="SET use_cached_result = false"
             sessionstatement2=""
             sessionstatement3=""

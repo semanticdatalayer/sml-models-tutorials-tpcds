@@ -1,0 +1,1 @@
+./benchmark.sh -r "20250318.1GB.Raw.Run1" -j "apache-jmeter-5.5/bin/jmeter.sh" -x "TPC-DS-Benchmark-Raw.jmx" -d "Databricks" -c "2XSMALL" -s "jdbc:databricks://<host>:443/atscale-tutorial-data;transportMode=<http_path>;ConnCatalog=atscale_tutorial_data;ConnSchema=tpcds;EnableArrow=0" -u "<platform_user_name>" -p "<platform_password>" -l "Benchmark-Results"

@@ -1,0 +1,1565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.5">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/hadoop-common.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/hive-exec.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/hive-jdbc.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/hive-metastore.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/hive-service.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/httpclient.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/httpcore.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/libfb303-0.9.2.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/libthrift-0.9.2.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/log4j-1.2.16.jar,/Users/rwidjaja/Desktop/jmeter-hive-hdp-master/slf4j-api.jar</stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="NumberOfThreads" elementType="Argument">
+            <stringProp name="Argument.name">NumberOfThreads</stringProp>
+            <stringProp name="Argument.value">${__P(NumberOfThreads,1)}</stringProp>
+            <stringProp name="Argument.desc">Number of concurrent threads</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="NumberOfLoops" elementType="Argument">
+            <stringProp name="Argument.name">NumberOfLoops</stringProp>
+            <stringProp name="Argument.value">${__P(NumberOfLoops,1)}</stringProp>
+            <stringProp name="Argument.desc">Number of Queries Run per thread</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="JDBCConnectionString" elementType="Argument">
+            <stringProp name="Argument.name">JDBCConnectionString</stringProp>
+            <stringProp name="Argument.value">${__P(JDBCConnectionString,jdbc:databricks://&lt;host&gt;:443/default;transportMode=&lt;http_path&gt;;ConnCatalog=atscale_tutorial_data;ConnSchema=tpcds;EnableArrow=0)}</stringProp>
+            <stringProp name="Argument.desc">AtScale Server Host</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DriverClass" elementType="Argument">
+            <stringProp name="Argument.name">DriverClass</stringProp>
+            <stringProp name="Argument.value">${__P(DriverClass,com.databricks.client.jdbc.Driver)}</stringProp>
+            <stringProp name="Argument.desc">JDBC Driver Class</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="UserName" elementType="Argument">
+            <stringProp name="Argument.name">UserName</stringProp>
+            <stringProp name="Argument.value">${__P(UserName,&lt;user name&gt;)}</stringProp>
+            <stringProp name="Argument.desc">User name</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Password" elementType="Argument">
+            <stringProp name="Argument.name">Password</stringProp>
+            <stringProp name="Argument.value">${__P(Password,&lt;password&gt;)}</stringProp>
+            <stringProp name="Argument.desc">Password</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SessionStatement1" elementType="Argument">
+            <stringProp name="Argument.name">SessionStatement1</stringProp>
+            <stringProp name="Argument.value">${__P(SessionStatement1,)}</stringProp>
+            <stringProp name="Argument.desc">Session Init Statement #1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SessionStatement2" elementType="Argument">
+            <stringProp name="Argument.name">SessionStatement2</stringProp>
+            <stringProp name="Argument.value">${__P(SessionStatement2,)}</stringProp>
+            <stringProp name="Argument.desc">Session Init Statement #2</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SessionStatement3" elementType="Argument">
+            <stringProp name="Argument.name">SessionStatement3</stringProp>
+            <stringProp name="Argument.value">${__P(SessionStatement3,)}</stringProp>
+            <stringProp name="Argument.desc">Session Init Statement #3</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SessionStatement4" elementType="Argument">
+            <stringProp name="Argument.name">SessionStatement4</stringProp>
+            <stringProp name="Argument.value">${__P(SessionStatement4,)}</stringProp>
+            <stringProp name="Argument.desc">Session Init Statement #4</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SessionStatement5" elementType="Argument">
+            <stringProp name="Argument.name">SessionStatement5</stringProp>
+            <stringProp name="Argument.value">${__P(SessionStatement5,)}</stringProp>
+            <stringProp name="Argument.desc">Session Init Statement #5</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Platform" elementType="Argument">
+            <stringProp name="Argument.name">Platform</stringProp>
+            <stringProp name="Argument.value">${__P(Platform,Databricks)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Platform name (i.e. AtScale, Snowflake, Redshift)</stringProp>
+          </elementProp>
+          <elementProp name="Size" elementType="Argument">
+            <stringProp name="Argument.name">Size</stringProp>
+            <stringProp name="Argument.value">${__P(Size,Unknown)}</stringProp>
+            <stringProp name="Argument.desc">Size of warehouse (i.e. XSMALL, LARGE, etc.) No Dashes</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Label" elementType="Argument">
+            <stringProp name="Argument.name">Label</stringProp>
+            <stringProp name="Argument.value">${__P(Label,InteractiveRun)}</stringProp>
+            <stringProp name="Argument.desc">Run label to identify this run</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group SQL - TCP-DS Raw Test" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">${NumberOfLoops}</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${NumberOfThreads}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+          <stringProp name="maximumValue">100000</stringProp>
+          <stringProp name="minimumValue">1</stringProp>
+          <stringProp name="outputFormat">CACHE_BUSTER_000000</stringProp>
+          <boolProp name="perThread">true</boolProp>
+          <stringProp name="randomSeed"></stringProp>
+          <stringProp name="variableName">CacheBuster</stringProp>
+        </RandomVariableConfig>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="checkQuery">SELECT 1</stringProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="dbUrl">${JDBCConnectionString}</stringProp>
+          <stringProp name="driver">${DriverClass}</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="password">${Password}</stringProp>
+          <stringProp name="poolMax">${NumberOfThreads}</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <stringProp name="username">${UserName}</stringProp>
+          <stringProp name="initQuery"></stringProp>
+          <boolProp name="preinit">false</boolProp>
+          <stringProp name="connectionProperties"></stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <JDBCPreProcessor guiclass="TestBeanGUI" testclass="JDBCPreProcessor" testname="JDBC PreProcessor - Session Statement 1" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query">${SessionStatement1}</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCPreProcessor>
+        <hashTree/>
+        <JDBCPreProcessor guiclass="TestBeanGUI" testclass="JDBCPreProcessor" testname="JDBC PreProcessor - Session Statement 2" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query">${SessionStatement2}</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCPreProcessor>
+        <hashTree/>
+        <JDBCPreProcessor guiclass="TestBeanGUI" testclass="JDBCPreProcessor" testname="JDBC PreProcessor - Session Statement 3" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query">${SessionStatement3}</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCPreProcessor>
+        <hashTree/>
+        <JDBCPreProcessor guiclass="TestBeanGUI" testclass="JDBCPreProcessor" testname="JDBC PreProcessor - Session Statement 4" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query">${SessionStatement4}</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCPreProcessor>
+        <hashTree/>
+        <JDBCPreProcessor guiclass="TestBeanGUI" testclass="JDBCPreProcessor" testname="JDBC PreProcessor - Session Statement 5" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query">${SessionStatement5}</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCPreProcessor>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 2 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 2
+ -- ${CacheBuster}
+with wscs as
+ (select sold_date_sk
+        ,sales_price
+  from  (select ws_sold_date_sk sold_date_sk
+              ,ws_ext_sales_price sales_price
+        from web_sales
+        union all
+        select cs_sold_date_sk sold_date_sk
+              ,cs_ext_sales_price sales_price
+        from catalog_sales) x ),
+ wswscs as
+ (select d_week_seq,
+        sum(case when (d_day_name=&apos;Sunday&apos;) then sales_price else null end) sun_sales,
+        sum(case when (d_day_name=&apos;Monday&apos;) then sales_price else null end) mon_sales,
+        sum(case when (d_day_name=&apos;Tuesday&apos;) then sales_price else  null end) tue_sales,
+        sum(case when (d_day_name=&apos;Wednesday&apos;) then sales_price else null end) wed_sales,
+        sum(case when (d_day_name=&apos;Thursday&apos;) then sales_price else null end) thu_sales,
+        sum(case when (d_day_name=&apos;Friday&apos;) then sales_price else null end) fri_sales,
+        sum(case when (d_day_name=&apos;Saturday&apos;) then sales_price else null end) sat_sales
+ from wscs
+     ,date_dim
+ where d_date_sk = sold_date_sk
+ group by d_week_seq)
+ select d_week_seq1
+       ,round(sun_sales1/sun_sales2,2)
+       ,round(mon_sales1/mon_sales2,2)
+       ,round(tue_sales1/tue_sales2,2)
+       ,round(wed_sales1/wed_sales2,2)
+       ,round(thu_sales1/thu_sales2,2)
+       ,round(fri_sales1/fri_sales2,2)
+       ,round(sat_sales1/sat_sales2,2)
+ from
+ (select wswscs.d_week_seq d_week_seq1
+        ,sun_sales sun_sales1
+        ,mon_sales mon_sales1
+        ,tue_sales tue_sales1
+        ,wed_sales wed_sales1
+        ,thu_sales thu_sales1
+        ,fri_sales fri_sales1
+        ,sat_sales sat_sales1
+  from wswscs,date_dim
+  where date_dim.d_week_seq = wswscs.d_week_seq and
+        d_year = 2000) y,
+ (select wswscs.d_week_seq d_week_seq2
+        ,sun_sales sun_sales2
+        ,mon_sales mon_sales2
+        ,tue_sales tue_sales2
+        ,wed_sales wed_sales2
+        ,thu_sales thu_sales2
+        ,fri_sales fri_sales2
+        ,sat_sales sat_sales2
+  from wswscs
+      ,date_dim
+  where date_dim.d_week_seq = wswscs.d_week_seq and
+        d_year = 2000+1) z
+ where d_week_seq1=d_week_seq2-53
+ order by d_week_seq1;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 7 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query">-- TPC-DS_query7
+ -- ${CacheBuster}
+select  i_item_id,
+        avg(ss_quantity) agg1,
+        avg(ss_list_price) agg2,
+        avg(ss_coupon_amt) agg3,
+        avg(ss_sales_price) agg4
+ from store_sales, customer_demographics, date_dim, item, promotion
+ where ss_sold_date_sk = d_date_sk and
+       ss_item_sk = i_item_sk and
+       ss_cdemo_sk = cd_demo_sk and
+       ss_promo_sk = p_promo_sk and
+       cd_gender = &apos;M&apos; and
+       cd_marital_status = &apos;M&apos; and
+       cd_education_status = &apos;4 yr Degree&apos; and
+       (p_channel_email = &apos;N&apos; or p_channel_event = &apos;N&apos;) and
+       d_year = 2001
+ group by i_item_id
+ order by i_item_id
+ limit 100;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 13 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 13
+  -- ${CacheBuster}
+select avg(ss_quantity)
+       ,avg(ss_ext_sales_price)
+       ,avg(ss_ext_wholesale_cost)
+       ,sum(ss_ext_wholesale_cost)
+ from store_sales
+     ,store
+     ,customer_demographics
+     ,household_demographics
+     ,customer_address
+     ,date_dim
+ where s_store_sk = ss_store_sk
+ and  ss_sold_date_sk = d_date_sk and d_year = 2001
+ and((ss_hdemo_sk=hd_demo_sk
+  and cd_demo_sk = ss_cdemo_sk
+  and cd_marital_status = &apos;S&apos;
+  and cd_education_status = &apos;4 yr Degree&apos;
+  and ss_sales_price between 100.00 and 150.00
+  and hd_dep_count = 3
+     )or
+     (ss_hdemo_sk=hd_demo_sk
+  and cd_demo_sk = ss_cdemo_sk
+  and cd_marital_status = &apos;D&apos;
+  and cd_education_status = &apos;Advanced Degree&apos;
+  and ss_sales_price between 50.00 and 100.00
+  and hd_dep_count = 1
+     ) or
+     (ss_hdemo_sk=hd_demo_sk
+  and cd_demo_sk = ss_cdemo_sk
+  and cd_marital_status = &apos;M&apos;
+  and cd_education_status = &apos;2 yr Degree&apos;
+  and ss_sales_price between 150.00 and 200.00
+  and hd_dep_count = 1
+     ))
+ and((ss_addr_sk = ca_address_sk
+  and ca_country = &apos;United States&apos;
+  and ca_state in (&apos;MS&apos;, &apos;TX&apos;, &apos;NC&apos;)
+  and ss_net_profit between 100 and 200
+     ) or
+     (ss_addr_sk = ca_address_sk
+  and ca_country = &apos;United States&apos;
+  and ca_state in (&apos;TN&apos;, &apos;WA&apos;, &apos;NE&apos;)
+  and ss_net_profit between 150 and 300
+     ) or
+     (ss_addr_sk = ca_address_sk
+  and ca_country = &apos;United States&apos;
+  and ca_state in (&apos;MA&apos;, &apos;OR&apos;, &apos;UT&apos;)
+  and ss_net_profit between 50 and 250
+     ))
+;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 15 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 15
+ -- ${CacheBuster}
+select  ca_zip
+       ,sum(cs_sales_price)
+ from catalog_sales
+     ,customer
+     ,customer_address
+     ,date_dim
+ where cs_bill_customer_sk = c_customer_sk
+  and c_current_addr_sk = ca_address_sk
+  and ( ca_zip in (&apos;85669&apos;, &apos;86197&apos;,&apos;88274&apos;,&apos;83405&apos;,&apos;86475&apos;,
+                                   &apos;85392&apos;, &apos;85460&apos;, &apos;80348&apos;, &apos;81792&apos;)
+        or ca_state in (&apos;CA&apos;,&apos;WA&apos;,&apos;GA&apos;)
+        or cs_sales_price &gt; 500)
+  and cs_sold_date_sk = d_date_sk
+  and d_qoy = 1 and d_year = 2001
+ group by ca_zip
+ order by ca_zip
+ limit 100;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 26 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query26
+ -- ${CacheBuster}
+select  i_item_id,
+        avg(cs_quantity) agg1,
+        avg(cs_list_price) agg2,
+        avg(cs_coupon_amt) agg3,
+        avg(cs_sales_price) agg4
+ from catalog_sales, customer_demographics, date_dim, item, promotion
+ where cs_sold_date_sk = d_date_sk and
+       cs_item_sk = i_item_sk and
+       cs_bill_cdemo_sk = cd_demo_sk and
+       cs_promo_sk = p_promo_sk and
+       cd_gender = &apos;M&apos; and
+       cd_marital_status = &apos;M&apos; and
+       cd_education_status = &apos;College&apos; and
+       (p_channel_email = &apos;N&apos; or p_channel_event = &apos;N&apos;) and
+       d_year = 2000
+ group by i_item_id
+ order by i_item_id
+ limit 100;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 31 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query31
+ -- ${CacheBuster}
+with ss as
+ (select ca_county,d_qoy, d_year,sum(ss_ext_sales_price) as store_sales
+ from store_sales,date_dim,customer_address
+ where ss_sold_date_sk = d_date_sk
+  and ss_addr_sk=ca_address_sk
+ group by ca_county,d_qoy, d_year),
+ ws as
+ (select ca_county,d_qoy, d_year,sum(ws_ext_sales_price) as web_sales
+ from web_sales,date_dim,customer_address
+ where ws_sold_date_sk = d_date_sk
+  and ws_bill_addr_sk=ca_address_sk
+ group by ca_county,d_qoy, d_year)
+ select
+        ss1.ca_county
+       ,ss1.d_year
+       ,ws2.web_sales/ws1.web_sales web_q1_q2_increase
+       ,ss2.store_sales/ss1.store_sales store_q1_q2_increase
+       ,ws3.web_sales/ws2.web_sales web_q2_q3_increase
+       ,ss3.store_sales/ss2.store_sales store_q2_q3_increase
+ from
+        ss ss1
+       ,ss ss2
+       ,ss ss3
+       ,ws ws1
+       ,ws ws2
+       ,ws ws3
+ where
+    ss1.d_qoy = 1
+    and ss1.d_year = 2001
+    and ss1.ca_county = ss2.ca_county
+    and ss2.d_qoy = 2
+    and ss2.d_year = 2001
+ and ss2.ca_county = ss3.ca_county
+    and ss3.d_qoy = 3
+    and ss3.d_year = 2001
+    and ss1.ca_county = ws1.ca_county
+    and ws1.d_qoy = 1
+    and ws1.d_year = 2001
+    and ws1.ca_county = ws2.ca_county
+    and ws2.d_qoy = 2
+    and ws2.d_year = 2001
+    and ws1.ca_county = ws3.ca_county
+    and ws3.d_qoy = 3
+    and ws3.d_year =2001
+    and case when ws1.web_sales &gt; 0 then ws2.web_sales/ws1.web_sales else null end
+       &gt; case when ss1.store_sales &gt; 0 then ss2.store_sales/ss1.store_sales else null end
+    and case when ws2.web_sales &gt; 0 then ws3.web_sales/ws2.web_sales else null end
+       &gt; case when ss2.store_sales &gt; 0 then ss3.store_sales/ss2.store_sales else null end
+ order by web_q2_q3_increase;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 33 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query33
+ -- ${CacheBuster}
+with ss as (
+ select
+          i_manufact_id,sum(ss_ext_sales_price) total_sales
+ from
+  store_sales,
+  date_dim,
+         customer_address,
+         item
+ where
+         i_manufact_id in (select
+  i_manufact_id
+from
+ item
+where i_category in (&apos;Electronics&apos;))
+ and     ss_item_sk              = i_item_sk
+ and     ss_sold_date_sk         = d_date_sk
+ and     d_year                  = 1999
+ and     d_moy                   = 7
+ and     ss_addr_sk              = ca_address_sk
+ and     ca_gmt_offset           = -5
+ group by i_manufact_id),
+ cs as (
+ select
+          i_manufact_id,sum(cs_ext_sales_price) total_sales
+ from
+  catalog_sales,
+  date_dim,
+         customer_address,
+         item
+ where
+         i_manufact_id               in (select
+  i_manufact_id
+from
+ item
+where i_category in (&apos;Electronics&apos;))
+ and     cs_item_sk              = i_item_sk
+ and     cs_sold_date_sk         = d_date_sk
+ and     d_year                  = 1999
+ and     d_moy                   = 7
+ and     cs_bill_addr_sk         = ca_address_sk
+ and     ca_gmt_offset           = -5
+ group by i_manufact_id),
+ ws as (
+ select
+          i_manufact_id,sum(ws_ext_sales_price) total_sales
+ from
+  web_sales,
+  date_dim,
+         customer_address,
+         item
+ where
+         i_manufact_id               in (select
+  i_manufact_id
+from
+ item
+where i_category in (&apos;Electronics&apos;))
+ and     ws_item_sk              = i_item_sk
+ and     ws_sold_date_sk         = d_date_sk
+ and     d_year                  = 1999
+ and     d_moy                   = 7
+ and     ws_bill_addr_sk         = ca_address_sk
+ and     ca_gmt_offset           = -5
+ group by i_manufact_id)
+  select  i_manufact_id ,sum(total_sales) total_sales
+ from  (select * from ss
+        union all
+        select * from cs
+        union all
+        select * from ws) tmp1
+ group by i_manufact_id
+ order by total_sales DESC
+limit 100;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 42 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 42
+ -- ${CacheBuster}
+select  dt.d_year
+  ,item.i_category_id
+  ,item.i_category
+  ,sum(ss_ext_sales_price)
+ from   date_dim dt
+  ,store_sales
+  ,item
+ where dt.d_date_sk = store_sales.ss_sold_date_sk
+  and store_sales.ss_item_sk = item.i_item_sk
+  and item.i_manager_id = 1
+  and dt.d_moy=12
+  and dt.d_year=1998
+ group by   dt.d_year
+    ,item.i_category_id
+    ,item.i_category
+ order by       sum(ss_ext_sales_price) desc,dt.d_year
+    ,item.i_category_id
+    ,item.i_category
+limit 100;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 48 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 48
+ -- ${CacheBuster}
+select sum (ss_quantity)
+ from store_sales, store, customer_demographics, customer_address, date_dim
+ where s_store_sk = ss_store_sk
+ and  ss_sold_date_sk = d_date_sk and d_year = 1999
+ and
+ (
+  (
+   cd_demo_sk = ss_cdemo_sk
+   and
+   cd_marital_status = &apos;S&apos;
+   and
+   cd_education_status = &apos;Primary&apos;
+   and
+   ss_sales_price between 100.00 and 150.00
+   )
+ or
+  (
+  cd_demo_sk = ss_cdemo_sk
+   and
+   cd_marital_status = &apos;U&apos;
+   and
+   cd_education_status = &apos;Advanced Degree&apos;
+   and
+   ss_sales_price between 50.00 and 100.00
+  )
+ or
+ (
+  cd_demo_sk = ss_cdemo_sk
+  and
+   cd_marital_status = &apos;W&apos;
+   and
+   cd_education_status = &apos;4 yr Degree&apos;
+   and
+   ss_sales_price between 150.00 and 200.00
+ )
+ )
+ and
+ (
+  (
+  ss_addr_sk = ca_address_sk
+  and
+  ca_country = &apos;United States&apos;
+  and
+  ca_state in (&apos;IL&apos;, &apos;AR&apos;, &apos;UT&apos;)
+  and ss_net_profit between 0 and 2000
+  )
+ or
+  (ss_addr_sk = ca_address_sk
+  and
+  ca_country = &apos;United States&apos;
+  and
+  ca_state in (&apos;WV&apos;, &apos;GA&apos;, &apos;NC&apos;)
+  and ss_net_profit between 150 and 3000
+  )
+ or
+  (ss_addr_sk = ca_address_sk
+  and
+  ca_country = &apos;United States&apos;
+  and
+  ca_state in (&apos;PA&apos;, &apos;LA&apos;, &apos;MO&apos;)
+  and ss_net_profit between 50 and 25000
+  )
+ )
+;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 50 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 50
+ -- ${CacheBuster}
+select
+   s_store_name
+  ,s_company_id
+  ,s_street_number
+  ,s_street_name
+  ,s_street_type
+  ,s_suite_number
+  ,s_city
+  ,s_county
+  ,s_state
+  ,s_zip
+  ,sum(case when (sr_returned_date_sk - ss_sold_date_sk &lt;= 30 ) then 1 else 0 end)  as days_30
+  ,sum(case when (sr_returned_date_sk - ss_sold_date_sk &gt; 30) and
+                 (sr_returned_date_sk - ss_sold_date_sk &lt;= 60) then 1 else 0 end )  as days_31_60
+  ,sum(case when (sr_returned_date_sk - ss_sold_date_sk &gt; 60) and
+                 (sr_returned_date_sk - ss_sold_date_sk &lt;= 90) then 1 else 0 end)  as days_61_90
+  ,sum(case when (sr_returned_date_sk - ss_sold_date_sk &gt; 90) and
+                 (sr_returned_date_sk - ss_sold_date_sk &lt;= 120) then 1 else 0 end)  as days_91_120
+  ,sum(case when (sr_returned_date_sk - ss_sold_date_sk  &gt; 120) then 1 else 0 end)  as days_gt_120
+from
+   store_sales
+  ,store_returns
+  ,store
+  ,date_dim d1
+  ,date_dim d2
+where
+    d2.d_year = 1998
+and d2.d_moy  = 9
+and ss_ticket_number = sr_ticket_number
+and ss_item_sk = sr_item_sk
+and ss_sold_date_sk   = d1.d_date_sk
+and sr_returned_date_sk   = d2.d_date_sk
+and ss_customer_sk = sr_customer_sk
+and ss_store_sk = s_store_sk
+group by
+   s_store_name
+  ,s_company_id
+  ,s_street_number
+  ,s_street_name
+  ,s_street_type
+  ,s_suite_number
+  ,s_city
+  ,s_county
+  ,s_state
+  ,s_zip
+order by s_store_name
+        ,s_company_id
+        ,s_street_number
+        ,s_street_name
+        ,s_street_type
+        ,s_suite_number
+        ,s_city
+        ,s_county
+        ,s_state
+        ,s_zip
+limit 100;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 52 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 52
+ -- ${CacheBuster}
+select  dt.d_year
+  ,item.i_brand_id brand_id
+  ,item.i_brand brand
+  ,sum(ss_ext_sales_price) ext_price
+ from date_dim dt
+     ,store_sales
+     ,item
+ where dt.d_date_sk = store_sales.ss_sold_date_sk
+    and store_sales.ss_item_sk = item.i_item_sk
+    and item.i_manager_id = 1
+    and dt.d_moy=12
+    and dt.d_year=2002
+ group by dt.d_year
+  ,item.i_brand
+  ,item.i_brand_id
+ order by dt.d_year
+  ,ext_price desc
+  ,brand_id
+limit 100 ;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 53 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 53
+ -- ${CacheBuster}
+select  * from
+(select i_manufact_id,
+sum(ss_sales_price) sum_sales,
+avg(sum(ss_sales_price)) over (partition by i_manufact_id) avg_quarterly_sales
+from item, store_sales, date_dim, store
+where ss_item_sk = i_item_sk and
+ss_sold_date_sk = d_date_sk and
+ss_store_sk = s_store_sk and
+d_month_seq in (1180,1180+1,1180+2,1180+3,1180+4,1180+5,1180+6,1180+7,1180+8,1180+9,1180+10,1180+11) and
+((i_category in (&apos;Books&apos;,&apos;Children&apos;,&apos;Electronics&apos;) and
+i_class in (&apos;personal&apos;,&apos;portable&apos;,&apos;reference&apos;,&apos;self-help&apos;) and
+i_brand in (&apos;scholaramalgamalg #14&apos;,&apos;scholaramalgamalg #7&apos;,
+    &apos;exportiunivamalg #9&apos;,&apos;scholaramalgamalg #9&apos;))
+or(i_category in (&apos;Women&apos;,&apos;Music&apos;,&apos;Men&apos;) and
+i_class in (&apos;accessories&apos;,&apos;classical&apos;,&apos;fragrances&apos;,&apos;pants&apos;) and
+i_brand in (&apos;amalgimporto #1&apos;,&apos;edu packscholar #1&apos;,&apos;exportiimporto #1&apos;,
+    &apos;importoamalg #1&apos;)))
+group by i_manufact_id, d_qoy ) tmp1
+where case when avg_quarterly_sales &gt; 0
+  then abs (sum_sales - avg_quarterly_sales)/ avg_quarterly_sales
+  else null end &gt; 0.1
+order by avg_quarterly_sales,
+   sum_sales,
+   i_manufact_id
+limit 100;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 55 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 55
+ -- ${CacheBuster}
+select  i_brand_id brand_id, i_brand brand,
+  sum(ss_ext_sales_price) ext_price
+ from date_dim, store_sales, item
+ where d_date_sk = ss_sold_date_sk
+  and ss_item_sk = i_item_sk
+  and i_manager_id=90
+  and d_moy=12
+  and d_year=1998
+ group by i_brand, i_brand_id
+ order by ext_price desc, i_brand_id
+limit 100 ;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 56 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 56
+ -- ${CacheBuster}
+with ss as (
+ select i_item_id,sum(ss_ext_sales_price) total_sales
+ from
+  store_sales,
+  date_dim,
+         customer_address,
+         item
+ where i_item_id in (select
+     i_item_id
+from item
+where i_color in (&apos;royal&apos;,&apos;ivory&apos;,&apos;floral&apos;))
+ and     ss_item_sk              = i_item_sk
+ and     ss_sold_date_sk         = d_date_sk
+ and     d_year                  = 2002
+ and     d_moy                   = 5
+ and     ss_addr_sk              = ca_address_sk
+ and     ca_gmt_offset           = -5
+ group by i_item_id),
+ cs as (
+ select i_item_id,sum(cs_ext_sales_price) total_sales
+ from
+  catalog_sales,
+  date_dim,
+         customer_address,
+         item
+ where
+         i_item_id               in (select
+  i_item_id
+from item
+where i_color in (&apos;royal&apos;,&apos;ivory&apos;,&apos;floral&apos;))
+ and     cs_item_sk              = i_item_sk
+ and     cs_sold_date_sk         = d_date_sk
+ and     d_year                  = 2002
+ and     d_moy                   = 5
+ and     cs_bill_addr_sk         = ca_address_sk
+ and     ca_gmt_offset           = -5
+ group by i_item_id),
+ ws as (
+ select i_item_id,sum(ws_ext_sales_price) total_sales
+ from
+  web_sales,
+  date_dim,
+         customer_address,
+         item
+ where
+         i_item_id               in (select
+  i_item_id
+from item
+where i_color in (&apos;royal&apos;,&apos;ivory&apos;,&apos;floral&apos;))
+ and     ws_item_sk              = i_item_sk
+ and     ws_sold_date_sk         = d_date_sk
+ and     d_year                  = 2002
+ and     d_moy                   = 5
+ and     ws_bill_addr_sk         = ca_address_sk
+ and     ca_gmt_offset           = -5
+ group by i_item_id)
+  select  i_item_id ,sum(total_sales) total_sales
+ from  (select * from ss
+        union all
+        select * from cs
+        union all
+        select * from ws) tmp1
+ group by i_item_id
+ order by total_sales
+ limit 100;
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 60 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query60
+ -- ${CacheBuster}
+with ss as (
+ select
+          i_item_id,sum(ss_ext_sales_price) total_sales
+ from
+  store_sales,
+  date_dim,
+         customer_address,
+         item
+ where
+         i_item_id in (select
+  i_item_id
+from
+ item
+where i_category in (&apos;Jewelry&apos;))
+ and     ss_item_sk              = i_item_sk
+ and     ss_sold_date_sk         = d_date_sk
+ and     d_year                  = 1999
+ and     d_moy                   = 9
+ and     ss_addr_sk              = ca_address_sk
+ and     ca_gmt_offset           = -6
+ group by i_item_id),
+ cs as (
+ select
+          i_item_id,sum(cs_ext_sales_price) total_sales
+ from
+  catalog_sales,
+  date_dim,
+         customer_address,
+         item
+ where
+         i_item_id               in (select
+  i_item_id
+from
+ item
+where i_category in (&apos;Jewelry&apos;))
+ and     cs_item_sk              = i_item_sk
+ and     cs_sold_date_sk         = d_date_sk
+ and     d_year                  = 1999
+ and     d_moy                   = 9
+ and     cs_bill_addr_sk         = ca_address_sk
+ and     ca_gmt_offset           = -6
+ group by i_item_id),
+ ws as (
+ select
+          i_item_id,sum(ws_ext_sales_price) total_sales
+ from
+  web_sales,
+  date_dim,
+         customer_address,
+         item
+ where
+         i_item_id               in (select
+  i_item_id
+from
+ item
+where i_category in (&apos;Jewelry&apos;))
+ and     ws_item_sk              = i_item_sk
+ and     ws_sold_date_sk         = d_date_sk
+ and     d_year                  = 1999
+ and     d_moy                   = 9
+ and     ws_bill_addr_sk         = ca_address_sk
+ and     ca_gmt_offset           = -6
+ group by i_item_id)
+  select
+  i_item_id
+,sum(total_sales) total_sales
+ from  (select * from ss
+        union all
+        select * from cs
+        union all
+        select * from ws) tmp1
+ group by i_item_id
+ order by i_item_id
+      ,total_sales
+ limit 100;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 61 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 61
+ -- ${CacheBuster}
+select  promotions,total,promotions/total*100
+from
+  (select sum(ss_ext_sales_price) promotions
+   from  store_sales
+        ,store
+        ,promotion
+        ,date_dim
+        ,customer
+        ,customer_address
+        ,item
+   where ss_sold_date_sk = d_date_sk
+   and   ss_store_sk = s_store_sk
+   and   ss_promo_sk = p_promo_sk
+   and   ss_customer_sk= c_customer_sk
+   and   ca_address_sk = c_current_addr_sk
+   and   ss_item_sk = i_item_sk
+   and   ca_gmt_offset = -6
+   and   i_category = &apos;Home&apos;
+   and   (p_channel_dmail = &apos;Y&apos; or p_channel_email = &apos;Y&apos; or p_channel_tv = &apos;Y&apos;)
+   and   s_gmt_offset = -6
+   and   d_year = 1998
+   and   d_moy  = 12) promotional_sales,
+  (select sum(ss_ext_sales_price) total
+   from  store_sales
+        ,store
+        ,date_dim
+        ,customer
+        ,customer_address
+        ,item
+   where ss_sold_date_sk = d_date_sk
+   and   ss_store_sk = s_store_sk
+   and   ss_customer_sk= c_customer_sk
+   and   ca_address_sk = c_current_addr_sk
+   and   ss_item_sk = i_item_sk
+   and   ca_gmt_offset = -6
+   and   i_category = &apos;Home&apos;
+   and   s_gmt_offset = -6
+   and   d_year = 1998
+   and   d_moy  = 12) all_sales
+order by promotions, total
+limit 100;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 71 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 71
+ -- ${CacheBuster}
+select i_brand_id brand_id, i_brand brand,t_hour,t_minute,
+  sum(ext_price) ext_price
+ from item, (select ws_ext_sales_price as ext_price,
+                        ws_sold_date_sk as sold_date_sk,
+                        ws_item_sk as sold_item_sk,
+                        ws_sold_time_sk as time_sk
+                 from web_sales,date_dim
+                 where d_date_sk = ws_sold_date_sk
+                   and d_moy=12
+                   and d_year=1998
+                 union all
+                 select cs_ext_sales_price as ext_price,
+                        cs_sold_date_sk as sold_date_sk,
+                        cs_item_sk as sold_item_sk,
+                        cs_sold_time_sk as time_sk
+                 from catalog_sales,date_dim
+                 where d_date_sk = cs_sold_date_sk
+                   and d_moy=12
+                   and d_year=1998
+                 union all
+                 select ss_ext_sales_price as ext_price,
+                        ss_sold_date_sk as sold_date_sk,
+                        ss_item_sk as sold_item_sk,
+                        ss_sold_time_sk as time_sk
+                 from store_sales,date_dim
+                 where d_date_sk = ss_sold_date_sk
+                   and d_moy=12
+                   and d_year=1998
+                 ) tmp,time_dim
+ where
+   sold_item_sk = i_item_sk
+   and i_manager_id=1
+   and time_sk = t_time_sk
+   and (t_meal_time = &apos;breakfast&apos; or t_meal_time = &apos;dinner&apos;)
+ group by i_brand, i_brand_id,t_hour,t_minute
+ order by ext_price desc, i_brand_id
+ LIMIT 100;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 88 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 88
+ -- ${CacheBuster}
+select  *
+from
+ (select count(*) h8_30_to_9
+ from store_sales, household_demographics , time_dim, store
+ where ss_sold_time_sk = time_dim.t_time_sk
+     and ss_hdemo_sk = household_demographics.hd_demo_sk
+     and ss_store_sk = s_store_sk
+     and time_dim.t_hour = 8
+     and time_dim.t_minute &gt;= 30
+     and ((household_demographics.hd_dep_count = 2 and household_demographics.hd_vehicle_count&lt;=2+2) or
+          (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count&lt;=0+2) or
+          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count&lt;=-1+2))
+     and store.s_store_name = &apos;ese&apos;) s1,
+ (select count(*) h9_to_9_30
+ from store_sales, household_demographics , time_dim, store
+ where ss_sold_time_sk = time_dim.t_time_sk
+     and ss_hdemo_sk = household_demographics.hd_demo_sk
+     and ss_store_sk = s_store_sk
+     and time_dim.t_hour = 9
+     and time_dim.t_minute &lt; 30
+     and ((household_demographics.hd_dep_count = 2 and household_demographics.hd_vehicle_count&lt;=2+2) or
+          (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count&lt;=0+2) or
+          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count&lt;=-1+2))
+     and store.s_store_name = &apos;ese&apos;) s2,
+ (select count(*) h9_30_to_10
+ from store_sales, household_demographics , time_dim, store
+ where ss_sold_time_sk = time_dim.t_time_sk
+     and ss_hdemo_sk = household_demographics.hd_demo_sk
+     and ss_store_sk = s_store_sk
+     and time_dim.t_hour = 9
+     and time_dim.t_minute &gt;= 30
+     and ((household_demographics.hd_dep_count = 2 and household_demographics.hd_vehicle_count&lt;=2+2) or
+          (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count&lt;=0+2) or
+          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count&lt;=-1+2))
+     and store.s_store_name = &apos;ese&apos;) s3,
+ (select count(*) h10_to_10_30
+ from store_sales, household_demographics , time_dim, store
+ where ss_sold_time_sk = time_dim.t_time_sk
+     and ss_hdemo_sk = household_demographics.hd_demo_sk
+     and ss_store_sk = s_store_sk
+     and time_dim.t_hour = 10
+     and time_dim.t_minute &lt; 30
+     and ((household_demographics.hd_dep_count = 2 and household_demographics.hd_vehicle_count&lt;=2+2) or
+          (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count&lt;=0+2) or
+          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count&lt;=-1+2))
+     and store.s_store_name = &apos;ese&apos;) s4,
+ (select count(*) h10_30_to_11
+ from store_sales, household_demographics , time_dim, store
+ where ss_sold_time_sk = time_dim.t_time_sk
+     and ss_hdemo_sk = household_demographics.hd_demo_sk
+     and ss_store_sk = s_store_sk
+     and time_dim.t_hour = 10
+     and time_dim.t_minute &gt;= 30
+     and ((household_demographics.hd_dep_count = 2 and household_demographics.hd_vehicle_count&lt;=2+2) or
+          (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count&lt;=0+2) or
+          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count&lt;=-1+2))
+     and store.s_store_name = &apos;ese&apos;) s5,
+ (select count(*) h11_to_11_30
+ from store_sales, household_demographics , time_dim, store
+ where ss_sold_time_sk = time_dim.t_time_sk
+     and ss_hdemo_sk = household_demographics.hd_demo_sk
+     and ss_store_sk = s_store_sk
+     and time_dim.t_hour = 11
+     and time_dim.t_minute &lt; 30
+     and ((household_demographics.hd_dep_count = 2 and household_demographics.hd_vehicle_count&lt;=2+2) or
+          (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count&lt;=0+2) or
+          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count&lt;=-1+2))
+     and store.s_store_name = &apos;ese&apos;) s6,
+ (select count(*) h11_30_to_12
+ from store_sales, household_demographics , time_dim, store
+ where ss_sold_time_sk = time_dim.t_time_sk
+     and ss_hdemo_sk = household_demographics.hd_demo_sk
+     and ss_store_sk = s_store_sk
+     and time_dim.t_hour = 11
+     and time_dim.t_minute &gt;= 30
+     and ((household_demographics.hd_dep_count = 2 and household_demographics.hd_vehicle_count&lt;=2+2) or
+          (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count&lt;=0+2) or
+          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count&lt;=-1+2))
+     and store.s_store_name = &apos;ese&apos;) s7,
+ (select count(*) h12_to_12_30
+ from store_sales, household_demographics , time_dim, store
+ where ss_sold_time_sk = time_dim.t_time_sk
+     and ss_hdemo_sk = household_demographics.hd_demo_sk
+     and ss_store_sk = s_store_sk
+     and time_dim.t_hour = 12
+     and time_dim.t_minute &lt; 30
+     and ((household_demographics.hd_dep_count = 2 and household_demographics.hd_vehicle_count&lt;=2+2) or
+          (household_demographics.hd_dep_count = 0 and household_demographics.hd_vehicle_count&lt;=0+2) or
+          (household_demographics.hd_dep_count = -1 and household_demographics.hd_vehicle_count&lt;=-1+2))
+     and store.s_store_name = &apos;ese&apos;) s8;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 96 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query">-- TPC-DS_query96
+-- ${CacheBuster}
+select  count(*)
+from store_sales
+    ,household_demographics
+    ,time_dim, store
+where ss_sold_time_sk = time_dim.t_time_sk
+    and ss_hdemo_sk = household_demographics.hd_demo_sk
+    and ss_store_sk = s_store_sk
+    and time_dim.t_hour = 8
+    and time_dim.t_minute &gt;= 30
+    and household_demographics.hd_dep_count = 5
+    and store.s_store_name = &apos;ese&apos;
+order by count(*)
+limit 100;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 98 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
+          <stringProp name="dataSource">jdbcConfig</stringProp>
+          <stringProp name="query"> -- TPC-DS_query 98
+ -- ${CacheBuster}
+select i_item_id
+      ,i_item_desc
+      ,i_category
+      ,i_class
+      ,i_current_price
+      ,sum(ss_ext_sales_price) as itemrevenue
+      ,sum(ss_ext_sales_price)*100/sum(sum(ss_ext_sales_price)) over
+          (partition by i_class) as revenueratio
+from
+  store_sales
+      ,item
+      ,date_dim
+where
+  ss_item_sk = i_item_sk
+    and i_category in (&apos;Women&apos;, &apos;Electronics&apos;, &apos;Shoes&apos;)
+    and ss_sold_date_sk = d_date_sk
+  and d_date between cast(&apos;2002-05-27&apos; as date)
+        and cast(&apos;2002-06-26&apos; as date)
+group by
+  i_item_id
+        ,i_item_desc
+        ,i_category
+        ,i_class
+        ,i_current_price
+order by
+  i_category
+        ,i_class
+        ,i_item_id
+        ,i_item_desc
+        ,revenueratio
+LIMIT 100;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Sleep 750 Milliseconds" enabled="true">
+            <stringProp name="ConstantTimer.delay">750</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="false">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">/home/ec2-user/jmeter/logs/DavesTestPlan-Mixed-${NumberOfThreads}-${NumberOfLoops}.csv</stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

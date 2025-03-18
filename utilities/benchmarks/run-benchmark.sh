@@ -1,1 +1,0 @@
-./benchmark.sh -r "20250317.1GB.Run1" -j "apache-jmeter-5.5/bin/jmeter.sh" -x "TPC-DS-Benchmark-AtScale.jmx" -d "AtScale.Databricks" -c "2XSMALL" -s "jdbc:postgresql://localhost:15432/tpcds" -u "<atscale-user-name>" -p "<atscale-password>" -n "tpcds" -z "tpcds_benchmark_model" -l "Benchmark-Results"

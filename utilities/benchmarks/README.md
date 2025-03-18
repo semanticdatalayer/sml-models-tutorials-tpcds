@@ -2,13 +2,13 @@
 
 The [TPC-DS](https://www.tpc.org/tpcds/) (Transaction Processing Performance Council Decision Support) model dataset is a widely recognized benchmarking standard designed to evaluate the performance of data warehousing and business intelligence systems. It simulates a real-world retail company focusing on sales across multiple channels. The dataset includes various dimensions such as store, item, customer, and promotion, and fact tables like sales, inventory, and returns, reflecting typical business activities and analytical queries. TPC-DS supports a wide array of query types and data volumes, making it an essential tool for assessing the efficiency, scalability, and data processing capabilities of modern data management systems.
 
-The utilities in this directory will allow you to run a TPC-DS benchmark using the AtScale Semantic Layer Platform and the SML TPC-DS semantic model in this repository.
+The utilities in this directory will allow you to run a TPC-DS benchmark using the SML TPC-DS semantic model in this repository. You can also run a TPC-DS benchmark on the raw TPC-DS tables (without the SML semantic layer) by using the `run-benchmark-raw.sh` version of the script.
 
 ## Required Software
 1. JMeter 5.x or higher (note: For newer versions of JMeter, you must edit the `jmeter.properties` file to enable header row output (`jmeter.save.saveservice.print_field_names=true`) as described in this [post](https://stackoverflow.com/questions/54367120/how-to-get-header-file-in-csv-file-in-jmeter)
-2. Hive and Postgres JDBC driver for AtScale (located in the `/drivers` directory in this repo)
-3. Data platform (i.e. Snowflake, BigQuery, etc.) JDBC driver (download from data platform site)
-4. AtScale
+2. Postgres JDBC driver for AtScale or Data Platform JDBC driver (copy into the JMeter `/lib` directory)
+3. Access to a supported data platform (i.e. Snowflake, Databricks, etc.)
+4. AtScale (if you want to run the SML version of the script: `run-benchmark-sml.sh`)
    
 ## Set up Instructions
 1. Clone this repository to a machine that can run JMeter.
@@ -21,17 +21,19 @@ The utilities in this directory will allow you to run a TPC-DS benchmark using t
 8. Make the [run-benchmark.sh](run-benchmark.sh) and [benchmark.sh](benchmark.sh) runnable by executing the following on each script: `chmod +x <filename>`.
 9. Run the benchmark by executing the following command: `./benchmark_runner.sh`.
 
-## Parameters for run-benchmark.sh
+## Parameters for run-benchmark-sml.sh and run-benchmark-raw.sh
 1. `-r` -> Run Label: A directory label for identifying the test run (example: `20250225.100GB`) *NOTE: DON'T USE '-' IN THE NAME SINCE THIS IS USED IN PARSING THE OUTPUT!*
 2. `-j` -> JMeter executable location (example: `apache-jmeter-5.5/bin/jmeter.sh`)
 3. `-x` -> JMXFilename location (example: `TPC-DS-Benchmark-AtScale.jmx`)
 4. `-d` -> Data Platform Name (possible values: `AtScale.Databricks`, `AtScale.Snowflake`, `AtScale.BigQuery`, `AtScale.Redshift`) 
 5. `-c` -> Data Platform Size (example: `2XSMALL`, `XLARGE`) *Important: Remove `-` when specifying data warehouse/cluster size*.
-6. `-s` -> JDBC Connection String (example: `jdbc:postgresql://localhost:15432/tpcds`) 
-7. `-u` -> AtScale user name (example: `admin`)
-8. `-p` -> AtScale password
-9. `-n` -> AtScale catalog name (Omit for non-AtScale platforms) (example: `tpcds`)
-10. `-z` -> AtScale model name (Omit for non-AtScale platforms) (example: `tpcds_benchmark_model`)
+6. `-s` -> JDBC Connection String (example: `jdbc:postgresql://localhost:15432/tpcds`)
+    1. NOTE: For Databricks JDBC driver for a Raw Test, you need to add the following to the JDBC connection string to resolve a JMeter incompatibility: `;EnableArrow=0`
+    2. For a Raw test, add the data's catalog (database) and schema to the JDBC connection string. (i.e. For Databricks, `ConnCatalog=<catalog-name>;ConnSchema=<schema-name>`)
+7. `-u` -> AtScale/Data Platform user name (example: `admin`)
+8. `-p` -> AtScale/Data Platform password
+9. `-n` -> AtScale catalog name (Omit for non-AtScale platforms) (example: `tpcds`) - NOT REQUIRED FOR RAW TEST
+10. `-z` -> AtScale model name (Omit for non-AtScale platforms) (example: `tpcds_benchmark_model`) - NOT REQUIRED FOR RAW TEST
 11. `-l` -> Output directory for JMeter CSV & HTML file (example: `Benchmark-Results`)
 
 ## Output
