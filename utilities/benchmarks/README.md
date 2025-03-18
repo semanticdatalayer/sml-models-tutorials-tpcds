@@ -22,14 +22,14 @@ The utilities in this directory will allow you to run a TPC-DS benchmark using t
 9. Run the benchmark by executing the following command: `./benchmark_runner.sh`.
 
 ## Parameters for run-benchmark-sml.sh and run-benchmark-raw.sh
-1. `-r` -> Run Label: A directory label for identifying the test run (example: `20250225.100GB`) *NOTE: DON'T USE '-' IN THE NAME SINCE THIS IS USED IN PARSING THE OUTPUT!*
+1. `-r` -> Run Label: A directory label for identifying the test run (example: `20250225.100GB.Databricks.Run1`) *NOTE: DON'T USE '-' IN THE NAME SINCE THIS IS USED IN PARSING THE OUTPUT!*
 2. `-j` -> JMeter executable location (example: `apache-jmeter-5.5/bin/jmeter.sh`)
-3. `-x` -> JMXFilename location (example: `TPC-DS-Benchmark-AtScale.jmx`)
+3. `-x` -> JMXFilename location (example: `TPC-DS-Benchmark-AtScale.jmx` or `TPC-DS-Benchmark-Raw.jmx`)
 4. `-d` -> Data Platform Name (possible values: `AtScale.Databricks`, `AtScale.Snowflake`, `AtScale.BigQuery`, `AtScale.Redshift`) 
 5. `-c` -> Data Platform Size (example: `2XSMALL`, `XLARGE`) *Important: Remove `-` when specifying data warehouse/cluster size*.
 6. `-s` -> JDBC Connection String (example: `jdbc:postgresql://localhost:15432/tpcds`)
     1. NOTE: For Databricks JDBC driver for a Raw Test, you need to add the following to the JDBC connection string to resolve a JMeter incompatibility: `;EnableArrow=0`
-    2. For a Raw test, add the data's catalog (database) and schema to the JDBC connection string. (i.e. For Databricks, `ConnCatalog=<catalog-name>;ConnSchema=<schema-name>`)
+    2. For a Raw test, add the data location's catalog (database) and schema to the JDBC connection string. (i.e. For Databricks, `ConnCatalog=<catalog-name>;ConnSchema=<schema-name>`)
 7. `-u` -> AtScale/Data Platform user name (example: `admin`)
 8. `-p` -> AtScale/Data Platform password
 9. `-n` -> AtScale catalog name (Omit for non-AtScale platforms) (example: `tpcds`) - NOT REQUIRED FOR RAW TEST
