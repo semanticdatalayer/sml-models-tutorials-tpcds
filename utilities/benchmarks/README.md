@@ -18,8 +18,8 @@ The utilities in this directory will allow you to run a TPC-DS benchmark using t
 5. Update and deploy your global settings for your AtScale instance to include the settings in this [global_settings.yml](global_settings.yml) file.
 6. Deploy the TPC-DS model from AtScale.
 7. Edit the parameters in the [run-benchmark.sh](run-benchmark.sh) script with your instance details.
-8. Make the [run-benchmark.sh](run-benchmark.sh) and [benchmark.sh](benchmark.sh) runnable by executing the following on each script: `chmod +x <filename>`.
-9. Run the benchmark by executing the following command: `./benchmark_runner.sh`.
+8. Make the [run-benchmark-xxx.sh](run-benchmark-sml.sh) and [benchmark.sh](benchmark.sh) runnable by executing the following on each script: `chmod +x <filename>`.
+9. Run the benchmark by executing the following command: `./run-benchmark_sml.sh` or `./run-benchmark_raw.sh`.
 
 ## Parameters for run-benchmark-sml.sh and run-benchmark-raw.sh
 1. `-r` -> Run Label: A directory label for identifying the test run (example: `20250225.100GB.Databricks.Run1`) *NOTE: DON'T USE '-' IN THE NAME SINCE THIS IS USED IN PARSING THE OUTPUT!*
