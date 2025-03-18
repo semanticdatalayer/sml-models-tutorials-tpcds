@@ -8,7 +8,7 @@ The utilities in this directory will allow you to run a TPC-DS benchmark using t
 1. JMeter 5.x or higher (note: For newer versions of JMeter, you must edit the `jmeter.properties` file to enable header row output (`jmeter.save.saveservice.print_field_names=true`) as described in this [post](https://stackoverflow.com/questions/54367120/how-to-get-header-file-in-csv-file-in-jmeter)
 2. Postgres JDBC driver for AtScale or Data Platform JDBC driver (copy into the JMeter `/lib` directory)
 3. Access to a supported data platform (i.e. Snowflake, Databricks, etc.)
-4. AtScale (if you want to run the SML version of the script: `run-benchmark-sml.sh`)
+4. AtScale (if you want to run the SML version of the script)
    
 ## Set up Instructions
 1. Clone this repository to a machine that can run JMeter.
