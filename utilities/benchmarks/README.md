@@ -36,6 +36,6 @@ The utilities in this directory will allow you to run a TPC-DS benchmark using t
 10. `-z` -> AtScale model name (Omit for non-AtScale platforms) (example: `tpcds_benchmark_model`) - NOT REQUIRED FOR RAW TEST
 11. `-l` -> Output directory for JMeter CSV & HTML file (example: `Benchmark-Results`)
 
-## Output
+## JMeter Output
 The output from the benchmark scripts will be written to the directory specified in the [run_benchmark_sml.sh](run-benchmark_sml.sh) or [run_benchmark_raw.sh](run-benchmark_raw.sh) file. It will create two root directories: CSV output and HTML output. Within these directories, the scripts will create a directory for each thread group (1, 5, 25, 50) and a directory that combines all the thread groups. You can use this [Tableau Workbook](TPC-DS-Benchmark-AtScale.jmx) to load the CSV files with pre-formatted reports. To load multiple results files, follow these [Tableau Union Instructions](https://community.tableau.com/s/question/0D54T00000C6l3wSAB/connecting-to-mutliple-csv-files).
 
