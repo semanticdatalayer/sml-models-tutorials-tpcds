@@ -249,7 +249,7 @@ aggregates:
     metrics:
       - Avg Quarterly Store Sales for 1998-1999
       - Avg Quarter Sales Ratio
-      - Total Store Sales
+      - Store Ext Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q56-Q60
     label: Q56-Q60
