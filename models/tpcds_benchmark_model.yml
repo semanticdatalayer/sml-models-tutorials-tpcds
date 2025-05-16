@@ -241,6 +241,7 @@ aggregates:
       - name: Product Category
         dimension: Product Dimension
       - name: Calendar Quarter
+        partition: name
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
@@ -343,6 +344,7 @@ aggregates:
         dimension: Household Demographics
       - name: Morning Time Tier
         dimension: Time Dimension
+        partition: name
         relationships_path:
           - store_sales_Time_Dimension_Sold
       - name: Vehicle Count
