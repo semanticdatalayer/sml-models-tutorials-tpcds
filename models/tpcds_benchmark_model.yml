@@ -293,8 +293,6 @@ aggregates:
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: Product Category
-        dimension: Product Dimension
       - name: Channel Email
         dimension: Promotions
       - name: Calendar Year Week
@@ -302,6 +300,12 @@ aggregates:
         partition: name
         relationships_path:
           - store_sales_Date_Dimension_Sold
+
+      - name: Product Category
+        dimension: Product Dimension
+        relationships_path:
+          - store_promotion_Product_Dimension_1
+
     metrics:
       - Store Ext Sales Price
       - Store Ext Sales Price by Promotion
