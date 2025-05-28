@@ -281,10 +281,12 @@ aggregates:
     attributes:
       - name: Channel Direct Mail
         dimension: Promotions
-      - name: Store GMT Offset
-        dimension: Store Dimension
+      - name: Channel Email
+        dimension: Promotions
       - name: Channel TV
         dimension: Promotions
+      - name: Store GMT Offset
+        dimension: Store Dimension
       - name: Customer GMT Offset
         dimension: Customer Address
         relationships_path:
@@ -293,8 +295,6 @@ aggregates:
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: Channel Email
-        dimension: Promotions
       - name: Calendar Year Week
         dimension: Date Dimensions
         partition: name
@@ -305,7 +305,6 @@ aggregates:
         dimension: Product Dimension
         relationships_path:
           - store_promotion_Product_Dimension_1
-
     metrics:
       - Store Ext Sales Price
       - Store Ext Sales Price by Promotion
