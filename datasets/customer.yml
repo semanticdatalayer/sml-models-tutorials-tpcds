@@ -46,4 +46,4 @@ columns:
     sql: CASE c_preferred_cust_flag WHEN 'T' THEN TRUE ELSE FALSE END
     dialects:
       - dialect: Snowflake
-        sql: CASE \"c_preferred_cust_flag\" WHEN 'T' THEN TRUE ELSE FALSE END
+        sql: "CASE \"c_preferred_cust_flag\" WHEN 'T' THEN TRUE ELSE FALSE END"
