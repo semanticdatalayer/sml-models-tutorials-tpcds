@@ -8,10 +8,18 @@ hierarchies:
     folder: Fulfillment
     levels:
       - unique_name: Ship Code
-      - unique_name: Ship Mode Type
       - unique_name: Carrier
       - unique_name: Ship Mode
         is_hidden: true
+        secondary_attributes:
+          - unique_name: Ship Mode Type
+            label: Ship Mode Type
+            contains_unique_names: false
+            dataset: ship_mode
+            is_unique_key: false
+            key_columns:
+              - sm_type
+            name_column: sm_type
 level_attributes:
   - unique_name: Carrier
     label: Shipping Carrier Name
@@ -19,13 +27,6 @@ level_attributes:
     key_columns:
       - sm_carrier
     name_column: sm_carrier
-  - unique_name: Ship Mode Type
-    label: Ship Mode Type
-    description: Shipping mode type
-    dataset: ship_mode
-    key_columns:
-      - sm_type
-    name_column: sm_type
   - unique_name: Ship Code
     label: Ship Code
     description: shipping code
