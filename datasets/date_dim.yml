@@ -137,3 +137,13 @@ columns:
         sql: "TO_CHAR(DATE_TRUNC('week', d_date), 'y-MM-dd')"
       - dialect: BigQuery
         sql: "FORMAT_DATE('%Y-%m-%d', DATE_TRUNC(d_date, WEEK))"
+  - name: quarter_number
+    data_type: int
+    sql: "QUARTER(d_date)"
+    dialects:
+      - dialect: Snowflake
+        sql: "QUARTER(\"d_date\")"
+      - dialect: DatabricksSQL
+        sql: "QUARTER(d_date)"
+      - dialect: BigQuery
+        sql: "EXTRACT(QUARTER FROM d_date)"

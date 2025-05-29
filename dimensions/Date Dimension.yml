@@ -19,9 +19,9 @@ hierarchies:
             dataset: date_dim
             folder: Date Attributes
             key_columns:
-              - d_qoy
-            name_column: d_qoy
-            sort_column: d_qoy
+              - quarter_number
+            name_column: quarter_number
+            sort_column: quarter_number
       - unique_name: Calendar Month
         secondary_attributes:
           - unique_name: Month Name
@@ -128,7 +128,6 @@ hierarchies:
     folder: Date Attributes
     levels:
       - unique_name: Calendar Year Week
-      - unique_name: Calendar Month Week
       - unique_name: Calendar Week
         secondary_attributes:
           - unique_name: Week Sequence
@@ -158,21 +157,6 @@ hierarchies:
             name_column: d_day_name
             sort_column: d_day_name
 level_attributes:
-  - unique_name: Calendar Month Week
-    label: Calendar Month
-    allowed_calcs_for_dma:
-      - Lag
-      - ParallelPeriod
-      - Ancestor
-      - Descendants
-      - Siblings
-      - PeriodsToDate
-      - Range
-    dataset: date_dim
-    key_columns:
-      - year_month
-    name_column: year_month
-    time_unit: month
   - unique_name: Calendar Month
     label: Calendar Month
     allowed_calcs_for_dma:
@@ -201,7 +185,7 @@ level_attributes:
     dataset: date_dim
     key_columns:
       - year_quarter
-    name_column: d_quarter_name
+    name_column: year_quarter
     sort_column: year_quarter
     time_unit: quarter
   - unique_name: Calendar Week
