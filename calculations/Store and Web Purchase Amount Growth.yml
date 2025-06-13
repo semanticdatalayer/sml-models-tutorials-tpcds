@@ -1,7 +1,7 @@
 unique_name: Store and Web Purchase Amount Growth
 object_type: metric_calc
 label: Store and Web Purchase Amount Growth
-descriptions: Combined web and store purchase growth	
+description: Combined web and store purchase growth	
 expression: |-
   [Measures].[Store and Web Purchased Amount] /
   (ParallelPeriod([Sold Date Dimensions].[Sold Date Week Hierarchy].[Sold Calendar Year Week], 1, [Sold Date Dimensions].[Sold Date Week Hierarchy].CurrentMember), [Measures].[Store and Web Purchased Amount])
