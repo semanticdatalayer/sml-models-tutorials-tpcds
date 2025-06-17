@@ -1,6 +1,6 @@
 unique_name: Connection - TPCDS
 label: Connection - TPCDS
 object_type: connection
-as_connection: Postgres
-database: atscale_tutorial_data
+as_connection: BigQuery
+database: atscale-tutorial-data
 schema: tpcds
