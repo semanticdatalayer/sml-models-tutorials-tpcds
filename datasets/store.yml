@@ -26,7 +26,7 @@ columns:
   - name: s_geography_class
     data_type: string
   - name: s_gmt_offset
-    data_type: decimal
+    data_type: decimal(5,2)
   - name: s_hours
     data_type: string
   - name: s_manager
@@ -60,7 +60,7 @@ columns:
   - name: s_suite_number
     data_type: string
   - name: s_tax_precentage
-    data_type: decimal
+    data_type: decimal(7,2)
   - name: s_zip
     data_type: string
   - name: Store State Name

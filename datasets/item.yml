@@ -22,7 +22,7 @@ columns:
   - name: i_container
     data_type: string
   - name: i_current_price
-    data_type: decimal
+    data_type: decimal(7,2)
   - name: i_formulation
     data_type: string
   - name: i_item_desc
@@ -48,4 +48,4 @@ columns:
   - name: i_units
     data_type: string
   - name: i_wholesale_cost
-    data_type: decimal
+    data_type: decimal(7,2)

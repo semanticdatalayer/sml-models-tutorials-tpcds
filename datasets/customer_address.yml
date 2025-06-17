@@ -16,7 +16,7 @@ columns:
   - name: ca_county
     data_type: string
   - name: ca_gmt_offset
-    data_type: decimal
+    data_type: decimal(5,2)
   - name: ca_location_type
     data_type: string
   - name: ca_state
