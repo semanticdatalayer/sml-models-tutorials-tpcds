@@ -34,7 +34,22 @@ dialects:
         ON ss.\"ss_ticket_number\" = sr.\"sr_ticket_number\"
         AND ss.\"ss_item_sk\" = sr.\"sr_item_sk\"
         AND ss.\"ss_customer_sk\" = sr.\"sr_customer_sk\""
-        
+  - dialect: BigQuery
+    sql: "SELECT ss.*, sr.*,
+            case when (sr_returned_date_sk - ss_sold_date_sk <= 30) then '<= 30 days'
+              when (sr_returned_date_sk - ss_sold_date_sk > 30) and  
+                (sr_returned_date_sk - ss_sold_date_sk <= 60) then '31-60 days'
+              when (sr_returned_date_sk - ss_sold_date_sk > 60) and
+                (sr_returned_date_sk - ss_sold_date_sk <= 90) then '61-90 days'
+              when (sr_returned_date_sk - ss_sold_date_sk > 90) and 
+                (sr_returned_date_sk - ss_sold_date_sk <= 120) then '91-120 days'
+              else '> 120 days' end as returns_time_tier,
+            1 as returns_count 
+            FROM atscale-tutorial-data.tpcds.store_returns sr
+            INNER JOIN atscale-tutorial-data.tpcds.store_sales ss
+            ON ss.ss_ticket_number = sr.sr_ticket_number
+            AND ss.ss_item_sk = sr.sr_item_sk
+            AND ss.ss_customer_sk = sr.sr_customer_sk"        
 columns:
   - name: returns_count
     data_type: long
