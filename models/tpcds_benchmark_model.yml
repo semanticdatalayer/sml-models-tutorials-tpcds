@@ -276,8 +276,38 @@ aggregates:
     metrics:
       - Total Ext Sales Price
     target_connection: Connection - TPCDS
-  - unique_name: Q61
-    label: Q61
+  - unique_name: Q61-1
+    label: Q61 - Store Sales
+    attributes:
+      - name: Channel Direct Mail
+        dimension: Promotions
+      - name: Channel Email
+        dimension: Promotions
+      - name: Channel TV
+        dimension: Promotions
+      - name: Store GMT Offset
+        dimension: Store Dimension
+      - name: Customer GMT Offset
+        dimension: Customer Address
+        relationships_path:
+          - Customer Dimension Customer Address
+      - name: Month of Year
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Calendar Year Week
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+
+      - name: Product Category
+        dimension: Product Dimension
+    metrics:
+      - Store Ext Sales Price
+    target_connection: Connection - TPCDS
+  - unique_name: Q61-2
+    label: Q61 - Store Promotion
     attributes:
       - name: Channel Direct Mail
         dimension: Promotions
@@ -306,7 +336,6 @@ aggregates:
         relationships_path:
           - store_promotion_Product_Dimension_1
     metrics:
-      - Store Ext Sales Price
       - Store Ext Sales Price by Promotion
     target_connection: Connection - TPCDS
   - unique_name: Q7-Q26
