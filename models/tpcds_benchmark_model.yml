@@ -799,7 +799,7 @@ relationships:
       dataset: store_promotion
       join_columns:
         - p_item_sk
-    role_play: Product Item {0}
+    role_play: Promotion Product Item {0}
     to:
       dimension: Product Dimension
       level: Product Dimension
