@@ -1,6 +1,11 @@
 unique_name: tpcds
 object_type: catalog
 label: TPC-DS
-version: 1.0
-aggressive_agg_promotion: false
+version: 1.4
 build_speculative_aggs: false
+
+# In-memory aggs
+aggressive_agg_promotion: true
+aggregate_store:
+ as_connection: preferredstore
+ row_count_limit: 10000000
