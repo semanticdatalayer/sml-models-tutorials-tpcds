@@ -4,8 +4,10 @@ label: TPC-DS
 version: 1.4
 build_speculative_aggs: false
 
+aggressive_agg_promotion: false
+
 # In-memory aggs
-aggressive_agg_promotion: true
-aggregate_store:
- as_connection: preferredstore
- row_count_limit: 10000000
+#aggressive_agg_promotion: true
+#aggregate_store:
+# as_connection: preferredstore
+# row_count_limit: 10000000
