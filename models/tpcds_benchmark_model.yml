@@ -1,6 +1,7 @@
 unique_name: tpcds_benchmark_model
 object_type: model
 label: TPC-DS Benchmark Model
+description: The TPC-DS model is based on an industry-standard decision support benchmark that models a large retail business. It uses a rich star-schema–based data model with multiple fact tables and shared dimensions to represent sales, inventory, and customer activity across channels (store, catalog, and web), and is designed to evaluate the performance of complex analytical queries, reporting, and data warehousing systems.
 aggregates:
   - unique_name: Q13
     label: Q13
