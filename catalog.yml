@@ -2,6 +2,6 @@ unique_name: tpcds
 object_type: catalog
 label: TPC-DS
 description: The tpcds catalog contains the TPC-DS model that is based on an industry-standard decision support benchmark that models a large retail business. It uses a rich star-schema–based data model with multiple fact tables and shared dimensions to represent sales, inventory, and customer activity across channels (store, catalog, and web), and is designed to evaluate the performance of complex analytical queries, reporting, and data warehousing systems.
-version: 1.0
+version: 1.6
 aggressive_agg_promotion: false
 build_speculative_aggs: false
