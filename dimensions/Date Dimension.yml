@@ -1,6 +1,116 @@
 unique_name: Date Dimensions
 object_type: dimension
 label: Date Dimensions
+calculation_groups:
+  - unique_name: Date Dimension Time Calculations
+    label: Date Dimension Time Calculations
+    description: >-
+      These are time-related calculations for the Date Dimension that use all
+      the available templates.
+    calculated_members:
+      - unique_name: Current
+        description: The measure's value for the current dimension members in the query.
+        template: Current
+        use_input_metric_format: true
+      - unique_name: Current vs Last Year
+        description: Current value minus Last Year's value for the given dimension member.
+        template: Current vs Last Year
+        use_input_metric_format: true
+      - unique_name: Current vs Last Year Pct
+        description: >-
+          Current value minus Last Year's value for the given dimension member
+          expressed as a percent of Last Year's value.
+        format: percent
+        template: Current vs Last Year Pct
+      - unique_name: Current vs Next
+        description: Current measure value minus the Next Member's measure value.
+        template: Current vs Next
+        use_input_metric_format: true
+      - unique_name: Current vs Next Pct
+        description: >-
+          Current measure value minus the Next Member's measure value expressed
+          as a percent of the Next value.
+        format: percent
+        template: Current vs Next Pct
+      - unique_name: Current vs Previous
+        description: Current measure value minus the previous Member's measure value.
+        template: Current vs Previous
+        use_input_metric_format: true
+      - unique_name: Current vs Previous Pct
+        description: >-
+          Current measure value minus the previous Member's measure value
+          expressed as a percent of the Prev value.
+        format: percent
+        template: Current vs Previous Pct
+      - unique_name: Last Year
+        description: Last Year's value for the current dimension member.
+        template: Last Year
+        use_input_metric_format: true
+      - unique_name: Month Moving Average 3 Month
+        description: 3 Month Moving Average. Works for the Month Level and below.
+        template: Month Moving Average 3 Month
+        use_input_metric_format: true
+      - unique_name: Month to Date
+        description: >-
+          Month to Date aggregation of [Measures] using each measure's
+          aggregation function. Works for each level of the hierarchy,
+          constraining each member to the set of siblings within the Ancestor
+          Month.
+        template: Month to Date
+        use_input_metric_format: true
+      - unique_name: Moving Average 30 Period
+        description: >-
+          30 Period Moving Average. Periods depend on the level of evaluation.
+          If requested at the Day level, this is a 30 Day Average. At the week
+          level, this is a 30 week average.
+        template: Moving Average 30 Period
+        use_input_metric_format: true
+      - unique_name: Moving Average 5 Period
+        description: >-
+          5 Period Moving Average. Periods depend on the level of evaluation. If
+          requested at the Day level, this is a 5 Day Average. At the week
+          level, this is a 5 week average.
+        template: Moving Average 5 Period
+        use_input_metric_format: true
+      - unique_name: Next
+        description: >-
+          The measure value for the next dimension member relative to the
+          current dimension member.
+        template: Next
+        use_input_metric_format: true
+      - unique_name: Pct of Parent
+        description: >-
+          The measure's value as a percent of the dimension member's total
+          value.
+        format: percent
+        template: Pct of Parent
+      - unique_name: Pct of Total
+        description: The measure's value as a percent of the dimension's total value.
+        format: percent
+        template: Pct of Total
+      - unique_name: Previous
+        description: >-
+          The measure value for the previous dimension member relative to the
+          current dimension member.
+        template: Previous
+        use_input_metric_format: true
+      - unique_name: Quarter to Date
+        description: >-
+          Quarter to Date aggregation of [Measures] using each measure's
+          aggregation function. Works for each level of the hierarchy,
+          constraining each member to the set of siblings within the Ancestor
+          Quarter.
+        template: Quarter to Date
+        use_input_metric_format: true
+      - unique_name: Year to Date
+        description: >-
+          Year to Date aggregation of [Measures] using each measure's
+          aggregation function. Works for each level of the hierarchy,
+          constraining each member to the set of siblings within the Ancestor
+          Year.
+        template: Year to Date
+        use_input_metric_format: true
+    folder: Date Attributes
 hierarchies:
   - unique_name: Date Dimensions
     label: Date Month Hierarchy
