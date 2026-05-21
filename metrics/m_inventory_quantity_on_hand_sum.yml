@@ -5,3 +5,7 @@ description: Available Inventory
 calculation_method: sum
 column: inv_quantity_on_hand
 dataset: inventory
+semi_additive:
+  position: last
+  relationships:
+    - inventory_Date_Dimension_Inventory
