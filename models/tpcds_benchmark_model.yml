@@ -618,7 +618,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: Date Dimensions
-      level: Date Week Hierarchy
+      level: Calendar Date Week
   - unique_name: catalog_sales_Date_Dimension_Ship
     from:
       dataset: catalog_sales
@@ -627,7 +627,7 @@ relationships:
     role_play: Ship {0}
     to:
       dimension: Date Dimensions
-      level: Date Week Hierarchy
+      level: Calendar Date Week
   - unique_name: catalog_sales_Fulfilling_Warehouse
     from:
       dataset: catalog_sales
@@ -679,7 +679,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: Date Dimensions
-      level: Time Dimension
+      level: Calendar Date
   - unique_name: catalog_sales_Date_Dimension_Ship_1
     from:
       dataset: catalog_sales
@@ -688,7 +688,7 @@ relationships:
     role_play: Ship {0}
     to:
       dimension: Date Dimensions
-      level: Time Dimension
+      level: Calendar Date
   - unique_name: catalog_sales_Customer_Demographics
     from:
       dataset: catalog_sales
@@ -745,7 +745,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: Date Dimensions
-      level: Date Week Hierarchy
+      level: Calendar Date Week
   - unique_name: store_promotion_Promotions
     from:
       dataset: store_promotion
@@ -770,7 +770,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: Date Dimensions
-      level: Time Dimension
+      level: Calendar Date
   - unique_name: store_promotion_Customer_Demographics
     from:
       dataset: store_promotion
@@ -821,7 +821,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: Date Dimensions
-      level: Date Week Hierarchy
+      level: Calendar Date Week
   - unique_name: web_sales_Date_Dimension_Ship
     from:
       dataset: web_sales
@@ -830,7 +830,7 @@ relationships:
     role_play: Ship {0}
     to:
       dimension: Date Dimensions
-      level: Date Week Hierarchy
+      level: Calendar Date Week
   - unique_name: web_sales_Fulfilling_Warehouse
     from:
       dataset: web_sales
@@ -882,7 +882,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: Date Dimensions
-      level: Time Dimension
+      level: Calendar Date
   - unique_name: web_sales_Date_Dimension_Ship_1
     from:
       dataset: web_sales
@@ -891,7 +891,7 @@ relationships:
     role_play: Ship {0}
     to:
       dimension: Date Dimensions
-      level: Time Dimension
+      level: Calendar Date
   - unique_name: web_sales_Customer_Demographics
     from:
       dataset: web_sales
@@ -948,7 +948,7 @@ relationships:
     role_play: Return {0}
     to:
       dimension: Date Dimensions
-      level: Date Week Hierarchy
+      level: Calendar Date Week
   - unique_name: store_returns_Time_Dimension_Return
     from:
       dataset: store_returns
@@ -975,7 +975,7 @@ relationships:
     role_play: Return {0}
     to:
       dimension: Date Dimensions
-      level: Time Dimension
+      level: Calendar Date
   - unique_name: store_returns_Customer_Demographics
     from:
       dataset: store_returns
@@ -1024,7 +1024,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: Date Dimensions
-      level: Date Week Hierarchy
+      level: Calendar Date Week
   - unique_name: store_sales_Time_Dimension_Sold
     from:
       dataset: store_sales
@@ -1059,7 +1059,7 @@ relationships:
     role_play: Sold {0}
     to:
       dimension: Date Dimensions
-      level: Time Dimension
+      level: Calendar Date
   - unique_name: store_sales_Customer_Demographics
     from:
       dataset: store_sales
@@ -1100,7 +1100,7 @@ relationships:
     role_play: Inventory {0}
     to:
       dimension: Date Dimensions
-      level: Date Week Hierarchy
+      level: Calendar Date Week
   - unique_name: inventory_Fulfilling_Warehouse
     from:
       dataset: inventory
@@ -1117,7 +1117,7 @@ relationships:
     role_play: Inventory {0}
     to:
       dimension: Date Dimensions
-      level: Time Dimension
+      level: Calendar Date
   - unique_name: inventory_Product_Dimension
     from:
       dataset: inventory
