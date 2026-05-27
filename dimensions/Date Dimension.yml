@@ -170,7 +170,7 @@ hierarchies:
               - d_month_seq
             name_column: d_month_seq
             sort_column: d_month_seq
-      - unique_name: Time Dimension
+      - unique_name: Calendar Date
         secondary_attributes:
           - unique_name: Following Holiday Indicator
             label: Following Holiday Indicator
@@ -252,7 +252,7 @@ hierarchies:
               - d_week_seq
             name_column: d_week_seq
             sort_column: d_week_seq
-      - unique_name: Date Week Hierarchy
+      - unique_name: Calendar Date Week
         secondary_attributes:
           - unique_name: Day Name Week
             label: Day Name (Week)
@@ -343,7 +343,7 @@ level_attributes:
       - d_year
     name_column: d_year
     time_unit: year
-  - unique_name: Date Week Hierarchy
+  - unique_name: Calendar Date Week
     label: Date
     allowed_calcs_for_dma:
       - Lag
@@ -359,7 +359,7 @@ level_attributes:
       - d_date_sk
     name_column: d_date
     time_unit: day
-  - unique_name: Time Dimension
+  - unique_name: Calendar Date
     label: Date
     allowed_calcs_for_dma:
       - Lag
