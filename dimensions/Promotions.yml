@@ -11,6 +11,9 @@ hierarchies:
         secondary_attributes:
           - unique_name: Channel Catalog
             label: Channel Catalog
+            description: >-
+              "Y" if this promotion was distributed via printed catalog, "N" if
+              the promotion was not distributed via catalog.
             dataset: promotion
             folder: Promotion Attributes
             key_columns:
@@ -19,6 +22,9 @@ hierarchies:
             sort_column: p_channel_catalog
           - unique_name: Channel Direct Mail
             label: Channel Direct Mail
+            description: >-
+              "Y" if this promotion was sent by direct mail (postal mail,
+              mailer), "N" if the promotion was not sent by direct mail.
             dataset: promotion
             folder: Promotion Attributes
             key_columns:
@@ -64,6 +70,10 @@ hierarchies:
             sort_column: p_channel_event
           - unique_name: Channel Press
             label: Channel Press
+            description: >-
+              "Y" if this promotion was advertised in the press (newspaper,
+              magazine, print), "N" if the promotion was not advertised in the
+              press.
             dataset: promotion
             folder: Promotion Attributes
             key_columns:
@@ -72,6 +82,9 @@ hierarchies:
             sort_column: p_channel_press
           - unique_name: Channel Radio
             label: Channel Radio
+            description: >-
+              "Y" if this promotion was broadcast on radio, "N" if the
+              promotion was not broadcast on radio.
             dataset: promotion
             folder: Promotion Attributes
             key_columns:
@@ -80,6 +93,9 @@ hierarchies:
             sort_column: p_channel_radio
           - unique_name: Channel TV
             label: Channel TV
+            description: >-
+              "Y" if this promotion was broadcast on television (TV), "N" if
+              the promotion was not broadcast on television.
             dataset: promotion
             folder: Promotion Attributes
             key_columns:
