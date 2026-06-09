@@ -1,7 +1,7 @@
 unique_name: Web and Catalog Sales Price Growth
 object_type: metric_calc
 label: Web and Catalog Sales Price Growth
-description: Combined catalog and web price growth	
+description: Ratios of web and catalog sales increases. Use to compute sales growth for week-over-week, month-over-month, quarter-over-quarter, year-over-year, etc.
 expression: |-
   [Measures].[Web and Catalog Sales] /
   (ParallelPeriod([Sold Date Dimensions].[Sold Date Week Hierarchy].[Sold Calendar Week], -53, [Sold Date Dimensions].[Sold Date Week Hierarchy].CurrentMember), [Measures].[Web and Catalog Sales])
