@@ -1,99 +1,95 @@
 unique_name: Promotions
 object_type: dimension
 label: Promotions
-type: standard
-
 hierarchies:
-
   - unique_name: Promotions
     label: Promotions
-    filter_empty: "yes"
+    filter_empty: 'yes'
     folder: Promotion Attributes
-
     levels:
-
       - unique_name: Promotions
-
         secondary_attributes:
-
           - unique_name: Channel Catalog
             label: Channel Catalog
-            folder: Promotion Attributes
             dataset: promotion
+            folder: Promotion Attributes
             key_columns:
               - p_channel_catalog
             name_column: p_channel_catalog
             sort_column: p_channel_catalog
-
           - unique_name: Channel Direct Mail
             label: Channel Direct Mail
-            folder: Promotion Attributes
             dataset: promotion
+            folder: Promotion Attributes
             key_columns:
               - p_channel_dmail
             name_column: p_channel_dmail
             sort_column: p_channel_dmail
-
           - unique_name: Channel Email
             label: Channel Email
-            folder: Promotion Attributes
+            description: >-
+              "Y" if this promotion was sent by email, "N" if the promotion was
+              not sent by email.
             dataset: promotion
+            folder: Promotion Attributes
             key_columns:
               - p_channel_email
             name_column: p_channel_email
             sort_column: p_channel_email
           - unique_name: Promotion Sent Via Email
             label: Promotion Sent Via Email
-            description: if this promotion was sent out with email
-            folder: Promotion Attributes
+            description: >-
+              "Y" if this promotion was sent by email, "N" if the promotion was
+              not sent by email.
+            allowed_calcs_for_dma:
+              - Lag
+              - Siblings
+              - Range
             dataset: promotion
+            folder: Promotion Attributes
             key_columns:
               - promotion_sent_via_email
             name_column: promotion_sent_via_email
             sort_column: promotion_sent_via_email
-            allowed_calcs_for_dma:
-              - Lag
-              - Range
-              - Siblings
           - unique_name: Channel Event
             label: Channel Event
-            folder: Promotion Attributes
+            description: >-
+              "Y" if this promotion was delivered by an event, "N" if the
+              promotion was not delivered by an event.
             dataset: promotion
+            folder: Promotion Attributes
             key_columns:
               - p_channel_event
             name_column: p_channel_event
             sort_column: p_channel_event
-
           - unique_name: Channel Press
             label: Channel Press
-            folder: Promotion Attributes
             dataset: promotion
+            folder: Promotion Attributes
             key_columns:
               - p_channel_press
             name_column: p_channel_press
             sort_column: p_channel_press
-
           - unique_name: Channel Radio
             label: Channel Radio
-            folder: Promotion Attributes
             dataset: promotion
+            folder: Promotion Attributes
             key_columns:
               - p_channel_radio
             name_column: p_channel_radio
             sort_column: p_channel_radio
-
           - unique_name: Channel TV
             label: Channel TV
-            folder: Promotion Attributes
             dataset: promotion
+            folder: Promotion Attributes
             key_columns:
               - p_channel_tv
             name_column: p_channel_tv
             sort_column: p_channel_tv
           - unique_name: Promotion Name
             label: Promotion Name
-            folder: Promotion Attributes
             dataset: promotion
+            folder: Promotion Attributes
             key_columns:
               - p_promo_name
             name_column: p_promo_name
@@ -101,25 +97,24 @@ hierarchies:
           - unique_name: In Promotion
             label: In Promotion
             description: if this sale was part in a promotion
-            folder: Promotion Attributes
+            allowed_calcs_for_dma:
+              - Lag
+              - Siblings
+              - Range
             dataset: promotion
+            folder: Promotion Attributes
             key_columns:
               - in_promotion
             name_column: in_promotion
             sort_column: in_promotion
-            allowed_calcs_for_dma:
-              - Lag
-              - Range
-              - Siblings
 level_attributes:
-
   - unique_name: Promotions
     label: Promotion SK
     dataset: promotion
     key_columns:
       - p_promo_sk
     name_column: p_promo_sk
-
 modeler_metadata:
   version: 0
-  modified: "false"
+  modified: 'false'
+type: standard
