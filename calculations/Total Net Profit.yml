@@ -1,4 +1,5 @@
 unique_name: Total Net Profit
 object_type: metric_calc
 label: Total Net Profit
+description: Total net profit across all sales channels, including web, store and catalog 
 expression: "[Measures].[Store Net Profit]+[Measures].[Web Net Profit]+ [Measures].[Catalog Net Profit Amount]"

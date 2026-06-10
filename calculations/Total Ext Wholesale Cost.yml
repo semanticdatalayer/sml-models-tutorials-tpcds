@@ -1,4 +1,5 @@
 unique_name: Total Ext Wholesale Cost
 object_type: metric_calc
-label: Total Ext Wholesale Cost
+label: Total Extended Wholesale Cost
+description: Total extended wholesale cost across all sales channels, including web, store and catalog 
 expression: "[Measures].[Store Ext Wholesale Cost]+[Measures].[Web Ext Wholesale Cost]+[Measures].[Catalog Ext Wholesale Cost]"
