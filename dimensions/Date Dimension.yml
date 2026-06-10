@@ -1,6 +1,9 @@
 unique_name: Date Dimensions
 object_type: dimension
 label: Date Dimensions
+description: >-
+  This is the core date dimension for a  Gregorian calendar. This can be
+  role-played with a sold, ship, returns, inventory, etc. prefix.
 calculation_groups:
   - unique_name: Date Dimension Time Calculations
     label: Date Dimension Time Calculations
@@ -284,6 +287,9 @@ level_attributes:
     time_unit: month
   - unique_name: Calendar Quarter
     label: Calendar Quarter
+    description: >-
+      This is the calendar (Gregorian) quarter level of the date hierarchy. This
+      can be role-played with a sold, ship, returns, inventory, etc. prefix.
     allowed_calcs_for_dma:
       - Lag
       - ParallelPeriod
@@ -330,6 +336,9 @@ level_attributes:
     time_unit: year
   - unique_name: Calendar Year
     label: Calendar Year
+    description: >-
+      This is the calendar year level of the date hierarchy. This can be
+      role-played with a sold, ship, returns, inventory, etc. prefix.
     allowed_calcs_for_dma:
       - Lag
       - ParallelPeriod
