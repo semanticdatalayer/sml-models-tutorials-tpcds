@@ -1,5 +1,5 @@
 unique_name: Total Quantity Sold
 object_type: metric_calc
 label: Total Quantity Sold
-description: Total quantity sold across channels
+description: Total quantity sold across all sales channels, including web, store and catalog 
 expression: "[Measures].[Store Quantity Sold]+[Measures].[Web Quantity Sold]+ [Measures].[Catalog Quantity Sold]"

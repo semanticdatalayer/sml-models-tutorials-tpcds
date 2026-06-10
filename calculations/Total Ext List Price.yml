@@ -1,5 +1,6 @@
 unique_name: Total Ext List Price
 object_type: metric_calc
-label: Total Ext List Price
+label: Total Extended List Price
+description: Total extended list price across all sales channels, including web, store and catalog 
 expression: "[Measures].[Store Ext List Price]+[Measures].[Web Ext List Price]+\
   \ [Measures].[Catalog Ext List Price]"

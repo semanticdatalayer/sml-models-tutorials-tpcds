@@ -1,4 +1,5 @@
 unique_name: Total Net Paid Incl Tax
 object_type: metric_calc
-label: Total Net Paid Incl Tax
+label: Total Net Paid Including Tax
+description: Total net paid amount including sales tax across all sales channels, including web, store and catalog 
 expression: "[Measures].[Store Net Paid Incl Tax]+[Measures].[Web Net Paid Incl Tax]+[Measures].[Catalog Net Paid Inc Tax Amount]"
