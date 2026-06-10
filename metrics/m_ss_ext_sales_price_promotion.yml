@@ -1,6 +1,7 @@
 unique_name: Store Ext Sales Price by Promotion
 object_type: metric
-label: Store Ext Sales Price by Promotion
+label: Store Extended Sales Price by Promotion
+description: Extended sale price for promoted products sold in stores only
 calculation_method: sum
 unrelated_dimensions_handling: repeat
 dataset: store_promotion
