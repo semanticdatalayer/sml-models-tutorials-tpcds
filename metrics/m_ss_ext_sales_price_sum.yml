@@ -1,6 +1,7 @@
 unique_name: Store Ext Sales Price
 object_type: metric
-label: Store Ext Sales Price
+label: Store Extended Sales Price
+description: The extended sales price for store sales only.
 calculation_method: sum
 column: ss_ext_sales_price
 dataset: store_sales
