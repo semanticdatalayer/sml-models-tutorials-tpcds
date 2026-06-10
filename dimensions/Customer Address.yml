@@ -1,6 +1,7 @@
 unique_name: Customer Address
 object_type: dimension
 label: Customer Address
+description: This is the dimension that describes where customers live.
 hierarchies:
   - unique_name: Customer Address
     label: Customer Address
@@ -12,7 +13,7 @@ hierarchies:
         secondary_attributes:
           - unique_name: Customer State Name
             label: Customer State Name
-            description: customer home state
+            description: This is the customer's home state using the full state name.
             allowed_calcs_for_dma:
               - Lag
               - Siblings
@@ -28,7 +29,7 @@ hierarchies:
         secondary_attributes:
           - unique_name: Customer County
             label: Customer County
-            description: county the customer lives in
+            description: This is the name of the customer's home county.
             dataset: customer_address
             folder: Customer Information
             key_columns:
@@ -37,6 +38,7 @@ hierarchies:
             sort_column: ca_county
           - unique_name: Customer GMT Offset
             label: Customer GMT Offset
+            description: The GMT offset of the address, used to determine the time zone.
             dataset: customer_address
             folder: Customer Information
             key_columns:
@@ -45,7 +47,7 @@ hierarchies:
             sort_column: ca_gmt_offset
           - unique_name: Customer Zip Code
             label: Customer Zip Code
-            description: zip code the customer lives in, home zip code
+            description: This is the customer's zip code.
             dataset: customer_address
             folder: Customer Information
             key_columns:
@@ -62,7 +64,9 @@ level_attributes:
     name_column: ca_address_id
   - unique_name: Customer City
     label: Customer City
-    description: name of the city the customer lives in, home city name
+    description: >-
+      This is the name of the customer's city the customer lives in, home city
+      name
     dataset: customer_address
     key_columns:
       - ca_country
@@ -71,13 +75,14 @@ level_attributes:
     name_column: ca_city
   - unique_name: Customer Country
     label: Customer Country
-    description: country the customer lives in, home country
+    description: The country the customer lives in, their home country
     dataset: customer_address
     key_columns:
       - ca_country
     name_column: ca_country
   - unique_name: Customer State
     label: Customer State Shorthand
+    description: This is the customer's state using a two-digit abbreviation.
     dataset: customer_address
     key_columns:
       - ca_country
