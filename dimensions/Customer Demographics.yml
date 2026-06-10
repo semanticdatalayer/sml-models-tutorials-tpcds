@@ -42,7 +42,9 @@ hierarchies:
             sort_column: cd_education_status
           - unique_name: Gender
             label: Gender
-            description: Customer Gender
+            description: >-
+              Customer Gender. Men will have a value of "M" and women will have
+              a value of "F".
             dataset: customer_demographics
             folder: Customer Information
             key_columns:
@@ -51,7 +53,9 @@ hierarchies:
             sort_column: cd_gender
           - unique_name: Marital Status
             label: Marital Status
-            description: Customer Marital Status
+            description: >-
+              Customer Marital Status. "M" if married, "S" if single, and "D" if
+              divorced.
             dataset: customer_demographics
             folder: Customer Information
             key_columns:
