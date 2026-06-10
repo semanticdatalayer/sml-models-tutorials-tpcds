@@ -295,7 +295,7 @@ aggregates:
       - name: Month of Year
         dimension: Date Dimensions
         relationships_path:
-          - store_sales_Date_Dimension_Sold_1
+          - store_sales_Date_Dimension_Sold
       - name: Calendar Year Week
         dimension: Date Dimensions
         partition: name
@@ -335,7 +335,7 @@ aggregates:
       - name: Product Category
         dimension: Product Dimension
         relationships_path:
-          - store_promotion_Product_Dimension_1
+          - store_promotion_Product_Dimension
     metrics:
       - Store Ext Sales Price by Promotion
     target_connection: Connection - TPCDS
@@ -799,17 +799,8 @@ relationships:
     from:
       dataset: store_promotion
       join_columns:
-        - p_item_sk
-    role_play: Promotion Product Item {0}
-    to:
-      dimension: Product Dimension
-      level: Product Dimension
-  - unique_name: store_promotion_Product_Dimension_1
-    from:
-      dataset: store_promotion
-      join_columns:
         - ss_item_sk
-    role_play: Store Item {0}
+    role_play: Store Promoted {0}
     to:
       dimension: Product Dimension
       level: Product Dimension
