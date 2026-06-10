@@ -1,6 +1,9 @@
 unique_name: Product Dimension
 object_type: dimension
 label: Product Dimension
+description: >-
+  This is the product dimension whose item is at the leaf level. Product
+  Dimension (Items) roll up into product. category.
 hierarchies:
   - unique_name: Product Dimension
     label: Product Dimension
@@ -12,7 +15,7 @@ hierarchies:
         secondary_attributes:
           - unique_name: Product Color
             label: Product Color
-            description: Item Color
+            description: Product Color
             dataset: item
             folder: Product Attributes
             key_columns:
@@ -21,7 +24,7 @@ hierarchies:
             sort_column: i_color
           - unique_name: Product Size
             label: Product Size
-            description: Item Size
+            description: Product Size
             dataset: item
             folder: Product Attributes
             key_columns:
@@ -30,7 +33,7 @@ hierarchies:
             sort_column: i_size
           - unique_name: Product Brand ID
             label: Product Brand ID
-            description: Item Brand ID
+            description: Product Brand ID
             dataset: item
             folder: Product Attributes
             key_columns:
@@ -39,7 +42,7 @@ hierarchies:
             sort_column: i_brand_id
           - unique_name: Product Brand Name
             label: Product Brand Name
-            description: Item Brand Name
+            description: Product Brand Name
             dataset: item
             folder: Product Attributes
             key_columns:
@@ -48,6 +51,7 @@ hierarchies:
             sort_column: i_brand_id
           - unique_name: Product Class ID
             label: Product Class ID
+            description: Product Class ID
             dataset: item
             folder: Product Attributes
             key_columns:
@@ -56,7 +60,7 @@ hierarchies:
             sort_column: i_class_id
           - unique_name: Product Class Name
             label: Product Class Name
-            description: Item Product Class Name
+            description: Product Class Name
             dataset: item
             folder: Product Attributes
             key_columns:
@@ -65,7 +69,7 @@ hierarchies:
             sort_column: i_class
           - unique_name: Product Current Price
             label: Product Current Price
-            description: item price
+            description: Product price
             dataset: item
             folder: Product Attributes
             key_columns:
@@ -74,6 +78,7 @@ hierarchies:
             sort_column: i_current_price
           - unique_name: Product Item ID
             label: Product Item ID
+            description: Product (item) ID
             dataset: item
             folder: Product Attributes
             key_columns:
@@ -82,6 +87,7 @@ hierarchies:
             sort_column: i_item_id
           - unique_name: Product Manager ID
             label: Product Manager ID
+            description: Product manager ID
             dataset: item
             folder: Product Attributes
             key_columns:
@@ -90,6 +96,7 @@ hierarchies:
             sort_column: i_manager_id
           - unique_name: Product Manufacturer ID
             label: Product Manufacturer ID
+            description: Product manufacturer ID
             dataset: item
             folder: Product Attributes
             key_columns:
@@ -98,7 +105,7 @@ hierarchies:
             sort_column: i_manufact_id
           - unique_name: Product Manufacturer Name
             label: Product Manufacturer Name
-            description: item Manufacturer name
+            description: Product manufacturer name
             dataset: item
             folder: Product Attributes
             key_columns:
@@ -107,7 +114,7 @@ hierarchies:
             sort_column: i_manager_id
           - unique_name: Item Product Name
             label: Item Product Name
-            description: the name of the product, the item name
+            description: Product (item) name
             contains_unique_names: false
             dataset: item
             is_unique_key: false
@@ -117,7 +124,7 @@ hierarchies:
 level_attributes:
   - unique_name: Product Category
     label: Product category
-    description: Item or Product Category Name
+    description: This is the product category.
     dataset: item
     key_columns:
       - i_category
