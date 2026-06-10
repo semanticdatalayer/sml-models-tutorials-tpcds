@@ -125,6 +125,10 @@ hierarchies:
         secondary_attributes:
           - unique_name: Quarter of Year
             label: Quarter of Year
+            description: >-
+              This is the calendar (Gregorian) quarter number (1,2,3,4). This
+              can be role-played with a sold, ship, returns, inventory, etc.
+              prefix.
             allowed_calcs_for_dma:
               - Lag
               - Siblings
@@ -139,6 +143,9 @@ hierarchies:
         secondary_attributes:
           - unique_name: Month Name
             label: Month Name
+            description: >-
+              This is the calendar (Gregorian) month name. This can be
+              role-played with a sold, ship, returns, inventory, etc. prefix.
             allowed_calcs_for_dma:
               - Lag
               - Siblings
@@ -151,6 +158,9 @@ hierarchies:
             sort_column: month_name
           - unique_name: Month of Year
             label: Month of Year
+            description: >-
+              This is the calendar (Gregorian) month number (1-12). This can be
+              role-played with a sold, ship, returns, inventory, etc. prefix.
             allowed_calcs_for_dma:
               - Lag
               - Siblings
@@ -163,6 +173,10 @@ hierarchies:
             sort_column: d_moy
           - unique_name: Month Sequence
             label: Month Sequence
+            description: >-
+              For the Gregorian calendar hierarchy, the sequential number of the
+              month within the year. This can be role-played with a sold, ship,
+              returns, inventory, etc. prefix.
             allowed_calcs_for_dma:
               - Lag
               - Siblings
@@ -189,6 +203,9 @@ hierarchies:
             sort_column: d_following_holiday
           - unique_name: Holiday Indicator
             label: Holiday Indicator
+            description: >-
+              Indicates whether the date falls on a holiday or not. This can be
+              role-played with a sold, ship, returns, inventory, etc. prefix.
             allowed_calcs_for_dma:
               - Lag
               - Siblings
@@ -201,6 +218,9 @@ hierarchies:
             sort_column: d_holiday
           - unique_name: Weekend Indicator
             label: Weekend Indicator
+            description: >-
+              Indicates whether the date falls on a weekend or not. This can be
+              role-played with a sold, ship, returns, inventory, etc. prefix.
             allowed_calcs_for_dma:
               - Lag
               - Siblings
@@ -213,6 +233,9 @@ hierarchies:
             sort_column: d_weekend
           - unique_name: Day Name
             label: Day Name
+            description: >-
+              This is the calendar (Gregorian) day name. This can be role-played
+              with a sold, ship, returns, inventory, etc. prefix.
             allowed_calcs_for_dma:
               - Lag
               - Siblings
@@ -225,6 +248,10 @@ hierarchies:
             sort_column: d_day_name
           - unique_name: Day of Week
             label: Day of Week
+            description: >-
+              For the Gregorian calendar hierarchy, the day of the week
+              represented as a number (1-7). This can be role-played with a
+              sold, ship, returns, inventory, etc. prefix.
             allowed_calcs_for_dma:
               - Lag
               - Siblings
@@ -237,6 +264,10 @@ hierarchies:
             sort_column: d_dow
   - unique_name: Date Week Hierarchy
     label: Date Week Hierarchy
+    description: >-
+      This is the calendar (Gregorian) date hierarchy for the date hierarchy
+      that has a week level in the rollup. This can be role-played with a sold,
+      ship, returns, inventory, etc. prefix.
     filter_empty: 'yes'
     folder: Date Attributes
     levels:
@@ -245,6 +276,9 @@ hierarchies:
         secondary_attributes:
           - unique_name: Week Sequence
             label: Week Sequence
+            description: >-
+              For the Gregorian calendar hierarchy, the sequential number of the
+              week within the year.
             allowed_calcs_for_dma:
               - Lag
               - Siblings
@@ -259,6 +293,10 @@ hierarchies:
         secondary_attributes:
           - unique_name: Day Name Week
             label: Day Name (Week)
+            description: >-
+              This is the calendar (Gregorian) day name for the hierarchy that
+              has a week level. This can be role-played with a sold, ship,
+              returns, inventory, etc. prefix.
             allowed_calcs_for_dma:
               - Lag
               - Siblings
@@ -272,6 +310,9 @@ hierarchies:
 level_attributes:
   - unique_name: Calendar Month
     label: Calendar Month
+    description: >-
+      This is the calendar (Gregorian) month level of the date hierarchy. This
+      can be role-played with a sold, ship, returns, inventory, etc. prefix.
     allowed_calcs_for_dma:
       - Lag
       - ParallelPeriod
@@ -306,6 +347,10 @@ level_attributes:
     time_unit: quarter
   - unique_name: Calendar Week
     label: Calendar Week
+    description: >-
+      This is the calendar (Gregorian) week level of the date hierarchy that has
+      a week level in the rollup. This can be role-played with a sold, ship,
+      returns, inventory, etc. prefix.
     allowed_calcs_for_dma:
       - Lag
       - ParallelPeriod
@@ -321,6 +366,10 @@ level_attributes:
     time_unit: week
   - unique_name: Calendar Year Week
     label: Calendar Year
+    description: >-
+      This is the calendar (Gregorian) year level of the date hierarchy that has
+      a week level in the rollup. This can be role-played with a sold, ship,
+      returns, inventory, etc. prefix.
     allowed_calcs_for_dma:
       - Lag
       - ParallelPeriod
@@ -354,6 +403,10 @@ level_attributes:
     time_unit: year
   - unique_name: Calendar Date Week
     label: Date
+    description: >-
+      This is the calendar (Gregorian) day level of the date hierarchy that has
+      a week level in the rollup. This can be role-played with a sold, ship,
+      returns, inventory, etc. prefix.
     allowed_calcs_for_dma:
       - Lag
       - ParallelPeriod
@@ -370,6 +423,9 @@ level_attributes:
     time_unit: day
   - unique_name: Calendar Date
     label: Date
+    description: >-
+      This is the calendar (Gregorian) day level of the date hierarchy. This can
+      be role-played with a sold, ship, returns, inventory, etc. prefix.
     allowed_calcs_for_dma:
       - Lag
       - ParallelPeriod
