@@ -1,6 +1,7 @@
 unique_name: Web Sales Increase
 object_type: metric_calc
 label: Web Sales Increase
+description: Web extended sales price increase. Use to compute web sales growth for week-over-week, month-over-month, quarter-over-quarter, year-over-year, etc.
 expression: "CASE WHEN ISEMPTY([Measures].[Web Ext Sales Price])\nTHEN NULL \n\
   ELSE \n([Sold Date Dimensions].[Sold Date Dimensions].CurrentMember, [Measures].[Web Ext Sales Price])\
   \ / ([Sold Date Dimensions].[Sold Date Dimensions].CurrentMember.PrevMember, [Measures].[Web Ext Sales Price])\n\
