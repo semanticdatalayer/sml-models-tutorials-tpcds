@@ -54,8 +54,8 @@ hierarchies:
           - unique_name: Marital Status
             label: Marital Status
             description: >-
-              Customer Marital Status. "M" if married, "S" if single, and "D" if
-              divorced.
+              Customer Marital Status. "M" if married, "S" if single, "W" if
+              widowed, "U" if unmarried, and "D" if divorced.
             dataset: customer_demographics
             folder: Customer Information
             key_columns:
@@ -64,8 +64,11 @@ hierarchies:
             sort_column: cd_marital_status
 level_attributes:
   - unique_name: Customer Demographics
-    description: "Customer demographic profile (gender, marital status, education, credit rating combination); one member per profile. Person-level, not Household Demographics."
     label: Customer Number
+    description: >-
+      Customer demographic profile (gender, marital status, education, credit
+      rating combination); one member per profile. Person-level, not Household
+      Demographics.
     dataset: customer_demographics
     is_unique_key: true
     key_columns:
