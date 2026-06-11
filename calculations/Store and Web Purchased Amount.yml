@@ -1,4 +1,5 @@
 unique_name: Store and Web Purchased Amount
 object_type: metric_calc
 label: Store and Web Purchased Amount
+description: "Combined customer purchase amount across store + web channels: Purchased Amount In Store + Purchased Amount On Web. Excludes catalog; comparison basis for Catalog Buyer."
 expression: "[Measures].[Purchased Amount In Store]+[Measures].[Purchased Amount On Web]"

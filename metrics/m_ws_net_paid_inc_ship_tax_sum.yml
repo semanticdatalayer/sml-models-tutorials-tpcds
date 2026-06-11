@@ -1,6 +1,7 @@
 unique_name: Web Net Paid Incl Tax and Ship
 object_type: metric
 label: Web Net Paid Incl Tax and Ship
+description: "Total net amount paid including both tax and shipping on web sales; the all-in paid amount. Contrast Incl Tax and Incl Ship variants."
 calculation_method: sum
 column: ws_net_paid_inc_ship_tax
 dataset: web_sales

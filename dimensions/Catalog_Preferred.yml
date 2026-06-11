@@ -17,6 +17,7 @@ hierarchies:
 level_attributes:
 
   - unique_name: Catalog Preferred
+    description: "True/false flag: customer bought more by catalog than store + web combined in a given sold year (catalog-preferring shopper). From the channel-preference analysis dataset."
     label: Catalog Preferred
     dataset: purchase_by_channel
     name_column: catalog_preferred

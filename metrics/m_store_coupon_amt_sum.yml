@@ -1,6 +1,7 @@
 unique_name: Store Coupon Amount
 object_type: metric
 label: Store Coupon Amount
+description: "Total coupon amount (coupon savings) applied to store sales. Contrast Average Store Sales Coupon Amount and Store Ext Discount Amount (markdowns)."
 calculation_method: sum
 dataset: store_sales
 column: ss_coupon_amt

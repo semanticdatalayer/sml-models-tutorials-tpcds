@@ -1,6 +1,7 @@
 unique_name: Store Net Profit
 object_type: metric
 label: Store Net Profit
+description: "Total net profit (net paid minus wholesale cost); store margin/earnings. Store channel, not Catalog/Web Net Profit."
 calculation_method: sum
 column: ss_net_profit
 dataset: store_sales

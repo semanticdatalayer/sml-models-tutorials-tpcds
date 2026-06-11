@@ -28,6 +28,7 @@ hierarchies:
       - unique_name: Fulfilling Warehouse
         secondary_attributes:
           - unique_name: Warehouse Name
+            description: "Name of the fulfilling warehouse. Warehouse, not Store Name."
             label: Warehouse Name
             dataset: warehouse
             folder: Fulfillment
@@ -46,12 +47,14 @@ hierarchies:
             sort_column: w_warehouse_sq_ft
 level_attributes:
   - unique_name: Fulfilling Warehouse
+    description: "Warehouse that fulfilled/shipped the order; one member per warehouse. See Warehouse Name. Distribution facility, not the Store."
     label: Warehouse Number
     dataset: warehouse
     key_columns:
       - w_warehouse_sk
     name_column: w_warehouse_sk
   - unique_name: Warehouse City
+    description: "City where the fulfilling warehouse is located. Warehouse geography, not Store City or Customer City."
     label: Warehouse City
     dataset: warehouse
     key_columns:

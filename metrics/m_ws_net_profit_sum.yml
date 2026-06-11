@@ -1,6 +1,7 @@
 unique_name: Web Net Profit
 object_type: metric
 label: Web Net Profit
+description: "Total net profit (net paid minus wholesale cost); web margin/earnings. Web channel, not Store/Catalog Net Profit."
 calculation_method: sum
 column: ws_net_profit
 dataset: web_sales

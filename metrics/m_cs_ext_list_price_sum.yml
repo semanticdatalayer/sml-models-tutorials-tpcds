@@ -1,6 +1,7 @@
 unique_name: Catalog Ext List Price
 object_type: metric
 label: Catalog Ext List Price
+description: "Total extended list price (quantity x pre-discount unit list price); gross undiscounted value of catalog sales. Contrast Catalog Ext Sales Price (post-discount)."
 calculation_method: sum
 dataset: catalog_sales
 column: cs_ext_list_price

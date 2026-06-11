@@ -1,4 +1,5 @@
 unique_name: Average Catalog Unit Net Profit
 object_type: metric_calc
 label: Average Catalog Unit Net Profit
+description: "Net profit per unit sold (unit margin): Catalog Net Profit Amount divided by Catalog Quantity Sold; currency per unit. Catalog channel, not Store/Web unit net profit."
 expression: "[Measures].[Catalog Net Profit Amount]/[Measures].[Catalog Quantity Sold]"

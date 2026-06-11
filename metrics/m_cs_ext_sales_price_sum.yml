@@ -1,6 +1,7 @@
 unique_name: Catalog Ext Sales Price
 object_type: metric
 label: Catalog Ext Sales Price
+description: "Total extended sales price (quantity x unit price after discounts); catalog sales revenue before tax/shipping. Catalog channel, not Store/Web."
 calculation_method: sum
 dataset: catalog_sales
 column: cs_ext_sales_price

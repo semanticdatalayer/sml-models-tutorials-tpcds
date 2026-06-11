@@ -1,6 +1,7 @@
 unique_name: Store Revenue Ratio by Product Class
 object_type: metric_calc
 label: Store Revenue Ratio by Product Class
+description: "Share of total / percent contribution: Store Ext Sales Price as a fraction of all product classes combined. Store channel revenue mix by product class."
 expression: "[Measures].[Store Ext Sales Price] / ([Product Dimension].[Product Class Name].[All],\
   \ [Measures].[Store Ext Sales Price])"
 format: percent

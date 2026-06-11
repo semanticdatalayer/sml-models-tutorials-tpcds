@@ -1,6 +1,7 @@
 unique_name: Average Ext Wholesale Cost
 object_type: metric
 label: Average Ext Wholesale Cost
+description: "Average extended wholesale cost (quantity x unit supplier cost) per store sales line. Contrast Store Ext Wholesale Cost (total)."
 calculation_method: average
 dataset: store_sales
 column: ss_ext_wholesale_cost

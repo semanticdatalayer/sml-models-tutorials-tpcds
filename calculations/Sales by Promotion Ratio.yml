@@ -1,4 +1,5 @@
 unique_name: Store Sales by Promotion Ratio
 object_type: metric_calc
 label: Store Sales by Promotion Ratio
+description: "Percent of store revenue from promoted sales: Store Ext Sales Price by Promotion / Store Ext Sales Price * 100; output 0-100."
 expression: "([Measures].[Store Ext Sales Price by Promotion]/ [Measures].[Store Ext Sales Price])*100"

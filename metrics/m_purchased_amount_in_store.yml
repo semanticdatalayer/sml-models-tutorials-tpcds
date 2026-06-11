@@ -1,6 +1,7 @@
 unique_name: Purchased Amount In Store
 object_type: metric
 label: Purchased Amount In Store
+description: "Customer purchase amount in the store channel per TPC-DS formula ((ext list - wholesale - discount) + ext sales price) / 2; basis for channel-preference analysis. Contrast Purchased Amount In Catalog / On Web."
 calculation_method: sum
 dataset: store_sales
 column: Purchased Amount in Store

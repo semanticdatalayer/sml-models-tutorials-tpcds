@@ -1,6 +1,7 @@
 unique_name: Catalog Sales Average Sales Price
 object_type: metric
 label: Catalog Sales Average Sales Price
+description: "Average per-unit price actually charged (post-discount) on catalog sales lines. Contrast Catalog Sales Average List Price (pre-discount)."
 calculation_method: average
 column: cs_sales_price
 dataset: catalog_sales

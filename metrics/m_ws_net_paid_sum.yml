@@ -1,6 +1,7 @@
 unique_name: Web Net Paid Amount
 object_type: metric
 label: Web Net Paid Amount
+description: "Total net amount customers paid on web sales, excluding tax and shipping. Contrast Incl Tax / Incl Ship variants and Web Sales Net Paid (quantity-extended)."
 calculation_method: sum
 column: ws_net_paid
 dataset: web_sales

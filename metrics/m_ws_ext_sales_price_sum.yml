@@ -1,6 +1,7 @@
 unique_name: Web Ext Sales Price
 object_type: metric
 label: Web Ext Sales Price
+description: "Total extended sales price (quantity x unit price after discounts); web sales revenue before tax/shipping. Web channel, not Store/Catalog."
 calculation_method: sum
 column: ws_ext_sales_price
 dataset: web_sales
