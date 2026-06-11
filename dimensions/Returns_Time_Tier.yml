@@ -17,6 +17,7 @@ hierarchies:
 level_attributes:
 
   - unique_name: Returns Time Tier
+    description: "Days between store sale and return, bucketed: '<= 30 days', '31-60 days', '61-90 days', '91-120 days', '> 120 days'. Return latency/aging."
     label: Returns Time Tier
     dataset: store_returns
     name_column: returns_time_tier

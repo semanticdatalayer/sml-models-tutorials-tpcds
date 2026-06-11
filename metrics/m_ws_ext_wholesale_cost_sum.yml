@@ -1,6 +1,7 @@
 unique_name: Web Ext Wholesale Cost
 object_type: metric
 label: Web Ext Wholesale Cost
+description: "Total extended wholesale cost (quantity x unit supplier cost) of web items sold; cost of goods / COGS. Web channel."
 calculation_method: sum
 column: ws_ext_wholesale_cost
 dataset: web_sales

@@ -1,6 +1,7 @@
 unique_name: Average Store Sales Coupon Amount
 object_type: metric
 label: Average Store Sales Coupon Amount
+description: "Average coupon amount applied per store sales line. Contrast Store Coupon Amount (total)."
 calculation_method: average
 dataset: store_sales
 column: ss_coupon_amt

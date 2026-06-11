@@ -1,6 +1,7 @@
 unique_name: Catalog Ext Discount Amount
 object_type: metric
 label: Catalog Ext Discount Amount
+description: "Total extended discount amount (quantity x unit discount; markdowns, price reductions) on catalog sales. Catalog channel, not Store/Web."
 calculation_method: sum
 dataset: catalog_sales
 column: cs_ext_discount_amt

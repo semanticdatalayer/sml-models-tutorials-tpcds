@@ -1,6 +1,7 @@
 unique_name: Store Net Paid Amount
 object_type: metric
 label: Store Net Paid Amount
+description: "Total net amount customers paid on store sales, excluding tax. Contrast Store Net Paid Incl Tax."
 calculation_method: sum
 column: ss_net_paid
 dataset: store_sales

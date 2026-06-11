@@ -1,6 +1,7 @@
 unique_name: Average Store Sales Quantity
 object_type: metric
 label: Average Store Sales Quantity
+description: "Average units sold per store sales line (line-item quantity). Contrast Store Quantity Sold (total units)."
 calculation_method: average
 column: ss_quantity
 dataset: store_sales

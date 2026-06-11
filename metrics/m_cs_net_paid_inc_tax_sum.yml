@@ -1,6 +1,7 @@
 unique_name: Catalog Net Paid Inc Tax Amount
 object_type: metric
 label: Catalog Net Paid Inc Tax Amount
+description: "Total net amount customers paid including tax (still excludes shipping) on catalog sales. Contrast Catalog Net Paid Amount (pre-tax)."
 calculation_method: sum
 dataset: catalog_sales
 column: cs_net_paid_inc_tax

@@ -1,6 +1,7 @@
 unique_name: Store Ext Discount Amount
 object_type: metric
 label: Store Ext Discount Amount
+description: "Total extended discount amount (quantity x unit discount; markdowns) on store sales. Store channel, not Catalog/Web."
 calculation_method: sum
 column: ss_ext_discount_amt
 dataset: store_sales

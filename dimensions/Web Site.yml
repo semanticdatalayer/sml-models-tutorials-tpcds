@@ -9,6 +9,7 @@ hierarchies:
 is_degenerate: true
 level_attributes:
   - unique_name: Web Site
+    description: "Web site / online storefront where the sale occurred. Web channel sales location, not a physical Store."
     label: Website ID
     dataset: web_sales
     key_columns:

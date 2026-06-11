@@ -17,6 +17,7 @@ hierarchies:
 level_attributes:
 
   - unique_name: Net Profit Tier
+    description: "Store sale net profit bucket, e.g. '0-50', '300-2000', 'More than 25000'; groups store sales by profitability. Contrast Sales Price Tier (price-based)."
     label: Net Profit Tier
     dataset: store_sales
     name_column: ss_net_profit_tier

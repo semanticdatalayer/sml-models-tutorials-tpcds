@@ -1,6 +1,7 @@
 unique_name: Avg Quarter Sales Ratio
 object_type: metric_calc
 label: Avg Quarter Sales Ratio
+description: "Absolute deviation ratio of Total Store Sales vs the fixed 1998-1999 quarterly average baseline (abs(actual - baseline) / baseline); always positive, ratio not percent. Pairs with Avg Quarterly Store Sales for 1998-1999."
 expression: "CASE WHEN ([Measures].[Total Store Sales] - [Measures].[Avg Quarterly Store Sales for 1998-1999]) < 0 THEN -1 * ([Measures].[Total Store Sales] -\
   \ [Measures].[Avg Quarterly Store Sales for 1998-1999]) ELSE ([Measures].[Total Store Sales]\
   \ - [Measures].[Avg Quarterly Store Sales for 1998-1999]) END \n/[Measures].[Avg Quarterly Store Sales for 1998-1999]"

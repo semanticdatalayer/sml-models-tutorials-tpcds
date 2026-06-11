@@ -1,6 +1,7 @@
 unique_name: Store Ext Sales Tax
 object_type: metric
 label: Store Ext Sales Tax
+description: "Total extended sales tax charged on store sales. Store channel, not Catalog/Web Ext Sales Tax."
 calculation_method: sum
 column: ss_ext_tax
 dataset: store_sales

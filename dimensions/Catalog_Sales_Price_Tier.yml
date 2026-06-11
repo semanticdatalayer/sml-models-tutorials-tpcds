@@ -17,6 +17,7 @@ hierarchies:
 level_attributes:
 
   - unique_name: Catalog Sales Price Tier
+    description: "Price band of catalog unit sales price: '500 or Less' vs 'More than 500'. Catalog channel, coarser than the store Sales Price Tier."
     label: Catalog sales price tier
     dataset: catalog_sales
     name_column: cs_catalog_sales_price_tier

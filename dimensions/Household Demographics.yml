@@ -10,6 +10,7 @@ hierarchies:
       - unique_name: Household Demographics
         secondary_attributes:
           - unique_name: Customer Buy Potential
+            description: "Household buying-potential band (purchasing power), e.g. '0-500', '501-1000', '>10000', 'Unknown'."
             label: Customer Buy Potential
             dataset: household_demographics
             folder: Household Demographics
@@ -18,6 +19,7 @@ hierarchies:
             name_column: hd_buy_potential
             sort_column: hd_buy_potential
           - unique_name: Household Dependents Count
+            description: "Number of dependents in the household. Household-level, not the customer-demographics dependent count."
             label: Household Dependents Count
             dataset: household_demographics
             folder: Household Demographics
@@ -26,6 +28,7 @@ hierarchies:
             name_column: hd_dep_count
             sort_column: hd_dep_count
           - unique_name: Vehicle Count
+            description: "Number of vehicles owned by the household."
             label: Vehicle Count
             dataset: household_demographics
             folder: Household Demographics
@@ -35,6 +38,7 @@ hierarchies:
             sort_column: hd_vehicle_count
 level_attributes:
   - unique_name: Household Demographics
+    description: "Household demographic profile (income band, buy potential, dependents, vehicles combination); one member per profile. Household-level, not Customer Demographics."
     label: Household Demographics
     dataset: household_demographics
     is_unique_key: true

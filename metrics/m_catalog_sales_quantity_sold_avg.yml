@@ -1,6 +1,7 @@
 unique_name: Catalog Sales Average Quantity Sold
 object_type: metric
 label: Catalog Sales Average Quantity Sold
+description: "Average units per catalog sales line. Contrast Catalog Quantity Sold (total units)."
 calculation_method: average
 column: cs_quantity
 dataset: catalog_sales

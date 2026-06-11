@@ -1,6 +1,7 @@
 unique_name: Catalog Net Profit Amount
 object_type: metric
 label: Catalog Net Profit Amount
+description: "Total net profit (net paid minus wholesale cost); catalog margin/earnings. Catalog channel, not Store/Web Net Profit."
 calculation_method: sum
 dataset: catalog_sales
 column: cs_net_profit

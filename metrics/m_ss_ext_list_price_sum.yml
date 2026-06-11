@@ -1,6 +1,7 @@
 unique_name: Store Ext List Price
 object_type: metric
 label: Store Ext List Price
+description: "Total extended list price (quantity x pre-discount unit list price); gross undiscounted value of store sales. Contrast Store Ext Sales Price (post-discount)."
 calculation_method: sum
 column: ss_ext_list_price
 dataset: store_sales

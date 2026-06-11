@@ -1,6 +1,7 @@
 unique_name: Catalog Ext Sales Tax
 object_type: metric
 label: Catalog Ext Sales Tax
+description: "Total extended sales tax charged on catalog sales. Catalog channel, not Store/Web Ext Sales Tax."
 calculation_method: sum
 dataset: catalog_sales
 column: cs_ext_tax

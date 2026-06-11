@@ -1,6 +1,7 @@
 unique_name: Web Customer Count
 object_type: metric
 label: Web Customer Count
+description: "Number of web sales rows with a billing customer (non-null count, not distinct customers); web buyer activity. Web channel, contrast Catalog Customer Count."
 calculation_method: count non-null
 column: ws_bill_customer_sk
 dataset: web_sales

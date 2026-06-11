@@ -1,4 +1,5 @@
 unique_name: Average Store Unit Net Profit
 object_type: metric_calc
 label: Average Store Unit Net Profit
+description: "Net profit per unit sold (unit margin): Store Net Profit divided by Store Quantity Sold; currency per unit. Store channel, not Catalog/Web unit net profit."
 expression: "[Measures].[Store Net Profit]/[Measures].[Store Quantity Sold]"

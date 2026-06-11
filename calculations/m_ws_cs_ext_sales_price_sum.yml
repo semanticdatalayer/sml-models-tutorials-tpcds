@@ -1,4 +1,5 @@
 unique_name: Web and Catalog Sales
 object_type: metric_calc
 label: Web and Catalog Sales
+description: "Combined extended sales revenue: Web Ext Sales Price + Catalog Ext Sales Price. Excludes store; contrast Catalog and Web Sales Net (net-paid based)."
 expression: "[Measures].[Web Ext Sales Price]+[Measures].[Catalog Ext Sales Price]"
