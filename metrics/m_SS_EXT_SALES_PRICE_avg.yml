@@ -1,6 +1,7 @@
 unique_name: Average Ext Sales Price
 object_type: metric
 label: Average Ext Sales Price
+description: "Average extended sales price (quantity x unit price after discounts) per store sales line; revenue per line item. Contrast Store Ext Sales Price (total)."
 calculation_method: average
 dataset: store_sales
 column: ss_ext_sales_price

@@ -1,4 +1,5 @@
 unique_name: Catalog Buyer
 object_type: metric_calc
 label: Catalog Buyer
+description: "Boolean flag: true when Purchased Amount In Catalog exceeds Store and Web Purchased Amount; customer prefers / buys predominantly by catalog."
 expression: "[Measures].[Purchased Amount In Catalog] > [Measures].[Store and Web Purchased Amount]"

@@ -1,6 +1,7 @@
 unique_name: Web Quantity Sold
 object_type: metric
 label: Web Quantity Sold
+description: "Total units/items sold through the web/online channel; sales volume. Not Store/Catalog Quantity Sold."
 calculation_method: sum
 column: ws_quantity
 dataset: web_sales

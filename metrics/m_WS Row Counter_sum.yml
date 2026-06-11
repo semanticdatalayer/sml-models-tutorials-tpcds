@@ -1,6 +1,7 @@
 unique_name: Web Sales Row Counter
 object_type: metric
 label: Web Sales Row Counter
+description: "Count of web sales line items / rows (each row counts 1); transaction line volume. Web channel, not Store/Catalog Row Counter."
 calculation_method: sum
 dataset: web_sales
 column: ws row counter

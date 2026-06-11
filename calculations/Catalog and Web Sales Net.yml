@@ -1,5 +1,6 @@
 unique_name: Catalog and Web Sales Net
 object_type: metric_calc
 label: Catalog and Web Sales Net
+description: "Combined net paid revenue: Catalog Sales Net Paid + Web Sales Net Paid. Excludes store channel; contrast Store and Web Purchased Amount."
 expression: '[Measures].[Catalog Sales Net Paid] + [Measures].[Web Sales Net Paid]'
 is_hidden: false

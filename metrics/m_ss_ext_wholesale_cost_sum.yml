@@ -1,6 +1,7 @@
 unique_name: Store Ext Wholesale Cost
 object_type: metric
 label: Store Ext Wholesale Cost
+description: "Total extended wholesale cost (quantity x unit supplier cost) of store items sold; cost of goods / COGS. Store channel."
 calculation_method: sum
 column: ss_ext_wholesale_cost
 dataset: store_sales

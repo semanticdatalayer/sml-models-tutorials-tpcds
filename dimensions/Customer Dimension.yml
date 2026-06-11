@@ -28,6 +28,7 @@ hierarchies:
             name_column: c_preferred_cust_flag
             sort_column: c_preferred_cust_flag
           - unique_name: Customer Email Address
+            description: "Customer email address (contact email). Customer's own, not a store or web site contact."
             label: Customer Email Address
             dataset: customer
             folder: Customer Information
@@ -36,6 +37,7 @@ hierarchies:
             name_column: c_email_address
             sort_column: c_email_address
           - unique_name: Customer First Name
+            description: "Customer first/given name. Pairs with Customer Last Name."
             label: Customer First Name
             dataset: customer
             folder: Customer Information
@@ -44,6 +46,7 @@ hierarchies:
             name_column: c_first_name
             sort_column: c_first_name
           - unique_name: Customer ID
+            description: "Customer business identifier (stable natural key string). Identifier attribute, not the surrogate-key level itself."
             label: Customer ID
             dataset: customer
             folder: Customer Information
@@ -52,6 +55,7 @@ hierarchies:
             name_column: c_customer_id
             sort_column: c_customer_id
           - unique_name: Customer Last Name
+            description: "Customer last/family name (surname). Pairs with Customer First Name."
             label: Customer Last Name
             dataset: customer
             folder: Customer Information
@@ -60,6 +64,7 @@ hierarchies:
             name_column: c_last_name
             sort_column: c_last_name
           - unique_name: Customer Login
+            description: "Customer web login/username for their online account. Not the email address."
             label: Customer Login
             dataset: customer
             folder: Customer Information
@@ -78,6 +83,7 @@ hierarchies:
             name_column: Customer Preferred Flag
 level_attributes:
   - unique_name: Customer Dimension
+    description: "Individual customer (person/shopper); one member per customer. See Customer ID for the business identifier and First/Last Name attributes."
     label: Customer Number
     dataset: customer
     is_unique_key: true

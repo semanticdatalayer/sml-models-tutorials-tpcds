@@ -1,6 +1,7 @@
 unique_name: Store Net Paid Incl Tax
 object_type: metric
 label: Store Net Paid Incl Tax
+description: "Total net amount customers paid including tax on store sales. Contrast Store Net Paid Amount (pre-tax)."
 calculation_method: sum
 column: ss_net_paid_inc_tax
 dataset: store_sales

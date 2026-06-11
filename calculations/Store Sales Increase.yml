@@ -1,6 +1,7 @@
 unique_name: Store Sales Increase
 object_type: metric_calc
 label: Store Sales Increase
+description: "Period-over-period ratio of Store Ext Sales Price vs the previous member of the Sold Date hierarchy (prior period, not prior year); NULL when current period is empty; greater than 1 means growth."
 expression: "CASE WHEN ISEMPTY([Measures].[Store Ext Sales Price])\nTHEN NULL \n\
   ELSE \n([Sold Date Dimensions].[Sold Date Dimensions].CurrentMember, [Measures].[Store Ext Sales Price])\
   \ / ([Sold Date Dimensions].[Sold Date Dimensions].CurrentMember.PrevMember, [Measures].[Store Ext Sales Price])\n\

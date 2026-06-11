@@ -1,6 +1,7 @@
 unique_name: Catalog Sales Net Paid
 object_type: metric
 label: Catalog Sales Net Paid
+description: "Catalog revenue: net paid per unit x quantity sold (excludes tax and shipping). Quantity-extended; differs from Catalog Net Paid Amount (sum of unit net paid only)."
 calculation_method: sum
 dataset: catalog_sales
 column: Catalog Sales Net Paid

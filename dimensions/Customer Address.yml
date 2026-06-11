@@ -56,6 +56,7 @@ hierarchies:
             sort_column: ca_zip
 level_attributes:
   - unique_name: Customer Address
+    description: "Individual customer address (street-level address ID); lowest level under Country/State/City. Customer address, not Store or Warehouse address."
     label: Customer Address
     dataset: customer_address
     is_unique_key: true

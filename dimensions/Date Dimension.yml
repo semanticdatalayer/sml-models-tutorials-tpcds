@@ -190,6 +190,7 @@ hierarchies:
       - unique_name: Calendar Date
         secondary_attributes:
           - unique_name: Following Holiday Indicator
+            description: "'Y'/'N' flag: the date is the day after a holiday. Applies per date role (Sold/Ship/Return); contrast the Holiday indicator (the holiday itself)."
             label: Following Holiday Indicator
             allowed_calcs_for_dma:
               - Lag

@@ -17,6 +17,7 @@ hierarchies:
 level_attributes:
 
   - unique_name: Store Sales Ticket Number
+    description: "Store receipt/ticket number grouping the line items of one checkout transaction (degenerate key). Store channel, not web/catalog order number."
     label: Store Sales Ticket Number
     dataset: store_sales
     name_column: ss_ticket_number
