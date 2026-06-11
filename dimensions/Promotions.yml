@@ -103,6 +103,7 @@ hierarchies:
             name_column: p_channel_tv
             sort_column: p_channel_tv
           - unique_name: Promotion Name
+            description: "Display name of the promotion/campaign. Promotion, see channel flags for media used."
             label: Promotion Name
             dataset: promotion
             folder: Promotion Attributes
@@ -125,6 +126,7 @@ hierarchies:
             sort_column: in_promotion
 level_attributes:
   - unique_name: Promotions
+    description: "Promotion/campaign applied to a sale; one member per promotion. See Promotion Name; channel flags (email, TV, direct mail) are separate attributes."
     label: Promotion SK
     dataset: promotion
     key_columns:

@@ -1,6 +1,7 @@
 unique_name: Catalog Ext Wholesale Cost
 object_type: metric
 label: Catalog Ext Wholesale Cost
+description: "Total extended wholesale cost (quantity x unit supplier cost) of catalog items sold; cost of goods / COGS. Catalog channel."
 calculation_method: sum
 dataset: catalog_sales
 column: cs_ext_wholesale_cost

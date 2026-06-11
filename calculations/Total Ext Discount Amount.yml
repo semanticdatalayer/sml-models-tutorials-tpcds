@@ -1,4 +1,5 @@
 unique_name: Total Ext Discount Amount
 object_type: metric_calc
 label: Total Ext Discount Amount
+description: "All-channel total discount: Store + Web + Catalog Ext Discount Amounts combined (markdowns across every channel)."
 expression: "[Measures].[Store Ext Discount Amount]+[Measures].[Web Ext Discount Amount]+[Measures].[Catalog Ext Discount Amount]"

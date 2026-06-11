@@ -1,6 +1,7 @@
 unique_name: Catalog Sales Price
 object_type: metric
 label: Catalog Sales Price
+description: "Total of per-unit sales price actually charged on catalog sales lines; not extended by quantity (see Catalog Ext Sales Price), not the average (see Catalog Sales Average Sales Price)."
 calculation_method: sum
 dataset: catalog_sales
 column: cs_sales_price

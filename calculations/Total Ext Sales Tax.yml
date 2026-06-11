@@ -1,4 +1,5 @@
 unique_name: Total Ext Sales Tax
 object_type: metric_calc
 label: Total Ext Sales Tax
+description: "All-channel total sales tax: Store + Web + Catalog Ext Sales Tax combined."
 expression: "[Measures].[Store Ext Sales Tax]+[Measures].[Web Ext Sales Tax]+ [Measures].[Catalog Ext Sales Tax]"

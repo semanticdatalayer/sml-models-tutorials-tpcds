@@ -1,6 +1,7 @@
 unique_name: Average Store Sales Sales Price
 object_type: metric
 label: Average Store Sales Sales Price
+description: "Average per-unit price actually charged (post-discount) on store sales lines. Contrast Average Store Sales List Price (pre-discount)."
 calculation_method: average
 dataset: store_sales
 column: ss_sales_price

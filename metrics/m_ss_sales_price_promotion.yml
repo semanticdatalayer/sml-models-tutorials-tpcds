@@ -1,6 +1,7 @@
 unique_name: Store Sales Price by Promotion
 object_type: metric
 label: Store Sales Price by Promotion
+description: "Total per-unit sales price on store sales lines that had a promotion applied (promoted sales only, via promotion join). Contrast metrics over all store sales."
 calculation_method: sum
 dataset: store_promotion
 column: ss_sales_price

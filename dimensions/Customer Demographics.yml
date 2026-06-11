@@ -64,6 +64,7 @@ hierarchies:
             sort_column: cd_marital_status
 level_attributes:
   - unique_name: Customer Demographics
+    description: "Customer demographic profile (gender, marital status, education, credit rating combination); one member per profile. Person-level, not Household Demographics."
     label: Customer Number
     dataset: customer_demographics
     is_unique_key: true

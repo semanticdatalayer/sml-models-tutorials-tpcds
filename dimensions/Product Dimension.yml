@@ -130,6 +130,7 @@ level_attributes:
       - i_category
     name_column: i_category
   - unique_name: Product Dimension
+    description: "Individual product/item identified by its description text; lowest level under Product Category. Item/SKU level."
     label: Product Item
     dataset: item
     is_unique_key: true

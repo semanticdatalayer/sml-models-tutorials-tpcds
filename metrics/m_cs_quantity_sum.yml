@@ -1,6 +1,7 @@
 unique_name: Catalog Quantity Sold
 object_type: metric
 label: Catalog Quantity Sold
+description: "Total units/items sold through the catalog channel; sales volume. Not Store/Web Quantity Sold."
 calculation_method: sum
 dataset: catalog_sales
 column: cs_quantity

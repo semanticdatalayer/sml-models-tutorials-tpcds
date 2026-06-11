@@ -16,6 +16,7 @@ hierarchies:
         secondary_attributes:
 
           - unique_name: Income Band Lower Bound
+            description: "Lowest annual income (USD) of the income band/bracket, e.g. 0, 60001. Pairs with Upper Bound."
             label: Income Band Lower Bound
             folder: Household Demographics
             dataset: income_band
@@ -25,6 +26,7 @@ hierarchies:
             sort_column: ib_lower_bound
 
           - unique_name: Income Band Upper Bound
+            description: "Highest annual income (USD) of the income band/bracket, e.g. 10000, 70000. Pairs with Lower Bound."
             label: Income Band Upper Bound
             folder: Household Demographics
             dataset: income_band
@@ -36,6 +38,7 @@ hierarchies:
 level_attributes:
 
   - unique_name: Income Band
+    description: "Household annual income band/bracket; see Lower/Upper Bound for the dollar range. Income range grouping, not Buy Potential."
     label: Income Band
     is_hidden: false
     is_unique_key: true

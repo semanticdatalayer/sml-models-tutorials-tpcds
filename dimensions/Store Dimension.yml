@@ -41,6 +41,7 @@ hierarchies:
         secondary_attributes:
 
           - unique_name: Store Floor Space
+            description: "Store floor space/size in square feet. Store size, not warehouse square footage."
             label: Store Floor Space
             folder: Store Attributes
             dataset: store
@@ -80,6 +81,7 @@ hierarchies:
             sort_column: s_number_employees
 
           - unique_name: Store Company ID
+            description: "Numeric ID of the company that owns the store. Company, not Division or Market."
             label: Store Company ID
             folder: Store Attributes
             dataset: store
@@ -89,6 +91,7 @@ hierarchies:
             sort_column: s_company_id
 
           - unique_name: Store GMT Offset
+            description: "GMT/UTC timezone offset of the store location (e.g. -5, -6). Store, not the customer-address GMT offset."
             label: Store GMT Offset
             folder: Store Attributes
             dataset: store
@@ -98,6 +101,7 @@ hierarchies:
             sort_column: s_gmt_offset
 
           - unique_name: Store Name
+            description: "Store display name. Store, not Warehouse Name; see Store Number for the key."
             label: Store Name
             folder: Store Attributes
             dataset: store
@@ -107,6 +111,7 @@ hierarchies:
             sort_column: s_store_name
 
           - unique_name: Store Street Name
+            description: "Street name of the store's address. Store address, not customer or warehouse street."
             label: Store Street Name
             folder: Store Attributes
             dataset: store
@@ -116,6 +121,7 @@ hierarchies:
             sort_column: s_street_name
 
           - unique_name: Store Street Number
+            description: "Street number of the store's address. Store address component."
             label: Store Street Number
             folder: Store Attributes
             dataset: store
@@ -125,6 +131,7 @@ hierarchies:
             sort_column: s_street_number
 
           - unique_name: Store Street Type
+            description: "Street type/suffix of the store's address (e.g. Blvd, Ct, Ave, Ln)."
             label: Store Street Type
             folder: store attributes
             dataset: store
@@ -134,6 +141,7 @@ hierarchies:
             sort_column: s_street_type
 
           - unique_name: Store Suite Number
+            description: "Suite number of the store's address (e.g. Suite 100)."
             label: Store Suite Number
             folder: Store Attributes
             dataset: store
@@ -143,6 +151,7 @@ hierarchies:
             sort_column: s_suite_number
 
           - unique_name: Store Zip Code
+            description: "ZIP / postal code of the store's address. Store, not Customer zip."
             label: Store Zip Code
             folder: Store Attributes
             dataset: store
@@ -154,6 +163,7 @@ hierarchies:
 level_attributes:
 
   - unique_name: Store City
+    description: "City where the store is located. Store geography, not Customer City or Warehouse City."
     label: Store City
     dataset: store
     name_column: s_city

@@ -17,6 +17,7 @@ hierarchies:
         secondary_attributes:
 
           - unique_name: Time AM or PM
+            description: "AM/PM half-day indicator of the transaction time of day."
             label: Time AM or PM
             folder: Time
             dataset: time_dim
@@ -30,6 +31,7 @@ hierarchies:
               - Siblings
 
           - unique_name: Hour
+            description: "Hour of day (0-23) of the transaction time. Time-of-day component, not a date part."
             label: Hour
             folder: Time
             dataset: time_dim
@@ -43,6 +45,7 @@ hierarchies:
               - Siblings
 
           - unique_name: Meal Time
+            description: "Meal period of the time of day (breakfast, lunch, dinner; empty outside meal hours)."
             label: Meal Time
             folder: Time
             dataset: time_dim
@@ -56,6 +59,7 @@ hierarchies:
               - Siblings
 
           - unique_name: Minute
+            description: "Minute (0-59) of the transaction time of day."
             label: Minute
             folder: Time
             dataset: time_dim
@@ -69,6 +73,7 @@ hierarchies:
               - Siblings
 
           - unique_name: Morning Time Tier
+            description: "Half-hour morning time bucket, e.g. '08:30 to 09:00', '10:30 to 11:00'; groups times for morning-traffic analysis."
             label: Morning Time Tier
             folder: Time
             dataset: time_dim
@@ -82,6 +87,7 @@ hierarchies:
               - Siblings
 
           - unique_name: Second
+            description: "Second (0-59) of the transaction time of day."
             label: Second
             folder: Time
             dataset: time_dim
@@ -95,6 +101,7 @@ hierarchies:
               - Siblings
 
           - unique_name: Time Sequence
+            description: "Time of day as seconds since midnight (0-86399); numeric sort key. Contrast Hour/Minute/Second components."
             label: Time Sequence
             folder: Time
             dataset: time_dim
@@ -110,6 +117,7 @@ hierarchies:
 level_attributes:
 
   - unique_name: Time SK
+    description: "Time of day (one member per second of the day) by time ID; lowest time-of-day grain. Role-played as Sold/Return Time; not the Date dimension."
     label: Time SK
     dataset: time_dim
     key_columns:
