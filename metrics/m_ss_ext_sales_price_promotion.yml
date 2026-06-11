@@ -1,8 +1,10 @@
 unique_name: Store Ext Sales Price by Promotion
 object_type: metric
 label: Store Extended Sales Price by Promotion
-description: Extended sale price for promoted products sold in stores only
+description: >-
+  Store Extended sale price for promoted products sold in stores only. Not sold
+  in web or catalog.
 calculation_method: sum
-unrelated_dimensions_handling: repeat
-dataset: store_promotion
 column: ss_ext_sales_price
+dataset: store_promotion
+unrelated_dimensions_handling: repeat
