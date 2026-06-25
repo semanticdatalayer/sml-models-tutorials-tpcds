@@ -98,6 +98,7 @@ relationships:
       join_columns:
         - c_current_addr_sk
       level: Customer Dimension
+    role_play: Current {0}
     to:
       dimension: Customer Address
       level: Customer Address

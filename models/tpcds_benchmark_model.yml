@@ -13,7 +13,7 @@ aggregates:
       - name: Customer State
         dimension: Customer Address
         relationships_path:
-          - Customer Dimension Customer Address
+          - store_sales_Customer_Address_Sold
       - name: Sales Price Tier
         dimension: Sales Price Tier
       - name: Education Status
@@ -21,7 +21,7 @@ aggregates:
       - name: Customer Country
         dimension: Customer Address
         relationships_path:
-          - Customer Dimension Customer Address
+          - store_sales_Customer_Address_Sold
       - name: Calendar Year Week
         dimension: Date Dimensions
         partition: name
@@ -41,11 +41,11 @@ aggregates:
       - name: Customer State
         dimension: Customer Address
         relationships_path:
-          - Customer Dimension Customer Address
+          - store_sales_Customer_Address_Sold
       - name: Customer Zip Code
         dimension: Customer Address
         relationships_path:
-          - Customer Dimension Customer Address
+          - store_sales_Customer_Address_Sold
       - name: Calendar Year
         dimension: Date Dimensions
         partition: name
@@ -265,7 +265,7 @@ aggregates:
       - name: Customer GMT Offset
         dimension: Customer Address
         relationships_path:
-          - Customer Dimension Customer Address
+          - store_sales_Customer_Address_Sold
       - name: Month of Year
         dimension: Date Dimensions
         relationships_path:
@@ -291,7 +291,7 @@ aggregates:
       - name: Customer GMT Offset
         dimension: Customer Address
         relationships_path:
-          - Customer Dimension Customer Address
+          - store_sales_Customer_Address_Sold
       - name: Month of Year
         dimension: Date Dimensions
         relationships_path:
@@ -321,7 +321,7 @@ aggregates:
       - name: Customer GMT Offset
         dimension: Customer Address
         relationships_path:
-          - Customer Dimension Customer Address
+          - store_sales_Customer_Address_Sold
       - name: Month of Year
         dimension: Date Dimensions
         relationships_path:
@@ -759,6 +759,7 @@ relationships:
       dataset: store_promotion
       join_columns:
         - ss_addr_sk
+    role_play: Sold {0}
     to:
       dimension: Customer Address
       level: Customer Address
@@ -800,7 +801,6 @@ relationships:
       dataset: store_promotion
       join_columns:
         - ss_item_sk
-    role_play: Store Promoted {0}
     to:
       dimension: Product Dimension
       level: Product Dimension
