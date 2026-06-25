@@ -801,6 +801,7 @@ relationships:
       dataset: store_promotion
       join_columns:
         - ss_item_sk
+    role_play: Store Promoted {0}
     to:
       dimension: Product Dimension
       level: Product Dimension
