@@ -41,11 +41,11 @@ aggregates:
       - name: Customer State
         dimension: Customer Address
         relationships_path:
-          - store_sales_Customer_Address_Sold
+          - catalog_sales_Customer_Address_Sold
       - name: Customer Zip Code
         dimension: Customer Address
         relationships_path:
-          - store_sales_Customer_Address_Sold
+          - catalog_sales_Customer_Address_Sold
       - name: Calendar Year
         dimension: Date Dimensions
         partition: name
@@ -321,7 +321,7 @@ aggregates:
       - name: Customer GMT Offset
         dimension: Customer Address
         relationships_path:
-          - store_sales_Customer_Address_Sold
+          - store_promotion_Customer_Address
       - name: Month of Year
         dimension: Date Dimensions
         relationships_path:
