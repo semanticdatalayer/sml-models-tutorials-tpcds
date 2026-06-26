@@ -60,8 +60,8 @@ aggregates:
     metrics:
       - Catalog Sales Price
     target_connection: Connection - TPCDS
-  - unique_name: Q2
-    label: Q2
+  - unique_name: Q2-Web
+    label: Q2-Web
     attributes:
       - name: Calendar Week
         dimension: Date Dimensions
@@ -81,7 +81,30 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
     metrics:
-      - Web and Catalog Sales Price Growth
+      - Web Ext Sales Price
+    target_connection: Connection - TPCDS
+  - unique_name: Q2-Catalog
+    label: Q2-Catalog
+    attributes:
+      - name: Calendar Week
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: Day Name Week
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: Week Sequence
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: Calendar Year Week
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+    metrics:
+      - Catalog Ext Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q31-Store
     label: Q31-Store
@@ -267,7 +290,6 @@ aggregates:
         dimension: Store Dimension
       - name: Calendar Year Week
         dimension: Date Dimensions
-        partition: name
         relationships_path:
           - store_returns_Date_Dimension_Return
       - name: Store State
@@ -453,8 +475,8 @@ aggregates:
     metrics:
       - Store Ext Sales Price by Promotion
     target_connection: Connection - TPCDS
-  - unique_name: Q7-Q26
-    label: Q7-Q26
+  - unique_name: Q7-Q26-Catalog
+    label: Q7-Q26-Catalog
     attributes:
       - name: Marital Status
         dimension: Customer Demographics
@@ -475,13 +497,35 @@ aggregates:
         dimension: Promotions
     metrics:
       - Catalog Sales Average Coupon Amount
-      - Average Store Sales Sales Price
       - Catalog Sales Average Quantity Sold
+      - Catalog Sales Average List Price
+      - Catalog Sales Average Sales Price
+    target_connection: Connection - TPCDS
+  - unique_name: Q7-Q26-Store
+    label: Q7-Q26-Store
+    attributes:
+      - name: Marital Status
+        dimension: Customer Demographics
+      - name: Calendar Year
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Product Item ID
+        dimension: Product Dimension
+      - name: Education Status
+        dimension: Customer Demographics
+      - name: Channel Event
+        dimension: Promotions
+      - name: Gender
+        dimension: Customer Demographics
+      - name: Channel Email
+        dimension: Promotions
+    metrics:
+      - Average Store Sales Sales Price
       - Average Store Sales Coupon Amount
       - Average Store Sales Quantity
       - Average Store Sales List Price
-      - Catalog Sales Average List Price
-      - Catalog Sales Average Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q88
     label: Q88
