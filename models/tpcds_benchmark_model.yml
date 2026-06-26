@@ -83,8 +83,8 @@ aggregates:
     metrics:
       - Web and Catalog Sales Price Growth
     target_connection: Connection - TPCDS
-  - unique_name: Q31
-    label: Q31
+  - unique_name: Q31-Store
+    label: Q31-Store
     attributes:
       - name: Calendar Quarter
         dimension: Date Dimensions
@@ -100,11 +100,29 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
     metrics:
-      - Web Sales Increase
       - Store Sales Increase
     target_connection: Connection - TPCDS
-  - unique_name: Q33
-    label: Q33
+  - unique_name: Q31-Web
+    label: Q31-Web
+    attributes:
+      - name: Calendar Quarter
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Customer County
+        dimension: Customer Address
+        relationships_path:
+          - web_sales_Customer_Address_Sold
+      - name: Calendar Year Week
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+    metrics:
+      - Web Sales Increase
+    target_connection: Connection - TPCDS
+  - unique_name: Q33-Store
+    label: Q33-Store
     attributes:
       - name: Customer GMT Offset
         dimension: Customer Address
@@ -124,7 +142,53 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
     metrics:
-      - Total Ext Sales Price
+      - Store Ext Sales Price
+    target_connection: Connection - TPCDS
+  - unique_name: Q33-Catalog
+    label: Q33-Catalog
+    attributes:
+      - name: Customer GMT Offset
+        dimension: Customer Address
+        relationships_path:
+          - catalog_sales_Customer_Address_Sold
+      - name: Month of Year
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Product Category
+        dimension: Product Dimension
+      - name: Product Manufacturer ID
+        dimension: Product Dimension
+      - name: Calendar Year Week
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+    metrics:
+      - Catalog Ext Sales Price
+    target_connection: Connection - TPCDS
+  - unique_name: Q33-Web
+    label: Q33-Web
+    attributes:
+      - name: Customer GMT Offset
+        dimension: Customer Address
+        relationships_path:
+          - web_sales_Customer_Address_Sold
+      - name: Month of Year
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Product Category
+        dimension: Product Dimension
+      - name: Product Manufacturer ID
+        dimension: Product Dimension
+      - name: Calendar Year Week
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+    metrics:
+      - Web Ext Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q42
     label: Q42
@@ -252,8 +316,8 @@ aggregates:
       - Avg Quarter Sales Ratio
       - Store Ext Sales Price
     target_connection: Connection - TPCDS
-  - unique_name: Q56-Q60
-    label: Q56-Q60
+  - unique_name: Q56-Q60-Store
+    label: Q56-Q60-Store
     attributes:
       - name: Calendar Year
         dimension: Date Dimensions
@@ -275,7 +339,57 @@ aggregates:
       - name: Product Color
         dimension: Product Dimension
     metrics:
-      - Total Ext Sales Price
+      - Store Ext Sales Price
+    target_connection: Connection - TPCDS
+  - unique_name: Q56-Q60-Catalog
+    label: Q56-Q60-Catalog
+    attributes:
+      - name: Calendar Year
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Product Item ID
+        dimension: Product Dimension
+      - name: Customer GMT Offset
+        dimension: Customer Address
+        relationships_path:
+          - catalog_sales_Customer_Address_Sold
+      - name: Month of Year
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Product Category
+        dimension: Product Dimension
+      - name: Product Color
+        dimension: Product Dimension
+    metrics:
+      - Catalog Ext Sales Price
+    target_connection: Connection - TPCDS
+  - unique_name: Q56-Q60-Web
+    label: Q56-Q60-Web
+    attributes:
+      - name: Calendar Year
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Product Item ID
+        dimension: Product Dimension
+      - name: Customer GMT Offset
+        dimension: Customer Address
+        relationships_path:
+          - web_sales_Customer_Address_Sold
+      - name: Month of Year
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Product Category
+        dimension: Product Dimension
+      - name: Product Color
+        dimension: Product Dimension
+    metrics:
+      - Web Ext Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q61-1
     label: Q61 - Store Sales
