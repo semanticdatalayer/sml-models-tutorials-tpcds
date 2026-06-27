@@ -81,8 +81,7 @@ aggregates:
         relationships_path:
           - store_sales_Date_Dimension_Sold
     metrics:
-      - Web Ext Sales Price
-      - Catalog Ext Sales Price
+      - Web and Catalog Sales Price Growth
     target_connection: Connection - TPCDS
   - unique_name: Q31-Store
     label: Q31-Store
