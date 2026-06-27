@@ -67,7 +67,7 @@ aggregates:
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold
-      - name: Day Name Week
+      - name: Day of Week
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold
