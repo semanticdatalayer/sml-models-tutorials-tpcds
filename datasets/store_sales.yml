@@ -7,7 +7,8 @@ table: store_sales
 columns:
   - name: ss_net_profit_tier
     data_type: string
-    sql: "CASE WHEN ss_net_profit > 25000 THEN 'More than 25000' 
+    sql: "CASE WHEN ss_net_profit IS NULL THEN NULL
+            WHEN ss_net_profit > 25000 THEN 'More than 25000'
             WHEN ss_net_profit BETWEEN 3000 AND 25000 THEN '3000-25000'
             WHEN ss_net_profit BETWEEN 2000 AND 3000 THEN '2000-3000'  
             WHEN ss_net_profit BETWEEN 300 AND 2000 THEN '300-2000'  
@@ -21,7 +22,8 @@ columns:
             END"
     dialects:
       - dialect: Snowflake
-        sql: "CASE WHEN \"ss_net_profit\" > 25000 THEN 'More than 25000' 
+        sql: "CASE WHEN \"ss_net_profit\" IS NULL THEN NULL
+        WHEN \"ss_net_profit\" > 25000 THEN 'More than 25000'
         WHEN \"ss_net_profit\" BETWEEN 3000 AND 25000 THEN '3000-25000'
         WHEN \"ss_net_profit\" BETWEEN 2000 AND 3000 THEN '2000-3000'  
         WHEN \"ss_net_profit\" BETWEEN 300 AND 2000 THEN '300-2000'  
@@ -41,14 +43,16 @@ columns:
         sql: "((\"ss_ext_list_price\"-\"ss_ext_wholesale_cost\"-\"ss_ext_discount_amt\")+\"ss_ext_sales_price\")/2"
   - name: sales price tier
     data_type: string
-    sql: "CASE WHEN ss_sales_price > 200 THEN '200 and More' 
+    sql: "CASE WHEN ss_sales_price IS NULL THEN NULL
+            WHEN ss_sales_price > 200 THEN '200 and More'
             WHEN ss_sales_price BETWEEN 150 AND 200 THEN '150-200' 
             WHEN ss_sales_price BETWEEN 100 AND 150 THEN '100-150' 
             WHEN ss_sales_price BETWEEN 50 AND 100 THEN ' 50-100'
             ELSE ' 50 and Less' END"
     dialects:
       - dialect: Snowflake
-        sql: "CASE WHEN \"ss_sales_price\" > 200 THEN '200 and More' 
+        sql: "CASE WHEN \"ss_sales_price\" IS NULL THEN NULL
+        WHEN \"ss_sales_price\" > 200 THEN '200 and More'
         WHEN \"ss_sales_price\" BETWEEN 150 AND 200 THEN '150-200' 
         WHEN \"ss_sales_price\" BETWEEN 100 AND 150 THEN '100-150' 
         WHEN \"ss_sales_price\" BETWEEN 50 AND 100 THEN ' 50-100'
