@@ -3,6 +3,81 @@ object_type: model
 label: TPC-DS Benchmark Model
 description: The TPC-DS model is based on an industry-standard decision support benchmark that models a large retail business. It uses a rich star-schema–based data model with multiple fact tables and shared dimensions to represent sales, inventory, and customer activity across channels (store, catalog, and web), and is designed to evaluate the performance of complex analytical queries, reporting, and data warehousing systems.
 aggregates:
+  - unique_name: Q2
+    label: Q2
+    attributes:
+      - name: Calendar Week
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: Day of Week
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: Week Sequence
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: Calendar Year Week
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+    metrics:
+      - Web and Catalog Sales Price Growth
+    target_connection: Connection - TPCDS
+  - unique_name: Q7-Q26-Catalog
+    label: Q7-Q26-Catalog
+    attributes:
+      - name: Marital Status
+        dimension: Customer Demographics
+      - name: Calendar Year
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Product Item ID
+        dimension: Product Dimension
+      - name: Education Status
+        dimension: Customer Demographics
+      - name: Channel Event
+        dimension: Promotions
+      - name: Gender
+        dimension: Customer Demographics
+      - name: Channel Email
+        dimension: Promotions
+    metrics:
+      - Catalog Sales Average Coupon Amount
+      - Catalog Sales Average Quantity Sold
+      - Catalog Sales Average List Price
+      - Catalog Sales Average Sales Price
+    target_connection: Connection - TPCDS
+  - unique_name: Q7-Q26-Store
+    label: Q7-Q26-Store
+    attributes:
+      - name: Marital Status
+        dimension: Customer Demographics
+      - name: Calendar Year
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Product Item ID
+        dimension: Product Dimension
+      - name: Education Status
+        dimension: Customer Demographics
+      - name: Channel Event
+        dimension: Promotions
+      - name: Gender
+        dimension: Customer Demographics
+      - name: Channel Email
+        dimension: Promotions
+    metrics:
+      - Average Store Sales Sales Price
+      - Average Store Sales Coupon Amount
+      - Average Store Sales Quantity
+      - Average Store Sales List Price
+    target_connection: Connection - TPCDS
   - unique_name: Q13
     label: Q13
     attributes:
@@ -59,29 +134,6 @@ aggregates:
           - store_sales_Date_Dimension_Sold_1
     metrics:
       - Catalog Sales Price
-    target_connection: Connection - TPCDS
-  - unique_name: Q2
-    label: Q2
-    attributes:
-      - name: Calendar Week
-        dimension: Date Dimensions
-        relationships_path:
-          - store_sales_Date_Dimension_Sold
-      - name: Day of Week
-        dimension: Date Dimensions
-        relationships_path:
-          - store_sales_Date_Dimension_Sold
-      - name: Week Sequence
-        dimension: Date Dimensions
-        relationships_path:
-          - store_sales_Date_Dimension_Sold
-      - name: Calendar Year Week
-        dimension: Date Dimensions
-        partition: name
-        relationships_path:
-          - store_sales_Date_Dimension_Sold
-    metrics:
-      - Web and Catalog Sales Price Growth
     target_connection: Connection - TPCDS
   - unique_name: Q31-Store
     label: Q31-Store
@@ -366,7 +418,7 @@ aggregates:
     metrics:
       - Web Ext Sales Price
     target_connection: Connection - TPCDS
-  - unique_name: Q61-1
+  - unique_name: Q61-Store
     label: Q61 - Store Sales
     attributes:
       - name: Channel Direct Mail
@@ -396,7 +448,7 @@ aggregates:
     metrics:
       - Store Ext Sales Price
     target_connection: Connection - TPCDS
-  - unique_name: Q61-2
+  - unique_name: Q61-Promotion
     label: Q61 - Store Promotion
     attributes:
       - name: Channel Direct Mail
@@ -428,58 +480,6 @@ aggregates:
     metrics:
       - Store Ext Sales Price by Promotion
     target_connection: Connection - TPCDS
-  - unique_name: Q7-Q26-Catalog
-    label: Q7-Q26-Catalog
-    attributes:
-      - name: Marital Status
-        dimension: Customer Demographics
-      - name: Calendar Year
-        dimension: Date Dimensions
-        partition: name
-        relationships_path:
-          - store_sales_Date_Dimension_Sold_1
-      - name: Product Item ID
-        dimension: Product Dimension
-      - name: Education Status
-        dimension: Customer Demographics
-      - name: Channel Event
-        dimension: Promotions
-      - name: Gender
-        dimension: Customer Demographics
-      - name: Channel Email
-        dimension: Promotions
-    metrics:
-      - Catalog Sales Average Coupon Amount
-      - Catalog Sales Average Quantity Sold
-      - Catalog Sales Average List Price
-      - Catalog Sales Average Sales Price
-    target_connection: Connection - TPCDS
-  - unique_name: Q7-Q26-Store
-    label: Q7-Q26-Store
-    attributes:
-      - name: Marital Status
-        dimension: Customer Demographics
-      - name: Calendar Year
-        dimension: Date Dimensions
-        partition: name
-        relationships_path:
-          - store_sales_Date_Dimension_Sold_1
-      - name: Product Item ID
-        dimension: Product Dimension
-      - name: Education Status
-        dimension: Customer Demographics
-      - name: Channel Event
-        dimension: Promotions
-      - name: Gender
-        dimension: Customer Demographics
-      - name: Channel Email
-        dimension: Promotions
-    metrics:
-      - Average Store Sales Sales Price
-      - Average Store Sales Coupon Amount
-      - Average Store Sales Quantity
-      - Average Store Sales List Price
-    target_connection: Connection - TPCDS
   - unique_name: Q71-Store
     label: Q71-Store
     attributes:
@@ -497,7 +497,7 @@ aggregates:
       - name: Month of Year
         dimension: Date Dimensions
         relationships_path:
-          - store_sales_Date_Dimension_Sold_1
+          - store_sales_Date_Dimension_Sold
       - name: Hour
         dimension: Time Dimension
         relationships_path:
@@ -526,11 +526,11 @@ aggregates:
         dimension: Date Dimensions
         partition: name
         relationships_path:
-          - store_sales_Date_Dimension_Sold
+          - catalog_sales_Date_Dimension_Sold
       - name: Month of Year
         dimension: Date Dimensions
         relationships_path:
-          - store_sales_Date_Dimension_Sold_1
+          - catalog_sales_Date_Dimension_Sold
       - name: Hour
         dimension: Time Dimension
         relationships_path:
@@ -559,11 +559,11 @@ aggregates:
         dimension: Date Dimensions
         partition: name
         relationships_path:
-          - store_sales_Date_Dimension_Sold
+          - web_sales_Date_Dimension_Sold
       - name: Month of Year
         dimension: Date Dimensions
         relationships_path:
-          - store_sales_Date_Dimension_Sold_1
+          - web_sales_Date_Dimension_Sold
       - name: Hour
         dimension: Time Dimension
         relationships_path:
@@ -578,22 +578,6 @@ aggregates:
           - web_sales_Time_Dimension_Sold
     metrics:
       - Web Ext Sales Price
-    target_connection: Connection - TPCDS
-  - unique_name: Q98
-    label: Q71-Q98-Store
-    attributes:
-      - name: Product Dimension
-        dimension: Product Dimension
-      - name: Calendar Date
-        dimension: Date Dimensions
-        relationships_path:
-          - store_sales_Date_Dimension_Sold_1
-      - name: Hour
-        dimension: Time Dimension
-        relationships_path:
-          - store_sales_Time_Dimension_Sold
-    metrics:
-      - Store Ext Sales Price
     target_connection: Connection - TPCDS
   - unique_name: Q88
     label: Q88
@@ -629,6 +613,22 @@ aggregates:
         dimension: Store Dimension
     metrics:
       - Store Sales Row Counter
+    target_connection: Connection - TPCDS
+  - unique_name: Q98
+    label: Q98
+    attributes:
+      - name: Product Dimension
+        dimension: Product Dimension
+      - name: Calendar Date
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Hour
+        dimension: Time Dimension
+        relationships_path:
+          - store_sales_Time_Dimension_Sold
+    metrics:
+      - Store Ext Sales Price
     target_connection: Connection - TPCDS
 dimensions:
   - Catalog Preferred
