@@ -239,38 +239,14 @@ aggregates:
   - unique_name: Q50
     label: Q50
     attributes:
-      - name: Store Zip Code
-        dimension: Store Dimension
-      - name: Store Country
-        dimension: Store Dimension
-      - name: Store Street Type
-        dimension: Store Dimension
-      - name: Store City
-        dimension: Store Dimension
-      - name: Month of Year
-        dimension: Date Dimensions
-        relationships_path:
-          - store_returns_Date_Dimension_Return_1
-      - name: Store Company ID
-        dimension: Store Dimension
       - name: Returns Time Tier
         dimension: Returns Time Tier
-      - name: Store Name
+      - name: Store Number
         dimension: Store Dimension
-      - name: Store Street Number
-        dimension: Store Dimension
-      - name: Store Street Name
-        dimension: Store Dimension
-      - name: Store County
-        dimension: Store Dimension
-      - name: Store Suite Number
-        dimension: Store Dimension
-      - name: Calendar Year Week
+      - name: Calendar Date
         dimension: Date Dimensions
         relationships_path:
           - store_returns_Date_Dimension_Return
-      - name: Store State
-        dimension: Store Dimension
     metrics:
       - Store Returns Count
     target_connection: Connection - TPCDS
@@ -1075,7 +1051,7 @@ relationships:
     role_play: Return {0}
     to:
       dimension: Date Dimensions
-      level: Calendar Date Week
+      level: Calendar Date
   - unique_name: store_returns_Time_Dimension_Return
     from:
       dataset: store_returns
@@ -1094,15 +1070,6 @@ relationships:
     to:
       dimension: Customer Address
       level: Customer Address
-  - unique_name: store_returns_Date_Dimension_Return_1
-    from:
-      dataset: store_returns
-      join_columns:
-        - sr_returned_date_sk
-    role_play: Return {0}
-    to:
-      dimension: Date Dimensions
-      level: Calendar Date
   - unique_name: store_returns_Customer_Demographics
     from:
       dataset: store_returns
