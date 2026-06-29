@@ -480,6 +480,105 @@ aggregates:
       - Average Store Sales Quantity
       - Average Store Sales List Price
     target_connection: Connection - TPCDS
+  - unique_name: Q71-Store
+    label: Q71-Store
+    attributes:
+      - name: Product Brand ID
+        dimension: Product Dimension
+      - name: Product Brand Name
+        dimension: Product Dimension
+      - name: Product Manager ID
+        dimension: Product Dimension
+      - name: Calendar Year
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: Month of Year
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Hour
+        dimension: Time Dimension
+        relationships_path:
+          - store_sales_Time_Dimension_Sold
+      - name: Minute
+        dimension: Time Dimension
+        relationships_path:
+          - store_sales_Time_Dimension_Sold
+      - name: Meal Time
+        dimension: Time Dimension
+        relationships_path:
+          - store_sales_Time_Dimension_Sold
+    metrics:
+      - Store Ext Sales Price
+    target_connection: Connection - TPCDS
+  - unique_name: Q71-Catalog
+    label: Q71-Catalog
+    attributes:
+      - name: Product Brand ID
+        dimension: Product Dimension
+      - name: Product Brand Name
+        dimension: Product Dimension
+      - name: Product Manager ID
+        dimension: Product Dimension
+      - name: Calendar Year
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: Month of Year
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Hour
+        dimension: Time Dimension
+        relationships_path:
+          - catalog_sales_Time_Dimension_Sold
+      - name: Minute
+        dimension: Time Dimension
+        relationships_path:
+          - catalog_sales_Time_Dimension_Sold
+      - name: Meal Time
+        dimension: Time Dimension
+        relationships_path:
+          - catalog_sales_Time_Dimension_Sold
+    metrics:
+      - Catalog Ext Sales Price
+    target_connection: Connection - TPCDS
+  - unique_name: Q71-Web
+    label: Q71-Web
+    attributes:
+      - name: Product Brand ID
+        dimension: Product Dimension
+      - name: Product Brand Name
+        dimension: Product Dimension
+      - name: Product Manager ID
+        dimension: Product Dimension
+      - name: Calendar Year
+        dimension: Date Dimensions
+        partition: name
+        relationships_path:
+          - store_sales_Date_Dimension_Sold
+      - name: Month of Year
+        dimension: Date Dimensions
+        relationships_path:
+          - store_sales_Date_Dimension_Sold_1
+      - name: Hour
+        dimension: Time Dimension
+        relationships_path:
+          - web_sales_Time_Dimension_Sold
+      - name: Minute
+        dimension: Time Dimension
+        relationships_path:
+          - web_sales_Time_Dimension_Sold
+      - name: Meal Time
+        dimension: Time Dimension
+        relationships_path:
+          - web_sales_Time_Dimension_Sold
+    metrics:
+      - Web Ext Sales Price
+    target_connection: Connection - TPCDS
   - unique_name: Q98
     label: Q71-Q98-Store
     attributes:
