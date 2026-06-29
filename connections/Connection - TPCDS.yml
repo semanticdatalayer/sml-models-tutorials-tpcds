@@ -2,5 +2,5 @@ unique_name: Connection - TPCDS
 label: Connection - TPCDS
 object_type: connection
 as_connection: Databricks
-database: atscale_tutorial_data
-schema: tpcds
+database: tpcds10t
+schema: tpcds10t
