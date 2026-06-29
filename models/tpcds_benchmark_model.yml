@@ -480,38 +480,16 @@ aggregates:
       - Average Store Sales Quantity
       - Average Store Sales List Price
     target_connection: Connection - TPCDS
-  - unique_name: Q71-Q98-Store
+  - unique_name: Q98
     label: Q71-Q98-Store
     attributes:
-      - name: Product Item ID
-        dimension: Product Dimension
       - name: Product Dimension
-        dimension: Product Dimension
-      - name: Product Category
-        dimension: Product Dimension
-      - name: Product Class Name
-        dimension: Product Dimension
-      - name: Product Current Price
-        dimension: Product Dimension
-      - name: Product Brand ID
-        dimension: Product Dimension
-      - name: Product Brand Name
-        dimension: Product Dimension
-      - name: Product Manager ID
         dimension: Product Dimension
       - name: Calendar Date
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
       - name: Hour
-        dimension: Time Dimension
-        relationships_path:
-          - store_sales_Time_Dimension_Sold
-      - name: Minute
-        dimension: Time Dimension
-        relationships_path:
-          - store_sales_Time_Dimension_Sold
-      - name: Meal Time
         dimension: Time Dimension
         relationships_path:
           - store_sales_Time_Dimension_Sold
