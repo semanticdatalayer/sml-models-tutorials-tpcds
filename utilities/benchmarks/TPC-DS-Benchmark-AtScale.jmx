@@ -160,7 +160,7 @@ FROM
   ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
   (
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; IN (2000, 2001)
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; IN (2000, 2001)
   )
 GROUP BY 1,2,3</stringProp>
           <stringProp name="queryArguments"></stringProp>
@@ -226,7 +226,7 @@ SELECT
 FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 2001
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 2001
 AND ( (
             &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;4 yr Degree&apos;
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;S&apos;
@@ -402,7 +402,7 @@ FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; = &apos;Electronics&apos;
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 1999
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1999
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer GMT Offset&quot; = -5.00
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 7
 GROUP BY 1
@@ -427,7 +427,7 @@ LIMIT 100</stringProp>
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 42
 SELECT
-  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; AS &quot;sold_calendar_year_week&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; AS &quot;sold_calendar_year_week&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; AS &quot;i_category&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; AS &quot;sum_m_ss_ext_sales_price_sum_ok&quot;
 FROM
@@ -435,7 +435,7 @@ FROM
 WHERE
   (
     (
-      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 1998
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1998
     )
     AND (
       &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
@@ -469,7 +469,7 @@ SELECT
 FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 1999
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1999
 AND ((
             &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;S&apos;
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;Primary&apos;
@@ -553,7 +553,7 @@ FROM
 WHERE
   (
     (
-      &quot;TPC-DS Benchmark Model&quot;.&quot;Return Calendar Year Week&quot; = 1998
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Return Calendar Year in the Week Hierarchy&quot; = 1998
     )
     AND (
       &quot;TPC-DS Benchmark Model&quot;.&quot;Return Month of Year&quot; = 9
@@ -581,7 +581,7 @@ LIMIT 100</stringProp>
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="query"> -- TPC-DS_query 52
 SELECT
-  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; AS &quot;sold_calendar_year_week&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; AS &quot;sold_calendar_year_week&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand ID&quot; AS &quot;d_product_brand_id&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; AS &quot;d_product_brand_name&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; AS &quot;sum_m_ss_ext_sales_price_sum_ok&quot;
@@ -590,7 +590,7 @@ FROM
 WHERE
   (
     (
-      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 2002
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 2002
     )
     AND (
       &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
@@ -685,7 +685,7 @@ FROM
 WHERE
   (
     (
-      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 1998
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1998
     )
     AND (
       &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
@@ -721,7 +721,7 @@ SELECT
 FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 2002
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 2002
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 5
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer GMT Offset&quot; = -5.
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Color&quot; IN (&apos;floral&apos;,&apos;ivory&apos;,&apos;royal&apos;)
@@ -753,7 +753,7 @@ FROM
     ${CatalogName}.${ModelName} &quot;tpc_ds_benchmark_model&quot;
 WHERE
     &quot;tpc_ds_benchmark_model&quot;.&quot;Product Category&quot; = &apos;Jewelry&apos;
-AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Year Week&quot; = 1999
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1999
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Month of Year&quot; = 9
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Customer GMT Offset&quot; = -6
 GROUP BY 1
@@ -788,7 +788,7 @@ WHERE
     OR  &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Email&quot; = &apos;Y&apos;
     OR  &quot;TPC-DS Benchmark Model&quot;.&quot;Channel TV&quot; = &apos;Y&apos;)
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; = &apos;Home&apos;
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 1998
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1998
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Customer GMT Offset&quot; = -6.
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Store GMT Offset&quot; = -6.
@@ -820,7 +820,7 @@ SELECT
 FROM
    ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year Week&quot; = 1998
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1998
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Meal Time&quot; IN (&apos;breakfast&apos;,
                                                     &apos;dinner&apos;)
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
