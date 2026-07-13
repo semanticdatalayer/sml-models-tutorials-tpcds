@@ -272,7 +272,7 @@ hierarchies:
     filter_empty: 'yes'
     folder: Date Attributes
     levels:
-      - unique_name: Calendar Year Week
+      - unique_name: Calendar Year in the Week Hierarchy
       - unique_name: Calendar Week
         secondary_attributes:
           - unique_name: Week Sequence
@@ -365,8 +365,8 @@ level_attributes:
       - d_week_seq
     name_column: d_week_seq
     time_unit: week
-  - unique_name: Calendar Year Week
-    label: Calendar Year
+  - unique_name: Calendar Year in the Week Hierarchy
+    label: Calendar Year (Week Hierarchy)
     description: >-
       This is the calendar (Gregorian) year level of the date hierarchy that has
       a week level in the rollup. This can be role-played with a sold, ship,
