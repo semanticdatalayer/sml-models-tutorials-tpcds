@@ -87,19 +87,22 @@ columns:
   - name: ss_wholesale_cost
     data_type: decimal(7,2)
 connection_id: Connection - TPCDS
-sql: "SELECT p.*, ss.* 
+sql: "SELECT p.*, ss.*
       FROM atscale_tutorial_data.tpcds.promotion p
       INNER JOIN atscale_tutorial_data.tpcds.store_sales ss
-      ON ss.ss_promo_sk = p.p_promo_sk"
+      ON ss.ss_promo_sk = p.p_promo_sk
+      WHERE p.p_channel_dmail = 'Y' OR p.p_channel_email = 'Y' OR p.p_channel_tv = 'Y'"
 dialects:
   - dialect: Snowflake
     sql: |-
-      SELECT p.*, ss.* 
+      SELECT p.*, ss.*
       FROM "atscale_tutorial_data"."tpcds"."promotion" p
       INNER JOIN "atscale_tutorial_data"."tpcds"."store_sales" ss
       ON ss."ss_promo_sk" = p."p_promo_sk"
+      WHERE p."p_channel_dmail" = 'Y' OR p."p_channel_email" = 'Y' OR p."p_channel_tv" = 'Y'
   - dialect: BigQuery
-    sql: "SELECT p.*, ss.* 
+    sql: "SELECT p.*, ss.*
       FROM atscale-tutorial-data.tpcds.promotion p
       INNER JOIN atscale-tutorial-data.tpcds.store_sales ss
-      ON ss.ss_promo_sk = p.p_promo_sk"
+      ON ss.ss_promo_sk = p.p_promo_sk
+      WHERE p.p_channel_dmail = 'Y' OR p.p_channel_email = 'Y' OR p.p_channel_tv = 'Y'"
