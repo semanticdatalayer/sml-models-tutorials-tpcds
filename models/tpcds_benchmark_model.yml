@@ -18,7 +18,7 @@ aggregates:
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold
-      - name: Calendar Year Week
+      - name: Calendar Year in the Week Hierarchy
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -97,7 +97,7 @@ aggregates:
         dimension: Customer Address
         relationships_path:
           - store_sales_Customer_Address_Sold
-      - name: Calendar Year Week
+      - name: Calendar Year in the Week Hierarchy
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -146,7 +146,7 @@ aggregates:
         dimension: Customer Address
         relationships_path:
           - store_sales_Customer_Address_Sold
-      - name: Calendar Year Week
+      - name: Calendar Year in the Week Hierarchy
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -165,7 +165,7 @@ aggregates:
         dimension: Customer Address
         relationships_path:
           - web_sales_Customer_Address_Sold
-      - name: Calendar Year Week
+      - name: Calendar Year in the Week Hierarchy
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -188,7 +188,7 @@ aggregates:
         dimension: Product Dimension
       - name: Product Manufacturer ID
         dimension: Product Dimension
-      - name: Calendar Year Week
+      - name: Calendar Year in the Week Hierarchy
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -211,7 +211,7 @@ aggregates:
         dimension: Product Dimension
       - name: Product Manufacturer ID
         dimension: Product Dimension
-      - name: Calendar Year Week
+      - name: Calendar Year in the Week Hierarchy
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -234,7 +234,7 @@ aggregates:
         dimension: Product Dimension
       - name: Product Manufacturer ID
         dimension: Product Dimension
-      - name: Calendar Year Week
+      - name: Calendar Year in the Week Hierarchy
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -253,7 +253,7 @@ aggregates:
         dimension: Product Dimension
       - name: Product Manager ID
         dimension: Product Dimension
-      - name: Calendar Year Week
+      - name: Calendar Year in the Week Hierarchy
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -278,7 +278,7 @@ aggregates:
         dimension: Customer Address
         relationships_path:
           - store_sales_Customer_Address_Sold
-      - name: Calendar Year Week
+      - name: Calendar Year in the Week Hierarchy
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -315,7 +315,7 @@ aggregates:
         dimension: Product Dimension
       - name: Product Manager ID
         dimension: Product Dimension
-      - name: Calendar Year Week
+      - name: Calendar Year in the Week Hierarchy
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -437,7 +437,7 @@ aggregates:
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold
-      - name: Calendar Year Week
+      - name: Calendar Year in the Week Hierarchy
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -467,7 +467,7 @@ aggregates:
         dimension: Date Dimensions
         relationships_path:
           - store_sales_Date_Dimension_Sold_1
-      - name: Calendar Year Week
+      - name: Calendar Year in the Week Hierarchy
         dimension: Date Dimensions
         partition: name
         relationships_path:
@@ -822,7 +822,7 @@ partitions:
   - unique_name: >-
       TPC-DS Benchmark Model.Date Dimensions.Calendar
       Year-Week.partition
-    attribute: Calendar Year Week
+    attribute: Calendar Year in the Week Hierarchy
     dimension: Date Dimensions
     relationships_path:
       - store_sales_Date_Dimension_Week_Sold
