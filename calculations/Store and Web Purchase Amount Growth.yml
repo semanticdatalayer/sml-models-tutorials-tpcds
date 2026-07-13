@@ -4,4 +4,4 @@ label: Store and Web Purchase Amount Growth
 description: "Combined web and store purchase growth. Ratio of Store and Web Purchased Amount vs same week prior year (week-over-year on the Sold Date Week hierarchy); ratio not percent, greater than 1 means growth."
 expression: |-
   [Measures].[Store and Web Purchased Amount] /
-  (ParallelPeriod([Sold Date Dimensions].[Sold Date Week Hierarchy].[Sold Calendar Year Week], 1, [Sold Date Dimensions].[Sold Date Week Hierarchy].CurrentMember), [Measures].[Store and Web Purchased Amount])
+  (ParallelPeriod([Sold Date Dimensions].[Sold Date Week Hierarchy].[Sold Calendar Year in the Week Hierarchy], 1, [Sold Date Dimensions].[Sold Date Week Hierarchy].CurrentMember), [Measures].[Store and Web Purchased Amount])
