@@ -668,7 +668,7 @@ OR  (
                                                             'pants') ) )
 GROUP BY 1,2,3
 HAVING &quot;Avg Quarter Sales Ratio&quot; &gt; .1
-ORDER BY 1,2,3
+ORDER BY 6 DESC, 1, 2, 3
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
@@ -936,7 +936,7 @@ AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Date&quot; BETWEEN '2
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Dimension&quot; IS NOT NULL
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IS NOT NULL
 GROUP BY 1,2,3,4,5
-ORDER BY 3,4,1,2,5
+ORDER BY 6 DESC, 3, 4, 1, 2, 5
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
