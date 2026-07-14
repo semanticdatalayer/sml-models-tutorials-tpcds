@@ -332,7 +332,7 @@ LIMIT 100</stringProp>
           <stringProp name="query">-- TPC-DS_query 26
 SELECT
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Item ID&quot; AS &quot;d_product_item_id&quot;,
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Item Product Name&quot; AS &quot;d_item_product_name&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Item Name&quot; AS &quot;d_item_product_name&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Average Quantity Sold&quot;  AS &quot;avg_m_catalog_sales_quantity_sold_avg_ok&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Average List Price&quot; AS &quot;avg_m_catalog_sales_list_price_avg_ok&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Average Coupon Amount&quot; AS &quot;sum_m_catalog_sales_coupon_amount_avg_ok&quot;,
