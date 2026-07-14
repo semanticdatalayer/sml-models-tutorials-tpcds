@@ -377,6 +377,7 @@ FROM
     ${CatalogName}.${ModelName} &quot;tpc_ds_benchmark_model&quot;
 WHERE
     &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Year&quot; = 2001
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Quarter of Year&quot; IN (1, 2, 3)
 GROUP BY 1,2
 ORDER BY 1,2
 LIMIT 100</stringProp>
