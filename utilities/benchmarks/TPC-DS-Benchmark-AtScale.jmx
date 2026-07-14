@@ -150,10 +150,10 @@
         <hashTree/>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 2 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 2
+          <stringProp name="query">-- TPC-DS_query 2
 SELECT
   &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Week&quot; AS &quot;sold_calendar_week&quot;,
-  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Day Name Week&quot; AS &quot;sold_d_day_name_week&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Day of Week&quot; AS &quot;sold_d_day_name_week&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Week Sequence&quot; AS &quot;sold_d_week_seg&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Web and Catalog Sales Price Growth&quot; AS &quot;sum_web_catalog_sales_price_growth_ok&quot;
 FROM
@@ -162,7 +162,9 @@ WHERE
   (
     &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; IN (2000, 2001)
   )
-GROUP BY 1,2,3</stringProp>
+GROUP BY 1,2,3
+ORDER BY 1,2,3
+LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
           <stringProp name="queryTimeout"></stringProp>
@@ -180,7 +182,7 @@ GROUP BY 1,2,3</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 7 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 7
+          <stringProp name="query">-- TPC-DS_query 7
 SELECT
     &quot;tpc_ds_benchmark_model&quot;.&quot;Product Item ID&quot;         AS &quot;d_product_item_id&quot;,
     &quot;tpc_ds_benchmark_model&quot;.&quot;Average Store Sales Quantity&quot;    AS &quot;avg_m_ss_quantity_avg_ok&quot;,
@@ -191,14 +193,14 @@ FROM
     ${CatalogName}.${ModelName} &quot;tpc_ds_benchmark_model&quot;
 WHERE
     (
-        &quot;tpc_ds_benchmark_model&quot;.&quot;Channel Email&quot; = &apos;N&apos;
-    OR  &quot;tpc_ds_benchmark_model&quot;.&quot;Channel Event&quot; = &apos;N&apos;)
+        &quot;tpc_ds_benchmark_model&quot;.&quot;Channel Email&quot; = 'N'
+    OR  &quot;tpc_ds_benchmark_model&quot;.&quot;Channel Event&quot; = 'N')
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Year&quot; = 2001
-AND &quot;tpc_ds_benchmark_model&quot;.&quot;Education Status&quot; = &apos;4 yr Degree&apos;
-AND &quot;tpc_ds_benchmark_model&quot;.&quot;Gender&quot; = &apos;M&apos;
-AND &quot;tpc_ds_benchmark_model&quot;.&quot;Marital Status&quot; = &apos;M&apos;
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Education Status&quot; = '4 yr Degree'
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Gender&quot; = 'M'
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Marital Status&quot; = 'M'
 GROUP BY 1
-ORDER BY 1 
+ORDER BY 1
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
@@ -217,7 +219,7 @@ LIMIT 100</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 13 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 13
+          <stringProp name="query">-- TPC-DS_query 13
 SELECT
     &quot;TPC-DS Benchmark Model&quot;.&quot;Average Store Sales Quantity&quot; AS &quot;sum_m_ss_quantity_avg_ok&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Average Ext Sales Price&quot;      AS &quot;sum_m_ss_ext_sales_price_avg_ok&quot;,
@@ -226,46 +228,45 @@ SELECT
 FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 2001
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 2001
 AND ( (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;4 yr Degree&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;S&apos;
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = '4 yr Degree'
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'S'
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = 3
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;100-150&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = '100-150')
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;Advanced Degree&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;D&apos;
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = 'Advanced Degree'
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'D'
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = 1
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos; 50-100&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = ' 50-100')
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;2 yr Degree&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;M&apos;
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = '2 yr Degree'
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'M'
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = 1
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;150-200&apos;) )
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = '150-200') )
 AND ( (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Customer Country&quot; = &apos;United States&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Customer State&quot; IN (&apos;MS&apos;,
-                                                           &apos;NC&apos;,
-                                                           &apos;TX&apos;)
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN (&apos;100-150&apos;,
-                                                            &apos;150-200&apos;) )
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('Mississippi',
+                                                           'North Carolina',
+                                                           'Texas')
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ('100-150',
+                                                            '150-200') )
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Customer Country&quot; = &apos;United States&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Customer State&quot; IN (&apos;TN&apos;,
-                                                           &apos;WA&apos;,
-                                                           &apos;NE&apos;)
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN (&apos;150-200&apos;,
-                                                            &apos;200-250&apos;,
-                                                            &apos;250-300&apos;) )
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('Tennessee',
+                                                           'Washington',
+                                                           'Nebraska')
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ('150-200',
+                                                            '200-250',
+                                                            '250-300') )
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Customer Country&quot; = &apos;United States&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Customer State&quot; IN (&apos;MA&apos;,
-                                                           &apos;OR&apos;,
-                                                           &apos;UT&apos;)
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ( &apos; 50-100&apos;,
-                                                            &apos;100-150&apos;,
-                                                            &apos;150-200&apos;,
-                                                            &apos;200-250&apos; ) ) )</stringProp>
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('Massachusetts',
+                                                           'Oregon',
+                                                           'Utah')
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ( ' 50-100',
+                                                            '100-150',
+                                                            '150-200',
+                                                            '200-250' ) ) )
+ORDER BY 1,2,3,4
+LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
           <stringProp name="queryTimeout"></stringProp>
@@ -283,33 +284,32 @@ AND ( (
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 15 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 15
+          <stringProp name="query">-- TPC-DS_query 15
 SELECT
-  &quot;TPC-DS Benchmark Model&quot;.&quot;Customer Zip Code&quot; AS &quot;d_customer_zip_code&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Zip Code&quot; AS &quot;d_customer_zip_code&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Price&quot; AS &quot;sum_m_cs_sales_price_sum_ok&quot;
 FROM
   ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-      (&quot;TPC-DS Benchmark Model&quot;.&quot;Customer Zip Code&quot; IN (
-        &apos;80348&apos;,
-        &apos;81792&apos;,
-        &apos;83405&apos;,
-        &apos;85392&apos;,
-        &apos;85460&apos;,
-        &apos;85669&apos;,
-        &apos;86197&apos;,
-        &apos;86475&apos;,
-        &apos;88274&apos;)
+      (&quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Zip Code&quot; IN (
+        '80348',
+        '81792',
+        '83405',
+        '85392',
+        '85460',
+        '85669',
+        '86197',
+        '86475',
+        '88274')
     OR
-      &quot;TPC-DS Benchmark Model&quot;.&quot;Customer State&quot; IN (&apos;CA&apos;, &apos;GA&apos;, &apos;WA&apos;)
-    OR  
-        &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Price Tier&quot; = &apos;More than 500&apos;)
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('California', 'Georgia', 'Washington')
+    OR
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Price Tier&quot; = 'More than 500')
     AND
       &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 2001
     AND
       &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Quarter of Year&quot; = 1
 GROUP BY 1
-HAVING &quot;Catalog Sales Price&quot; IS NOT NULL
 ORDER BY 1
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
@@ -329,9 +329,10 @@ LIMIT 100</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 26 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 26
+          <stringProp name="query">-- TPC-DS_query 26
 SELECT
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Item ID&quot; AS &quot;d_product_item_id&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Item Product Name&quot; AS &quot;d_item_product_name&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Average Quantity Sold&quot;  AS &quot;avg_m_catalog_sales_quantity_sold_avg_ok&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Average List Price&quot; AS &quot;avg_m_catalog_sales_list_price_avg_ok&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Average Coupon Amount&quot; AS &quot;sum_m_catalog_sales_coupon_amount_avg_ok&quot;,
@@ -341,13 +342,13 @@ FROM
 WHERE
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Item ID&quot; IS NOT NULL
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 2000
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;College&apos;
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Gender&quot; = &apos;M&apos;
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;M&apos;
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Email&quot; = &apos;N&apos;
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Event&quot; = &apos;N&apos;
-GROUP BY 1
-ORDER BY 1 
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = 'College'
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Gender&quot; = 'M'
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'M'
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Email&quot; = 'N'
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Event&quot; = 'N'
+GROUP BY 1,2
+ORDER BY 1,2
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
@@ -366,7 +367,7 @@ LIMIT 100</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 31 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} -Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 31
+          <stringProp name="query">-- TPC-DS_query 31
 SELECT
     &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Quarter&quot;     AS &quot;sold_calendar_quarter&quot;,
     &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Customer County&quot;          AS &quot;sold_d_ca_county&quot;,
@@ -376,7 +377,9 @@ FROM
     ${CatalogName}.${ModelName} &quot;tpc_ds_benchmark_model&quot;
 WHERE
     &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Year&quot; = 2001
-GROUP BY 1,2</stringProp>
+GROUP BY 1,2
+ORDER BY 1,2
+LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
           <stringProp name="queryTimeout"></stringProp>
@@ -394,19 +397,20 @@ GROUP BY 1,2</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 33 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} -Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 33
+          <stringProp name="query">-- TPC-DS_query 33
 SELECT
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manufacturer ID&quot; AS &quot;d_product_manufacturer_id&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manufacturer Name&quot; AS &quot;d_product_manufacturer_name&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Total Ext Sales Price&quot;   AS &quot;sum_total__ext_sales_price_ok&quot;
 FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; = &apos;Electronics&apos;
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1999
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; = 'Electronics'
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 1999
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer GMT Offset&quot; = -5.00
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 7
-GROUP BY 1
-ORDER BY 2 DESC 
+GROUP BY 1,2
+ORDER BY 3 DESC, 1, 2
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
@@ -425,17 +429,19 @@ LIMIT 100</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 42 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 42
+          <stringProp name="query">-- TPC-DS_query 42
 SELECT
-  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; AS &quot;sold_calendar_year_week&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; AS &quot;sold_calendar_year_week&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; AS &quot;i_category&quot;,
-  &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; AS &quot;sum_m_ss_ext_sales_price_sum_ok&quot;
+  SUM(
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot;
+  ) AS &quot;sum_m_ss_ext_sales_price_sum_ok&quot;
 FROM
   ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
   (
     (
-      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1998
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 1998
     )
     AND (
       &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
@@ -444,8 +450,11 @@ WHERE
       &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manager ID&quot; = 1
     )
   )
-GROUP BY 1,2
-ORDER BY 3 DESC</stringProp>
+GROUP BY
+  1,
+  2
+ORDER BY 3 DESC
+LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
           <stringProp name="queryTimeout"></stringProp>
@@ -463,60 +472,62 @@ ORDER BY 3 DESC</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 48 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 48
+          <stringProp name="query">-- TPC-DS_query 48
 SELECT
     SUM(&quot;TPC-DS Benchmark Model&quot;.&quot;Store Quantity Sold&quot;) AS &quot;sum_m_ss_quantity_sum_ok&quot;
 FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1999
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 1999
 AND ((
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;S&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;Primary&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;100-150&apos; )
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'S'
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = 'Primary'
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = '100-150' )
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;U&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;Advanced Degree&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos; 50-100&apos; )
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'U'
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = 'Advanced Degree'
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = ' 50-100' )
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;W&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;4 yr Degree&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;150-200&apos; ))
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'W'
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = '4 yr Degree'
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = '150-200' ))
 AND ((
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = &apos;United States&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State&quot; IN (&apos;IL&apos;,
-                                                                 &apos;AR&apos;,
-                                                                 &apos;UT&apos;)
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN (&apos;  0- 50&apos;,
-                                                             &apos; 50-100&apos;,
-                                                             &apos;100-150&apos;,
-                                                             &apos;150-200&apos;,
-                                                             &apos;200-250&apos;,
-                                                             &apos;250-300&apos;,
-                                                             &apos;300-2000&apos;) )
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = 'United States'
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('Illinois',
+                                                                 'Arkansas',
+                                                                 'Utah')
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ('  0- 50',
+                                                             ' 50-100',
+                                                             '100-150',
+                                                             '150-200',
+                                                             '200-250',
+                                                             '250-300',
+                                                             '300-2000') )
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = &apos;United States&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State&quot; IN (&apos;WV&apos;,
-                                                                 &apos;GA&apos;,
-                                                                 &apos;NC&apos;)
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN (&apos;150-200&apos;,
-                                                             &apos;200-250&apos;,
-                                                             &apos;250-300&apos;,
-                                                             &apos;300-2000&apos;,
-                                                             &apos;2000-3000&apos;) )
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = 'United States'
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('West Virginia',
+                                                                 'Georgia',
+                                                                 'North Carolina')
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ('150-200',
+                                                             '200-250',
+                                                             '250-300',
+                                                             '300-2000',
+                                                             '2000-3000') )
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = &apos;United States&apos;
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State&quot; IN (&apos;PA&apos;,
-                                                                 &apos;LA&apos;,
-                                                                 &apos;MO&apos;)
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ( &apos; 50-100&apos;,
-                                                             &apos;100-150&apos;,
-                                                             &apos;150-200&apos;,
-                                                             &apos;200-250&apos;,
-                                                             &apos;250-300&apos;,
-                                                             &apos;300-2000&apos;,
-                                                             &apos;2000-3000&apos;,
-                                                             &apos;3000-25000&apos;) ) )</stringProp>
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = 'United States'
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('Pennsylvania',
+                                                                 'Louisiana',
+                                                                 'Missouri')
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ( ' 50-100',
+                                                             '100-150',
+                                                             '150-200',
+                                                             '200-250',
+                                                             '250-300',
+                                                             '300-2000',
+                                                             '2000-3000',
+                                                             '3000-25000') ) )
+ORDER BY 1
+LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
           <stringProp name="queryTimeout"></stringProp>
@@ -534,7 +545,7 @@ AND ((
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 50 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 50
+          <stringProp name="query">-- TPC-DS_query 50
 SELECT
   &quot;TPC-DS Benchmark Model&quot;.&quot;Store Name&quot; AS &quot;d_store_name&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Store Company ID&quot; AS &quot;d_store_company_id&quot;,
@@ -553,10 +564,10 @@ FROM
 WHERE
   (
     (
-      &quot;TPC-DS Benchmark Model&quot;.&quot;Return Calendar Year in the Week Hierarchy&quot; = 1998
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Return Calendar Year&quot; = 1998
     )
     AND (
-      &quot;TPC-DS Benchmark Model&quot;.&quot;Return Month of Year&quot; = 9
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Return Month Name&quot; = 'September'
     )
   )
 GROUP BY 1,2,3,4,5,6,7,8,9,10,11
@@ -579,9 +590,9 @@ LIMIT 100</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 52 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 52
+          <stringProp name="query">-- TPC-DS_query 52
 SELECT
-  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; AS &quot;sold_calendar_year_week&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; AS &quot;sold_calendar_year&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand ID&quot; AS &quot;d_product_brand_id&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; AS &quot;d_product_brand_name&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; AS &quot;sum_m_ss_ext_sales_price_sum_ok&quot;
@@ -590,7 +601,7 @@ FROM
 WHERE
   (
     (
-      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 2002
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 2002
     )
     AND (
       &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
@@ -619,9 +630,10 @@ LIMIT 100</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 53 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 53
+          <stringProp name="query">-- TPC-DS_query 53
 SELECT
   &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manufacturer ID&quot; AS &quot;d_product_manufacturer_id&quot;,
+  &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manufacturer Name&quot; AS &quot;d_product_manufacturer_name&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Quarter&quot; AS &quot;sold_calendar_quarter&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; AS &quot;sum_m_store_sales_price_ok&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Avg Quarterly Store Sales for 1998-1999&quot; AS &quot;sum_avg_quarterly_store_sales_for_1998_1999_ok&quot;,
@@ -629,32 +641,32 @@ SELECT
 FROM
   ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Quarter&quot; IN (&apos;1998Q2&apos;, &apos;1998Q3&apos;, &apos;1998Q4&apos;, &apos;1999Q1&apos;, &apos;1999Q2&apos;) AND
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Quarter&quot; IN ('1998-04-01', '1998-07-01', '1998-10-01', '1999-01-01', '1999-04-01') AND
     ((
-        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN (&apos;Books&apos;,
-                                                  &apos;Children&apos;,
-                                                  &apos;Electronics&apos;)
-    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; IN ( &apos;exportiunivamalg #9&apos;,
-                                                            &apos;scholaramalgamalg #14&apos;,
-                                                            &apos;scholaramalgamalg #7&apos;,
-                                                            &apos;scholaramalgamalg #9&apos; )
-    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IN (&apos;personal&apos;,
-                                                            &apos;portable&apos;,
-                                                            &apos;reference&apos;,
-                                                            &apos;self-help&apos;) )
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN ('Books',
+                                                  'Children',
+                                                  'Electronics')
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; IN ( 'exportiunivamalg #9',
+                                                            'scholaramalgamalg #14',
+                                                            'scholaramalgamalg #7',
+                                                            'scholaramalgamalg #9' )
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IN ('personal',
+                                                            'portable',
+                                                            'reference',
+                                                            'self-help') )
 OR  (
-        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN (&apos;Women&apos;,
-                                                  &apos;Music&apos;,
-                                                  &apos;Men&apos;)
-    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; IN ( &apos;amalgimporto #1&apos;,
-                                                            &apos;edu packscholar #1&apos;,
-                                                            &apos;exportiimporto #1&apos;,
-                                                            &apos;importoamalg #1&apos; )
-    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IN (&apos;accessories&apos;,
-                                                            &apos;classical&apos;,
-                                                            &apos;fragrances&apos;,
-                                                            &apos;pants&apos;) ) )
-GROUP BY 1,2
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN ('Women',
+                                                  'Music',
+                                                  'Men')
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; IN ( 'amalgimporto #1',
+                                                            'edu packscholar #1',
+                                                            'exportiimporto #1',
+                                                            'importoamalg #1' )
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IN ('accessories',
+                                                            'classical',
+                                                            'fragrances',
+                                                            'pants') ) )
+GROUP BY 1,2,3
 HAVING &quot;Avg Quarter Sales Ratio&quot; &gt; .1
 ORDER BY 1,2,3
 LIMIT 100</stringProp>
@@ -675,7 +687,7 @@ LIMIT 100</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 55 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 55
+          <stringProp name="query">-- TPC-DS_query 55
 SELECT
   &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand ID&quot; AS &quot;d_product_brand_id&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; AS &quot;d_product_brand_name&quot;,
@@ -685,7 +697,7 @@ FROM
 WHERE
   (
     (
-      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1998
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 1998
     )
     AND (
       &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
@@ -695,7 +707,7 @@ WHERE
     )
   )
 GROUP BY 1,2
-ORDER BY 3  DESC
+ORDER BY 3 DESC
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
@@ -714,17 +726,17 @@ LIMIT 100</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 56 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 56
+          <stringProp name="query">-- TPC-DS_query 56
 SELECT
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Item ID&quot;       AS &quot;d_product_item_id&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Total Ext Sales Price&quot; AS &quot;sum_total__ext_sales_price_ok&quot;
 FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 2002
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 2002
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 5
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer GMT Offset&quot; = -5.
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Color&quot; IN (&apos;floral&apos;,&apos;ivory&apos;,&apos;royal&apos;)
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Color&quot; IN ('floral','ivory','royal')
 GROUP BY 1
 ORDER BY 2
 LIMIT 100</stringProp>
@@ -745,19 +757,19 @@ LIMIT 100</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 60 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 60
+          <stringProp name="query">-- TPC-DS_query 60
 SELECT
     &quot;tpc_ds_benchmark_model&quot;.&quot;Product Item ID&quot; AS &quot;d_product_item_id&quot;,
     &quot;tpc_ds_benchmark_model&quot;.&quot;Total Ext Sales Price&quot; AS &quot;sum_total__ext_sales_price_ok&quot;
 FROM
     ${CatalogName}.${ModelName} &quot;tpc_ds_benchmark_model&quot;
 WHERE
-    &quot;tpc_ds_benchmark_model&quot;.&quot;Product Category&quot; = &apos;Jewelry&apos;
-AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1999
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Product Category&quot; = 'Jewelry'
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Year&quot; = 1999
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Month of Year&quot; = 9
-AND &quot;tpc_ds_benchmark_model&quot;.&quot;Customer GMT Offset&quot; = -6
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Customer GMT Offset&quot; = -6
 GROUP BY 1
-ORDER BY 1,2 
+ORDER BY 1,2
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
@@ -776,21 +788,17 @@ LIMIT 100</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 61 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 61
+          <stringProp name="query">-- TPC-DS_query 61
 SELECT
     &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price by Promotion&quot; AS &quot;sum_m_ss_ext_sales_price_promotion_ok&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; AS &quot;sum_m_ss_ext_sales_price_sum_ok&quot;
 FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    (
-        &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Direct Mail&quot; = &apos;Y&apos;
-    OR  &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Email&quot; = &apos;Y&apos;
-    OR  &quot;TPC-DS Benchmark Model&quot;.&quot;Channel TV&quot; = &apos;Y&apos;)
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; = &apos;Home&apos;
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1998
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Store Promoted Product Category&quot; = 'Home'
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 1998
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Customer GMT Offset&quot; = -6.
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer GMT Offset&quot; = -6.
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Store GMT Offset&quot; = -6.
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
@@ -810,7 +818,7 @@ LIMIT 100</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 71 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 71
+          <stringProp name="query">-- TPC-DS_query 71
 SELECT
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand ID&quot;       AS &quot;d_product_brand_id&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot;     AS &quot;d_product_brand_name&quot;,
@@ -820,9 +828,9 @@ SELECT
 FROM
    ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year in the Week Hierarchy&quot; = 1998
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Meal Time&quot; IN (&apos;breakfast&apos;,
-                                                    &apos;dinner&apos;)
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 1998
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Meal Time&quot; IN ('breakfast',
+                                                    'dinner')
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manager ID&quot; = 1
 GROUP BY 1,2,3,4
@@ -845,7 +853,7 @@ LIMIT 100</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 88 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 88
+          <stringProp name="query">-- TPC-DS_query 88
 SELECT
     &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Morning Time Tier&quot; AS &quot;sold_d_morning__time_tier&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Store Sales Row Counter&quot; AS &quot;sum_m_ss_row_counter_sum_ok&quot;
@@ -861,9 +869,10 @@ WHERE
         OR  (
                 &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = -1
             AND &quot;TPC-DS Benchmark Model&quot;.&quot;Vehicle Count&quot; &lt;= 1 ) )
-    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Store Name&quot; = &apos;ese&apos; )
-    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Morning Time Tier&quot; &lt;&gt; &apos;Other&apos;
-GROUP BY 1</stringProp>
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Store Name&quot; = 'ese' )
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Morning Time Tier&quot; &lt;&gt; 'Other'
+GROUP BY 1
+LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
           <stringProp name="queryTimeout"></stringProp>
@@ -881,7 +890,7 @@ GROUP BY 1</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 96 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 96
+          <stringProp name="query">-- TPC-DS_query 96
 SELECT
     &quot;tpc_ds_benchmark_model&quot;.&quot;Store Sales Row Counter&quot; AS &quot;sum_m_ss_row_counter_sum_ok&quot;
 FROM
@@ -890,9 +899,9 @@ WHERE
     &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Hour&quot; = 8
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Minute&quot; &gt;= 30
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Household Dependents Count&quot; = 5
-AND &quot;tpc_ds_benchmark_model&quot;.&quot;Store Name&quot; = &apos;ese&apos;
-ORDER BY 1 
-LIMIT 100</stringProp>
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Store Name&quot; = 'ese'
+ORDER BY 1
+LIMIT 1</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
           <stringProp name="queryTimeout"></stringProp>
@@ -910,48 +919,24 @@ LIMIT 100</stringProp>
         </hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL Test: SQL Query 98 - Label: ${Label} - Platform: ${Platform} - Size: ${Size} - Threads: ${NumberOfThreads} - Loops: ${NumberOfLoops} - Interation: ${__BeanShell(vars.getIteration();,)}" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query"> -- TPC-DS_query 98
+          <stringProp name="query">-- TPC-DS_query 98
 SELECT
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Item ID&quot;       AS &quot;d_product_item_id&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Dimension&quot;     AS &quot;product_dimension&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot;      AS &quot;i_category&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot;    AS &quot;d_product_class_name&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Current Price&quot; AS &quot;d_product_current_price&quot;,
-    SUM( (
-            CASE
-                WHEN &quot;t0&quot;.&quot;x_measure__0&quot; = 0
-                THEN NULL
-                ELSE &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot;*100 / &quot;t0&quot;.&quot;x_measure__0&quot;
-            END ) )                                     AS &quot;sum_calculation_6026871858440298504_ok&quot;,
-    SUM( &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; ) AS &quot;sum_m_ss_ext_sales_price_sum_ok&quot;
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Store Sales Share of Class&quot; AS &quot;store_sales_share_of_class_ok&quot;,
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; AS &quot;sum_m_ss_ext_sales_price_sum_ok&quot;
 FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
-JOIN
-    (
-        SELECT
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot;            AS &quot;d_product_class_name&quot;,
-            SUM( &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; ) AS &quot;x_measure__0&quot;
-        FROM
-            ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
-        WHERE
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN (&apos;Electronics&apos;,
-                                                      &apos;Shoes&apos;,
-                                                      &apos;Women&apos;)
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Time Dimension&quot; BETWEEN &apos;2002-05-27&apos; AND &apos;2002-06-26&apos;
-        GROUP BY
-            1 ) &quot;t0&quot;
-ON
-    (
-        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; = &quot;t0&quot;.&quot;d_product_class_name&quot; )
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN (&apos;Electronics&apos;,
-                                              &apos;Shoes&apos;,
-                                              &apos;Women&apos;)
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Time Dimension&quot; BETWEEN &apos;2002-05-27&apos; AND &apos;2002-06-26&apos;
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN ('Electronics', 'Shoes', 'Women')
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Date&quot; BETWEEN '2002-05-27' AND '2002-06-26'
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Dimension&quot; IS NOT NULL
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IS NOT NULL
 GROUP BY 1,2,3,4,5
-ORDER BY 3,4,1,2,7
+ORDER BY 3,4,1,2,5
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
