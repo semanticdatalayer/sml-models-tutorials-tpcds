@@ -109,9 +109,9 @@ hierarchies:
             dataset: item
             folder: Product Attributes
             key_columns:
-              - i_manager_id
+              - i_manufact_id
             name_column: i_manufact
-            sort_column: i_manager_id
+            sort_column: i_manufact_id
           - unique_name: Item Product Name
             label: Item Product Name
             description: Product (item) name
