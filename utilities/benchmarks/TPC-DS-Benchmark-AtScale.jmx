@@ -16,7 +16,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="JDBCConnectionString" elementType="Argument">
             <stringProp name="Argument.name">JDBCConnectionString</stringProp>
-            <stringProp name="Argument.value">${__P(JDBCConnectionString, jdbc:postgresql://localhost:15432/tpcds)}</stringProp>
+            <stringProp name="Argument.value">${__P(JDBCConnectionString, jdbc:postgresql://research-aws.atscaleinternal.com:15432/tpcds_Databricks)}</stringProp>
             <stringProp name="Argument.desc">AtScale Server Host</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -34,7 +34,7 @@
           </elementProp>
           <elementProp name="CatalogName" elementType="Argument">
             <stringProp name="Argument.name">CatalogName</stringProp>
-            <stringProp name="Argument.value">${__P(CatalogName,&quot;tpcds&quot;)}</stringProp>
+            <stringProp name="Argument.value">${__P(CatalogName,&quot;tpcds_Databricks&quot;)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">AtScale catalog name for the model</stringProp>
           </elementProp>
@@ -193,12 +193,12 @@ FROM
     ${CatalogName}.${ModelName} &quot;tpc_ds_benchmark_model&quot;
 WHERE
     (
-        &quot;tpc_ds_benchmark_model&quot;.&quot;Channel Email&quot; = 'N'
-    OR  &quot;tpc_ds_benchmark_model&quot;.&quot;Channel Event&quot; = 'N')
+        &quot;tpc_ds_benchmark_model&quot;.&quot;Channel Email&quot; = &apos;N&apos;
+    OR  &quot;tpc_ds_benchmark_model&quot;.&quot;Channel Event&quot; = &apos;N&apos;)
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Year&quot; = 2001
-AND &quot;tpc_ds_benchmark_model&quot;.&quot;Education Status&quot; = '4 yr Degree'
-AND &quot;tpc_ds_benchmark_model&quot;.&quot;Gender&quot; = 'M'
-AND &quot;tpc_ds_benchmark_model&quot;.&quot;Marital Status&quot; = 'M'
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Education Status&quot; = &apos;4 yr Degree&apos;
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Gender&quot; = &apos;M&apos;
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Marital Status&quot; = &apos;M&apos;
 GROUP BY 1
 ORDER BY 1
 LIMIT 100</stringProp>
@@ -230,41 +230,41 @@ FROM
 WHERE
     &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 2001
 AND ( (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = '4 yr Degree'
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'S'
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;4 yr Degree&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;S&apos;
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = 3
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = '100-150')
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;100-150&apos;)
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = 'Advanced Degree'
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'D'
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;Advanced Degree&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;D&apos;
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = 1
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = ' 50-100')
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos; 50-100&apos;)
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = '2 yr Degree'
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'M'
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;2 yr Degree&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;M&apos;
         AND &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = 1
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = '150-200') )
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;150-200&apos;) )
 AND ( (
-        &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('Mississippi',
-                                                           'North Carolina',
-                                                           'Texas')
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ('100-150',
-                                                            '150-200') )
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN (&apos;Mississippi&apos;,
+                                                           &apos;North Carolina&apos;,
+                                                           &apos;Texas&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN (&apos;100-150&apos;,
+                                                            &apos;150-200&apos;) )
     OR  (
-        &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('Tennessee',
-                                                           'Washington',
-                                                           'Nebraska')
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ('150-200',
-                                                            '200-250',
-                                                            '250-300') )
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN (&apos;Tennessee&apos;,
+                                                           &apos;Washington&apos;,
+                                                           &apos;Nebraska&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN (&apos;150-200&apos;,
+                                                            &apos;200-250&apos;,
+                                                            &apos;250-300&apos;) )
     OR  (
-        &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('Massachusetts',
-                                                           'Oregon',
-                                                           'Utah')
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ( ' 50-100',
-                                                            '100-150',
-                                                            '150-200',
-                                                            '200-250' ) ) )
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN (&apos;Massachusetts&apos;,
+                                                           &apos;Oregon&apos;,
+                                                           &apos;Utah&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ( &apos; 50-100&apos;,
+                                                            &apos;100-150&apos;,
+                                                            &apos;150-200&apos;,
+                                                            &apos;200-250&apos; ) ) )
 ORDER BY 1,2,3,4
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
@@ -292,19 +292,19 @@ FROM
   ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
       (&quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Zip Code&quot; IN (
-        '80348',
-        '81792',
-        '83405',
-        '85392',
-        '85460',
-        '85669',
-        '86197',
-        '86475',
-        '88274')
+        &apos;80348&apos;,
+        &apos;81792&apos;,
+        &apos;83405&apos;,
+        &apos;85392&apos;,
+        &apos;85460&apos;,
+        &apos;85669&apos;,
+        &apos;86197&apos;,
+        &apos;86475&apos;,
+        &apos;88274&apos;)
     OR
-      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('California', 'Georgia', 'Washington')
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN (&apos;California&apos;, &apos;Georgia&apos;, &apos;Washington&apos;)
     OR
-        &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Price Tier&quot; = 'More than 500')
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Catalog Sales Price Tier&quot; = &apos;More than 500&apos;)
     AND
       &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 2001
     AND
@@ -342,11 +342,10 @@ FROM
 WHERE
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Item ID&quot; IS NOT NULL
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 2000
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = 'College'
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Gender&quot; = 'M'
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'M'
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Email&quot; = 'N'
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Event&quot; = 'N'
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;College&apos;
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Gender&quot; = &apos;M&apos;
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;M&apos;
+AND (&quot;TPC-DS Benchmark Model&quot;.&quot;Channel Email&quot; = &apos;N&apos; OR &quot;TPC-DS Benchmark Model&quot;.&quot;Channel Event&quot; = &apos;N&apos;)
 GROUP BY 1,2
 ORDER BY 1,2
 LIMIT 100</stringProp>
@@ -401,17 +400,16 @@ LIMIT 100</stringProp>
           <stringProp name="query">-- TPC-DS_query 33
 SELECT
     &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manufacturer ID&quot; AS &quot;d_product_manufacturer_id&quot;,
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manufacturer Name&quot; AS &quot;d_product_manufacturer_name&quot;,
     &quot;TPC-DS Benchmark Model&quot;.&quot;Total Ext Sales Price&quot;   AS &quot;sum_total__ext_sales_price_ok&quot;
 FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; = 'Electronics'
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; = &apos;Electronics&apos;
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 1999
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer GMT Offset&quot; = -5.00
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 7
-GROUP BY 1,2
-ORDER BY 3 DESC, 1, 2
+GROUP BY 1
+ORDER BY 2 DESC, 1
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
@@ -481,52 +479,52 @@ FROM
 WHERE
     &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 1999
 AND ((
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'S'
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = 'Primary'
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = '100-150' )
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;S&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;Primary&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;100-150&apos; )
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'U'
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = 'Advanced Degree'
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = ' 50-100' )
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;U&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;Advanced Degree&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos; 50-100&apos; )
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = 'W'
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = '4 yr Degree'
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = '150-200' ))
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Marital Status&quot; = &apos;W&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Education Status&quot; = &apos;4 yr Degree&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sales Price Tier&quot; = &apos;150-200&apos; ))
 AND ((
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = 'United States'
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('Illinois',
-                                                                 'Arkansas',
-                                                                 'Utah')
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ('  0- 50',
-                                                             ' 50-100',
-                                                             '100-150',
-                                                             '150-200',
-                                                             '200-250',
-                                                             '250-300',
-                                                             '300-2000') )
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = &apos;United States&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN (&apos;Illinois&apos;,
+                                                                 &apos;Arkansas&apos;,
+                                                                 &apos;Utah&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN (&apos;  0- 50&apos;,
+                                                             &apos; 50-100&apos;,
+                                                             &apos;100-150&apos;,
+                                                             &apos;150-200&apos;,
+                                                             &apos;200-250&apos;,
+                                                             &apos;250-300&apos;,
+                                                             &apos;300-2000&apos;) )
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = 'United States'
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('West Virginia',
-                                                                 'Georgia',
-                                                                 'North Carolina')
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ('150-200',
-                                                             '200-250',
-                                                             '250-300',
-                                                             '300-2000',
-                                                             '2000-3000') )
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = &apos;United States&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN (&apos;West Virginia&apos;,
+                                                                 &apos;Georgia&apos;,
+                                                                 &apos;North Carolina&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN (&apos;150-200&apos;,
+                                                             &apos;200-250&apos;,
+                                                             &apos;250-300&apos;,
+                                                             &apos;300-2000&apos;,
+                                                             &apos;2000-3000&apos;) )
     OR  (
-            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = 'United States'
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN ('Pennsylvania',
-                                                                 'Louisiana',
-                                                                 'Missouri')
-        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ( ' 50-100',
-                                                             '100-150',
-                                                             '150-200',
-                                                             '200-250',
-                                                             '250-300',
-                                                             '300-2000',
-                                                             '2000-3000',
-                                                             '3000-25000') ) )
+            &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer Country&quot; = &apos;United States&apos;
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer State Name&quot; IN (&apos;Pennsylvania&apos;,
+                                                                 &apos;Louisiana&apos;,
+                                                                 &apos;Missouri&apos;)
+        AND &quot;TPC-DS Benchmark Model&quot;.&quot;Net Profit Tier&quot; IN ( &apos; 50-100&apos;,
+                                                             &apos;100-150&apos;,
+                                                             &apos;150-200&apos;,
+                                                             &apos;200-250&apos;,
+                                                             &apos;250-300&apos;,
+                                                             &apos;300-2000&apos;,
+                                                             &apos;2000-3000&apos;,
+                                                             &apos;3000-25000&apos;) ) )
 ORDER BY 1
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
@@ -568,7 +566,7 @@ WHERE
       &quot;TPC-DS Benchmark Model&quot;.&quot;Return Calendar Year&quot; = 1998
     )
     AND (
-      &quot;TPC-DS Benchmark Model&quot;.&quot;Return Month Name&quot; = 'September'
+      &quot;TPC-DS Benchmark Model&quot;.&quot;Return Month Name&quot; = &apos;September&apos;
     )
   )
 GROUP BY 1,2,3,4,5,6,7,8,9,10,11
@@ -634,7 +632,6 @@ LIMIT 100</stringProp>
           <stringProp name="query">-- TPC-DS_query 53
 SELECT
   &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manufacturer ID&quot; AS &quot;d_product_manufacturer_id&quot;,
-  &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manufacturer Name&quot; AS &quot;d_product_manufacturer_name&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Quarter&quot; AS &quot;sold_calendar_quarter&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Store Ext Sales Price&quot; AS &quot;sum_m_store_sales_price_ok&quot;,
   &quot;TPC-DS Benchmark Model&quot;.&quot;Avg Quarterly Store Sales for 1998-1999&quot; AS &quot;sum_avg_quarterly_store_sales_for_1998_1999_ok&quot;,
@@ -642,34 +639,35 @@ SELECT
 FROM
   ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Quarter&quot; IN ('1998-04-01', '1998-07-01', '1998-10-01', '1999-01-01', '1999-04-01') AND
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manufacturer ID&quot; IS NOT NULL AND
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Quarter&quot; IN (&apos;1998-04-01&apos;, &apos;1998-07-01&apos;, &apos;1998-10-01&apos;, &apos;1999-01-01&apos;, &apos;1999-04-01&apos;) AND
     ((
-        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN ('Books',
-                                                  'Children',
-                                                  'Electronics')
-    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; IN ( 'exportiunivamalg #9',
-                                                            'scholaramalgamalg #14',
-                                                            'scholaramalgamalg #7',
-                                                            'scholaramalgamalg #9' )
-    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IN ('personal',
-                                                            'portable',
-                                                            'reference',
-                                                            'self-help') )
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN (&apos;Books&apos;,
+                                                  &apos;Children&apos;,
+                                                  &apos;Electronics&apos;)
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; IN ( &apos;exportiunivamalg #9&apos;,
+                                                            &apos;scholaramalgamalg #14&apos;,
+                                                            &apos;scholaramalgamalg #7&apos;,
+                                                            &apos;scholaramalgamalg #9&apos; )
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IN (&apos;personal&apos;,
+                                                            &apos;portable&apos;,
+                                                            &apos;reference&apos;,
+                                                            &apos;self-help&apos;) )
 OR  (
-        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN ('Women',
-                                                  'Music',
-                                                  'Men')
-    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; IN ( 'amalgimporto #1',
-                                                            'edu packscholar #1',
-                                                            'exportiimporto #1',
-                                                            'importoamalg #1' )
-    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IN ('accessories',
-                                                            'classical',
-                                                            'fragrances',
-                                                            'pants') ) )
-GROUP BY 1,2,3
+        &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN (&apos;Women&apos;,
+                                                  &apos;Music&apos;,
+                                                  &apos;Men&apos;)
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Brand Name&quot; IN ( &apos;amalgimporto #1&apos;,
+                                                            &apos;edu packscholar #1&apos;,
+                                                            &apos;exportiimporto #1&apos;,
+                                                            &apos;importoamalg #1&apos; )
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IN (&apos;accessories&apos;,
+                                                            &apos;classical&apos;,
+                                                            &apos;fragrances&apos;,
+                                                            &apos;pants&apos;) ) )
+GROUP BY 1,2
 HAVING &quot;Avg Quarter Sales Ratio&quot; &gt; .1
-ORDER BY 6 DESC, 1, 2, 3
+ORDER BY 5 DESC, 1, 2
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
@@ -737,7 +735,7 @@ WHERE
     &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 2002
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 5
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer GMT Offset&quot; = -5.
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Color&quot; IN ('floral','ivory','royal')
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Color&quot; IN (&apos;floral&apos;,&apos;ivory&apos;,&apos;royal&apos;)
 GROUP BY 1
 ORDER BY 2
 LIMIT 100</stringProp>
@@ -765,7 +763,7 @@ SELECT
 FROM
     ${CatalogName}.${ModelName} &quot;tpc_ds_benchmark_model&quot;
 WHERE
-    &quot;tpc_ds_benchmark_model&quot;.&quot;Product Category&quot; = 'Jewelry'
+    &quot;tpc_ds_benchmark_model&quot;.&quot;Product Category&quot; = &apos;Jewelry&apos;
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Calendar Year&quot; = 1999
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Month of Year&quot; = 9
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Customer GMT Offset&quot; = -6
@@ -796,7 +794,7 @@ SELECT
 FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Store Promoted Product Category&quot; = 'Home'
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Store Promoted Product Category&quot; = &apos;Home&apos;
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 1998
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Customer GMT Offset&quot; = -6.
@@ -830,8 +828,8 @@ FROM
    ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
     &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Year&quot; = 1998
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Meal Time&quot; IN ('breakfast',
-                                                    'dinner')
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Meal Time&quot; IN (&apos;breakfast&apos;,
+                                                    &apos;dinner&apos;)
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Month of Year&quot; = 12
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Manager ID&quot; = 1
 GROUP BY 1,2,3,4
@@ -870,8 +868,8 @@ WHERE
         OR  (
                 &quot;TPC-DS Benchmark Model&quot;.&quot;Household Dependents Count&quot; = -1
             AND &quot;TPC-DS Benchmark Model&quot;.&quot;Vehicle Count&quot; &lt;= 1 ) )
-    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Store Name&quot; = 'ese' )
-    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Morning Time Tier&quot; &lt;&gt; 'Other'
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Store Name&quot; = &apos;ese&apos; )
+    AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Morning Time Tier&quot; &lt;&gt; &apos;Other&apos;
 GROUP BY 1
 LIMIT 100</stringProp>
           <stringProp name="queryArguments"></stringProp>
@@ -900,7 +898,7 @@ WHERE
     &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Hour&quot; = 8
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Sold Minute&quot; &gt;= 30
 AND &quot;tpc_ds_benchmark_model&quot;.&quot;Household Dependents Count&quot; = 5
-AND &quot;tpc_ds_benchmark_model&quot;.&quot;Store Name&quot; = 'ese'
+AND &quot;tpc_ds_benchmark_model&quot;.&quot;Store Name&quot; = &apos;ese&apos;
 ORDER BY 1
 LIMIT 1</stringProp>
           <stringProp name="queryArguments"></stringProp>
@@ -932,8 +930,8 @@ SELECT
 FROM
     ${CatalogName}.${ModelName} &quot;TPC-DS Benchmark Model&quot;
 WHERE
-    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN ('Electronics', 'Shoes', 'Women')
-AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Date&quot; BETWEEN '2002-05-27' AND '2002-06-26'
+    &quot;TPC-DS Benchmark Model&quot;.&quot;Product Category&quot; IN (&apos;Electronics&apos;, &apos;Shoes&apos;, &apos;Women&apos;)
+AND &quot;TPC-DS Benchmark Model&quot;.&quot;Sold Calendar Date&quot; BETWEEN &apos;2002-05-27&apos; AND &apos;2002-06-26&apos;
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Dimension&quot; IS NOT NULL
 AND &quot;TPC-DS Benchmark Model&quot;.&quot;Product Class Name&quot; IS NOT NULL
 GROUP BY 1,2,3,4,5
