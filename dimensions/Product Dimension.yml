@@ -112,8 +112,8 @@ hierarchies:
               - i_manufact_id
             name_column: i_manufact
             sort_column: i_manufact_id
-          - unique_name: Item Product Name
-            label: Item Product Name
+          - unique_name: Product Item Name
+            label: Product Item Name
             description: Product (item) name
             contains_unique_names: false
             dataset: item
