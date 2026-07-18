@@ -104,6 +104,10 @@ aggregates:
           - store_sales_Date_Dimension_Sold
       - name: Net Profit Tier
         dimension: Net Profit Tier
+      - name: Net Profit
+        dimension: Net Profit
+      - name: Sales Price
+        dimension: Sales Price
     metrics:
       - Store Ext Wholesale Cost
       - Average Store Sales Quantity
@@ -128,6 +132,8 @@ aggregates:
           - store_sales_Date_Dimension_Sold_1
       - name: Catalog Sales Price Tier
         dimension: Catalog Sales Price Tier
+      - name: Catalog Sales Price
+        dimension: Catalog Sales Price
       - name: Quarter of Year
         dimension: Date Dimensions
         relationships_path:
@@ -285,6 +291,10 @@ aggregates:
           - store_sales_Date_Dimension_Sold
       - name: Net Profit Tier
         dimension: Net Profit Tier
+      - name: Net Profit
+        dimension: Net Profit
+      - name: Sales Price
+        dimension: Sales Price
     metrics:
       - Store Quantity Sold
     target_connection: Connection - TPCDS
@@ -632,9 +642,12 @@ aggregates:
     target_connection: Connection - TPCDS
 dimensions:
   - Catalog Preferred
+  - Catalog Sales Price
   - Catalog Sales Price Tier
+  - Net Profit
   - Net Profit Tier
   - Returns Time Tier
+  - Sales Price
   - Sales Price Tier
   - Store Sales Ticket Number
   - Web Site

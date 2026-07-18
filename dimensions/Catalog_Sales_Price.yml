@@ -1,0 +1,29 @@
+unique_name: Catalog Sales Price
+object_type: dimension
+label: Catalog Sales Price
+is_degenerate: true
+
+hierarchies:
+
+  - unique_name: Catalog Sales Price
+    label: Catalog Sales Price
+    folder: Product Attributes
+    filter_empty: "yes"
+
+    levels:
+
+      - unique_name: Catalog Sales Price
+
+level_attributes:
+
+  - unique_name: Catalog Sales Price
+    description: "Raw catalog-sale sales price (cs_sales_price) exposed as a filterable numeric value, for exact predicates (e.g. > 500) matching canonical TPC-DS. Use in place of the bucketed Catalog Sales Price Tier when the query needs the precise threshold."
+    label: Catalog Sales Price
+    dataset: catalog_sales
+    name_column: cs_sales_price
+    key_columns:
+      - cs_sales_price
+
+modeler_metadata:
+  version: 0
+  modified: "false"
