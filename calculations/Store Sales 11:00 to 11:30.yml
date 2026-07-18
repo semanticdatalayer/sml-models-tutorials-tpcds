@@ -1,0 +1,6 @@
+unique_name: Store Sales 11:00 to 11:30
+object_type: metric_calc
+label: Store Sales 11:00 to 11:30
+description: "Count of store sales line items sold in the 11:00-11:30 half-hour; 0 when none. Q88 column h11_to_11_30."
+expression: |-
+  IIF(IsEmpty(([Measures].[Store Sales Row Counter], [Sold Time Dimension].[Sold Morning Time Tier].&[11:00 to 11:30])), 0, ([Measures].[Store Sales Row Counter], [Sold Time Dimension].[Sold Morning Time Tier].&[11:00 to 11:30]))

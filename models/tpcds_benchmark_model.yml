@@ -741,6 +741,32 @@ metrics:
     folder: Store Sales Measures
   - unique_name: Store Returns Count
     folder: Store Sales Measures
+  - unique_name: Store Returns Within 30 Days
+    folder: Store Sales Measures
+  - unique_name: Store Returns 31 to 60 Days
+    folder: Store Sales Measures
+  - unique_name: Store Returns 61 to 90 Days
+    folder: Store Sales Measures
+  - unique_name: Store Returns 91 to 120 Days
+    folder: Store Sales Measures
+  - unique_name: Store Returns Over 120 Days
+    folder: Store Sales Measures
+  - unique_name: Store Sales 08:30 to 09:00
+    folder: Store Sales Measures
+  - unique_name: Store Sales 09:00 to 09:30
+    folder: Store Sales Measures
+  - unique_name: Store Sales 09:30 to 10:00
+    folder: Store Sales Measures
+  - unique_name: Store Sales 10:00 to 10:30
+    folder: Store Sales Measures
+  - unique_name: Store Sales 10:30 to 11:00
+    folder: Store Sales Measures
+  - unique_name: Store Sales 11:00 to 11:30
+    folder: Store Sales Measures
+  - unique_name: Store Sales 11:30 to 12:00
+    folder: Store Sales Measures
+  - unique_name: Store Sales 12:00 to 12:30
+    folder: Store Sales Measures
   - unique_name: Total Store Sales
     folder: Store Sales Measures
   - unique_name: Web Sales Net Paid
