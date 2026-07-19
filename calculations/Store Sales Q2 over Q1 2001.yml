@@ -1,6 +1,6 @@
 unique_name: Store Sales Q2 over Q1 2001
 object_type: metric_calc
 label: Store Sales Q2 over Q1 2001
-description: "Ratio of store ext sales price in 2001 Q2 to 2001 Q1, per grouping (e.g. county); NULL when Q1 is zero. Q31 store_q1_q2_increase."
+description: "Ratio of store ext sales price in 2001 Q2 to 2001 Q1 (TPC-DS d_qoy quarters), per grouping; NULL when Q1 is zero. Q31 store_q1_q2_increase."
 expression: |-
-  IIF(([Measures].[Store Ext Sales Price], [Sold Date Dimensions].[Sold Date Dimensions].[Sold Calendar Quarter].&[2001-01-01]) = 0, NULL, ([Measures].[Store Ext Sales Price], [Sold Date Dimensions].[Sold Date Dimensions].[Sold Calendar Quarter].&[2001-04-01]) / ([Measures].[Store Ext Sales Price], [Sold Date Dimensions].[Sold Date Dimensions].[Sold Calendar Quarter].&[2001-01-01]))
+  IIF(([Measures].[Store Ext Sales Price], [Sold Date Dimensions].[Sold TPC-DS Quarter].&[2001-01-01]) = 0, NULL, ([Measures].[Store Ext Sales Price], [Sold Date Dimensions].[Sold TPC-DS Quarter].&[2001-04-01]) / ([Measures].[Store Ext Sales Price], [Sold Date Dimensions].[Sold TPC-DS Quarter].&[2001-01-01]))

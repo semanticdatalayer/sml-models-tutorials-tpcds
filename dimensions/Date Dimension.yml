@@ -139,6 +139,25 @@ hierarchies:
               - quarter_number
             name_column: quarter_number
             sort_column: quarter_number
+          - unique_name: TPC-DS Quarter
+            label: TPC-DS Quarter
+            description: >-
+              Quarter derived from the TPC-DS d_qoy column, keyed as the quarter
+              start date. d_qoy shifts the first day of each quarter (Apr 1, Jul
+              1, Oct 1) into the prior quarter, so this differs from Quarter of
+              Year / Calendar Quarter (which use QUARTER(d_date)) on those
+              boundary days. Use to match canonical TPC-DS quarter-of-year
+              semantics. Role-played with a sold, ship, returns, inventory prefix.
+            allowed_calcs_for_dma:
+              - Lag
+              - Siblings
+              - Range
+            dataset: date_dim
+            folder: Date Attributes
+            key_columns:
+              - qoy_quarter
+            name_column: qoy_quarter
+            sort_column: qoy_quarter
       - unique_name: Calendar Month
         secondary_attributes:
           - unique_name: Month Name
