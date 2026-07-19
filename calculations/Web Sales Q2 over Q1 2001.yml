@@ -3,4 +3,4 @@ object_type: metric_calc
 label: Web Sales Q2 over Q1 2001
 description: "Ratio of web ext sales price in 2001 Q2 to 2001 Q1 (TPC-DS d_qoy quarters), per grouping; NULL when Q1 is zero. Q31 web_q1_q2_increase."
 expression: |-
-  IIF(([Measures].[Web Ext Sales Price], [Sold Date Dimensions].[Sold TPC-DS Quarter].&[2001-01-01]) = 0, NULL, ([Measures].[Web Ext Sales Price], [Sold Date Dimensions].[Sold TPC-DS Quarter].&[2001-04-01]) / ([Measures].[Web Ext Sales Price], [Sold Date Dimensions].[Sold TPC-DS Quarter].&[2001-01-01]))
+  IIF(([Measures].[Web Ext Sales Price], [Sold Date Dimensions].[Sold TPC-DS Quarter].&[20011]) = 0, NULL, ([Measures].[Web Ext Sales Price], [Sold Date Dimensions].[Sold TPC-DS Quarter].&[20012]) / ([Measures].[Web Ext Sales Price], [Sold Date Dimensions].[Sold TPC-DS Quarter].&[20011]))

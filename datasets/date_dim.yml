@@ -128,15 +128,8 @@ columns:
       - dialect: BigQuery
         sql: "DATE_TRUNC(d_date, QUARTER)"
   - name: qoy_quarter
-    data_type: date
-    sql: "make_date(d_year, (d_qoy - 1) * 3 + 1, 1)"
-    dialects:
-      - dialect: Snowflake
-        sql: "DATE_FROM_PARTS(\"d_year\", (\"d_qoy\" - 1) * 3 + 1, 1)"
-      - dialect: DatabricksSQL
-        sql: "make_date(d_year, (d_qoy - 1) * 3 + 1, 1)"
-      - dialect: BigQuery
-        sql: "DATE(d_year, (d_qoy - 1) * 3 + 1, 1)"
+    data_type: int
+    sql: "d_year * 10 + d_qoy"
   - name: year_week
     data_type: string
     sql: "TO_CHAR(DATE_TRUNC('week', d_date), 'YYYY-MM-dd')"
