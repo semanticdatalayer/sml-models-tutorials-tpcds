@@ -1197,7 +1197,7 @@ relationships:
     from:
       dataset: store_returns
       join_columns:
-        - sr_store_sk
+        - ss_store_sk
     to:
       dimension: Store Dimension
       level: Store Number
