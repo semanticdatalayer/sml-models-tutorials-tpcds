@@ -72,6 +72,33 @@ hierarchies:
               - c_login
             name_column: c_login
             sort_column: c_login
+          - unique_name: Current Customer Zip Code
+            description: "ZIP code of the customer's current home address (c_current_addr_sk -> ca_zip). Use for canonical TPC-DS queries that group/filter by the customer's current address rather than the transaction address."
+            label: Current Customer Zip Code
+            dataset: customer
+            folder: Customer Information
+            key_columns:
+              - current_zip
+            name_column: current_zip
+            sort_column: current_zip
+          - unique_name: Current Customer State
+            description: "Two-letter state code of the customer's current home address (c_current_addr_sk -> ca_state). Use for canonical TPC-DS queries keyed on the customer's current address."
+            label: Current Customer State
+            dataset: customer
+            folder: Customer Information
+            key_columns:
+              - current_state
+            name_column: current_state
+            sort_column: current_state
+          - unique_name: Current Customer GMT Offset
+            description: "GMT/UTC offset of the customer's current home address (c_current_addr_sk -> ca_gmt_offset). Use for canonical TPC-DS queries that filter on the customer's current-address time zone."
+            label: Current Customer GMT Offset
+            dataset: customer
+            folder: Customer Information
+            key_columns:
+              - current_gmt_offset
+            name_column: current_gmt_offset
+            sort_column: current_gmt_offset
           - unique_name: Customer Preferred Flag
             label: Customer Preferred Flag
             description: flag to determine if this is a preferred customer
