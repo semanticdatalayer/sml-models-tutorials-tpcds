@@ -2,20 +2,9 @@ unique_name: customer
 object_type: dataset
 label: customer
 connection_id: Connection - TPCDS
-sql: "SELECT c.*, ca.ca_zip AS current_zip, ca.ca_state AS current_state, ca.ca_gmt_offset AS current_gmt_offset FROM atscale_tutorial_data.tpcds.customer c LEFT JOIN atscale_tutorial_data.tpcds.customer_address ca ON c.c_current_addr_sk = ca.ca_address_sk"
-dialects:
-  - dialect: Snowflake
-    sql: "SELECT c.*, ca.\"ca_zip\" AS \"current_zip\", ca.\"ca_state\" AS \"current_state\", ca.\"ca_gmt_offset\" AS \"current_gmt_offset\" FROM \"atscale_tutorial_data\".\"tpcds\".\"customer\" c LEFT JOIN \"atscale_tutorial_data\".\"tpcds\".\"customer_address\" ca ON c.\"c_current_addr_sk\" = ca.\"ca_address_sk\""
-  - dialect: BigQuery
-    sql: "SELECT c.*, ca.ca_zip AS current_zip, ca.ca_state AS current_state, ca.ca_gmt_offset AS current_gmt_offset FROM `atscale-tutorial-data`.tpcds.customer c LEFT JOIN `atscale-tutorial-data`.tpcds.customer_address ca ON c.c_current_addr_sk = ca.ca_address_sk"
+table: customer
 
 columns:
-  - name: current_zip
-    data_type: string
-  - name: current_state
-    data_type: string
-  - name: current_gmt_offset
-    data_type: decimal(5,2)
   - name: c_birth_country
     data_type: string
   - name: c_birth_day
