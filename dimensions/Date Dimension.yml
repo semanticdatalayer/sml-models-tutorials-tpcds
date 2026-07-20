@@ -189,8 +189,8 @@ hierarchies:
             sort_column: d_month_seq
       - unique_name: Calendar Date
         secondary_attributes:
-          - unique_name: TPC-DS Quarter
-            label: TPC-DS Quarter
+          - unique_name: Reporting Quarter of Year
+            label: Reporting Quarter of Year
             description: >-
               Quarter derived from the TPC-DS d_qoy column, keyed as
               d_year*10 + d_qoy (e.g. 20011 = 2001 Q1). d_qoy shifts the first

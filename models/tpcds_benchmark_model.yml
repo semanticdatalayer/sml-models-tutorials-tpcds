@@ -837,6 +837,10 @@ metrics:
     folder: Store Sales Measures
   - unique_name: Store Sales by Promotion Ratio
     folder: Store Sales Measures
+  - unique_name: Store Ext Sales via Mail Email or TV Promo
+    folder: Store Sales Measures
+  - unique_name: Store Mail Email or TV Promo Ratio
+    folder: Store Sales Measures
   - unique_name: Store and Web Purchased Amount
     folder: Time Relative
   - unique_name: Store Sales Increase
