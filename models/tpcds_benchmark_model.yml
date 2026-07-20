@@ -821,6 +821,10 @@ metrics:
     folder: Store Sales Measures
   - unique_name: Avg Quarterly Store Sales for 1998-1999
     folder: Store Sales Measures
+  - unique_name: Windowed Avg Quarterly Store Sales
+    folder: Store Sales Measures
+  - unique_name: Windowed Avg Quarter Sales Ratio
+    folder: Store Sales Measures
   - unique_name: Catalog and Web Sales Net
     folder: Total Sales Measures
   - unique_name: Catalog and Web Sales
