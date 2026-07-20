@@ -939,6 +939,15 @@ relationships:
     to:
       dimension: Customer Address
       level: Customer Address
+  - unique_name: customer_Customer_Address_Current
+    from:
+      dataset: customer
+      join_columns:
+        - c_current_addr_sk
+    role_play: Current {0}
+    to:
+      dimension: Customer Address
+      level: Customer Address
   - unique_name: catalog_sales_Customer_Address
     from:
       dataset: catalog_sales
