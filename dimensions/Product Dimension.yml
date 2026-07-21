@@ -136,13 +136,12 @@ level_attributes:
   - unique_name: Product Class Name
     label: Product Class Name
     description: >-
-      Product class - the level between Product Category and the item. Keyed by
-      (i_category, i_class) because class names repeat across categories (e.g.
-      'kids' is both Home and Shoes), so the compound key keeps them distinct and
-      lets Store Ext Sales Price roll up correctly to the class subtotal.
+      Product class as a hierarchy level below Product Category. Keyed by i_class
+      (name) so Store Ext Sales Price rolls up to the by-name class subtotal,
+      matching the canonical TPC-DS `partition by i_class` (which is by name,
+      independent of category).
     dataset: item
     key_columns:
-      - i_category
       - i_class
     name_column: i_class
   - unique_name: Product Dimension
