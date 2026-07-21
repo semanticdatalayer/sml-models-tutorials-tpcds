@@ -21,7 +21,7 @@ hierarchies:
               - i_category_id
             name_column: i_category_id
             sort_column: i_category_id
-      - unique_name: Product Class Name
+      - unique_name: Product Dimension
         secondary_attributes:
           - unique_name: Product Class ID
             label: Product Class ID
@@ -29,12 +29,9 @@ hierarchies:
             dataset: item
             folder: Product Attributes
             key_columns:
-              - i_category
               - i_class_id
             name_column: i_class_id
             sort_column: i_class_id
-      - unique_name: Product Dimension
-        secondary_attributes:
           - unique_name: Product Color
             label: Product Color
             description: Product Color
@@ -125,6 +122,13 @@ hierarchies:
             key_columns:
               - i_product_name
             name_column: i_product_name
+  - unique_name: Product Class
+    label: Product Class
+    filter_empty: 'yes'
+    folder: Product Attributes
+    levels:
+      - unique_name: Product Class Name
+      - unique_name: Product Dimension
 level_attributes:
   - unique_name: Product Category
     label: Product category
@@ -136,13 +140,15 @@ level_attributes:
   - unique_name: Product Class Name
     label: Product Class Name
     description: >-
-      Product class as a hierarchy level below Product Category. Keyed by
-      i_class (name) so Store Ext Sales Price rolls up to the by-name class
-      subtotal, matching the canonical TPC-DS `partition by i_class` (which is
-      by name, independent of category).
+      Product class, top level of the standalone Product Class hierarchy (Class
+      -> Item). NOT nested under Product Category, because a class name can span
+      categories (e.g. 'kids' is both Home and Shoes) so class does not roll up
+      cleanly to category. Keyed by i_class (name) so Store Ext Sales Price rolls
+      up to the by-name class subtotal, matching canonical TPC-DS `partition by
+      i_class`.
     dataset: item
     key_columns:
-      - i_class_id
+      - i_class
     name_column: i_class
   - unique_name: Product Dimension
     label: Product Item
