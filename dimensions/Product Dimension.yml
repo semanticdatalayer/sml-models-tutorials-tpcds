@@ -23,15 +23,6 @@ hierarchies:
             sort_column: i_category_id
       - unique_name: Product Dimension
         secondary_attributes:
-          - unique_name: Product Class ID
-            label: Product Class ID
-            description: Product Class ID
-            dataset: item
-            folder: Product Attributes
-            key_columns:
-              - i_class_id
-            name_column: i_class_id
-            sort_column: i_class_id
           - unique_name: Product Color
             label: Product Color
             description: Product Color
@@ -68,6 +59,24 @@ hierarchies:
               - i_brand_id
             name_column: i_brand
             sort_column: i_brand_id
+          - unique_name: Product Class ID
+            label: Product Class ID
+            description: Product Class ID
+            dataset: item
+            folder: Product Attributes
+            key_columns:
+              - i_class_id
+            name_column: i_class_id
+            sort_column: i_class_id
+          - unique_name: Product Class Name
+            label: Product Class Name
+            description: Product Class Name
+            dataset: item
+            folder: Product Attributes
+            key_columns:
+              - i_class
+            name_column: i_class
+            sort_column: i_class
           - unique_name: Product Current Price
             label: Product Current Price
             description: Product price
@@ -122,39 +131,17 @@ hierarchies:
             key_columns:
               - i_product_name
             name_column: i_product_name
-  - unique_name: Product Class
-    label: Product Class
-    filter_empty: 'yes'
-    folder: Product Attributes
-    levels:
-      - unique_name: Product Class Name
-      - unique_name: Product Dimension
 level_attributes:
   - unique_name: Product Category
     label: Product category
     description: This is the product category.
     dataset: item
     key_columns:
-      - i_category_id
+      - i_category
     name_column: i_category
-  - unique_name: Product Class Name
-    label: Product Class Name
-    description: >-
-      Product class, top level of the standalone Product Class hierarchy (Class
-      -> Item). NOT nested under Product Category, because a class name can span
-      categories (e.g. 'kids' is both Home and Shoes) so class does not roll up
-      cleanly to category. Keyed by i_class (name) so Store Ext Sales Price rolls
-      up to the by-name class subtotal, matching canonical TPC-DS `partition by
-      i_class`.
-    dataset: item
-    key_columns:
-      - i_class
-    name_column: i_class
   - unique_name: Product Dimension
+    description: "Individual product/item identified by its description text; lowest level under Product Category. Item/SKU level."
     label: Product Item
-    description: >-
-      Individual product/item identified by its description text; lowest level
-      under Product Category. Item/SKU level.
     dataset: item
     is_unique_key: true
     key_columns:
