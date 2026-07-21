@@ -257,8 +257,6 @@ aggregates:
           - store_sales_Date_Dimension_Sold_1
       - name: Product Category
         dimension: Product Dimension
-      - name: Product Category ID
-        dimension: Product Dimension
       - name: Product Manager ID
         dimension: Product Dimension
       - name: Calendar Year in the Week Hierarchy
