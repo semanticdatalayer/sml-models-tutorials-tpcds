@@ -1,0 +1,6 @@
+unique_name: Store Returns Within 30 Days
+object_type: metric_calc
+label: Store Returns Within 30 Days
+description: "Count of store returns made within 30 days of the sale (return latency <= 30 days); 0 when none. Q50 aging bucket days_30."
+expression: |-
+  IIF(IsEmpty(([Measures].[Store Returns Count], [Returns Time Tier].[Returns Time Tier].[Returns Time Tier].&[<= 30 days])), 0, ([Measures].[Store Returns Count], [Returns Time Tier].[Returns Time Tier].[Returns Time Tier].&[<= 30 days]))

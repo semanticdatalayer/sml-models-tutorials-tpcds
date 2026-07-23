@@ -189,6 +189,48 @@ hierarchies:
             sort_column: d_month_seq
       - unique_name: Calendar Date
         secondary_attributes:
+          - unique_name: Reporting Quarter of Year
+            label: Reporting Quarter of Year
+            description: >-
+              Quarter derived from the TPC-DS d_qoy column, keyed as
+              d_year*10 + d_qoy (e.g. 20011 = 2001 Q1). d_qoy shifts the first
+              day of each quarter (Apr 1, Jul 1, Oct 1) into the prior quarter,
+              so this differs from Quarter of Year / Calendar Quarter (which use
+              QUARTER(d_date)) on those boundary days. A day-level attribute so
+              it aggregates from day grain; use to match canonical TPC-DS
+              quarter-of-year semantics. Role-played with a sold/ship/return
+              prefix.
+            allowed_calcs_for_dma:
+              - Lag
+              - Siblings
+              - Range
+            dataset: date_dim
+            folder: Date Attributes
+            key_columns:
+              - qoy_quarter
+            name_column: qoy_quarter
+            sort_column: qoy_quarter
+          - unique_name: Reporting Quarter Number
+            label: Reporting Quarter Number
+            description: >-
+              Raw TPC-DS d_qoy quarter number (1-4), NOT keyed by year - so
+              1998 Q2 and 1999 Q2 both roll into member 2. Uses the same d_qoy
+              definition as Reporting Quarter of Year (which shifts the first
+              day of each quarter - Apr 1, Jul 1, Oct 1 - into the prior
+              quarter), but drops the year so equivalent quarters across years
+              are grouped together. A day-level attribute; use to match
+              canonical TPC-DS queries that GROUP BY d_qoy (e.g. Q53).
+              Role-played with a sold/ship/return prefix.
+            allowed_calcs_for_dma:
+              - Lag
+              - Siblings
+              - Range
+            dataset: date_dim
+            folder: Date Attributes
+            key_columns:
+              - d_qoy
+            name_column: d_qoy
+            sort_column: d_qoy
           - unique_name: Following Holiday Indicator
             description: "'Y'/'N' flag: the date is the day after a holiday. Applies per date role (Sold/Ship/Return); contrast the Holiday indicator (the holiday itself)."
             label: Following Holiday Indicator

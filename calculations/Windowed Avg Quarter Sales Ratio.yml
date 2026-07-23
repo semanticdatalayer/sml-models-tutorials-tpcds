@@ -1,0 +1,11 @@
+unique_name: Windowed Avg Quarter Sales Ratio
+object_type: metric_calc
+label: Windowed Avg Quarter Sales Ratio
+description: "Absolute deviation ratio of Total Store Sales vs Windowed Avg Quarterly Store Sales: abs(actual - avg) / avg; NULL when the average is not positive. Q53 uses this as the > 0.1 filter column. Pairs with Windowed Avg Quarterly Store Sales; distinct from Avg Quarter Sales Ratio (fixed 1998-1999 baseline)."
+expression: |-
+  CASE WHEN [Measures].[Windowed Avg Quarterly Store Sales] > 0 THEN
+  (CASE WHEN ([Measures].[Total Store Sales] - [Measures].[Windowed Avg Quarterly Store Sales]) < 0
+  THEN -1 * ([Measures].[Total Store Sales] - [Measures].[Windowed Avg Quarterly Store Sales])
+  ELSE ([Measures].[Total Store Sales] - [Measures].[Windowed Avg Quarterly Store Sales]) END)
+  / [Measures].[Windowed Avg Quarterly Store Sales]
+  ELSE NULL END

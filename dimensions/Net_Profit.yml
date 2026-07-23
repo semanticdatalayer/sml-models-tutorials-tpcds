@@ -1,0 +1,29 @@
+unique_name: Net Profit
+object_type: dimension
+label: Net Profit
+is_degenerate: true
+
+hierarchies:
+
+  - unique_name: Net Profit
+    label: Net Profit
+    folder: Product Attributes
+    filter_empty: "yes"
+
+    levels:
+
+      - unique_name: Net Profit
+
+level_attributes:
+
+  - unique_name: Net Profit
+    description: "Raw store-sale net profit (ss_net_profit) exposed as a filterable numeric value, for exact BETWEEN predicates matching canonical TPC-DS. Use in place of the bucketed Net Profit Tier when the query needs the precise range."
+    label: Net Profit
+    dataset: store_sales
+    name_column: ss_net_profit
+    key_columns:
+      - ss_net_profit
+
+modeler_metadata:
+  version: 0
+  modified: "false"

@@ -1,0 +1,8 @@
+unique_name: Windowed Avg Quarterly Store Sales
+object_type: metric_calc
+label: Windowed Avg Quarterly Store Sales
+description: "Average of Total Store Sales across the raw TPC-DS quarter buckets (Sold Reporting Quarter Number, d_qoy 1-4) present in the query filter, evaluated per current grouping (e.g. per manufacturer). Reproduces Q53's avg(sum(ss_sales_price)) over (partition by i_manufact_id) when the query groups by manufacturer and d_qoy over a Sold Month Sequence window. Distinct from Avg Quarterly Store Sales for 1998-1999 (a fixed calendar-quarter baseline)."
+expression: |-
+  Avg(
+  [Sold Date Dimensions].[Sold Reporting Quarter Number].[Sold Reporting Quarter Number].Members,
+  [Measures].[Total Store Sales])
