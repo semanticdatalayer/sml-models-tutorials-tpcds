@@ -1,0 +1,6 @@
+unique_name: Store Returns 31 to 60 Days
+object_type: metric_calc
+label: Store Returns 31 to 60 Days
+description: "Count of store returns made 31-60 days after the sale (>30 and <=60 days); 0 when none. Q50 aging bucket days_31_60."
+expression: |-
+  IIF(IsEmpty(([Measures].[Store Returns Count], [Returns Time Tier].[Returns Time Tier].[Returns Time Tier].&[31-60 days])), 0, ([Measures].[Store Returns Count], [Returns Time Tier].[Returns Time Tier].[Returns Time Tier].&[31-60 days]))

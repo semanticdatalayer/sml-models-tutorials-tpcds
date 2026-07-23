@@ -5,6 +5,12 @@ connection_id: Connection - TPCDS
 table: promotion
 
 columns:
+  - name: promo_dmail_email_tv
+    data_type: string
+    sql: "CASE WHEN p_channel_dmail = 'Y' OR p_channel_email = 'Y' OR p_channel_tv = 'Y' THEN 'Y' ELSE 'N' END"
+    dialects:
+      - dialect: Snowflake
+        sql: "CASE WHEN \"p_channel_dmail\" = 'Y' OR \"p_channel_email\" = 'Y' OR \"p_channel_tv\" = 'Y' THEN 'Y' ELSE 'N' END"
   - name: in_promotion
     data_type: boolean
     sql: "True"

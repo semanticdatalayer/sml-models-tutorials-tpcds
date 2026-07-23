@@ -1,0 +1,6 @@
+unique_name: Store Returns Over 120 Days
+object_type: metric_calc
+label: Store Returns Over 120 Days
+description: "Count of store returns made more than 120 days after the sale (>120 days); 0 when none. Q50 aging bucket days_gt_120."
+expression: |-
+  IIF(IsEmpty(([Measures].[Store Returns Count], [Returns Time Tier].[Returns Time Tier].[Returns Time Tier].&[> 120 days])), 0, ([Measures].[Store Returns Count], [Returns Time Tier].[Returns Time Tier].[Returns Time Tier].&[> 120 days]))

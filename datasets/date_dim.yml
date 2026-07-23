@@ -127,6 +127,12 @@ columns:
         sql: "cast(DATE_TRUNC('quarter', d_date) as date)"
       - dialect: BigQuery
         sql: "DATE_TRUNC(d_date, QUARTER)"
+  - name: qoy_quarter
+    data_type: int
+    sql: "d_year * 10 + d_qoy"
+    dialects:
+      - dialect: Snowflake
+        sql: "\"d_year\" * 10 + \"d_qoy\""
   - name: year_week
     data_type: string
     sql: "TO_CHAR(DATE_TRUNC('week', d_date), 'YYYY-MM-dd')"
