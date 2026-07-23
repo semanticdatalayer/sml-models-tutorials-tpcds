@@ -1,0 +1,6 @@
+unique_name: Store Ext Sales via Mail Email or TV Promo
+object_type: metric_calc
+label: Store Ext Sales via Mail Email or TV Promo
+description: "Store extended sales price for sales tied to a promotion distributed via direct mail, email, or TV (Promoted Via DMail Email or TV = 'Y'). Q61 promotional-sales numerator; a sale counts once even if promoted through several of those channels."
+expression: |-
+  ([Measures].[Store Ext Sales Price], [Promotions].[Promoted Via DMail Email or TV].&[Y])

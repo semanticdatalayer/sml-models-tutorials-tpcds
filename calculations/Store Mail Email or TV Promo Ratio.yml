@@ -1,0 +1,6 @@
+unique_name: Store Mail Email or TV Promo Ratio
+object_type: metric_calc
+label: Store Mail Email or TV Promo Ratio
+description: "Percent of store extended sales price from direct-mail/email/TV promotions: Store Ext Sales via Mail Email or TV Promo / Store Ext Sales Price * 100; NULL when total is zero. Q61 promotions/total*100."
+expression: |-
+  IIF([Measures].[Store Ext Sales Price] = 0, NULL, [Measures].[Store Ext Sales via Mail Email or TV Promo] / [Measures].[Store Ext Sales Price] * 100)

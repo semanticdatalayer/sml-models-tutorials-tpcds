@@ -104,6 +104,10 @@ aggregates:
           - store_sales_Date_Dimension_Sold
       - name: Net Profit Tier
         dimension: Net Profit Tier
+      - name: Net Profit
+        dimension: Net Profit
+      - name: Sales Price
+        dimension: Sales Price
     metrics:
       - Store Ext Wholesale Cost
       - Average Store Sales Quantity
@@ -128,6 +132,8 @@ aggregates:
           - store_sales_Date_Dimension_Sold_1
       - name: Catalog Sales Price Tier
         dimension: Catalog Sales Price Tier
+      - name: Catalog Sales Price Value
+        dimension: Catalog Sales Price Value
       - name: Quarter of Year
         dimension: Date Dimensions
         relationships_path:
@@ -251,6 +257,8 @@ aggregates:
           - store_sales_Date_Dimension_Sold_1
       - name: Product Category
         dimension: Product Dimension
+      - name: Product Category ID
+        dimension: Product Dimension
       - name: Product Manager ID
         dimension: Product Dimension
       - name: Calendar Year in the Week Hierarchy
@@ -285,6 +293,10 @@ aggregates:
           - store_sales_Date_Dimension_Sold
       - name: Net Profit Tier
         dimension: Net Profit Tier
+      - name: Net Profit
+        dimension: Net Profit
+      - name: Sales Price
+        dimension: Sales Price
     metrics:
       - Store Quantity Sold
     target_connection: Connection - TPCDS
@@ -632,9 +644,12 @@ aggregates:
     target_connection: Connection - TPCDS
 dimensions:
   - Catalog Preferred
+  - Catalog Sales Price Value
   - Catalog Sales Price Tier
+  - Net Profit
   - Net Profit Tier
   - Returns Time Tier
+  - Sales Price
   - Sales Price Tier
   - Store Sales Ticket Number
   - Web Site
@@ -726,6 +741,32 @@ metrics:
     folder: Store Sales Measures
   - unique_name: Store Returns Count
     folder: Store Sales Measures
+  - unique_name: Store Returns Within 30 Days
+    folder: Store Sales Measures
+  - unique_name: Store Returns 31 to 60 Days
+    folder: Store Sales Measures
+  - unique_name: Store Returns 61 to 90 Days
+    folder: Store Sales Measures
+  - unique_name: Store Returns 91 to 120 Days
+    folder: Store Sales Measures
+  - unique_name: Store Returns Over 120 Days
+    folder: Store Sales Measures
+  - unique_name: Store Sales 08:30 to 09:00
+    folder: Store Sales Measures
+  - unique_name: Store Sales 09:00 to 09:30
+    folder: Store Sales Measures
+  - unique_name: Store Sales 09:30 to 10:00
+    folder: Store Sales Measures
+  - unique_name: Store Sales 10:00 to 10:30
+    folder: Store Sales Measures
+  - unique_name: Store Sales 10:30 to 11:00
+    folder: Store Sales Measures
+  - unique_name: Store Sales 11:00 to 11:30
+    folder: Store Sales Measures
+  - unique_name: Store Sales 11:30 to 12:00
+    folder: Store Sales Measures
+  - unique_name: Store Sales 12:00 to 12:30
+    folder: Store Sales Measures
   - unique_name: Total Store Sales
     folder: Store Sales Measures
   - unique_name: Web Sales Net Paid
@@ -761,7 +802,15 @@ metrics:
   - unique_name: Web Quantity Sold
     folder: Web Sales Measures
   - unique_name: Web and Catalog Sales Price Growth
-    folder: Web Sales Measures  
+    folder: Web Sales Measures
+  - unique_name: Web Sales Q2 over Q1 2001
+    folder: Web Sales Measures
+  - unique_name: Store Sales Q2 over Q1 2001
+    folder: Store Sales Measures
+  - unique_name: Web Sales Q3 over Q2 2001
+    folder: Web Sales Measures
+  - unique_name: Store Sales Q3 over Q2 2001
+    folder: Store Sales Measures
   - unique_name: Average Catalog Unit Net Profit
     folder: Catalog Sales Measures
   - unique_name: Average Store Unit Net Profit
@@ -771,6 +820,10 @@ metrics:
   - unique_name: Avg Quarter Sales Ratio
     folder: Store Sales Measures
   - unique_name: Avg Quarterly Store Sales for 1998-1999
+    folder: Store Sales Measures
+  - unique_name: Windowed Avg Quarterly Store Sales
+    folder: Store Sales Measures
+  - unique_name: Windowed Avg Quarter Sales Ratio
     folder: Store Sales Measures
   - unique_name: Catalog and Web Sales Net
     folder: Total Sales Measures
@@ -787,6 +840,10 @@ metrics:
   - unique_name: Store Sales Share of Class
     folder: Store Sales Measures
   - unique_name: Store Sales by Promotion Ratio
+    folder: Store Sales Measures
+  - unique_name: Store Ext Sales via Mail Email or TV Promo
+    folder: Store Sales Measures
+  - unique_name: Store Mail Email or TV Promo Ratio
     folder: Store Sales Measures
   - unique_name: Store and Web Purchased Amount
     folder: Time Relative
@@ -1156,7 +1213,7 @@ relationships:
     from:
       dataset: store_returns
       join_columns:
-        - sr_store_sk
+        - ss_store_sk
     to:
       dimension: Store Dimension
       level: Store Number

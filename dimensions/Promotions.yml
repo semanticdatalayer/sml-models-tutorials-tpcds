@@ -31,6 +31,19 @@ hierarchies:
               - p_channel_dmail
             name_column: p_channel_dmail
             sort_column: p_channel_dmail
+          - unique_name: Promoted Via DMail Email or TV
+            label: Promoted Via DMail Email or TV
+            description: >-
+              "Y" if this promotion was distributed via direct mail, email, or
+              TV (p_channel_dmail/email/tv = 'Y'), else "N". Single OR-combined
+              flag so a promotion counts once across those three channels
+              (no double-counting). Matches canonical TPC-DS Q61's channel filter.
+            dataset: promotion
+            folder: Promotion Attributes
+            key_columns:
+              - promo_dmail_email_tv
+            name_column: promo_dmail_email_tv
+            sort_column: promo_dmail_email_tv
           - unique_name: Channel Email
             label: Channel Email
             description: >-

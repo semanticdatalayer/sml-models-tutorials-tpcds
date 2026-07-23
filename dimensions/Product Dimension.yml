@@ -11,6 +11,16 @@ hierarchies:
     folder: Product Attributes
     levels:
       - unique_name: Product Category
+        secondary_attributes:
+          - unique_name: Product Category ID
+            label: Product Category ID
+            description: Product category ID
+            dataset: item
+            folder: Product Attributes
+            key_columns:
+              - i_category_id
+            name_column: i_category_id
+            sort_column: i_category_id
       - unique_name: Product Dimension
         secondary_attributes:
           - unique_name: Product Color

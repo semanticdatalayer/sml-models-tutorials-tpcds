@@ -90,4 +90,17 @@ level_attributes:
     key_columns:
       - c_customer_sk
     name_column: c_customer_sk
+relationships:
+  - unique_name: Customer Dimension Customer Address
+    from:
+      dataset: customer
+      hierarchy: Customer Dimension
+      join_columns:
+        - c_current_addr_sk
+      level: Customer Dimension
+    role_play: Current {0}
+    to:
+      dimension: Customer Address
+      level: Customer Address
+    type: embedded
 type: standard
